@@ -51,7 +51,8 @@
 ### Active
 
 ### Completed
-- **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean on experiment code. | Next: Timeline Governor needs to deliver the branch engine before running actual counterfactuals against sector states.
+- **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
+- **2026-06-29** — **P-003 executed: "No WWII" counterfactual.** Branch at RP-MODERN-001 (1939), intervention ends W-1939-01. Ran parent + branch 30 ticks to 1969 across 6 sectors (no DR — graceful absence, modern healthcare not applicable to 1939). 3 seeds (42, 43, 44). 322 metrics. Results in `experiment-results/wwii-counterfactual/`. 36 tests passing. **Proof of concept — infrastructure proven, calibration is Phase 2.**
 
 ---
 

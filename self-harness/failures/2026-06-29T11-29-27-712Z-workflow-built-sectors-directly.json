@@ -1,0 +1,14 @@
+{
+  "failure_id": "2bde56c7-812a-4cf1-a139-6f13110c41d7",
+  "timestamp": "2026-06-29T11:29:27.712Z",
+  "trace_id": "ba67ef1b-052f-4995-a992-c8ceea0f4fff",
+  "category": "workflow",
+  "severity": "minor",
+  "root_cause": "Meta Platform built Energy and Demographics sectors directly instead of writing a spec and handing it off to Sector Engineer via HANDOFF.md",
+  "trace_summary": "Received request to add Energy and Demographics sectors. Skipped the handoff protocol (write spec -> push to HANDOFF.md -> Sector Engineer picks up). Built both sectors directly, violating Constitution §6.6 and the handoff protocol defined in HANDOFF.md.",
+  "failure_signature": {
+    "verifier_cause": "User asked why the work wasnt handed off to Sector Engineer",
+    "agent_behavior": "Built sectors directly without routing through the designated owner",
+    "agent_mechanism": "Conflated builder role with orchestrator role. Meta Platform should delegate sector work, not implement it."
+  }
+}
