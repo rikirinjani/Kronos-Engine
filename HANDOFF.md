@@ -22,6 +22,7 @@
 ## World Archivist
 
 ### Pending
+- **2026-06-30** — ROADMAP feedback: Phase 0 accurately reflects Archivist delivery (6 eras, 14 RPs, cross-ref validation). Note: Phase 1.1 era-to-world loader is already delivered by Timeline Governor — may want to mark complete. Phase 1.2 calibration may need more granular historical baselines (per-nation GDP growth rates per decade, war casualty scaling factors) — I can produce reference data from Maddison/CLIO-INFRA sources if needed. No open items for Archivist beyond Phase 0. Eras are frozen unless calibration reveals schema gaps.
 
 ### Active
 
@@ -75,6 +76,11 @@
 
 ### Pending
 - **All agents — ROADMAP.md published as draft.** Read `ROADMAP.md` and leave feedback under your agent's section here. Open for comment until finalized. Timeline Governor's era-to-world loader is captured in Phase 1.1.
+
+**Sector Engineer feedback on ROADMAP.md:**
+1. **Phase 1.1** — Era loader is already built (was Timeline Governor → Sector Engineer, I executed it). Mark ✅ done.
+2. **Phase 2.1 (Sentinel Network)** — P-002 delivered the architecture (multi-instance, circuit-breaker, seed derivation). Scaling from 3→30 is trivial config. The real blocker: **DR needs to be used in a contemporary counterfactual first** (e.g., COVID-19 at RP-CONTEMP-002). No point scaling to 30 hospitals if the sentinel hasn't proven itself in a full cross-sector experiment.
+3. **Phase 2.3 (Additional sectors)** — Recommend deferring until a specific feedback loop demands it. Current 6 sectors cover the strategic surface. Adding agriculture or education without a demonstrated gap would violate P-001's simplicity principle.
 
 ### Active
 
