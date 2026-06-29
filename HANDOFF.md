@@ -9,12 +9,13 @@
 ## How Handoffs Work
 
 1. Any sub-agent writes a handoff entry under `### Pending` with sufficient context
-2. The owning agent picks it up on its next session
-3. When started, the agent must read `HANDOFF.md` and check its section
-4. When done, move the entry to `### Completed` or `### Cancelled`
-5. If the handoff implies an architecture change, the agent must write a proposal to `docs/proposals/`
+2. **Git commit + push immediately after editing HANDOFF.md.** Local edits are invisible to other agents — they read from git.
+3. The owning agent picks it up on its next session (via git pull)
+4. When started, the agent must read `HANDOFF.md` and check its section
+5. When done, move the entry to `### Completed` or `### Cancelled`, then git commit + push
+6. If the handoff implies an architecture change, the agent must write a proposal to `docs/proposals/`
 
-**No agent commands another.** Information flows through this file.
+**No agent commands another.** Information flows through this file — distributed via git.
 
 ---
 
@@ -76,5 +77,6 @@
 ### Active
 
 ### Completed
+- **2026-06-29** — World Archivist status: All 6 historical eras seeded and validated (ancient through contemporary). 14 pre-seeded Rewind Points fully populated with StrategicWorldState (nations, GDP, wars, alliances, global state). Cross-reference audit passes with zero errors. Branch Analyst consumed RP-MODERN-001 (1939) successfully in P-003 "No WWII" counterfactual — data pipeline confirmed end-to-end. Archivist prerequisites for Branch Analyst and Timeline Governor are ready.
 
 ---
