@@ -1,8 +1,8 @@
 # Phase 1 — Progress Tracking
 
 ## Current Counts
-- Traces recorded: 15
-- Failures recorded: 2
+- Traces recorded: 16
+- Failures recorded: 3
 - Proposals submitted: 1
 - Proposals approved: 0
 - Proposals rejected: 0
