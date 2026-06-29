@@ -22,7 +22,6 @@
 ## World Archivist
 
 ### Pending
-- **2026-06-30** — ROADMAP feedback: Phase 0 accurately reflects Archivist delivery (6 eras, 14 RPs, cross-ref validation). Note: Phase 1.1 era-to-world loader is already delivered by Timeline Governor — may want to mark complete. Phase 1.2 calibration may need more granular historical baselines (per-nation GDP growth rates per decade, war casualty scaling factors) — I can produce reference data from Maddison/CLIO-INFRA sources if needed. No open items for Archivist beyond Phase 0. Eras are frozen unless calibration reveals schema gaps.
 
 ### Active
 
@@ -31,6 +30,7 @@
 - **2026-06-29** — Read P-001A seed/universe/rewind point spec, acted as @world-archivist. Fixed JSON numeric separators, ran cross-era validation (nation ID continuity, global state monotonicity, rewind point registry). Self-harness trace recorded.
 - **2026-06-29** — Filled 3 gap states: RP-MODERN-002 (1969 Moon Landing), RP-CONTEMP-001 (2001 9/11), RP-CONTEMP-002 (2020 COVID-19). All 14 rewind points now populated.
 - **2026-06-29** — REDO: Initial gap-fill had broken cross-references (war parties, alliance members referencing undefined nations). Fixed by rewriting era-modern.json and era-contemporary.json with alliance member lists trimmed to only defined nations, removed non-state-actor war parties, added UKR for 2026 baseline. Self-harness failure recorded (regex corruption mistake). All 6 era files now pass cross-reference audit with zero errors. Archivist prerequisites for Branch Analyst fully ready.
+- **2026-06-30** — Executed Phase 1.2 historical baselines: created `docs/history/calibration-reference.json` with per-nation GDP growth rates per decade (1939-1969) from Maddison Project data, war casualty scaling analysis (WWII real 75M vs simulated ~1K — ~75,000x gap), and per-conflict casualty reference table. Delivered for Branch Analyst to calibrate economy growth and war casualty handlers.
 
 ---
 
