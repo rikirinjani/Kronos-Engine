@@ -1,7 +1,7 @@
 # Phase 1 — Progress Tracking
 
 ## Current Counts
-- Traces recorded: 16
+- Traces recorded: 17
 - Failures recorded: 3
 - Proposals submitted: 1
 - Proposals approved: 0
@@ -12,4 +12,4 @@
 - Current progress: 1/40 proposals, 0/6 months
 
 ## Last Updated
-2026-06-29 — Added Energy sector (price, mix, supply shocks, CO2 intensity) and Demographics sector (population, aging, labor force, migration). 6 world sectors + 1 sentinel. 158 tests, 17 files.
+2026-06-30 — Era-to-world loader built. 171 tests, 19 files.
