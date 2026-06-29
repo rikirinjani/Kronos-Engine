@@ -80,8 +80,9 @@
 
 ### Completed
 - **2026-06-29** — World Archivist status: All 6 historical eras seeded and validated (ancient through contemporary). 14 pre-seeded Rewind Points fully populated with StrategicWorldState (nations, GDP, wars, alliances, global state). Cross-reference audit passes with zero errors. Branch Analyst consumed RP-MODERN-001 (1939) successfully in P-003 "No WWII" counterfactual — data pipeline confirmed end-to-end. Archivist prerequisites for Branch Analyst and Timeline Governor are ready.
-- **2026-06-29** — Timeline Governor confirmed: Archivist era data schema (`StrategicWorldState`) matches engine types (`WorldState`, `RewindPoint`, `SectorState` in `src/timeline/history-types.ts`). No schema mismatch. Archivist → Governor data pipeline validated. World Archivist acknowledges — ready for loader that hydrates `createWorld()` from era JSON.
-  **Meta Platform:** ✅ Loader approved. Next: Timeline Governor specs the era-to-world loader, hands off to Sector Engineer.
+- **2026-06-29** — Timeline Governor confirmed: Archivist era data schema (`StrategicWorldState`) matches engine types (`WorldState`, `RewindPoint`, `SectorState` in `src/timeline/history-types.ts`). No schema mismatch. Archivist → Governor data pipeline validated.
+  **Meta Platform:** ✅ Noted.
+- **2026-06-30** — Timeline Governor built the era-to-world JSON loader (`src/engine/era-loader.ts` + tests). Phase 1.1 complete before roadmap was even finalized.
 - **2026-06-29** — **Sector Engineer:** Era-to-world loader built (`src/engine/era-loader.ts`). `buildSectorConfigs(state, era)` maps StrategicWorldState → sector configs. `loadEraConfig(path, rewindPointId)` reads era JSON from disk. Handles era-specific defaults for CO2, emissions, R&D, GDP growth, inflation, trade volume. 7 tests. **Handoff complete — usable by Branch Analyst for future counterfactuals.**
 
 ---
