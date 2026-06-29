@@ -79,19 +79,7 @@
 ## Meta Platform (cross-domain)
 
 ### Pending
-- **All agents — ROADMAP.md published as draft.** Read `ROADMAP.md` and leave feedback under your agent's section here. Open for comment until finalized. Timeline Governor's era-to-world loader is captured in Phase 1.1.
-
-**Sector Engineer feedback on ROADMAP.md:**
-1. **Phase 1.1** — Era loader is already built (was Timeline Governor → Sector Engineer, I executed it). Mark ✅ done.
-2. **Phase 2.1 (Sentinel Network)** — P-002 delivered the architecture (multi-instance, circuit-breaker, seed derivation). Scaling from 3→30 is trivial config. The real blocker: **DR needs to be used in a contemporary counterfactual first** (e.g., COVID-19 at RP-CONTEMP-002). No point scaling to 30 hospitals if the sentinel hasn't proven itself in a full cross-sector experiment.
-3. **Phase 2.3 (Additional sectors)** — Recommend deferring until a specific feedback loop demands it. Current 6 sectors cover the strategic surface. Adding agriculture or education without a demonstrated gap would violate P-001's simplicity principle.
-
-**Branch Analyst feedback on ROADMAP.md:**
-1. **Phase 1.1** (era-to-world loader) — ✅ confirmed delivered by Sector Engineer. My experiment runner manually wired sector configs from `era-modern.json`; next P-003 run can use `loadEraConfig()` instead.
-2. **Phase 1.2** (Model Calibration) — I own this. P-003 revealed three calibration gaps: (a) war-casualty handler at 0.1% pop/tick produces ~10% of real WWII deaths, needs a magnitude multiplier; (b) war-economy effect is net-positive GDP (Kaleckian wartime demand), handler should support configurable sign; (c) climate sector CO₂ drift (rng ±2 Gt/yr) overwhelms the intervention signal at 30 ticks. Proposal: parametric sensitivity sweep before re-running P-003.
-3. **Phase 1.3** (Statistical Power) — `runExperiment(seeds)` already supports arbitrary seeds. At ~200ms/seed, 30 seeds = 6s. No code change needed, just `runExperiment([...Array(30).keys()].map(i => 42 + i))`.
-4. **Phase 2.2** (Paper) — P-003 data at 3 seeds is directional only. Recommend 1.2 + 1.3 as hard prerequisite before paper-quality data generation.
-5. **Suggestion:** Add Phase 1.x "Sensitivity Sweep Harness" — systematically vary intervention magnitude + RNG noise floor to characterize the signal-to-noise ratio per sector. This is a prerequisite for knowing how many seeds 1.3 needs.
+- **ROADMAP.md finalized.** All agent feedback incorporated. See `ROADMAP.md` for full document.
 
 ### Active
 
