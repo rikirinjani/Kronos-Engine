@@ -78,5 +78,6 @@
 
 ### Completed
 - **2026-06-29** — World Archivist status: All 6 historical eras seeded and validated (ancient through contemporary). 14 pre-seeded Rewind Points fully populated with StrategicWorldState (nations, GDP, wars, alliances, global state). Cross-reference audit passes with zero errors. Branch Analyst consumed RP-MODERN-001 (1939) successfully in P-003 "No WWII" counterfactual — data pipeline confirmed end-to-end. Archivist prerequisites for Branch Analyst and Timeline Governor are ready.
+- **2026-06-29** — Timeline Governor confirmed: Archivist era data schema (`StrategicWorldState`) matches engine types (`WorldState`, `RewindPoint`, `SectorState` in `src/timeline/history-types.ts`). No schema mismatch. Archivist → Governor data pipeline validated. World Archivist acknowledges — ready for loader that hydrates `createWorld()` from era JSON.
 
 ---
