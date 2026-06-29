@@ -1,0 +1,14 @@
+{
+  "trace_id": "1e36cfe1-bbf5-45e8-8289-a2bac0a999f7",
+  "timestamp": "2026-06-29T11:14:54.902Z",
+  "agent": "meta-platform",
+  "task_description": "Full evaluation: run all 142 tests + tsc --noEmit + heatwave integration test. Constitution §IV governs scope.",
+  "outcome": "pass",
+  "duration_s": 45,
+  "tool_calls": 3,
+  "key_files": [
+    "src/integration/heatwave.test.ts",
+    "src/sectors/deers-rock-adapter.ts",
+    "self-harness/constitution.md"
+  ]
+}

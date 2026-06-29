@@ -24,6 +24,19 @@ export const TECHNOLOGY_EVENTS = {
   DIFFUSION: "technology.diffusion",
 } as const;
 
+export const ENERGY_EVENTS = {
+  PRICE_SHIFT: "energy.price_shift",
+  MIX_SHIFT: "energy.mix_shift",
+  SUPPLY_SHOCK: "energy.supply_shock",
+} as const;
+
+export const DEMOGRAPHICS_EVENTS = {
+  POPULATION_SHIFT: "demographics.population_shift",
+  MIGRATION: "demographics.migration",
+  LABOR_FORCE_CHANGE: "demographics.labor_force_change",
+  AGING_SHIFT: "demographics.aging_shift",
+} as const;
+
 export interface RelationShiftEvent {
   nationId: string;
   otherId: string;
@@ -103,6 +116,58 @@ export interface TechDiffusionEvent {
   year: number;
 }
 
+export interface EnergyPriceShiftEvent {
+  nationId: string;
+  oldPrice: number;
+  newPrice: number;
+  cause: string;
+}
+
+export interface EnergyMixShiftEvent {
+  nationId: string;
+  oldRenewable: number;
+  newRenewable: number;
+  year: number;
+}
+
+export interface EnergySupplyShockEvent {
+  region: string;
+  severity: number;
+  cause: string;
+  year: number;
+}
+
+export interface PopulationShiftEvent {
+  nationId: string;
+  oldPopulation: number;
+  newPopulation: number;
+  birthRate: number;
+  deathRate: number;
+}
+
+export interface MigrationEvent {
+  fromNation: string;
+  toNation: string;
+  count: number;
+  year: number;
+  cause: string;
+}
+
+export interface LaborForceChangeEvent {
+  nationId: string;
+  oldLaborForce: number;
+  newLaborForce: number;
+  participationRate: number;
+}
+
+export interface AgingShiftEvent {
+  nationId: string;
+  oldMedianAge: number;
+  newMedianAge: number;
+  oldDependencyRatio: number;
+  newDependencyRatio: number;
+}
+
 export type EventPayloadMap = {
   [GEOPOLITICS_EVENTS.RELATION_SHIFT]: RelationShiftEvent;
   [GEOPOLITICS_EVENTS.WAR_START]: WarStartEvent;
@@ -116,6 +181,13 @@ export type EventPayloadMap = {
   [ECONOMY_EVENTS.TRADE_SHIFT]: TradeShiftEvent;
   [TECHNOLOGY_EVENTS.INNOVATION]: InnovationEvent;
   [TECHNOLOGY_EVENTS.DIFFUSION]: TechDiffusionEvent;
+  [ENERGY_EVENTS.PRICE_SHIFT]: EnergyPriceShiftEvent;
+  [ENERGY_EVENTS.MIX_SHIFT]: EnergyMixShiftEvent;
+  [ENERGY_EVENTS.SUPPLY_SHOCK]: EnergySupplyShockEvent;
+  [DEMOGRAPHICS_EVENTS.POPULATION_SHIFT]: PopulationShiftEvent;
+  [DEMOGRAPHICS_EVENTS.MIGRATION]: MigrationEvent;
+  [DEMOGRAPHICS_EVENTS.LABOR_FORCE_CHANGE]: LaborForceChangeEvent;
+  [DEMOGRAPHICS_EVENTS.AGING_SHIFT]: AgingShiftEvent;
 };
 
 export type KnownEventType = keyof EventPayloadMap;
@@ -130,13 +202,17 @@ export const SECTOR_EVENTS = {
   climate: Object.values(CLIMATE_EVENTS),
   economy: Object.values(ECONOMY_EVENTS),
   technology: Object.values(TECHNOLOGY_EVENTS),
+  energy: Object.values(ENERGY_EVENTS),
+  demographics: Object.values(DEMOGRAPHICS_EVENTS),
 } as const;
 
 export const EVENT_SUBSCRIPTIONS: Record<string, readonly string[]> = {
   geopolitics: [ECONOMY_EVENTS.GDP_SHIFT],
-  climate: [ECONOMY_EVENTS.GDP_SHIFT],
-  economy: [GEOPOLITICS_EVENTS.WAR_START, GEOPOLITICS_EVENTS.WAR_CASUALTIES, CLIMATE_EVENTS.EXTREME_WEATHER],
-  technology: [ECONOMY_EVENTS.GDP_SHIFT],
+  climate: [ECONOMY_EVENTS.GDP_SHIFT, ENERGY_EVENTS.PRICE_SHIFT, ENERGY_EVENTS.MIX_SHIFT],
+  economy: [GEOPOLITICS_EVENTS.WAR_START, GEOPOLITICS_EVENTS.WAR_CASUALTIES, CLIMATE_EVENTS.EXTREME_WEATHER, ENERGY_EVENTS.PRICE_SHIFT, DEMOGRAPHICS_EVENTS.LABOR_FORCE_CHANGE],
+  technology: [ECONOMY_EVENTS.GDP_SHIFT, ENERGY_EVENTS.PRICE_SHIFT],
+  energy: [GEOPOLITICS_EVENTS.WAR_START, CLIMATE_EVENTS.EXTREME_WEATHER, ECONOMY_EVENTS.GDP_SHIFT, TECHNOLOGY_EVENTS.INNOVATION],
+  demographics: [ECONOMY_EVENTS.GDP_SHIFT, GEOPOLITICS_EVENTS.WAR_START],
 };
 
 export function publishTyped<T extends KnownEventType>(
