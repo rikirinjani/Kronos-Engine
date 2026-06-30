@@ -1,9 +1,15 @@
 import { readFileSync } from "node:fs";
 import type { StrategicWorldState, Nation, War, Alliance, GlobalAggregate } from "../timeline/history-types.js";
+import type { FutureEraConfig, FutureEraState } from "../timeline/future-types.js";
 
 interface EraFile {
   meta: { era: string; label: string; seedPrefix: string };
   states: Record<string, StrategicWorldState>;
+}
+
+interface FutureEraFile {
+  meta: { era: string; label: string; seedPrefix: string };
+  states: Record<string, FutureEraState>;
 }
 
 function extractYear(name: string): number {
@@ -59,15 +65,69 @@ const CLIMATE_ERA_KEY = "era" as const;
 
 export function loadEraConfig(eraJsonPath: string, rewindPointId: string): Record<string, Record<string, unknown>> {
   const content = readFileSync(eraJsonPath, "utf-8");
-  const eraFile: EraFile = JSON.parse(content);
-  const era = eraFile.meta.era;
+  const parsed = JSON.parse(content) as EraFile | FutureEraFile;
+  const meta = parsed.meta;
 
-  const state = eraFile.states[rewindPointId];
-  if (!state) {
-    throw new Error(`Rewind point "${rewindPointId}" not found in ${eraJsonPath}`);
+  if (meta.era === "future") {
+    const futureFile = parsed as unknown as FutureEraFile;
+    const state = futureFile.states[rewindPointId] as FutureEraState;
+    if (!state) throw new Error(`Future rewind point "${rewindPointId}" not found in ${eraJsonPath}`);
+
+    const baseEraPath = eraJsonPath.replace(/era-[a-z]+\.json$/, "era-contemporary.json");
+    const baseConfigs = loadEraConfig(baseEraPath, state.baseEra);
+    return buildSectorConfigsWithFuture(state, baseConfigs, meta.era);
   }
 
-  return buildSectorConfigs(state, era);
+  const eraFile = parsed as EraFile;
+  const state = eraFile.states[rewindPointId] as StrategicWorldState;
+  if (!state) throw new Error(`Rewind point "${rewindPointId}" not found in ${eraJsonPath}`);
+
+  return buildSectorConfigs(state, meta.era);
+}
+
+function buildSectorConfigsWithFuture(
+  futureState: FutureEraState,
+  baseConfigs: Record<string, Record<string, unknown>>,
+  era: string,
+): Record<string, Record<string, unknown>> {
+  const cfg = futureState.config;
+  const year = futureState.year;
+
+  const result: Record<string, Record<string, unknown>> = {};
+
+  for (const [key, base] of Object.entries(baseConfigs)) {
+    result[key] = { ...base, year };
+  }
+
+  if (result.climate) {
+    Object.assign(result.climate, {
+      co2Concentration: co2ConcentrationFor(era),
+      annualEmissions: cfg.climate.emissionTrend > 0 ? Math.abs(cfg.climate.emissionTrend) * 20 : 5 + cfg.climate.emissionTrend,
+    });
+  }
+
+  if (result.economy) {
+    const econ = result.economy as Record<string, unknown>;
+    const nations = econ.nations as Record<string, Record<string, unknown>> | undefined;
+    if (nations) {
+      for (const n of Object.values(nations)) {
+        n.gdpGrowthRate = cfg.economy.steadyStateGrowth;
+        n.inflationRate = cfg.economy.inflationTarget ?? 2.0;
+      }
+    }
+  }
+
+  if (result.technology) {
+    const tech = result.technology as Record<string, unknown>;
+    const nations = tech.nations as Record<string, Record<string, unknown>> | undefined;
+    if (nations) {
+      for (const n of Object.values(nations)) {
+        n.rdSpending = (n.rdSpending as number) * (1 + cfg.technology.rdSpendingGrowth / 100);
+      }
+    }
+  }
+
+  return result;
 }
 
 export function buildSectorConfigs(state: StrategicWorldState, era: string): Record<string, Record<string, unknown>> {

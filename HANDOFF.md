@@ -82,6 +82,8 @@
 - **My scope:** Engine foundation complete (RNG, Universe, WorldEngine, RewindPoints, BranchEngine). No remaining Phase 1-3 items assigned to me. If calibration (1.2) or sentinel scale-up (2.1) needs engine changes, I'm available. Otherwise I'm idled until Phase 3 dashboard or API needs timeline/branch endpoints.
 
 ### Completed
+- **2026-06-30** — Future era (S-BASELINE) wired: `src/timeline/future-types.ts` created with full schema types. `era-loader.ts` updated to detect `era === "future"`, load RP-CONTEMP-003 as base state, apply FutureEraConfig parameters (economy growth, climate, technology R&D). Exported from `src/timeline/index.ts`.
+- **2026-06-30** — JAMIA paper §2.2 reviewed: 4 accurate claims, 2 minor issues flagged (branch ID format doesn't match code, "sorted before processing" is aspirational — sectors aren't explicitly sorted).
 - **2026-06-30** — Seamless experiment runner built (`src/engine/experiment-runner.ts`). `loadEraAndRun(eraPath, rewindPointId, options)` chains era JSON load → all-6-sector config builder → `createWorld()` → `run()` → `snapshot()` in one call. Supports sector subset, config overrides. 6 tests, `tsc --noEmit` clean. Branch Analyst can now run `loadEraAndRun("docs/history/era-contemporary.json", "RP-CONTEMP-003", { ticks: 30, sectors })` instead of 15+ lines of manual wiring.
 - **2026-06-30** — Integrated `era-loader.ts` into `src/engine/index.ts` exports (`loadEraConfig`, `buildSectorConfigs`). Full suite: 171 tests across 19 files, `tsc --noEmit` clean. Phase 1.1 era-to-world data pipeline fully wired from engine exports.
 - **2026-06-29** — Built deterministic RNG (`createRNG`, `restoreRNG`) with state capture. UniverseID with genealogy (`createUniverse`, `branchUniverse`). World Engine (`createWorld`, `tick`, `run`, `snapshot`, `restoreSnapshot`) with cross-sector event processing. 27 engine tests, all passing.
@@ -93,10 +95,16 @@
 ## Paper OC
 
 ### Pending
+- **Agent review feedback — v4 revision needed.** All comments collected in All Agents section. 5 concrete fixes for §2.5 from Sector Engineer (paper-only — no code changes needed):
+  1. Circuit breaker: fires on 1 tick, not 3 (line 173)
+  2. Seed derivation: uses string hash (djb2), update code snippet
+  3. Adapter reads DR internals directly — remove `getState()` claim, state honestly that adapter reads `world.state.*` directly (no patient data leaks up)
+  4. MacroConditionPacket: add `tick: number` field to interface
+  5. Method name: use `tick()` not `fastForward(days)`
+  
+  Also: Timeline Governor branch ID format fix, Branch Analyst 36/71 framing suggestion.
 
 ### Active
-- **2026-06-30** — Phase 2.2: JAMIA paper redrafted after external review. Key changes: (1) reframed as "deterministic counterfactual experimentation platform," not world simulator; (2) added Bonferroni correction with explicit FDR discussion; (3) caveated GDP effect sizes as mechanically amplified by compounding, not empirically accurate; (4) expanded Limitations (4.4) with concrete impact analysis; (5) added JAMIA-specific references (Kannampallil, Meyer); (6) added empirical validation plan; (7) softened abstract to "operational health system simulation" not clinical prediction; (8) toned down 30-hospital claim (single simulator cloned 30 times). ~4,600 words, 15 references. Manuscript at `docs/papers/jamia-2026-kronos-engine.md`. Ready for human review.
-- **2026-06-30** — Phase 2.2: JAMIA paper v3 (second redraft). Additional changes from 3rd review: (1) removed self-harness from manuscript; (2) fixed Bonferroni/FDR consistency (primary outcomes Bonferroni, exploratory sweep Cohen's d without formal correction); (3) fixed reference [13] — replaced Maddison with Harrison (WWII economics) and relabeled calibration targets as "illustrative"; (4) fixed "cross-validation" circularity in 3.1 → "consistency across nine independently-parameterized national economies"; (5) reordered limitations (empirical validation first); (6) added Design Philosophy paragraph (section 2.1); (7) elevated adapter invariants as boxed specification (section 2.5); (8) added WWII-healthcare framing sentence in 3.1; (9) added Cohen [16] for d thresholds. Manuscript at `docs/papers/jamia-2026-kronos-engine.md`. v3 snapshot at `jamia-2026-kronos-engine-v3-redraft2.md`.
 
 ### Completed
 
@@ -109,7 +117,7 @@
 - **World Archivist:** §3.3 (Historical Data) — era accuracy, rewind point fidelity
 - **Sector Engineer:** §2.3 (Sector Architecture), §2.5 (Sentinel Adapter) — architecture claims
 - **Branch Analyst:** §3.1 (P-003), §3.2 (P-004), §4.1 (Statistical Approach) — experiment accuracy
-- **Timeline Governor:** §2.2 (Counterfactual Engine) — engine design claims
+- **Timeline Governor:** §2.2 (Counterfactual Engine) — engine design claims ✅
 
 ### Timeline Governor — Paper Review (§2.2) ✅
 
