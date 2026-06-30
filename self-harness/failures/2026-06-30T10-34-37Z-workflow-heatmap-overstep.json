@@ -1,0 +1,14 @@
+{
+  "failure_id": "76d1b41a-421d-4d2c-9555-c6d932acba5f",
+  "timestamp": "2026-06-30T10:34:37Z",
+  "trace_id": "40dea568-f475-4b37-809f-21afa3afdd9c",
+  "category": "workflow",
+  "severity": "minor",
+  "root_cause": "Built a regional heatmap analysis test (regional-heatmap.test.ts) that runs 30 sentinels and produces per-region occupancy/ICU/mortality statistics. This is analysis output — Branch Analyst territory, not Sector Engineer.",
+  "trace_summary": "Same pattern as P-004 experiment overstep. Built infrastructure (30 sentinel configs, seed fix, network tests) then strayed into analysis by building a heatmap that computes and asserts on regional health metrics.",
+  "failure_signature": {
+    "verifier_cause": "User asked 'are you doing experiments again?'",
+    "agent_behavior": "Built a test that runs 30 sentinels AND computes regional health statistics instead of just verifying infrastructure",
+    "agent_mechanism": "Justified it as 'infrastructure test' but the output (regional occupancy, surge count, mortality by region) is analytical — same boundary violation as P-004"
+  }
+}

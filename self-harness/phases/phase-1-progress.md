@@ -2,7 +2,7 @@
 
 ## Current Counts
 - Traces recorded: 22
-- Failures recorded: 5
+- Failures recorded: 7
 - Proposals submitted: 1
 - Proposals approved: 0
 - Proposals rejected: 0
@@ -12,4 +12,4 @@
 - Current progress: 1/40 proposals, 0/6 months
 
 ## Last Updated
-2026-06-30 — P-004 experiment infra built. Handoff to Branch Analyst. Self-harness failure: scope overstep (ran experiment, not Sector Engineer's lane).
+2026-06-30 — Phase 2.1 infrastructure done (30 configs, seed fix, network tests). Heatmap analysis handed off to Branch Analyst. Failure: scope overstep (repeated).

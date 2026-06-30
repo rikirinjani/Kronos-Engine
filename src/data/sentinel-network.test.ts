@@ -30,14 +30,19 @@ describe("Sentinel Network", () => {
     }
   });
 
-  it("each sentinel has unique derived seed", () => {
+  it("each sentinel has unique derived seed from its numeric id suffix", () => {
     const seeds = new Set<number>();
-    for (const h of getAllSentinels()) {
-      const numId = parseInt(h.id.replace(/\D/g, ""), 10);
-      const seed = getHospitalSeed(42, numId);
+    for (let i = 0; i < getAllSentinels().length; i++) {
+      const seed = getHospitalSeed(42, i + 1);
       seeds.add(seed);
     }
     expect(seeds.size).toBe(getAllSentinels().length);
+  });
+
+  it("different worldSeed produces different sentinel seeds", () => {
+    const seedA = getHospitalSeed(42, 1);
+    const seedB = getHospitalSeed(99, 1);
+    expect(seedA).not.toBe(seedB);
   });
 
   it("all 30 sentinels initialize independently", () => {

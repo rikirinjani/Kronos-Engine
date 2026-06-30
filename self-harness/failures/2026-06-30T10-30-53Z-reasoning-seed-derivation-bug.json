@@ -1,0 +1,14 @@
+{
+  "failure_id": "3e8d36d6-0caa-4995-85b7-92d98472243a",
+  "timestamp": "2026-06-30T10:30:53Z",
+  "trace_id": "40dea568-f475-4b37-809f-21afa3afdd9c",
+  "category": "reasoning",
+  "severity": "minor",
+  "root_cause": "Seed derivation in deersRockAdapter used parseInt(id.replace(/\\D/g, '')) which extracts only digits. All hospital IDs (jkt-001, bdo-001, etc.) have the same numeric suffix '001', so all sentinels got the same RNG seed, breaking determinism guarantees.",
+  "trace_summary": "Built 30-hospital configs, tested unique seeds, discovered all seeds were identical due to numeric extraction. Fixed by replacing with string hash (djb2 variant) of the full ID.",
+  "failure_signature": {
+    "verifier_cause": "Test 'each sentinel has unique derived seed' failed — expected 27 unique seeds but got 2",
+    "agent_behavior": "Used parseInt on the ID string assuming the numeric suffix would be unique per hospital",
+    "agent_mechanism": "Did not verify seed uniqueness across the full config set before committing to the derivation strategy; assumed the naming convention guaranteed unique numbers"
+  }
+}

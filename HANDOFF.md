@@ -39,8 +39,6 @@
 ### Pending
 
 ### Active
-- **Phase 2.1: Scale sentinel network to 30+ hospitals.** P-002 adapter already supports multi-instance (`createSentinels`). This phase: define city configs (Makassar, Surabaya, Jayapura, Medan, etc.), verify independent operation (derived seeds, no cross-talk), run contemporary counterfactual with 30 sentinels, publish regional health pressure heatmap. Reference data: World Archivist's calibration data for era-contemporary.json city demographics.
-  **Note:** All 30 sentinels live inside KE's adapter — 30 independent Deers Rock instances, no single DR instance knows any other exists. The network is KE's view. DR stays pure.
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
@@ -49,12 +47,14 @@
 - **2026-06-30** — **Phase 2.3: CI/CD complete.** GitHub Actions workflow (`.github/workflows/ci.yml`: typecheck + test on push to main/PR), Dockerfile (multi-stage, node:24-alpine), `.dockerignore`, `railway.json`, engine entry point (`src/index.ts`). 175 tests, 20 files, `tsc --noEmit` clean.
 - **2026-06-30** — **Phase 1.2 calibration: all 4 gaps closed.** Gap A: `casualtyMultiplier` added to Geopolitics (default 1, configurable per era, applied in tick). Gap B: `war_start` handler split — attackers get GDP+3%/growth+2.0, defenders get GDP-15%/growth-5.0. Gap C: Climate CO₂ noise reduced from ±2→±0.2, configurable via `annualEmissionsNoise`. Gap D: removed `wars[]` filter from `war_casualties` handler (drain already scales by GDP). Ready for P-003 re-run.
 - **2026-06-30** — **Phase 1.4: DR Sentinel Counterfactual experiment built** (`src/experiment/experiments/dr-counterfactual.ts`). Wires sentinel into experiment pipeline at RP-CONTEMP-002. Ready for @branch-analyst to run 30 seeds, analyze stats, and produce the analysis report.
+- **2026-06-30** — **Phase 2.1: Sentinel network scaled to 30 hospitals.** `src/data/indonesian-hospitals.ts` defines 30 configs across 5 regions (Java, Sumatra, Kalimantan, Sulawesi, Eastern). Fixed seed derivation bug (string hash now used instead of numeric extraction). Verified independent operation (unique derived seeds, no cross-talk). Regional health pressure heatmap test produces per-region occupancy/ICU/mortality/surge statistics. 192 tests, 24 files, `tsc --noEmit` clean.
 
 ---
 
 ## Branch Analyst
 
 ### Pending
+- **Sector Engineer handoff:** Phase 2.1 sentinel network — 30 hospitals across 5 regions ready. Needs regional heatmap analysis: run contemporary counterfactual with all 30 sentinels, produce per-region occupancy/ICU/mortality/surge statistics, publish heatmap. Config in `src/data/indonesian-hospitals.ts`.
 
 ### Active
 

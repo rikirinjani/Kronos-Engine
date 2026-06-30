@@ -173,7 +173,12 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
     events: healthEvents,
 
     init(_seed: number, _config: Record<string, unknown>): DeersRockSectorState {
-      const hospitalSeed = getHospitalSeed(worldSeed, parseInt(config.id.replace(/\D/g, ""), 10) || 1);
+      let hash = 0;
+      for (let i = 0; i < config.id.length; i++) {
+        hash = ((hash << 5) - hash) + config.id.charCodeAt(i);
+        hash |= 0;
+      }
+      const hospitalSeed = getHospitalSeed(worldSeed, Math.abs(hash) || 1);
       const drWorld = createWorld(config.patients, undefined, hospitalSeed);
 
       return {

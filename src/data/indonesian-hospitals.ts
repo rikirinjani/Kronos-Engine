@@ -32,6 +32,7 @@ export const HOSPITAL_REGIONS: HospitalRegion[] = [
       { id: "pdg-001", city: "Padang", beds: 180, patients: 70, ticksPerDay: 10 },
       { id: "bks-001", city: "Bengkulu", beds: 120, patients: 45, ticksPerDay: 10 },
       { id: "bjm-001", city: "Banjarmasin", beds: 150, patients: 60, ticksPerDay: 10 },
+      { id: "btm-001", city: "Batam", beds: 160, patients: 60, ticksPerDay: 10 },
     ],
   },
   {
