@@ -90,11 +90,25 @@
 ## Paper OC
 
 ### Pending
-- **Phase 2.2: Paper 1 (JAMIA).** All experiment data ready: P-003 WWII 30 seeds, P-004 DR sentinel 30 seeds, Phase 2.1 30-hospital heatmap, integration test. Key references: `docs/PROJECT-OVERVIEW.md`, `docs/proposals/P-002-deers-rock-adapter.md`, `experiment-results/`. Target: JAMIA. Framing: *"Retrospective validation. Prospective application."*
 
 ### Active
+- **2026-06-30** — Phase 2.2: JAMIA paper redrafted after external review. Key changes: (1) reframed as "deterministic counterfactual experimentation platform," not world simulator; (2) added Bonferroni correction with explicit FDR discussion; (3) caveated GDP effect sizes as mechanically amplified by compounding, not empirically accurate; (4) expanded Limitations (4.4) with concrete impact analysis; (5) added JAMIA-specific references (Kannampallil, Meyer); (6) added empirical validation plan; (7) softened abstract to "operational health system simulation" not clinical prediction; (8) toned down 30-hospital claim (single simulator cloned 30 times). ~4,600 words, 15 references. Manuscript at `docs/papers/jamia-2026-kronos-engine.md`. Ready for human review.
+- **2026-06-30** — Phase 2.2: JAMIA paper v3 (second redraft). Additional changes from 3rd review: (1) removed self-harness from manuscript; (2) fixed Bonferroni/FDR consistency (primary outcomes Bonferroni, exploratory sweep Cohen's d without formal correction); (3) fixed reference [13] — replaced Maddison with Harrison (WWII economics) and relabeled calibration targets as "illustrative"; (4) fixed "cross-validation" circularity in 3.1 → "consistency across nine independently-parameterized national economies"; (5) reordered limitations (empirical validation first); (6) added Design Philosophy paragraph (section 2.1); (7) elevated adapter invariants as boxed specification (section 2.5); (8) added WWII-healthcare framing sentence in 3.1; (9) added Cohen [16] for d thresholds. Manuscript at `docs/papers/jamia-2026-kronos-engine.md`. v3 snapshot at `jamia-2026-kronos-engine-v3-redraft2.md`.
 
 ### Completed
+
+---
+
+## All Agents — Paper Review
+
+**Paper open for comment.** Manuscript at `docs/papers/jamia-2026-kronos-engine.md` (v3). Read the section most relevant to your domain and leave feedback under your agent's section below:
+
+- **World Archivist:** §3.3 (Historical Data) — era accuracy, rewind point fidelity
+- **Sector Engineer:** §2.3 (Sector Architecture), §2.5 (Sentinel Adapter) — architecture claims
+- **Branch Analyst:** §3.1 (P-003), §3.2 (P-004), §4.1 (Statistical Approach) — experiment accuracy
+- **Timeline Governor:** §2.2 (Counterfactual Engine) — engine design claims
+
+Focus on factual accuracy. Close by human.
 
 ---
 

@@ -1,7 +1,7 @@
 # Phase 1 — Progress Tracking
 
 ## Current Counts
-- Traces recorded: 23
+- Traces recorded: 26
 - Failures recorded: 7
 - Proposals submitted: 1
 - Proposals approved: 0
@@ -13,3 +13,6 @@
 
 ## Last Updated
 2026-06-30 — Phase 2.1 infrastructure done (30 configs, seed fix, network tests). Heatmap analysis handed off to Branch Analyst. Failure: scope overstep (repeated).
+2026-06-30 — Phase 2.2: JAMIA paper draft written. Manuscript at docs/papers/jamia-2026-kronos-engine.md. Trace recorded.
+2026-06-30 — Phase 2.2: JAMIA paper redrafted after external review (3 reviewers). Key changes: multiple comparisons correction (Bonferroni), GDP effect size caveats, expanded limitations, JAMIA references, empirical validation plan. Trace recorded.
+2026-06-30 — Phase 2.2: JAMIA v3 — removed self-harness, fixed Bonferroni/FDR consistency, elevated adapter invariants as boxed spec, added Design Philosophy, fixed citations. Trace recorded.
