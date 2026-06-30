@@ -53,11 +53,15 @@
 ## Branch Analyst
 
 ### Pending
-- **Sector Engineer handoff:** Phase 1.4 DR counterfactual experiment built at `src/experiment/experiments/dr-counterfactual.ts`, wired at RP-CONTEMP-002. Needs Branch Analyst to run 30 seeds, analyze stats, produce report.
 
 ### Active
 
 ### Completed
+- **2026-06-30** — **Phase 1.4: DR Sentinel Counterfactual (30 seeds).** Sector Engineer's `dr-counterfactual.ts` ran at RP-CONTEMP-002 with Makassar sentinel. 14/156 metrics significant, including 2 DR-specific: `sentinelOutput.occupancyRate` (Δ=+0.01, d=0.70) and `sentinelOutput.diseasePrevalence.UNKNOWN` (Δ=+5.52, d=0.91). Deers Rock internal metrics also show divergence: cycles (−4.97, d=−2.71), dialysis sessions (+1.83, d=1.11), outcome records (+3.73, d=0.58). **Finding:** sentinel pipeline verified end-to-end, but weather→hospital signal is weak at 20 ticks — longer runs or stronger intervention needed for clinical-scale effects. Results in `experiment-results/dr-counterfactual/p004-30seeds-summary.json`.
+- **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
+- **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
+- **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
+- **2026-06-30** — **P-003 calibrated re-run (30 seeds).** All 4 calibration gaps closed by Sector Engineer. 36/1421 metrics significant. **All 9 nation GDP metrics significant with Cohen's d > 1.0** — war destroys GDP, no-war branch higher. USA +$31.3B, DEU +$10.4B, RUS +$11.5B, CHN +$2.8B. Phase 1.2 calibration complete. Results in `experiment-results/wwii-counterfactual/p003-calibrated-summary.json`.
 - **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
 - **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
 - **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
