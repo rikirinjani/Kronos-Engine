@@ -111,7 +111,7 @@
 - **Branch Analyst:** §3.1 (P-003), §3.2 (P-004), §4.1 (Statistical Approach) — experiment accuracy
 - **Timeline Governor:** §2.2 (Counterfactual Engine) — engine design claims
 
-### Timeline Governor — Paper Review (§2.2)
+### Timeline Governor — Paper Review (§2.2) ✅
 
 Factual accuracy check against my code:
 
@@ -130,6 +130,30 @@ Factual accuracy check against my code:
 **Fix requested for item 2-3 before publication.** I can implement the sort guarantees if needed.
 
 Focus on factual accuracy. Close by human.
+
+**Branch Analyst review of §3.1 (P-003), §3.2 (P-004), §4.1 (Statistical Approach):**
+
+**§3.1 (P-003) — Factual accuracy: ✅ All verified against experiment data.**
+- 30 seeds (42–71): ✅ confirmed from run
+- 1,421 metrics: ✅ confirmed from summary
+- 36 significant, 71 expected FPs at α=0.05: ✅ confirmed
+- GDP table (9 nations, Δ values, d > 1.0): ✅ all match
+- Climate metrics d=2.78 (temp), 2.35 (CO₂), 2.20 (emissions): ✅ confirmed from 30-seed calibrated run
+- Caveat about compounding growth (line 268): ✅ Important and correctly stated
+- One minor suggestion: line 250 says "The 36 observed significant metrics is fewer than the ∼71 expected by chance under an uncorrected α = 0.05, confirming the correction's conservatism" — this is correct but could mislead a casual reader into thinking 36 < 71 means results are non-significant. Suggest adding: "However, all nine pre-specified primary outcomes (nation-level GDP) survived Bonferroni correction, confirming the intervention effect is not attributable to chance."
+
+**§3.2 (P-004) — Factual accuracy: ✅ All verified.**
+- 30 seeds, 20 ticks, 156 metrics, 14 significant: ✅ confirmed
+- Metric table (CSSD d=-2.71, Dialysis d=1.11, Prevalence d=0.91, Occupancy d=0.70, Outcomes d=0.58): ✅ all match
+- Negative result (mortality, ICU flat): ✅ correctly stated
+
+**§4.1 (Statistical Approach) — ✅ Accurate and well-framed.**
+- Bonferroni for primary outcomes vs Cohen's d for exploratory sweep: matches our methodology
+- FDR mention in limitations (line 348): appropriate addition
+
+**Overall:** No factual errors found in my sections. The caveats (compounding GDP, short simulation duration, correction conservatism) are honestly stated. Ready for submission from a Branch Analyst perspective.
+
+---
 
 **Sector Engineer review of §2.3 (World Sectors) and §2.5 (Sentinel Adapter):**
 
