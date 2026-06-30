@@ -24,7 +24,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:22.948Z",
+      "capturedAt": "2026-06-30T03:43:16.250Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -1606,7 +1606,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:22.948Z"
+    "createdAt": "2026-06-30T03:43:16.250Z"
   },
   {
     "runId": "run-43",
@@ -1633,7 +1633,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:22.966Z",
+      "capturedAt": "2026-06-30T03:43:16.298Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -3895,7 +3895,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:22.966Z"
+    "createdAt": "2026-06-30T03:43:16.298Z"
   },
   {
     "runId": "run-44",
@@ -3922,7 +3922,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:22.981Z",
+      "capturedAt": "2026-06-30T03:43:16.314Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -6160,7 +6160,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:22.981Z"
+    "createdAt": "2026-06-30T03:43:16.314Z"
   },
   {
     "runId": "run-45",
@@ -6187,7 +6187,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:22.994Z",
+      "capturedAt": "2026-06-30T03:43:16.363Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -8577,7 +8577,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:22.994Z"
+    "createdAt": "2026-06-30T03:43:16.363Z"
   },
   {
     "runId": "run-46",
@@ -8604,7 +8604,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.008Z",
+      "capturedAt": "2026-06-30T03:43:16.383Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -11074,7 +11074,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.008Z"
+    "createdAt": "2026-06-30T03:43:16.383Z"
   },
   {
     "runId": "run-47",
@@ -11101,7 +11101,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.020Z",
+      "capturedAt": "2026-06-30T03:43:16.399Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -12995,7 +12995,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.020Z"
+    "createdAt": "2026-06-30T03:43:16.399Z"
   },
   {
     "runId": "run-48",
@@ -13022,7 +13022,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.033Z",
+      "capturedAt": "2026-06-30T03:43:16.453Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -15260,7 +15260,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.033Z"
+    "createdAt": "2026-06-30T03:43:16.454Z"
   },
   {
     "runId": "run-49",
@@ -15287,7 +15287,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.045Z",
+      "capturedAt": "2026-06-30T03:43:16.482Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -17453,7 +17453,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.045Z"
+    "createdAt": "2026-06-30T03:43:16.482Z"
   },
   {
     "runId": "run-50",
@@ -17480,7 +17480,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.058Z",
+      "capturedAt": "2026-06-30T03:43:16.512Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -19886,7 +19886,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.058Z"
+    "createdAt": "2026-06-30T03:43:16.512Z"
   },
   {
     "runId": "run-51",
@@ -19913,7 +19913,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.069Z",
+      "capturedAt": "2026-06-30T03:43:16.524Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -22151,7 +22151,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.069Z"
+    "createdAt": "2026-06-30T03:43:16.524Z"
   },
   {
     "runId": "run-52",
@@ -22178,7 +22178,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.089Z",
+      "capturedAt": "2026-06-30T03:43:16.537Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -24104,7 +24104,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.089Z"
+    "createdAt": "2026-06-30T03:43:16.537Z"
   },
   {
     "runId": "run-53",
@@ -24131,7 +24131,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.100Z",
+      "capturedAt": "2026-06-30T03:43:16.551Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -26297,7 +26297,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.100Z"
+    "createdAt": "2026-06-30T03:43:16.551Z"
   },
   {
     "runId": "run-54",
@@ -26324,7 +26324,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.111Z",
+      "capturedAt": "2026-06-30T03:43:16.580Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -28666,7 +28666,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.111Z"
+    "createdAt": "2026-06-30T03:43:16.580Z"
   },
   {
     "runId": "run-55",
@@ -28693,7 +28693,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.125Z",
+      "capturedAt": "2026-06-30T03:43:16.603Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -31091,7 +31091,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.125Z"
+    "createdAt": "2026-06-30T03:43:16.603Z"
   },
   {
     "runId": "run-56",
@@ -31118,7 +31118,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.135Z",
+      "capturedAt": "2026-06-30T03:43:16.614Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -33308,7 +33308,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.135Z"
+    "createdAt": "2026-06-30T03:43:16.614Z"
   },
   {
     "runId": "run-57",
@@ -33335,7 +33335,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.147Z",
+      "capturedAt": "2026-06-30T03:43:16.640Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -35621,7 +35621,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.147Z"
+    "createdAt": "2026-06-30T03:43:16.640Z"
   },
   {
     "runId": "run-58",
@@ -35648,7 +35648,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.163Z",
+      "capturedAt": "2026-06-30T03:43:16.669Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -38006,7 +38006,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.163Z"
+    "createdAt": "2026-06-30T03:43:16.669Z"
   },
   {
     "runId": "run-59",
@@ -38033,7 +38033,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.175Z",
+      "capturedAt": "2026-06-30T03:43:16.681Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -40207,7 +40207,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.175Z"
+    "createdAt": "2026-06-30T03:43:16.681Z"
   },
   {
     "runId": "run-60",
@@ -40234,7 +40234,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.186Z",
+      "capturedAt": "2026-06-30T03:43:16.691Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -42512,7 +42512,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.186Z"
+    "createdAt": "2026-06-30T03:43:16.691Z"
   },
   {
     "runId": "run-61",
@@ -42539,7 +42539,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.197Z",
+      "capturedAt": "2026-06-30T03:43:16.714Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -44729,7 +44729,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.197Z"
+    "createdAt": "2026-06-30T03:43:16.714Z"
   },
   {
     "runId": "run-62",
@@ -44756,7 +44756,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.210Z",
+      "capturedAt": "2026-06-30T03:43:16.735Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -47050,7 +47050,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.210Z"
+    "createdAt": "2026-06-30T03:43:16.735Z"
   },
   {
     "runId": "run-63",
@@ -47077,7 +47077,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.222Z",
+      "capturedAt": "2026-06-30T03:43:16.755Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -49051,7 +49051,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.222Z"
+    "createdAt": "2026-06-30T03:43:16.755Z"
   },
   {
     "runId": "run-64",
@@ -49078,7 +49078,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.234Z",
+      "capturedAt": "2026-06-30T03:43:16.783Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -51420,7 +51420,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.234Z"
+    "createdAt": "2026-06-30T03:43:16.783Z"
   },
   {
     "runId": "run-65",
@@ -51447,7 +51447,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.246Z",
+      "capturedAt": "2026-06-30T03:43:16.818Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -53901,7 +53901,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.246Z"
+    "createdAt": "2026-06-30T03:43:16.818Z"
   },
   {
     "runId": "run-66",
@@ -53928,7 +53928,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.257Z",
+      "capturedAt": "2026-06-30T03:43:16.867Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -56326,7 +56326,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.257Z"
+    "createdAt": "2026-06-30T03:43:16.867Z"
   },
   {
     "runId": "run-67",
@@ -56353,7 +56353,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.267Z",
+      "capturedAt": "2026-06-30T03:43:16.891Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -58783,7 +58783,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.267Z"
+    "createdAt": "2026-06-30T03:43:16.891Z"
   },
   {
     "runId": "run-68",
@@ -58810,7 +58810,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.282Z",
+      "capturedAt": "2026-06-30T03:43:16.906Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -60824,7 +60824,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.282Z"
+    "createdAt": "2026-06-30T03:43:16.906Z"
   },
   {
     "runId": "run-69",
@@ -60851,7 +60851,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.295Z",
+      "capturedAt": "2026-06-30T03:43:16.939Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -63153,7 +63153,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.295Z"
+    "createdAt": "2026-06-30T03:43:16.939Z"
   },
   {
     "runId": "run-70",
@@ -63180,7 +63180,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.307Z",
+      "capturedAt": "2026-06-30T03:43:16.967Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -65370,7 +65370,7 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.307Z"
+    "createdAt": "2026-06-30T03:43:16.967Z"
   },
   {
     "runId": "run-71",
@@ -65397,7 +65397,7 @@
       "rewindTick": 0,
       "currentTick": 30,
       "totalTicksElapsed": 30,
-      "capturedAt": "2026-06-30T03:30:23.321Z",
+      "capturedAt": "2026-06-30T03:43:16.979Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -67491,6 +67491,6 @@
         }
       }
     },
-    "createdAt": "2026-06-30T03:30:23.321Z"
+    "createdAt": "2026-06-30T03:43:16.979Z"
   }
 ]

@@ -1707,358 +1707,356 @@
       "name": "length",
       "path": "world.state._outcomeRecords.length",
       "values": [
-        -1,
-        -6,
-        9
+        -16,
+        -8,
+        -14
       ],
-      "mean": 0.67,
-      "median": -1,
-      "stdDev": 7.64,
-      "ci95Lower": -18.31,
-      "ci95Upper": 19.64,
-      "min": -6,
-      "max": 9,
-      "cohensD": 0.12,
-      "significant": false
+      "mean": -12.67,
+      "median": -14,
+      "stdDev": 4.16,
+      "ci95Lower": -23.01,
+      "ci95Upper": -2.32,
+      "min": -16,
+      "max": -8,
+      "cohensD": -4.3,
+      "significant": true
     },
     {
       "name": "length",
       "path": "world.state._cssd.cycles.length",
       "values": [
-        -8,
-        -4,
-        -8
+        -3,
+        -3,
+        -9
       ],
-      "mean": -6.67,
-      "median": -8,
-      "stdDev": 2.31,
-      "ci95Lower": -12.4,
-      "ci95Upper": -0.93,
-      "min": -8,
-      "max": -4,
-      "cohensD": -4.08,
-      "significant": true
+      "mean": -5,
+      "median": -3,
+      "stdDev": 3.46,
+      "ci95Lower": -13.61,
+      "ci95Upper": 3.61,
+      "min": -9,
+      "max": -3,
+      "cohensD": -2.04,
+      "significant": false
     },
     {
       "name": "length",
       "path": "world.state._ipc.cases.length",
       "values": [
-        -2,
-        -12,
-        -6
+        -8,
+        20,
+        17
       ],
-      "mean": -6.67,
-      "median": -6,
-      "stdDev": 5.03,
-      "ci95Lower": -19.17,
-      "ci95Upper": 5.84,
-      "min": -12,
-      "max": -2,
-      "cohensD": -1.87,
+      "mean": 9.67,
+      "median": 17,
+      "stdDev": 15.37,
+      "ci95Lower": -28.53,
+      "ci95Upper": 47.86,
+      "min": -8,
+      "max": 20,
+      "cohensD": 0.89,
       "significant": false
     },
     {
       "name": "handHygieneCompliance",
       "path": "world.state._ipc.handHygieneCompliance",
       "values": [
-        3,
-        9,
-        -17
+        -4,
+        6,
+        6
       ],
-      "mean": -1.67,
-      "median": 3,
-      "stdDev": 13.61,
-      "ci95Lower": -35.49,
-      "ci95Upper": 32.15,
-      "min": -17,
-      "max": 9,
-      "cohensD": -0.17,
+      "mean": 2.67,
+      "median": 6,
+      "stdDev": 5.77,
+      "ci95Lower": -11.68,
+      "ci95Upper": 17.01,
+      "min": -4,
+      "max": 6,
+      "cohensD": 0.65,
       "significant": false
     },
     {
       "name": "length",
       "path": "world.state._clinicalNutrition.assessments.length",
       "values": [
-        -3,
+        3,
         -2,
-        -4
+        3
       ],
-      "mean": -3,
-      "median": -3,
-      "stdDev": 1,
-      "ci95Lower": -5.48,
-      "ci95Upper": -0.52,
-      "min": -4,
-      "max": -2,
-      "cohensD": -4.24,
-      "significant": true
+      "mean": 1.33,
+      "median": 3,
+      "stdDev": 2.89,
+      "ci95Lower": -5.84,
+      "ci95Upper": 8.51,
+      "min": -2,
+      "max": 3,
+      "cohensD": 0.65,
+      "significant": false
     },
     {
       "name": "length",
       "path": "world.state._clinicalNutrition.tubeFeedings.length",
       "values": [
-        2,
         -1,
-        -2
-      ],
-      "mean": -0.33,
-      "median": -1,
-      "stdDev": 2.08,
-      "ci95Lower": -5.5,
-      "ci95Upper": 4.84,
-      "min": -2,
-      "max": 2,
-      "cohensD": -0.23,
-      "significant": false
-    },
-    {
-      "name": "length",
-      "path": "world.state._radiotherapy.plans.length",
-      "values": [
-        -2,
+        -1,
         -1
       ],
-      "mean": -1.5,
-      "median": -1.5,
-      "stdDev": 0.71,
-      "ci95Lower": -7.85,
-      "ci95Upper": 4.85,
-      "min": -2,
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": -1,
+      "ci95Upper": -1,
+      "min": -1,
       "max": -1,
-      "cohensD": -3,
-      "significant": false
+      "cohensD": 0,
+      "significant": true
     },
     {
       "name": "length",
       "path": "world.state._radiotherapy.fractions.length",
       "values": [
-        -32,
-        -39
+        -1,
+        -12
       ],
-      "mean": -35.5,
-      "median": -35.5,
-      "stdDev": 4.95,
-      "ci95Lower": -79.97,
-      "ci95Upper": 8.97,
-      "min": -39,
-      "max": -32,
-      "cohensD": -10.14,
+      "mean": -6.5,
+      "median": -6.5,
+      "stdDev": 7.78,
+      "ci95Lower": -76.38,
+      "ci95Upper": 63.38,
+      "min": -12,
+      "max": -1,
+      "cohensD": -1.18,
       "significant": false
     },
     {
       "name": "length",
       "path": "world.state._dialysis.sessions.length",
       "values": [
-        -7,
-        -4,
-        -4
+        -5,
+        -3,
+        -2
       ],
-      "mean": -5,
-      "median": -4,
-      "stdDev": 1.73,
-      "ci95Lower": -9.3,
-      "ci95Upper": -0.7,
-      "min": -7,
-      "max": -4,
-      "cohensD": -4.08,
-      "significant": true
+      "mean": -3.33,
+      "median": -3,
+      "stdDev": 1.53,
+      "ci95Lower": -7.13,
+      "ci95Upper": 0.46,
+      "min": -5,
+      "max": -2,
+      "cohensD": -3.09,
+      "significant": false
     },
     {
       "name": "length",
       "path": "lastTickState._outcomeRecords.length",
       "values": [
-        -1,
-        -6,
-        9
+        -16,
+        -8,
+        -14
       ],
-      "mean": 0.67,
-      "median": -1,
-      "stdDev": 7.64,
-      "ci95Lower": -18.31,
-      "ci95Upper": 19.64,
-      "min": -6,
-      "max": 9,
-      "cohensD": 0.12,
-      "significant": false
+      "mean": -12.67,
+      "median": -14,
+      "stdDev": 4.16,
+      "ci95Lower": -23.01,
+      "ci95Upper": -2.32,
+      "min": -16,
+      "max": -8,
+      "cohensD": -4.3,
+      "significant": true
     },
     {
       "name": "length",
       "path": "lastTickState._cssd.cycles.length",
       "values": [
-        -8,
-        -4,
-        -8
+        -3,
+        -3,
+        -9
       ],
-      "mean": -6.67,
-      "median": -8,
-      "stdDev": 2.31,
-      "ci95Lower": -12.4,
-      "ci95Upper": -0.93,
-      "min": -8,
-      "max": -4,
-      "cohensD": -4.08,
-      "significant": true
+      "mean": -5,
+      "median": -3,
+      "stdDev": 3.46,
+      "ci95Lower": -13.61,
+      "ci95Upper": 3.61,
+      "min": -9,
+      "max": -3,
+      "cohensD": -2.04,
+      "significant": false
     },
     {
       "name": "length",
       "path": "lastTickState._ipc.cases.length",
       "values": [
-        -2,
-        -12,
-        -6
+        -8,
+        20,
+        17
       ],
-      "mean": -6.67,
-      "median": -6,
-      "stdDev": 5.03,
-      "ci95Lower": -19.17,
-      "ci95Upper": 5.84,
-      "min": -12,
-      "max": -2,
-      "cohensD": -1.87,
+      "mean": 9.67,
+      "median": 17,
+      "stdDev": 15.37,
+      "ci95Lower": -28.53,
+      "ci95Upper": 47.86,
+      "min": -8,
+      "max": 20,
+      "cohensD": 0.89,
       "significant": false
     },
     {
       "name": "handHygieneCompliance",
       "path": "lastTickState._ipc.handHygieneCompliance",
       "values": [
-        3,
-        9,
-        -17
+        -4,
+        6,
+        6
       ],
-      "mean": -1.67,
-      "median": 3,
-      "stdDev": 13.61,
-      "ci95Lower": -35.49,
-      "ci95Upper": 32.15,
-      "min": -17,
-      "max": 9,
-      "cohensD": -0.17,
+      "mean": 2.67,
+      "median": 6,
+      "stdDev": 5.77,
+      "ci95Lower": -11.68,
+      "ci95Upper": 17.01,
+      "min": -4,
+      "max": 6,
+      "cohensD": 0.65,
       "significant": false
     },
     {
       "name": "length",
       "path": "lastTickState._clinicalNutrition.assessments.length",
       "values": [
-        -3,
+        3,
         -2,
-        -4
+        3
       ],
-      "mean": -3,
-      "median": -3,
-      "stdDev": 1,
-      "ci95Lower": -5.48,
-      "ci95Upper": -0.52,
-      "min": -4,
-      "max": -2,
-      "cohensD": -4.24,
-      "significant": true
+      "mean": 1.33,
+      "median": 3,
+      "stdDev": 2.89,
+      "ci95Lower": -5.84,
+      "ci95Upper": 8.51,
+      "min": -2,
+      "max": 3,
+      "cohensD": 0.65,
+      "significant": false
     },
     {
       "name": "length",
       "path": "lastTickState._clinicalNutrition.tubeFeedings.length",
       "values": [
-        2,
         -1,
-        -2
-      ],
-      "mean": -0.33,
-      "median": -1,
-      "stdDev": 2.08,
-      "ci95Lower": -5.5,
-      "ci95Upper": 4.84,
-      "min": -2,
-      "max": 2,
-      "cohensD": -0.23,
-      "significant": false
-    },
-    {
-      "name": "length",
-      "path": "lastTickState._radiotherapy.plans.length",
-      "values": [
-        -2,
+        -1,
         -1
       ],
-      "mean": -1.5,
-      "median": -1.5,
-      "stdDev": 0.71,
-      "ci95Lower": -7.85,
-      "ci95Upper": 4.85,
-      "min": -2,
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": -1,
+      "ci95Upper": -1,
+      "min": -1,
       "max": -1,
-      "cohensD": -3,
-      "significant": false
+      "cohensD": 0,
+      "significant": true
     },
     {
       "name": "length",
       "path": "lastTickState._radiotherapy.fractions.length",
       "values": [
-        -32,
-        -39
+        -1,
+        -12
       ],
-      "mean": -35.5,
-      "median": -35.5,
-      "stdDev": 4.95,
-      "ci95Lower": -79.97,
-      "ci95Upper": 8.97,
-      "min": -39,
-      "max": -32,
-      "cohensD": -10.14,
+      "mean": -6.5,
+      "median": -6.5,
+      "stdDev": 7.78,
+      "ci95Lower": -76.38,
+      "ci95Upper": 63.38,
+      "min": -12,
+      "max": -1,
+      "cohensD": -1.18,
       "significant": false
     },
     {
       "name": "length",
       "path": "lastTickState._dialysis.sessions.length",
       "values": [
-        -7,
-        -4,
-        -4
+        -5,
+        -3,
+        -2
       ],
-      "mean": -5,
-      "median": -4,
-      "stdDev": 1.73,
-      "ci95Lower": -9.3,
-      "ci95Upper": -0.7,
-      "min": -7,
-      "max": -4,
-      "cohensD": -4.08,
-      "significant": true
+      "mean": -3.33,
+      "median": -3,
+      "stdDev": 1.53,
+      "ci95Lower": -7.13,
+      "ci95Upper": 0.46,
+      "min": -5,
+      "max": -2,
+      "cohensD": -3.09,
+      "significant": false
     },
     {
       "name": "occupancyRate",
       "path": "sentinelOutput.occupancyRate",
       "values": [
-        -0.06015037593984962,
-        0.03007518796992481,
-        -0.022556390977443663
+        0.007518796992481258,
+        -0.03759398496240607,
+        -0.015037593984962405
       ],
       "mean": -0.02,
       "median": -0.02,
-      "stdDev": 0.05,
-      "ci95Lower": -0.13,
-      "ci95Upper": 0.1,
-      "min": -0.06,
-      "max": 0.03,
-      "cohensD": -0.55,
+      "stdDev": 0.02,
+      "ci95Lower": -0.07,
+      "ci95Upper": 0.04,
+      "min": -0.04,
+      "max": 0.01,
+      "cohensD": -0.94,
       "significant": false
     },
     {
       "name": "UNKNOWN",
       "path": "sentinelOutput.diseasePrevalence.UNKNOWN",
       "values": [
-        -9,
-        -3,
-        -4
+        -19,
+        -6,
+        -16
       ],
-      "mean": -5.33,
-      "median": -4,
-      "stdDev": 3.21,
-      "ci95Lower": -13.32,
-      "ci95Upper": 2.65,
-      "min": -9,
-      "max": -3,
-      "cohensD": -2.35,
+      "mean": -13.67,
+      "median": -16,
+      "stdDev": 6.81,
+      "ci95Lower": -30.58,
+      "ci95Upper": 3.24,
+      "min": -19,
+      "max": -6,
+      "cohensD": -2.84,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "world.state._radiotherapy.plans.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "lastTickState._radiotherapy.plans.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
       "significant": false
     }
   ],
-  "generatedAt": "2026-06-30T03:30:30.964Z"
+  "generatedAt": "2026-06-30T03:43:27.230Z"
 }

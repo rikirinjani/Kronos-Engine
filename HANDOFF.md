@@ -71,7 +71,6 @@
 ## Timeline Governor
 
 ### Pending
-- **Seamless experiment runner.** Current flow: load era JSON → manually wire configs → call `createWorld()` → loop `tick()`. Build a `loadEraAndRun(eraPath, rewindPointId, ticks, experimentConfig?)` that chains era loader → world engine → tick loop → experiment output in one call. Makes Branch Analyst's job: one function call instead of 10 lines of boilerplate. Output: function + test + integration with `runExperiment()`.
 
 ### Active
 
@@ -80,6 +79,7 @@
 - **My scope:** Engine foundation complete (RNG, Universe, WorldEngine, RewindPoints, BranchEngine). No remaining Phase 1-3 items assigned to me. If calibration (1.2) or sentinel scale-up (2.1) needs engine changes, I'm available. Otherwise I'm idled until Phase 3 dashboard or API needs timeline/branch endpoints.
 
 ### Completed
+- **2026-06-30** — Seamless experiment runner built (`src/engine/experiment-runner.ts`). `loadEraAndRun(eraPath, rewindPointId, options)` chains era JSON load → all-6-sector config builder → `createWorld()` → `run()` → `snapshot()` in one call. Supports sector subset, config overrides. 6 tests, `tsc --noEmit` clean. Branch Analyst can now run `loadEraAndRun("docs/history/era-contemporary.json", "RP-CONTEMP-003", { ticks: 30, sectors })` instead of 15+ lines of manual wiring.
 - **2026-06-30** — Integrated `era-loader.ts` into `src/engine/index.ts` exports (`loadEraConfig`, `buildSectorConfigs`). Full suite: 171 tests across 19 files, `tsc --noEmit` clean. Phase 1.1 era-to-world data pipeline fully wired from engine exports.
 - **2026-06-29** — Built deterministic RNG (`createRNG`, `restoreRNG`) with state capture. UniverseID with genealogy (`createUniverse`, `branchUniverse`). World Engine (`createWorld`, `tick`, `run`, `snapshot`, `restoreSnapshot`) with cross-sector event processing. 27 engine tests, all passing.
 - **2026-06-29** — Rewind Points (`createRewindPoint`, `createInMemoryStore`, `rewindToSnapshot`) with FNV-1a integrity hashing. Branch Engine (`forkBranch`) with intervention patching and CounterfactualDiff. 20 timeline tests, all passing.
@@ -87,10 +87,20 @@
 
 ---
 
+## Paper OC
+
+### Pending
+- **Phase 2.2: Paper 1 (JAMIA).** All experiment data ready: P-003 WWII 30 seeds, P-004 DR sentinel 30 seeds, Phase 2.1 30-hospital heatmap, integration test. Key references: `docs/PROJECT-OVERVIEW.md`, `docs/proposals/P-002-deers-rock-adapter.md`, `experiment-results/`. Target: JAMIA. Framing: *"Retrospective validation. Prospective application."*
+
+### Active
+
+### Completed
+
+---
+
 ## Meta Platform (cross-domain)
 
 ### Pending
-- **ROADMAP.md finalized.** All agent feedback incorporated. See `ROADMAP.md` for full document.
 
 ### Active
 
