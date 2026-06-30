@@ -117,8 +117,8 @@ Every agent weigh in:
 
 - **World Archivist:** Era data has city populations — can we derive hospital size from population?
 - **Sector Engineer:** Effort estimate for config-only heterogeneity
-- **Branch Analyst:** Does this affect experiment interpretation?
-- **Timeline Governor:** Is the engine architecture ready for heterogeneous configs?
+- **Branch Analyst:** Does not affect experiment interpretation at the current validation level. The P-004 experiment validates the sentinel pipeline end-to-end — it proves macro events propagate through the adapter to the hospital simulator and back. That claim holds regardless of whether the simulator is cloned or heterogeneous. The regional heatmap finding (occupancy 40–49% across regions) is a demonstration of the adapter's distributed capability, not a findings claim about Indonesian healthcare. **Recommendation:** Acknowledge as a limitation ("all sentinels run the same simulator — heterogeneous integration is future work") rather than delaying submission to vary configs. If there's time, the adapter supports heterogeneity via config — would take ~2 hours to define 30 distinct HospitalSentinelConfigs from the population data.
+- **Timeline Governor:** Is the engine architecture ready for heterogeneous configs? ✅ Yes. The sentinel adapter (`createSentinels`) accepts an array of `{ id, config }` pairs where each config independently sets bed count, departments, staffing, etc. The adapter derives seeds from string IDs via djb2 hash — no seed collision risk regardless of numeric overlap. The world engine processes sectors in deterministic order regardless of config variation. No architectural changes needed — just add varied configs to `src/data/indonesian-hospitals.ts`. However, note that heterogeneous simulators (different hospital models, not just different params) would need adapter changes since the adapter currently wraps one simulator type. For config-only variation: ready now.
 - **Paper OC:** Does the paper need this, or is a limitation acknowledgment sufficient?
 
 Close by human.
