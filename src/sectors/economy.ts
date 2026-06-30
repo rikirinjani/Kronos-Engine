@@ -68,14 +68,11 @@ export function createEconomySector(): Sector {
       eventType: GEOPOLITICS_EVENTS.WAR_CASUALTIES,
       handle(event, state) {
         const s = state as EconomyState;
-        const warId = event.data.warId as string;
         const casualtiesDelta = event.data.casualtiesDelta as number;
         const drain = casualtiesDelta * 100_000_000;
         let newNations = { ...s.nations };
 
         for (const n of Object.values(newNations)) {
-          const warIdx = n.wars?.indexOf(warId);
-          if (warIdx === -1 || warIdx === undefined) continue;
           const warDrain = drain * (n.gdp / 1e13);
           n.gdp = Math.max(1e9, n.gdp - warDrain);
         }

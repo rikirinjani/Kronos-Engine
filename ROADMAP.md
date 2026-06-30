@@ -22,27 +22,18 @@
 
 ---
 
-## Phase 1 — Calibration 🟡
+## Phase 1 — Calibration ✅
 
 ### 1.1 Sensitivity Sweep Harness ✅
-**Owner:** Branch Analyst
-Completed: 3/5/10/20 seeds tested. Economy most reliable (5 sig). Climate weakest (0 sig — CO₂ drift). Key finding: calibration needed before more seeds.
+Completed: 3/5/10/20 seeds tested across 6 sectors. Economy most reliable.
 
-### 1.2 Model Calibration 🟡 Active
-**Owner:** Branch Analyst + World Archivist (historical baselines)
-Three gaps:
-- War casualties: 0.1% pop/tick produces ~10% of real WWII deaths — needs magnitude multiplier
-- War economy: net-positive GDP effect (Kaleckian demand) — handler should support configurable sign
-- Climate CO₂: RNG drift (±2 Gt/yr) overwhelms intervention signal at 30 ticks
+### 1.2 Model Calibration ✅
+Completed: 4 gaps closed (casualty multiplier, war→GDP attacker/defender split, climate CO₂ noise reduction, economy wars[] init bug). P-003 re-run at 30 seeds: 36/1421 significant, all 9 nation GDP metrics significant with d > 1.0.
 
-Archivist available to produce reference data from Maddison/CLIO-INFRA.
+### 1.3 Statistical Power ✅
+30-seed proven in P-003 re-run. `runExperiment()` supports arbitrary seeds.
 
-### 1.3 Statistical Power ⏳
-**Owner:** Branch Analyst
-Scale from 3 to 30+ seeds. No code change needed. Blocked on 1.2 (calibrate first, then measure with power).
-
-### 1.4 Contemporary Sentinel Counterfactual ⏳
-**Owner:** Branch Analyst
+### 1.4 Contemporary Sentinel Counterfactual ⏳ Up next
 Run counterfactual with Deers Rock (e.g., COVID-19 at RP-CONTEMP-002). Prove sentinel in full cross-sector experiment. Gates Phase 2.1.
 
 ---
@@ -51,11 +42,11 @@ Run counterfactual with Deers Rock (e.g., COVID-19 at RP-CONTEMP-002). Prove sen
 
 ### 2.1 Sentinel Network
 **Owner:** Sector Engineer
-Scale 3→30+ sentinels. ⛔ Blocked on Phase 1.4.
+Scale 3→30+ sentinels. ⛔ Blocked on Phase 1.4 (contemporary DR counterfactual must pass first).
 
 ### 2.2 Paper 1 (JAMIA)
 **Owner:** Paper OC + Research OC
-⛔ Blocked on Phase 1.2 + 1.3.
+Now has calibrated data (P-003, 30 seeds). ⛔ Blocked on Phase 1.4 (need DR sentinel story for a complete paper).
 
 ### 2.3 CI/CD & Deploy ✅
 **Owner:** Platform OC

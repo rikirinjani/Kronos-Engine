@@ -1,7 +1,7 @@
 # Phase 1 — Progress Tracking
 
 ## Current Counts
-- Traces recorded: 19
+- Traces recorded: 20
 - Failures recorded: 4
 - Proposals submitted: 1
 - Proposals approved: 0
@@ -12,4 +12,4 @@
 - Current progress: 1/40 proposals, 0/6 months
 
 ## Last Updated
-2026-06-30 — Phase 1.2 calibration: 3 gaps closed. 179 tests, 20 files. Ready for P-003 re-run.
+2026-06-30 — Phase 1.2 calibration: all 4 gaps closed. P-003 re-run fully unblocked.

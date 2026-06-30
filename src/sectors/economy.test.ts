@@ -155,4 +155,26 @@ describe("EconomySector", () => {
     expect(state.globalTradeVolume).toBe(100);
     expect(state.marketIndex).toBe(100);
   });
+
+  it("handles geopolitics.war_casualties without wars[] filter", () => {
+    const sector = createEconomySector();
+    const state = sector.init(42, sampleConfig as unknown as Record<string, unknown>) as EconomyState;
+    const bus = createEventBus();
+    const ctx = { tick: 1, rng: mulberry32(42), eventBus: bus };
+
+    const handler = sector.handlers.find((h) => h.eventType === "geopolitics.war_casualties")!;
+    const updated = handler.handle(
+      {
+        type: "geopolitics.war_casualties",
+        source: "geopolitics",
+        data: { warId: "W-2022-01", casualtiesDelta: 1000, total: 151_000 },
+        tick: 1,
+      },
+      state
+    ) as EconomyState;
+
+    expect(updated.nations["USA"]!.gdp).toBeLessThan(27_000_000_000_000);
+    expect(updated.nations["USA"]!.gdp).toBeGreaterThan(26_000_000_000_000);
+    expect(updated.nations["CHN"]!.gdp).toBeLessThan(18_000_000_000_000);
+  });
 });
