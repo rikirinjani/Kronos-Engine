@@ -39,6 +39,7 @@
 ### Pending
 
 ### Active
+- **Phase 2.1: Scale sentinel network to 30+ hospitals.** P-002 adapter already supports multi-instance (`createSentinels`). This phase: define city configs (Makassar, Surabaya, Jayapura, Medan, etc.), verify independent operation (derived seeds, no cross-talk), run contemporary counterfactual with 30 sentinels, publish regional health pressure heatmap. Reference data: World Archivist's calibration data for era-contemporary.json city demographics.
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
