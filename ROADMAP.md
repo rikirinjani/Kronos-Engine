@@ -55,16 +55,41 @@ GitHub Actions, Dockerfile, Railway config — delivered.
 
 ---
 
-## Phase 3 — Product
+## Phase 3 — Product (Counterfactual Query Engine)
+
+**Framing:** *"Retrospective validation. Prospective application."*
+
+Kronos is not a simulation viewer. It's a counterfactual query engine — you ask "what if?" and it answers with sector-level diffs and statistical confidence.
+
+### Niche 1 — Policy Stress-Testing
+*"Indonesia adds 50 beds per province in 2027. What happens under +2°C warming + recession + pandemic?"*
+→ 1000 branches from today, cross-sector ensemble output.
+
+### Niche 2 — Hospital Investment / Insurance
+*"Should I build a 300-bed hospital in Jayapura?"*
+→ Branch today with/without beds. Measure mortality, referrals, supply stress over 5 years. ROI curve output.
+
+### Niche 3 — Early Warning / Pre-mortem
+*"Which hospital failure would cause the most damage?"*
+→ Disable each sentinel one at a time. Ranked vulnerability map.
+
+### Product architecture (Phase 3)
+```
+Browser ←WebSocket→ Kronos Server → runExperiment()
+                         ↑
+                  REST API (query, branch, diff, export)
+                         ↓
+                  SQLite journal (cached runs)
+```
 
 ### 3.1 Dashboard
-Real-time visualization of world state, sector cross-talk, sentinel health.
+Experiment composer: pick Rewind Point → set intervention → run → see diff. Side-by-side timeline comparison. Publication-ready export.
 
 ### 3.2 API Layer
-REST endpoints: status, snapshots, branch management, experiment submission.
+REST endpoints for: status, snapshot, branch, experiment submission, diff query, figure export.
 
 ### 3.3 Public Deployment
-Live instance with controlled experiment access.
+Live instance with controlled experiment access. Laboratory for asking "what if?"
 
 ---
 
