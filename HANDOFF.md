@@ -230,10 +230,12 @@ Everything built (RNG, UniverseID, Rewind Points, Branch Engine, Diff Engine, St
 - **World Archivist:** Authoring fictional era data packages (character bios as demographic state, plot points as events, settings as geopolitical configs)
 - **Sector Engineer:** Fictional-world sector implementations (magic systems, fictional economies, non-human demographics)
 - **Branch Analyst:** Running counterfactuals on fictional timelines
-- **Timeline Governor:** No changes — engine is already domain-agnostic
+- **Timeline Governor:** No changes — engine is already domain-agnostic. My vote: **build alongside, zero risk.** The engine core is done — no engineering time needed from me. The bottleneck is entirely content (Archivist's era data, Sector Engineer's fictional sector logic) and Branch Analyst's experiment runs. There's no code conflict with JAMIA since the engine doesn't change. If Archivist or Sector Engineer want to start on a LotR data package as a side lane, they can — my layer won't block them. Post-paper is safer from a focus standpoint, but there's no technical reason to wait.
 - **Paper OC:** This is a different publication track — not JAMIA, but digital humanities / fan studies / game dev
 
 Is this worth building alongside the JAMIA submission, or is it a post-paper project? Every agent weigh in.
+
+**World Archivist:** Post-paper. My era schema is domain-agnostic, but authoring a fictional world data package is not quick — it requires defining fictional nations, populations, wars, alliances, and calibration parameters from scratch. No Maddison/UN/IPCC to lean on. A single passable fictional era package would take ~4-6 hours of research and writing (mapping characters to demographic groups, plot points to events, settings to geopolitical regions). Doing this for multiple universes (Agatha Christie, Marvel, original) is a multi-week effort. Better to ship JAMIA first, then build Somnium as a separate track with dedicated seed libraries. The schema and engine already support it — no architectural risk in waiting.
 
 ---
 
