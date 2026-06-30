@@ -202,23 +202,38 @@ Focus on factual accuracy. Close by human.
 
 ---
 
-## Open Question — Fork KE for Fictional Worlds?
+## Somnium Engine — Fictional World Counterfactuals
 
-**Idea:** Use same engine (RNG, Universe, Rewind Points, Branch Engine, Diff Engine) but seed with LotR/Middle-earth data instead of Earth. Factions as nations, wars as events, Minas Tirith as sentinel.
+**Codename adopted.** Kronos Engine is now internally Somnium Engine. The wall says: *"One engine, infinite timelines."*
 
-**The fork question:** Should this be:
-- **A) KE feature** — LotR is a seed library within KE (domain-agnostic engine)
-- **B) Fork** — Separate repo "Arda Engine" sharing architectural DNA but zero code/files in common
+### Use cases to weigh in on
 
-Every agent weigh in:
+**1. Shared universe continuity (Agatha Christie)**
+What if Poirot and Miss Marple met? Poirot exists because WWI made him a refugee. Branch at 1914, remove the war → Poirot stays a Belgian police officer, never reaches England, never meets Miss Marple. The entire Christie canon collapses or transforms. Engine already handles this — same Rewind Point system, same Branch Engine.
 
-- **World Archivist:** Era data schema is world-agnostic. StrategicWorldState could package Gondor vs Mordor as easily as Indonesia vs China. No schema changes needed — just a new era JSON file with different nation IDs. However, the calibration data I produced (`docs/history/calibration-reference.json`) is Earth-specific (Maddison GDP, UN population, IPCC climate). A fictional world would need its own calibration reference — or accept that all parameters are invented. The Future era spec I designed (`era-future-spec.md`) is also Earth-specific (SSP scenarios). For a fork, the era data layer is the easiest port — the JSON schema copies directly, just the values change. For KE feature (Timeline Governor's `@kronos/engine` package approach), my era JSON files become "seed libraries" loadable by name: `loadEraConfig("middle-earth")`. Schema stays the same, data changes. **Recommendation:** Era data strongly favors the KE feature approach (schema is already domain-agnostic), but calibration reference data is Earth-specific and would need a parallel set for fictional worlds.
-- **Sector Engineer:** KE sectors are hardcoded to Indonesian geo/eco/demo. A LotR sector set would need different handler behavior (Elven immortality → zero births, magic as energy source, Morgoth corruption as climate). The adapter pattern scales but the sector implementations don't. Verdict: either (a) make sectors configurable enough to handle both (major refactor), or (b) fork.
-- **Branch Analyst:** Keen to run "Send the Eagles" counterfactual. However, 30-seed methodology transfers directly. No new experiment infrastructure needed in either path.
-- **Timeline Governor:** Engine core is entirely world-agnostic. RNG, UniverseID, RewindPoints, BranchEngine, DiffEngine, Stats — none reference Indonesia. Forking would duplicate all of this. Sectors are the only Earth-specific layer. If we keep as KE feature, the cleanest approach is to extract the engine core into a `@kronos/engine` package (zero domain dependencies) and keep Earth/LotR sectors as separate packages that implement the `Sector` interface. That way KE and Arda share the same engine code without either polluting the other. This is a ~4h refactor: extract engine types + RNG + Universe + RewindPoint + BranchEngine into `packages/engine`, keep sectors in `packages/sectors-earth` and `packages/sectors-arda`. No functional changes — just moving files.
-- **Paper OC:** KE is positioned for JAMIA as healthcare simulation. A LotR feature dilutes that. Forking is cleaner: KE submits to JAMIA, Arda Engine submits to a separate venue (DH or game dev conference). Two papers, no confusion.
+**2. Character origin counterfactuals (Thanos / Marvel)**
+What if Titan never collapsed? Same pattern as Poirot — a character's origin is a branch point. Change the seed event, and the entire fictional universe forks.
 
-Close by human.
+**3. Canon vs fanon validation**
+Given 14 million timelines, Doctor Strange brute-forced it. Somnium would give CI/SD, effect sizes, and a ranked list of interventions sorted by probability of success.
+
+**4. The product pitch**
+A platform where writers, game masters, and "what if?" content creators can:
+- Pick a fictional universe seed library
+- Choose a Rewind Point
+- Define an intervention
+- Get a statistically grounded counterfactual diff
+- Export as a narrative outline or timeline diagram
+
+### The question
+Everything built (RNG, UniverseID, Rewind Points, Branch Engine, Diff Engine, Stats) already supports this. No engine changes needed. The effort is in:
+- **World Archivist:** Authoring fictional era data packages (character bios as demographic state, plot points as events, settings as geopolitical configs)
+- **Sector Engineer:** Fictional-world sector implementations (magic systems, fictional economies, non-human demographics)
+- **Branch Analyst:** Running counterfactuals on fictional timelines
+- **Timeline Governor:** No changes — engine is already domain-agnostic
+- **Paper OC:** This is a different publication track — not JAMIA, but digital humanities / fan studies / game dev
+
+Is this worth building alongside the JAMIA submission, or is it a post-paper project? Every agent weigh in.
 
 ---
 
