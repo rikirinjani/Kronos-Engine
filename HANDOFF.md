@@ -39,29 +39,30 @@
 ### Pending
 
 ### Active
-- **Calibration Gap A: War casualty multiplier.** Add `casualtyMultiplier` to GeopoliticsState. Replace `war.casualties += casualtiesDelta` with `war.casualties += casualtiesDelta * war.casualtyMultiplier`. Default = 1. For WWII: ~2,500. Spec by Branch Analyst.
-- **Calibration Gap B: War→GDP sign.** Split `war_start` handler into attacker/defender paths. Attacker: `gdp *= 1.03, trade -= 10, growth += 2.0`. Defender: `gdp *= 0.85, trade -= 50, growth -= 5.0`. Reference data in `docs/history/calibration-reference.json`.
-- **Calibration Gap C: Climate CO₂ noise.** Reduce `(rng.next() - 0.5) * 2` to `* 0.2`. Make amplitude configurable via sector init (`annualEmissionsNoise` param).
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
 - **2026-06-29** — All 4 World Simulator sectors (Geopolitics, Climate, Economy, Technology) + cross-sector event catalog with typed events. All wired with cross-sector event handlers. Sector Engineer scope delivered.
 - **2026-06-29** — Era-to-world loader built (`src/engine/era-loader.ts`). `buildSectorConfigs(state, era)` maps StrategicWorldState → geopolitics/climate/economy/technology configs for `createWorld()`. `loadEraConfig(path, rewindPointId)` reads era JSON from disk. Handles era-specific defaults: CO2 concentration (280–420), annual emissions (0–37 Gt), R&D spending (0.8%–3.5%), GDP growth/inflation rates by century. 7 tests, `tsc --noEmit` clean.
 - **2026-06-30** — **Phase 2.3: CI/CD complete.** GitHub Actions workflow (`.github/workflows/ci.yml`: typecheck + test on push to main/PR), Dockerfile (multi-stage, node:24-alpine), `.dockerignore`, `railway.json`, engine entry point (`src/index.ts`). 175 tests, 20 files, `tsc --noEmit` clean.
+- **2026-06-30** — **Phase 1.2 calibration: 3 gaps closed.** Gap A: `casualtyMultiplier` added to Geopolitics (default 1, configurable per era, applied in tick). Gap B: `war_start` handler split — attackers get GDP+3%/growth+2.0, defenders get GDP-15%/growth-5.0 (calibration-ref data driven). Gap C: Climate CO₂ noise reduced from ±2→±0.2, configurable via `annualEmissionsNoise` init param (default 0.2). 179 tests, 20 files, `tsc --noEmit` clean. Ready for P-003 re-run.
 
 ---
 
 ## Branch Analyst
 
 ### Pending
-- **Phase 1.2 Calibration handoff.** Three gaps spec'd and routed to Sector Engineer (Active). Awaiting handler changes before re-running P-003.
+- **Phase 1.2 calibration discovery: economy wars[] not seeded from initial state.**
+  Sector Engineer's Gap A and C changes work (casualtyMultiplier, climate noise). Gap B economy handler is structurally correct but inert — the `war_casualties` handler filters by `n.wars?.indexOf(warId)`, but `economy.ts:init()` always sets `wars: []` regardless of what's in the config. Existing W-1939-01 in the era data is never propagated to economy state. Result: war_casualties events fire but drain is silently skipped. GDP metrics show no significant divergence at 30 seeds.
+  **Fix needed in `economy.ts`: either read `wars[]` from config in init, or remove the wars[] filter from the war_casualties handler.** Latter is simpler — the drain formula already scales by national GDP, so the filter is redundant.
 
 ### Active
 
 ### Completed
 - **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
-- **2026-06-29** — **P-003 executed: "No WWII" counterfactual.** Branch at RP-MODERN-001 (1939), intervention ends W-1939-01. Ran parent + branch 30 ticks to 1969 across 6 sectors (no DR — graceful absence, modern healthcare not applicable to 1939). 3 seeds (42, 43, 44). 322 metrics. Results in `experiment-results/wwii-counterfactual/`. 36 tests passing. **Proof of concept — infrastructure proven, calibration is Phase 2.**
-- **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** 3/5/10/20 seeds tested across 6 sectors. Economy most reliable (5 sig at 20). Climate weakest (0 sig — CO₂ drift). Geopolitics energy strongest early but noise-dominated. Key finding: calibration needed before more seeds. Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
+- **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
+- **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
+- **2026-06-30** — **P-003 calibrated re-run (30 seeds).** Sector Engineer's calibration changes applied (Gap A: casualtyMultiplier=2500, Gap C: climate noise 0.2). 16/1421 metrics significant. Economy GDP still flat due to wars[] init bug (see Pending). Results in `experiment-results/wwii-counterfactual/p003-calibrated-summary.json`.
 
 ---
 
@@ -87,10 +88,9 @@
 
 ### Pending
 - **ROADMAP.md finalized.** All agent feedback incorporated. See `ROADMAP.md` for full document.
-- **Branch Analyst calibration spec ready for routing — Phase 1.2 Model Calibration.**
-  Three handler changes needed in sector modules to close the calibration gaps before P-003 re-run. See Branch Analyst section for full spec (3 entries under Pending). 
-  **Route to → Sector Engineer or Timeline Governor** (whoever can modify geopolitics/economy/climate tick handlers). Estimated effort: ~50 lines changed across 3 files, ~15 new tests. Each change is additive (configurable parameters with backward-compatible defaults).
-  **Prerequisite for:** Phase 1.3 Statistical Power (currently blocked), Phase 1.4 DR Counterfactual (blocked), Phase 2.2 Paper (blocked).
+- **Phase 1.2 calibration: 2 of 3 gaps closed. Gap B incomplete due to economy wars[] init bug.**
+  Sector Engineer delivered Gap A (casualtyMultiplier) and Gap C (climate noise). P-003 re-run at 30 seeds confirms handler code is correct but war_casualties→economy drain is silently skipped because `economy.ts:init()` sets `wars: []` regardless of initial config. See Branch Analyst Pending for full diagnosis. 
+  **Route to → Sector Engineer** (fix in economy.ts init). Simple fix: either read `wars[]` from config or remove the filter in the war_casualties handler.
 
 ### Active
 
