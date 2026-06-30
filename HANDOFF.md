@@ -39,6 +39,9 @@
 ### Pending
 
 ### Active
+- **Calibration Gap A: War casualty multiplier.** Add `casualtyMultiplier` to GeopoliticsState. Replace `war.casualties += casualtiesDelta` with `war.casualties += casualtiesDelta * war.casualtyMultiplier`. Default = 1. For WWII: ~2,500. Spec by Branch Analyst.
+- **Calibration Gap B: War→GDP sign.** Split `war_start` handler into attacker/defender paths. Attacker: `gdp *= 1.03, trade -= 10, growth += 2.0`. Defender: `gdp *= 0.85, trade -= 50, growth -= 5.0`. Reference data in `docs/history/calibration-reference.json`.
+- **Calibration Gap C: Climate CO₂ noise.** Reduce `(rng.next() - 0.5) * 2` to `* 0.2`. Make amplitude configurable via sector init (`annualEmissionsNoise` param).
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
@@ -51,22 +54,9 @@
 ## Branch Analyst
 
 ### Pending
+- **Phase 1.2 Calibration handoff.** Three gaps spec'd and routed to Sector Engineer (Active). Awaiting handler changes before re-running P-003.
 
 ### Active
-- **Phase 1.2 — Model Calibration.** Three gaps from sensitivity sweep. World Archivist delivered reference data (`docs/history/calibration-reference.json`). Specific handler changes needed (see Pending in Meta Platform — routes to Sector Engineer / Timeline Governor).
-
-### Pending (calibration spec — awaiting handler changes)
-- **2026-06-30 — Calibration Gap A: War casualties (geopolitics handler)**
-  **Problem:** `geopolitics.ts:tick` active-war casualty generator (`Math.floor(rng.next() * 500) + 50`) produces ~1K casualties over 30 ticks. Real WWII was 75M — **75,000x gap** per Archivist.
-  **Fix:** Add configurable `casualtyMultiplier` to `GeopoliticsState`. Default = 1 (current behavior). In the tick loop, replace `war.casualties += casualtiesDelta` with `war.casualties += casualtiesDelta * war.casualtyMultiplier` where `casualtyMultiplier` lives on the war object or a sector-level config. For P-003 re-run: set multiplier to 2,500 (gives ~2.5M–41M over 30 ticks, ~3–55% of real WWII scale — plausible for an early-stage war simulation).
-
-- **2026-06-30 — Calibration Gap B: War→GDP sign (economy handler)**
-  **Problem:** `economy.ts:war_start` handler applies 5% GDP hit and −1.5% growth. But base tick autonomous growth outpaces this → net-positive GDP with war (Kaleckian wartime demand). Real WWII: USA grew, DEU/RUS/JPN/CHN collapsed. Handler doesn't distinguish attacker vs defender economies.
-  **Fix:** Split `war_start` handler into attacker/defender branches. Attacker (e.g., DEU): `gdp *= 1.03` (war industrial mobilization), `tradeVolume -= 10` (blockades), `gdpGrowthRate += 2.0`. Defender (e.g., POL, FRA): `gdp *= 0.85`, `tradeVolume -= 50`, `gdpGrowthRate -= 5.0`. Reference: per-decade GDP rates in calibration-reference.json (USA +3.2%, DEU −2.1%, RUS −1.5% for 1939-1949).
-
-- **2026-06-30 — Calibration Gap C: Climate CO₂ drift (climate handler)**
-  **Problem:** `climate.ts:tick` applies `annualEm += (rng.next() - 0.5) * 2` — ±1 Gt/year noise. Over 30 ticks this compounds to ±30 Gt cumulative, swamping any intervention signal (intervention changes emissions by ~0.5 Gt/year via GDP shift handler).
-  **Fix:** Reduce noise amplitude: change `(rng.next() - 0.5) * 2` to `(rng.next() - 0.5) * 0.2` (±0.1 Gt/year). The noise should represent genuine uncertainty in emissions tracking, not ±10% of global annual emissions per tick. Also make the amplitude configurable via sector init config (`annualEmissionsNoise` parameter).
 
 ### Completed
 - **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
