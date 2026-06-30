@@ -16,7 +16,7 @@ const html = `<!DOCTYPE html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Somnium Engine — Dashboard</title>
+<title>Kronos Engine — Dashboard</title>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; padding: 2rem; }
@@ -140,7 +140,7 @@ Kronos Engine</pre>
   </div>
 
   <div class="footer">
-    Somnium Engine / Kronos Engine &mdash; v0.1.0 &mdash; <a href="https://github.com/rikirinjani/Kronos-Engine" style="color:#58a6ff;">github.com/rikirinjani/Kronos-Engine</a>
+    Kronos Engine &mdash; v0.1.0 &mdash; <a href="https://github.com/rikirinjani/Kronos-Engine" style="color:#58a6ff;">github.com/rikirinjani/Kronos-Engine</a>
   </div>
 </div>
 </body>
