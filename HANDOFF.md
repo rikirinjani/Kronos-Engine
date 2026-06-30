@@ -39,23 +39,19 @@
 ### Pending
 
 ### Active
-- **Calibration Gap D: economy wars[] init.** `economy.ts:init()` sets `wars: []` regardless of config. War_casualties handler filters by `n.wars?.indexOf(warId)` — never matches. Fix: either read `wars[]` from config in init, or remove the filter (drain already scales by GDP). Branch Analyst recommends removing the filter.
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
 - **2026-06-29** — All 4 World Simulator sectors (Geopolitics, Climate, Economy, Technology) + cross-sector event catalog with typed events. All wired with cross-sector event handlers. Sector Engineer scope delivered.
 - **2026-06-29** — Era-to-world loader built (`src/engine/era-loader.ts`). `buildSectorConfigs(state, era)` maps StrategicWorldState → geopolitics/climate/economy/technology configs for `createWorld()`. `loadEraConfig(path, rewindPointId)` reads era JSON from disk. Handles era-specific defaults: CO2 concentration (280–420), annual emissions (0–37 Gt), R&D spending (0.8%–3.5%), GDP growth/inflation rates by century. 7 tests, `tsc --noEmit` clean.
 - **2026-06-30** — **Phase 2.3: CI/CD complete.** GitHub Actions workflow (`.github/workflows/ci.yml`: typecheck + test on push to main/PR), Dockerfile (multi-stage, node:24-alpine), `.dockerignore`, `railway.json`, engine entry point (`src/index.ts`). 175 tests, 20 files, `tsc --noEmit` clean.
-- **2026-06-30** — **Phase 1.2 calibration: 3 gaps closed.** Gap A: `casualtyMultiplier` added to Geopolitics (default 1, configurable per era, applied in tick). Gap B: `war_start` handler split — attackers get GDP+3%/growth+2.0, defenders get GDP-15%/growth-5.0 (calibration-ref data driven). Gap C: Climate CO₂ noise reduced from ±2→±0.2, configurable via `annualEmissionsNoise` init param (default 0.2). 179 tests, 20 files, `tsc --noEmit` clean. Ready for P-003 re-run.
+- **2026-06-30** — **Phase 1.2 calibration: all 4 gaps closed.** Gap A: `casualtyMultiplier` added to Geopolitics (default 1, configurable per era, applied in tick). Gap B: `war_start` handler split — attackers get GDP+3%/growth+2.0, defenders get GDP-15%/growth-5.0. Gap C: Climate CO₂ noise reduced from ±2→±0.2, configurable via `annualEmissionsNoise`. Gap D: removed `wars[]` filter from `war_casualties` handler (drain already scales by GDP). Ready for P-003 re-run.
 
 ---
 
 ## Branch Analyst
 
 ### Pending
-- **Phase 1.2 calibration discovery: economy wars[] not seeded from initial state.**
-  Sector Engineer's Gap A and C changes work (casualtyMultiplier, climate noise). Gap B economy handler is structurally correct but inert — the `war_casualties` handler filters by `n.wars?.indexOf(warId)`, but `economy.ts:init()` always sets `wars: []` regardless of what's in the config. Existing W-1939-01 in the era data is never propagated to economy state. Result: war_casualties events fire but drain is silently skipped. GDP metrics show no significant divergence at 30 seeds.
-  **Fix needed in `economy.ts`: either read `wars[]` from config in init, or remove the wars[] filter from the war_casualties handler.** Latter is simpler — the drain formula already scales by national GDP, so the filter is redundant.
 
 ### Active
 
@@ -63,7 +59,7 @@
 - **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
 - **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
 - **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
-- **2026-06-30** — **P-003 calibrated re-run (30 seeds).** Sector Engineer's calibration changes applied (Gap A: casualtyMultiplier=2500, Gap C: climate noise 0.2). 16/1421 metrics significant. Economy GDP still flat due to wars[] init bug (see Pending). Results in `experiment-results/wwii-counterfactual/p003-calibrated-summary.json`.
+- **2026-06-30** — **P-003 calibrated re-run (30 seeds).** All 4 calibration gaps closed by Sector Engineer. 36/1421 metrics significant. **All 9 nation GDP metrics significant with Cohen's d > 1.0** — war destroys GDP, no-war branch higher. USA +$31.3B, DEU +$10.4B, RUS +$11.5B, CHN +$2.8B. Phase 1.2 calibration complete. Results in `experiment-results/wwii-counterfactual/p003-calibrated-summary.json`.
 
 ---
 
