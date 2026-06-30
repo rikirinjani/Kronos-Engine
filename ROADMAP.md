@@ -93,6 +93,37 @@ Live instance with controlled experiment access. Laboratory for asking "what if?
 
 ---
 
+---
+
+## Phase 4 — Game Engine Integration (Speculative)
+
+**Vision:** Kronos Engine as the narrative/economic backend for a real-time rendered world (Unreal Engine). Same adapter pattern as Deers Rock — the game engine doesn't know Kronos exists.
+
+```
+Kronos Engine (1 tick = 1 day)
+  ↓ World state (GDP, wars, climate, resources)
+Adapter (real-time polling)
+  ↓ In-game events, NPC behavior, quest triggers
+Unreal Engine (60 FPS rendering)
+  ↑ Player actions, timeline branches
+Adapter (intervention packaging)
+  ↑ "What if" queries
+Kronos Engine (branch engine diverges)
+```
+
+### What KE brings to a game
+- **Geopolitics** → faction diplomacy, war, territory
+- **Economy** → player-driven market prices, inflation, trade routes
+- **Climate** → dynamic weather, disasters affecting regions
+- **Demographics** → NPC population centers, migration, aging
+- **Energy** → resource scarcity, tech tiers
+- **Branch Engine** → world remembers player choices as diverged timelines. Server resets = restoring a Rewind Point.
+
+### Status
+Concept only. Post-paper, post-Somnium, post-product. Not on any active timeline.
+
+---
+
 ## Additional Sectors
 Deferred until a specific feedback loop demands them (unanimous agent consensus). Current 6 sectors cover the strategic surface.
 
