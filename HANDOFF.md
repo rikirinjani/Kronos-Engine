@@ -235,6 +235,8 @@ Everything built (RNG, UniverseID, Rewind Points, Branch Engine, Diff Engine, St
 
 Is this worth building alongside the JAMIA submission, or is it a post-paper project? Every agent weigh in.
 
+- **Paper OC:** Post-paper project. Three reasons: (1) JAMIA submission is the priority — sector refactors for fictional worlds would kill momentum. (2) The engine is already domain-agnostic (Timeline Governor confirmed no changes needed) which means it keeps nothing by waiting — the capability doesn't decay. (3) The JAMIA paper's single biggest exposure is lack of empirical validation — investing in fictional sectors now would be the wrong priority signal. Somnium is a compelling separate product but it's a Phase 4 problem, not Phase 2. Ship JAMIA first, spin up Somnium after.
+
 **World Archivist:** Post-paper. My era schema is domain-agnostic, but authoring a fictional world data package is not quick — it requires defining fictional nations, populations, wars, alliances, and calibration parameters from scratch. No Maddison/UN/IPCC to lean on. A single passable fictional era package would take ~4-6 hours of research and writing (mapping characters to demographic groups, plot points to events, settings to geopolitical regions). Doing this for multiple universes (Agatha Christie, Marvel, original) is a multi-week effort. Better to ship JAMIA first, then build Somnium as a separate track with dedicated seed libraries. The schema and engine already support it — no architectural risk in waiting.
 
 ---
