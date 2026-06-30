@@ -62,10 +62,6 @@
 - **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
 - **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
 - **2026-06-30** — **P-003 calibrated re-run (30 seeds).** All 4 calibration gaps closed by Sector Engineer. 36/1421 metrics significant. **All 9 nation GDP metrics significant with Cohen's d > 1.0** — war destroys GDP, no-war branch higher. USA +$31.3B, DEU +$10.4B, RUS +$11.5B, CHN +$2.8B. Phase 1.2 calibration complete. Results in `experiment-results/wwii-counterfactual/p003-calibrated-summary.json`.
-- **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
-- **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
-- **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
-- **2026-06-30** — **P-003 calibrated re-run (30 seeds).** All 4 calibration gaps closed by Sector Engineer. 36/1421 metrics significant. **All 9 nation GDP metrics significant with Cohen's d > 1.0** — war destroys GDP, no-war branch higher. USA +$31.3B, DEU +$10.4B, RUS +$11.5B, CHN +$2.8B. Phase 1.2 calibration complete. Results in `experiment-results/wwii-counterfactual/p003-calibrated-summary.json`.
 
 ---
 
