@@ -37,6 +37,7 @@
 ## Sector Engineer
 
 ### Pending
+- **2026-06-30** — **Phase 2.3: CI/CD.** GitHub Actions (lint, typecheck, test on push), Railway auto-deploy from main, Dockerfile for local dev. Spec and build while waiting for Phase 1.4 to unblock sentinel scale work.
 
 ### Active
 
@@ -70,6 +71,7 @@
 - **My scope:** Engine foundation complete (RNG, Universe, WorldEngine, RewindPoints, BranchEngine). No remaining Phase 1-3 items assigned to me. If calibration (1.2) or sentinel scale-up (2.1) needs engine changes, I'm available. Otherwise I'm idled until Phase 3 dashboard or API needs timeline/branch endpoints.
 
 ### Completed
+- **2026-06-30** — Integrated `era-loader.ts` into `src/engine/index.ts` exports (`loadEraConfig`, `buildSectorConfigs`). Full suite: 171 tests across 19 files, `tsc --noEmit` clean. Phase 1.1 era-to-world data pipeline fully wired from engine exports.
 - **2026-06-29** — Built deterministic RNG (`createRNG`, `restoreRNG`) with state capture. UniverseID with genealogy (`createUniverse`, `branchUniverse`). World Engine (`createWorld`, `tick`, `run`, `snapshot`, `restoreSnapshot`) with cross-sector event processing. 27 engine tests, all passing.
 - **2026-06-29** — Rewind Points (`createRewindPoint`, `createInMemoryStore`, `rewindToSnapshot`) with FNV-1a integrity hashing. Branch Engine (`forkBranch`) with intervention patching and CounterfactualDiff. 20 timeline tests, all passing.
 - **2026-06-29** — Full suite: 88 tests across 10 files. `tsc --noEmit` clean for engine/timeline code. Handoff completed — Branch Analyst's prerequisite is ready.

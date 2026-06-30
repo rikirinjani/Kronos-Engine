@@ -1,0 +1,258 @@
+{
+  "seeds": [
+    3,
+    5,
+    10,
+    20
+  ],
+  "signal": [
+    {
+      "n": 3,
+      "totalMetrics": 322,
+      "significantCount": 7,
+      "significantRatio": 2.17,
+      "avgCiWidth": 1229750933.81,
+      "avgCohensD": 1.18,
+      "noiseFloorRatio": 7
+    },
+    {
+      "n": 5,
+      "totalMetrics": 440,
+      "significantCount": 10,
+      "significantRatio": 2.27,
+      "avgCiWidth": 821159699.51,
+      "avgCohensD": 0.31,
+      "noiseFloorRatio": 10
+    },
+    {
+      "n": 10,
+      "totalMetrics": 620,
+      "significantCount": 11,
+      "significantRatio": 1.77,
+      "avgCiWidth": 713453898.32,
+      "avgCohensD": 0.16,
+      "noiseFloorRatio": 11
+    },
+    {
+      "n": 20,
+      "totalMetrics": 1014,
+      "significantCount": 9,
+      "significantRatio": 0.89,
+      "avgCiWidth": 374675819.61,
+      "avgCohensD": 0.06,
+      "noiseFloorRatio": 9
+    }
+  ],
+  "noise": {
+    "n": 20,
+    "totalMetrics": 737,
+    "falsePositiveCount": 1,
+    "falsePositiveRatio": 0.14,
+    "avgCiWidth": 815343393.02,
+    "avgCohensD": 0.04
+  },
+  "perSector": [
+    {
+      "sector": "economy",
+      "metricsByN": {
+        "3": {
+          "count": 48,
+          "significant": 1,
+          "avgCiWidth": 5243397686.02,
+          "avgCohensD": 1.03
+        },
+        "5": {
+          "count": 48,
+          "significant": 2,
+          "avgCiWidth": 3797571156.57,
+          "avgCohensD": 0.55
+        },
+        "10": {
+          "count": 48,
+          "significant": 3,
+          "avgCiWidth": 3272079452.41,
+          "avgCohensD": 0.39
+        },
+        "20": {
+          "count": 48,
+          "significant": 5,
+          "avgCiWidth": 1725743001.47,
+          "avgCohensD": 0.25
+        }
+      },
+      "noiseFloor": {
+        "falsePositives": 1,
+        "avgCiWidth": 815343393.02
+      }
+    },
+    {
+      "sector": "geopolitics",
+      "metricsByN": {
+        "3": {
+          "count": 94,
+          "significant": 3,
+          "avgCiWidth": 0.95,
+          "avgCohensD": 0.11
+        },
+        "5": {
+          "count": 212,
+          "significant": 1,
+          "avgCiWidth": 0.39,
+          "avgCohensD": 0.03
+        },
+        "10": {
+          "count": 392,
+          "significant": 1,
+          "avgCiWidth": 0.08,
+          "avgCohensD": 0.02
+        },
+        "20": {
+          "count": 786,
+          "significant": 1,
+          "avgCiWidth": 0.03,
+          "avgCohensD": 0
+        }
+      },
+      "noiseFloor": {
+        "falsePositives": 0,
+        "avgCiWidth": 815343393.02
+      }
+    },
+    {
+      "sector": "climate",
+      "metricsByN": {
+        "3": {
+          "count": 5,
+          "significant": 0,
+          "avgCiWidth": 15409969.09,
+          "avgCohensD": 1.23
+        },
+        "5": {
+          "count": 5,
+          "significant": 0,
+          "avgCiWidth": 7520320.9,
+          "avgCohensD": 0.78
+        },
+        "10": {
+          "count": 5,
+          "significant": 0,
+          "avgCiWidth": 6025034.08,
+          "avgCohensD": 0.18
+        },
+        "20": {
+          "count": 5,
+          "significant": 0,
+          "avgCiWidth": 3028823.62,
+          "avgCohensD": 0.17
+        }
+      },
+      "noiseFloor": {
+        "falsePositives": 0,
+        "avgCiWidth": 815343393.02
+      }
+    },
+    {
+      "sector": "technology",
+      "metricsByN": {
+        "3": {
+          "count": 36,
+          "significant": 0,
+          "avgCiWidth": 33501967.99,
+          "avgCohensD": 0.71
+        },
+        "5": {
+          "count": 36,
+          "significant": 3,
+          "avgCiWidth": 15079658.95,
+          "avgCohensD": 0.61
+        },
+        "10": {
+          "count": 36,
+          "significant": 0,
+          "avgCiWidth": 11229410.57,
+          "avgCohensD": 0.28
+        },
+        "20": {
+          "count": 36,
+          "significant": 0,
+          "avgCiWidth": 6038858.64,
+          "avgCohensD": 0.18
+        }
+      },
+      "noiseFloor": {
+        "falsePositives": 0,
+        "avgCiWidth": 815343393.02
+      }
+    },
+    {
+      "sector": "energy",
+      "metricsByN": {
+        "3": {
+          "count": 65,
+          "significant": 3,
+          "avgCiWidth": 2255.51,
+          "avgCohensD": 3.44
+        },
+        "5": {
+          "count": 65,
+          "significant": 3,
+          "avgCiWidth": 2343.89,
+          "avgCohensD": 0.61
+        },
+        "10": {
+          "count": 65,
+          "significant": 3,
+          "avgCiWidth": 1040.54,
+          "avgCohensD": 0.47
+        },
+        "20": {
+          "count": 65,
+          "significant": 2,
+          "avgCiWidth": 799.62,
+          "avgCohensD": 0.26
+        }
+      },
+      "noiseFloor": {
+        "falsePositives": 0,
+        "avgCiWidth": 815343393.02
+      }
+    },
+    {
+      "sector": "demographics",
+      "metricsByN": {
+        "3": {
+          "count": 74,
+          "significant": 0,
+          "avgCiWidth": 4896433.07,
+          "avgCohensD": 0.89
+        },
+        "5": {
+          "count": 74,
+          "significant": 1,
+          "avgCiWidth": 3440212.33,
+          "avgCohensD": 0.5
+        },
+        "10": {
+          "count": 74,
+          "significant": 4,
+          "avgCiWidth": 2419543.16,
+          "avgCohensD": 0.42
+        },
+        "20": {
+          "count": 74,
+          "significant": 1,
+          "avgCiWidth": 1483416.99,
+          "avgCohensD": 0.26
+        }
+      },
+      "noiseFloor": {
+        "falsePositives": 0,
+        "avgCiWidth": 815343393.02
+      }
+    }
+  ],
+  "topMetrics": [
+    "nations.FRA.tradeVolume"
+  ],
+  "generatedAt": "2026-06-29T22:29:50.507Z"
+}

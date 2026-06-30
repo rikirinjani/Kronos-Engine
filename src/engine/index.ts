@@ -4,3 +4,4 @@ export { createUniverse, branchUniverse, resetUniverseCounter } from "./universe
 export type { UniverseID } from "./universe.js";
 export { createWorld, tick, run, snapshot, restoreSnapshot } from "./world-engine.js";
 export type { WorldState, WorldSnapshot, WorldConfig, SectorRecord } from "./world-engine.js";
+export { loadEraConfig, buildSectorConfigs } from "./era-loader.js";
