@@ -218,4 +218,6 @@ GitHub Actions, Dockerfile (multi-stage, node:24-alpine), Railway config. Delive
 
 ---
 
-*One engine. Many worlds. Every seed is a history — every snapshot is a choice.*
+*One engine, infinite timelines. Every seed is a history — every snapshot is a choice.*
+
+*— The wall, Kronos Engine HQ*
