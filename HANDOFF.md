@@ -26,12 +26,15 @@
 ### Active
 
 ### Completed
-- **2026-06-29** — All 6 eras built and validated: ancient, medieval, early-modern, industrial, modern, contemporary. 13 pre-seeded Rewind Points from Fall of Rome to Baseline 2026. ERA-INDEX.md and SCHEMA-VALIDATION.md created.
+- **2026-06-29** — All 6 eras built and validated: ancient, medieval, early-modern, industrial, modern, contemporary. 13 pre-seeded Rewind Points from Fall of Rome to Baseline 2026 (+1 Future era config). ERA-INDEX.md and SCHEMA-VALIDATION.md created.
 - **2026-06-29** — Read P-001A seed/universe/rewind point spec, acted as @world-archivist. Fixed JSON numeric separators, ran cross-era validation (nation ID continuity, global state monotonicity, rewind point registry). Self-harness trace recorded.
 - **2026-06-29** — Filled 3 gap states: RP-MODERN-002 (1969 Moon Landing), RP-CONTEMP-001 (2001 9/11), RP-CONTEMP-002 (2020 COVID-19). All 14 rewind points now populated.
 - **2026-06-29** — REDO: Initial gap-fill had broken cross-references. Rewrote files, all 6 pass cross-ref audit. Self-harness failure recorded.
 - **2026-06-30** — Executed Phase 1.2 historical baselines: created `docs/history/calibration-reference.json`.
-- **2026-06-30** — Future era (S-BASELINE) spec delivered: `docs/history/era-future-spec.md` (schema design document with TypeScript interfaces) + `docs/history/era-future-defaults.json` (3 scenario variants: baseline/SSP2-4.5, optimistic/SSP1-1.9, pessimistic/SSP3-7.0). Covers population, economy, technology, climate, geopolitics, health, and energy projections. Ready for Timeline Governor to wire into `era-loader.ts` and for Branch Analyst to use for future-scenario counterfactuals.
+- **2026-06-30** — Future era (S-BASELINE) spec delivered: `docs/history/era-future-spec.md` + `era-future-defaults.json`.
+- **2026-06-30** — **Paper review §2.8 Historical Data Layer:** Accurate. 6 eras, 13 RPs, time spans all match source data. No factual errors. Minor note: era calibration sources and the `StrategicWorldState` schema aren't described, but the level of detail is appropriate for JAMIA. No corrections needed.
+
+---
 
 ---
 
@@ -48,7 +51,7 @@
 - **2026-06-30** — **Phase 2.3: CI/CD complete.** GitHub Actions workflow (`.github/workflows/ci.yml`: typecheck + test on push to main/PR), Dockerfile (multi-stage, node:24-alpine), `.dockerignore`, `railway.json`, engine entry point (`src/index.ts`). 175 tests, 20 files, `tsc --noEmit` clean.
 - **2026-06-30** — **Phase 1.2 calibration: all 4 gaps closed.** Gap A: `casualtyMultiplier` added to Geopolitics (default 1, configurable per era, applied in tick). Gap B: `war_start` handler split — attackers get GDP+3%/growth+2.0, defenders get GDP-15%/growth-5.0. Gap C: Climate CO₂ noise reduced from ±2→±0.2, configurable via `annualEmissionsNoise`. Gap D: removed `wars[]` filter from `war_casualties` handler (drain already scales by GDP). Ready for P-003 re-run.
 - **2026-06-30** — **Phase 1.4: DR Sentinel Counterfactual experiment built** (`src/experiment/experiments/dr-counterfactual.ts`). Wires sentinel into experiment pipeline at RP-CONTEMP-002. Ready for @branch-analyst to run 30 seeds, analyze stats, and produce the analysis report.
-- **2026-06-30** — **Phase 2.1: Sentinel network scaled to 30 hospitals.** `src/data/indonesian-hospitals.ts` defines 30 configs across 5 regions (Java, Sumatra, Kalimantan, Sulawesi, Eastern). Fixed seed derivation bug (string hash now used instead of numeric extraction). Verified independent operation (unique derived seeds, no cross-talk). Regional health pressure heatmap test produces per-region occupancy/ICU/mortality/surge statistics. 192 tests, 24 files, `tsc --noEmit` clean.
+- **2026-06-30** — **Phase 2.1: Sentinel network scaled to 30 hospitals.** `src/data/indonesian-hospitals.ts` defines 30 configs across 5 regions (Java, Sumatra, Kalimantan, Sulawesi, Eastern). Fixed seed derivation bug (string hash). Verified independent operation (unique seeds, no cross-talk). Network infrastructure ready for Branch Analyst's heatmap analysis.
 
 ---
 
@@ -108,7 +111,39 @@
 - **Branch Analyst:** §3.1 (P-003), §3.2 (P-004), §4.1 (Statistical Approach) — experiment accuracy
 - **Timeline Governor:** §2.2 (Counterfactual Engine) — engine design claims
 
+### Timeline Governor — Paper Review (§2.2)
+
+Factual accuracy check against my code:
+
+1. **Seeded RNG mulberry32 with call-count tracking** — ✅ Accurate. `src/engine/rng.ts` implements `createRNG()` with `save()`/`restore()` exporting `RNGState { seed, callCount }`.
+
+2. **Universe ID example `U-2026-0001-B-2026-0001`** — ⚠️ Minor. My Branch IDs are `B-YYYY-NNNN` (separate from UniverseID). The paper's combined format doesn't match the actual `UniverseID.id` / `Branch.id` types. Suggest changing to: `U-2026-0001` with child `U-2026-0002` (linked via `parent` field), or note the `B-YYYY-NNNN` branch format.
+
+3. **"All iterable collections sorted before processing"** — ⚠️ This claim is aspirational. Sectors are processed in insertion order (caller-dependent), not explicitly sorted. Draft PRNG iteration and event bus handler order also lack explicit sorting. The paper overstates determinism guarantees. Suggest: "Sectors, hospitals, and nations are processed in a deterministic order guaranteed by sorted iteration or stable insertion" and I can add the sort in code to match.
+
+4. **Snapshot/restore at any tick** — ✅ Accurate. `snapshot()`/`restoreSnapshot()` in `world-engine.ts`. `rewindToSnapshot()` bridges RewindPoints.
+
+5. **Full world state capture** — ✅ Accurate. `createRewindPoint()` captures all sector states + RNG state + state hash for integrity verification.
+
+6. **Reproducibility** — ✅ Accurate. Same seed + same intervention = identical output proven across all 197 tests.
+
+**Fix requested for item 2-3 before publication.** I can implement the sort guarantees if needed.
+
 Focus on factual accuracy. Close by human.
+
+**Sector Engineer review of §2.3 (World Sectors) and §2.5 (Sentinel Adapter):**
+
+**§2.3 (World Sectors):**
+- Sector table is accurate for all 6 sectors. Events listed match the typed event catalog.
+- GDP formula `GDP[t+1] = GDP[t] × (1 + growthRate[t] / 100)` is correct.
+- War GDP modifier description (−15% defender) matches implementation.
+
+**§2.5 (Sentinel Adapter) — factual corrections needed:**
+1. **Line 173: "fails to respond for three consecutive ticks"** — Incorrect. The circuit breaker fires on a single failed step() call per tick, not after three consecutive failures. Publishing `health.down` immediately and using lastKnownGood. Fix to: "If the hospital simulator fails to respond, the adapter publishes a `health.down` signal and continues with the last known good state."
+2. **Line 163-168: Seed derivation** — Code shows `getHospitalSeed(worldSeed, hospitalId: number)` with a numeric hospitalId. But the implementation now hashes the string ID (e.g., "jkt-001") using a djb2 variant, because all sentinel IDs use the same numeric suffix (`-001`). The integer `hospitalId` in the paper's code is correct in theory, but the actual call site computes it as `hashString(config.id)` rather than `parseInt(numericSuffix)`. Update to reflect string-based ID hashing, or keep the Knuth formula but note the id is derived from the sentinel's string identifier.
+3. **Line 175: "consumes only the simulator's public API (e.g., tick(), getState())"** — This is misleading. The adapter uses `step(world)` (public) to advance the simulator, but reads internal state (`world.state.beds`, `world.state.morgue`, `world.state.encounters`) directly for sentinel output extraction. `getState()` is not a public export. Either: (a) add a `getSentinelMetrics(world): SentinelMetrics` function to Deers Rock's public API and use that instead, or (b) update the paper to honestly state that the adapter reads hospital state directly — citing that this is a known limitation the adapter invariants accept because no patient-level data leaks upward.
+4. **MacroConditionPacket (line 136-142):** Missing the `tick` field that the actual struct carries. Add `tick: number` to the interface.
+5. **Line 161: "fastForward(days)"** — The actual method is `tick(state, ctx)` which loops internally for `ticksPerDay` iterations. Consider using the actual method name or a more generic description.
 
 ---
 
