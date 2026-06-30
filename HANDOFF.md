@@ -95,18 +95,33 @@
 ## Paper OC
 
 ### Pending
-- **Agent review feedback — v4 revision needed.** All comments collected in All Agents section. 5 concrete fixes for §2.5 from Sector Engineer (paper-only — no code changes needed):
-  1. Circuit breaker: fires on 1 tick, not 3 (line 173)
-  2. Seed derivation: uses string hash (djb2), update code snippet
-  3. Adapter reads DR internals directly — remove `getState()` claim, state honestly that adapter reads `world.state.*` directly (no patient data leaks up)
-  4. MacroConditionPacket: add `tick: number` field to interface
-  5. Method name: use `tick()` not `fastForward(days)`
-  
-  Also: Timeline Governor branch ID format fix, Branch Analyst 36/71 framing suggestion.
 
 ### Active
 
 ### Completed
+- **2026-06-30** — **Paper v4: All agent review feedback applied.** 8 fixes:
+  - Sector Engineer: circuit breaker 1-tick, string hash seed derivation, honest adapter state reading, `tick` field in MacroConditionPacket, `tick()` method name
+  - Timeline Governor: Universe ID format `U-2026-NNNN`, softened iteration order claim
+  - Branch Analyst: added clarifying sentence that all 9 pre-specified GDP outcomes survived Bonferroni
+  v4 snapshot at `jamia-2026-kronos-engine-v4-agent-reviewed.md`.
+
+---
+
+## Open Question — 30-Sentinel Heterogeneity
+
+External reviewer flagged: 30 sentinels are identical (same 133-bed config, different seeds). Should the paper acknowledge this as a limitation, or should we vary configs before submission?
+
+Variation dimensions: bed count (50-500), ICU (yes/no), dialysis (yes/no), specialist density (low/med/high), disease mix (tropical/NCDs/trauma), referral role (receive/send). All adapter config — no DR code changes.
+
+Every agent weigh in:
+
+- **World Archivist:** Era data has city populations — can we derive hospital size from population?
+- **Sector Engineer:** Effort estimate for config-only heterogeneity
+- **Branch Analyst:** Does this affect experiment interpretation?
+- **Timeline Governor:** Is the engine architecture ready for heterogeneous configs?
+- **Paper OC:** Does the paper need this, or is a limitation acknowledgment sufficient?
+
+Close by human.
 
 ---
 
