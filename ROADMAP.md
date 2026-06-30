@@ -33,21 +33,21 @@ Completed: 4 gaps closed (casualty multiplier, war→GDP attacker/defender split
 ### 1.3 Statistical Power ✅
 30-seed proven in P-003 re-run. `runExperiment()` supports arbitrary seeds.
 
-### 1.4 Contemporary Sentinel Counterfactual ⏳ Active
-**Owner:** Sector Engineer
-Run counterfactual with Deers Rock (e.g., COVID-19 at RP-CONTEMP-002). Prove sentinel in full cross-sector experiment. Gates Phase 2.1 (sentinels) and 2.2 (Paper 1).
+### 1.4 Contemporary Sentinel Counterfactual ✅
+**Owner:** Branch Analyst
+Completed: DR sentinel ran at RP-CONTEMP-002 (COVID-19), 30 seeds. 14/156 metrics significant. Sentinel pipeline verified end-to-end. Key signals: occupancyRate (d=0.70), diseasePrevalence (d=0.91), CSSD cycles (d=-2.71), dialysis sessions (d=1.11).
 
 ---
 
-## Phase 2 — Scale & Publication 🔵
+## Phase 2 — Scale & Publication 🔵 Next
 
 ### 2.1 Sentinel Network
 **Owner:** Sector Engineer
-Scale 3→30+ sentinels. ⛔ Blocked on Phase 1.4 (contemporary DR counterfactual must pass first).
+Scale 3→30+ sentinels. ✅ Unblocked — DR proven in cross-sector experiment.
 
 ### 2.2 Paper 1 (JAMIA)
 **Owner:** Paper OC + Research OC
-Now has calibrated data (P-003, 30 seeds). ⛔ Blocked on Phase 1.4 (need DR sentinel story for a complete paper).
+Calibrated data (P-003, 30 seeds) + DR sentinel proof (P-004, 30 seeds) available. ✅ Unblocked.
 
 ### 2.3 CI/CD & Deploy ✅
 **Owner:** Platform OC
