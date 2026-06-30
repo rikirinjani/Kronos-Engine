@@ -39,12 +39,12 @@
 ### Pending
 
 ### Active
-- **2026-06-30** — **Phase 2.3: CI/CD.** GitHub Actions (lint, typecheck, test on push), Railway auto-deploy from main, Dockerfile for local dev. No blockers — start immediately.
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
 - **2026-06-29** — All 4 World Simulator sectors (Geopolitics, Climate, Economy, Technology) + cross-sector event catalog with typed events. All wired with cross-sector event handlers. Sector Engineer scope delivered.
 - **2026-06-29** — Era-to-world loader built (`src/engine/era-loader.ts`). `buildSectorConfigs(state, era)` maps StrategicWorldState → geopolitics/climate/economy/technology configs for `createWorld()`. `loadEraConfig(path, rewindPointId)` reads era JSON from disk. Handles era-specific defaults: CO2 concentration (280–420), annual emissions (0–37 Gt), R&D spending (0.8%–3.5%), GDP growth/inflation rates by century. 7 tests, `tsc --noEmit` clean.
+- **2026-06-30** — **Phase 2.3: CI/CD complete.** GitHub Actions workflow (`.github/workflows/ci.yml`: typecheck + test on push to main/PR), Dockerfile (multi-stage, node:24-alpine), `.dockerignore`, `railway.json`, engine entry point (`src/index.ts`). 175 tests, 20 files, `tsc --noEmit` clean.
 
 ---
 
@@ -53,10 +53,12 @@
 ### Pending
 
 ### Active
+- **Phase 1.2 — Model Calibration.** Three gaps from sensitivity sweep: (a) war casualties need magnitude multiplier, (b) war GDP effect needs configurable sign, (c) climate CO₂ drift needs signal-to-noise improvement. World Archivist available for historical baselines (Maddison/CLIO-INFRA).
 
 ### Completed
 - **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
 - **2026-06-29** — **P-003 executed: "No WWII" counterfactual.** Branch at RP-MODERN-001 (1939), intervention ends W-1939-01. Ran parent + branch 30 ticks to 1969 across 6 sectors (no DR — graceful absence, modern healthcare not applicable to 1939). 3 seeds (42, 43, 44). 322 metrics. Results in `experiment-results/wwii-counterfactual/`. 36 tests passing. **Proof of concept — infrastructure proven, calibration is Phase 2.**
+- **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** 3/5/10/20 seeds tested across 6 sectors. Economy most reliable (5 sig at 20). Climate weakest (0 sig — CO₂ drift). Geopolitics energy strongest early but noise-dominated. Key finding: calibration needed before more seeds. Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
 
 ---
 
