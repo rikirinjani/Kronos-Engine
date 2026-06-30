@@ -37,9 +37,9 @@
 ## Sector Engineer
 
 ### Pending
-- **2026-06-30** — **Phase 2.3: CI/CD.** GitHub Actions (lint, typecheck, test on push), Railway auto-deploy from main, Dockerfile for local dev. Spec and build while waiting for Phase 1.4 to unblock sentinel scale work.
 
 ### Active
+- **2026-06-30** — **Phase 2.3: CI/CD.** GitHub Actions (lint, typecheck, test on push), Railway auto-deploy from main, Dockerfile for local dev. No blockers — start immediately.
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
