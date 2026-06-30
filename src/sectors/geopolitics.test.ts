@@ -250,4 +250,17 @@ describe("GeopoliticsSector", () => {
 
     expect(updated.nations["USA"]!.gdp).toBe(27_500_000_000_000);
   });
+
+  it("defaults casualtyMultiplier to 1", () => {
+    const sector = createGeopoliticsSector();
+    const state = sector.init(42, sampleConfig as unknown as Record<string, unknown>) as GeopoliticsState;
+    expect(state.casualtyMultiplier).toBe(1);
+  });
+
+  it("casualtyMultiplier from config is stored in state", () => {
+    const sector = createGeopoliticsSector();
+    const config = { ...sampleConfig, casualtyMultiplier: 2500 };
+    const state = sector.init(42, config as unknown as Record<string, unknown>) as GeopoliticsState;
+    expect(state.casualtyMultiplier).toBe(2500);
+  });
 });

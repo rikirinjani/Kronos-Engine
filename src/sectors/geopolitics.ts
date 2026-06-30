@@ -59,6 +59,7 @@ export interface GeopoliticsState extends SectorState {
   wars: Record<string, War>;
   alliances: Record<string, Alliance>;
   globalState: GlobalState;
+  casualtyMultiplier: number;
 }
 
 function clamp(v: number, min: number, max: number): number {
@@ -116,6 +117,7 @@ export function createGeopoliticsSector(): Sector {
       const alliances = config.alliances as Alliance[] | undefined;
       const globalState = config.globalState as GlobalState | undefined;
       const year = (config.year as number) ?? 2026;
+      const casualtyMultiplier = (config.casualtyMultiplier as number) ?? 1;
 
       const nationMap: Record<string, Nation> = {};
       if (nations) {
@@ -142,6 +144,7 @@ export function createGeopoliticsSector(): Sector {
         _sectorId: "geopolitics",
         year,
         tickCount: 0,
+        casualtyMultiplier,
         nations: nationMap,
         wars: warMap,
         alliances: allianceMap,
@@ -190,7 +193,8 @@ export function createGeopoliticsSector(): Sector {
 
       for (const war of Object.values(newWars)) {
         if (war.status !== "active") continue;
-        const casualtiesDelta = Math.floor(rng.next() * 500) + 50;
+        const baseDelta = Math.floor(rng.next() * 500) + 50;
+        const casualtiesDelta = Math.floor(baseDelta * s.casualtyMultiplier);
         war.casualties += casualtiesDelta;
 
         publishTyped(eventBus, {

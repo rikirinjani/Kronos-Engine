@@ -39,6 +39,7 @@
 ### Pending
 
 ### Active
+- **Calibration Gap D: economy wars[] init.** `economy.ts:init()` sets `wars: []` regardless of config. War_casualties handler filters by `n.wars?.indexOf(warId)` — never matches. Fix: either read `wars[]` from config in init, or remove the filter (drain already scales by GDP). Branch Analyst recommends removing the filter.
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
@@ -88,9 +89,7 @@
 
 ### Pending
 - **ROADMAP.md finalized.** All agent feedback incorporated. See `ROADMAP.md` for full document.
-- **Phase 1.2 calibration: 2 of 3 gaps closed. Gap B incomplete due to economy wars[] init bug.**
-  Sector Engineer delivered Gap A (casualtyMultiplier) and Gap C (climate noise). P-003 re-run at 30 seeds confirms handler code is correct but war_casualties→economy drain is silently skipped because `economy.ts:init()` sets `wars: []` regardless of initial config. See Branch Analyst Pending for full diagnosis. 
-  **Route to → Sector Engineer** (fix in economy.ts init). Simple fix: either read `wars[]` from config or remove the filter in the war_casualties handler.
+- **Phase 1.2 calibration: 3 of 3 gaps closed.** Gap D (economy wars[] init) routed to Sector Engineer Active. Waiting for fix before P-003 re-run.
 
 ### Active
 

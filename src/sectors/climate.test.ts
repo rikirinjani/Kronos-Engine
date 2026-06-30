@@ -136,5 +136,28 @@ describe("ClimateSector", () => {
     expect(state.year).toBe(2026);
     expect(state.co2Concentration).toBe(420);
     expect(state.annualEmissions).toBe(37);
+    expect(state.annualEmissionsNoise).toBe(0.2);
+  });
+
+  it("annualEmissionsNoise is configurable", () => {
+    const sector = createClimateSector();
+    const state = sector.init(42, { annualEmissionsNoise: 0.01 }) as ClimateState;
+    expect(state.annualEmissionsNoise).toBe(0.01);
+  });
+
+  it("lower noise reduces emissions variance", () => {
+    const sector = createClimateSector();
+    const high = sector.init(42, { annualEmissionsNoise: 2 }) as ClimateState;
+    const low = sector.init(42, { annualEmissionsNoise: 0.01 }) as ClimateState;
+    const ctxHi = makeWorldContext(1, 42);
+    const ctxLo = makeWorldContext(1, 42);
+
+    const hiNext = sector.tick(high, ctxHi) as ClimateState;
+    const loNext = sector.tick(low, ctxLo) as ClimateState;
+
+    const hiDrift = Math.abs(hiNext.annualEmissions - high.annualEmissions);
+    const loDrift = Math.abs(loNext.annualEmissions - low.annualEmissions);
+
+    expect(hiDrift).toBeGreaterThan(loDrift);
   });
 });

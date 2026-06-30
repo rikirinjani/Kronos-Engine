@@ -35,17 +35,28 @@ export function createEconomySector(): Sector {
         const attackers = event.data.attackers as string[];
         const defenders = event.data.defenders as string[];
         const warId = event.data.warId as string;
-        const affected = [...attackers, ...defenders];
         let newNations = { ...s.nations };
 
-        for (const id of affected) {
+        for (const id of attackers) {
           const n = newNations[id];
           if (!n) continue;
           newNations[id] = {
             ...n,
-            gdp: n.gdp * 0.95,
-            tradeVolume: Math.max(0, n.tradeVolume - 15),
-            gdpGrowthRate: n.gdpGrowthRate - 1.5,
+            gdp: n.gdp * 1.03,
+            tradeVolume: Math.max(0, n.tradeVolume - 10),
+            gdpGrowthRate: n.gdpGrowthRate + 2.0,
+            wars: [...n.wars, warId],
+          };
+        }
+
+        for (const id of defenders) {
+          const n = newNations[id];
+          if (!n) continue;
+          newNations[id] = {
+            ...n,
+            gdp: n.gdp * 0.85,
+            tradeVolume: Math.max(0, n.tradeVolume - 50),
+            gdpGrowthRate: n.gdpGrowthRate - 5.0,
             wars: [...n.wars, warId],
           };
         }

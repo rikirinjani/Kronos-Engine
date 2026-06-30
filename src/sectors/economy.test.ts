@@ -88,7 +88,7 @@ describe("EconomySector", () => {
     expect(gdpEvents.length).toBeGreaterThan(0);
   });
 
-  it("handles geopolitics.war_start by reducing GDP and trade", () => {
+  it("handles geopolitics.war_start: attacker GDP increases, defender GDP drops", () => {
     const sector = createEconomySector();
     const state = sector.init(42, sampleConfig as unknown as Record<string, unknown>) as EconomyState;
     const bus = createEventBus();
@@ -105,9 +105,10 @@ describe("EconomySector", () => {
       state
     ) as EconomyState;
 
-    expect(updated.nations["RUS"]!.gdp).toBeLessThan(2_000_000_000_000);
-    expect(updated.nations["RUS"]!.tradeVolume).toBeLessThan(40);
+    expect(updated.nations["RUS"]!.gdp).toBeGreaterThan(2_000_000_000_000);
+    expect(updated.nations["RUS"]!.gdpGrowthRate).toBeGreaterThan(1.5);
     expect(updated.nations["GBR"]!.gdp).toBeLessThan(3_300_000_000_000);
+    expect(updated.nations["GBR"]!.gdp).toBeCloseTo(2_805_000_000_000, -9);
     expect(updated.nations["USA"]!.gdp).toBe(27_000_000_000_000);
   });
 

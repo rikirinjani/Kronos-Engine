@@ -83,8 +83,8 @@ function buildSectorConfigs(era: EraState): Record<string, Record<string, unknow
   }
 
   return {
-    geopolitics: { nations: era.nations, wars: era.wars, alliances: era.alliances, globalState: era.globalState, year: era.year },
-    climate: { co2Concentration: 310, annualEmissions: 3, year: era.year },
+    geopolitics: { nations: era.nations, wars: era.wars, alliances: era.alliances, globalState: era.globalState, year: era.year, casualtyMultiplier: 2500 },
+    climate: { co2Concentration: 310, annualEmissions: 3, year: era.year, annualEmissionsNoise: 0.2 },
     economy: { nations: economyNations, year: era.year },
     technology: { nations: techNations, year: era.year },
     energy: { nations: energyNations, year: era.year },

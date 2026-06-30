@@ -9,36 +9,36 @@
     {
       "n": 3,
       "totalMetrics": 322,
-      "significantCount": 7,
-      "significantRatio": 2.17,
-      "avgCiWidth": 1229750933.81,
-      "avgCohensD": 1.18,
-      "noiseFloorRatio": 7
+      "significantCount": 8,
+      "significantRatio": 2.48,
+      "avgCiWidth": 1537356433.36,
+      "avgCohensD": 1.17,
+      "noiseFloorRatio": 8
     },
     {
       "n": 5,
       "totalMetrics": 440,
       "significantCount": 10,
       "significantRatio": 2.27,
-      "avgCiWidth": 821159699.51,
+      "avgCiWidth": 939321927.95,
       "avgCohensD": 0.31,
       "noiseFloorRatio": 10
     },
     {
       "n": 10,
       "totalMetrics": 620,
-      "significantCount": 11,
-      "significantRatio": 1.77,
-      "avgCiWidth": 713453898.32,
-      "avgCohensD": 0.16,
-      "noiseFloorRatio": 11
+      "significantCount": 10,
+      "significantRatio": 1.61,
+      "avgCiWidth": 745117384.77,
+      "avgCohensD": 0.15,
+      "noiseFloorRatio": 10
     },
     {
       "n": 20,
       "totalMetrics": 1014,
       "significantCount": 9,
       "significantRatio": 0.89,
-      "avgCiWidth": 374675819.61,
+      "avgCiWidth": 396727598.88,
       "avgCohensD": 0.06,
       "noiseFloorRatio": 9
     }
@@ -48,8 +48,8 @@
     "totalMetrics": 737,
     "falsePositiveCount": 1,
     "falsePositiveRatio": 0.14,
-    "avgCiWidth": 815343393.02,
-    "avgCohensD": 0.04
+    "avgCiWidth": 2631208082.8,
+    "avgCohensD": 0.03
   },
   "perSector": [
     {
@@ -58,31 +58,31 @@
         "3": {
           "count": 48,
           "significant": 1,
-          "avgCiWidth": 5243397686.02,
-          "avgCohensD": 1.03
+          "avgCiWidth": 6531062407.38,
+          "avgCohensD": 1.04
         },
         "5": {
           "count": 48,
-          "significant": 2,
-          "avgCiWidth": 3797571156.57,
-          "avgCohensD": 0.55
+          "significant": 1,
+          "avgCiWidth": 4326642393.13,
+          "avgCohensD": 0.54
         },
         "10": {
           "count": 48,
-          "significant": 3,
-          "avgCiWidth": 3272079452.41,
-          "avgCohensD": 0.39
+          "significant": 2,
+          "avgCiWidth": 3418480138.43,
+          "avgCohensD": 0.34
         },
         "20": {
           "count": 48,
-          "significant": 5,
-          "avgCiWidth": 1725743001.47,
-          "avgCohensD": 0.25
+          "significant": 3,
+          "avgCiWidth": 1828050748.08,
+          "avgCohensD": 0.24
         }
       },
       "noiseFloor": {
         "falsePositives": 1,
-        "avgCiWidth": 815343393.02
+        "avgCiWidth": 2631208082.8
       }
     },
     {
@@ -115,7 +115,7 @@
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 815343393.02
+        "avgCiWidth": 2631208082.8
       }
     },
     {
@@ -124,31 +124,31 @@
         "3": {
           "count": 5,
           "significant": 0,
-          "avgCiWidth": 15409969.09,
-          "avgCohensD": 1.23
+          "avgCiWidth": 15751604.59,
+          "avgCohensD": 1.28
         },
         "5": {
           "count": 5,
           "significant": 0,
-          "avgCiWidth": 7520320.9,
-          "avgCohensD": 0.78
+          "avgCiWidth": 7466415.96,
+          "avgCohensD": 0.82
         },
         "10": {
           "count": 5,
           "significant": 0,
-          "avgCiWidth": 6025034.08,
-          "avgCohensD": 0.18
+          "avgCiWidth": 5832706.34,
+          "avgCohensD": 0.15
         },
         "20": {
           "count": 5,
           "significant": 0,
-          "avgCiWidth": 3028823.62,
+          "avgCiWidth": 2905302.92,
           "avgCohensD": 0.17
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 815343393.02
+        "avgCiWidth": 2631208082.8
       }
     },
     {
@@ -157,31 +157,31 @@
         "3": {
           "count": 36,
           "significant": 0,
-          "avgCiWidth": 33501967.99,
-          "avgCohensD": 0.71
+          "avgCiWidth": 33515121.21,
+          "avgCohensD": 0.73
         },
         "5": {
           "count": 36,
           "significant": 3,
-          "avgCiWidth": 15079658.95,
-          "avgCohensD": 0.61
+          "avgCiWidth": 15666512.03,
+          "avgCohensD": 0.63
         },
         "10": {
           "count": 36,
           "significant": 0,
-          "avgCiWidth": 11229410.57,
+          "avgCiWidth": 10971302,
           "avgCohensD": 0.28
         },
         "20": {
           "count": 36,
           "significant": 0,
-          "avgCiWidth": 6038858.64,
-          "avgCohensD": 0.18
+          "avgCiWidth": 5869953.83,
+          "avgCohensD": 0.17
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 815343393.02
+        "avgCiWidth": 2631208082.8
       }
     },
     {
@@ -189,32 +189,32 @@
       "metricsByN": {
         "3": {
           "count": 65,
-          "significant": 3,
-          "avgCiWidth": 2255.51,
-          "avgCohensD": 3.44
+          "significant": 4,
+          "avgCiWidth": 2045.82,
+          "avgCohensD": 3.37
         },
         "5": {
           "count": 65,
           "significant": 3,
-          "avgCiWidth": 2343.89,
-          "avgCohensD": 0.61
+          "avgCiWidth": 2301.77,
+          "avgCohensD": 0.62
         },
         "10": {
           "count": 65,
           "significant": 3,
-          "avgCiWidth": 1040.54,
-          "avgCohensD": 0.47
+          "avgCiWidth": 1045.07,
+          "avgCohensD": 0.48
         },
         "20": {
           "count": 65,
           "significant": 2,
-          "avgCiWidth": 799.62,
-          "avgCohensD": 0.26
+          "avgCiWidth": 790.36,
+          "avgCohensD": 0.27
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 815343393.02
+        "avgCiWidth": 2631208082.8
       }
     },
     {
@@ -223,36 +223,36 @@
         "3": {
           "count": 74,
           "significant": 0,
-          "avgCiWidth": 4896433.07,
-          "avgCohensD": 0.89
+          "avgCiWidth": 5157267.98,
+          "avgCohensD": 0.86
         },
         "5": {
           "count": 74,
-          "significant": 1,
-          "avgCiWidth": 3440212.33,
-          "avgCohensD": 0.5
+          "significant": 2,
+          "avgCiWidth": 3366985.45,
+          "avgCohensD": 0.52
         },
         "10": {
           "count": 74,
           "significant": 4,
-          "avgCiWidth": 2419543.16,
-          "avgCohensD": 0.42
+          "avgCiWidth": 2158067.91,
+          "avgCohensD": 0.43
         },
         "20": {
           "count": 74,
-          "significant": 1,
-          "avgCiWidth": 1483416.99,
-          "avgCohensD": 0.26
+          "significant": 3,
+          "avgCiWidth": 1367497.27,
+          "avgCohensD": 0.28
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 815343393.02
+        "avgCiWidth": 2631208082.8
       }
     }
   ],
   "topMetrics": [
-    "nations.FRA.tradeVolume"
+    "nations.ITA.gdpGrowthRate"
   ],
-  "generatedAt": "2026-06-30T01:34:59.296Z"
+  "generatedAt": "2026-06-30T02:04:49.342Z"
 }

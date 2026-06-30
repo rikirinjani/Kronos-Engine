@@ -17,6 +17,7 @@ export interface ClimateState extends SectorState {
   tickCount: number;
   co2Concentration: number;
   annualEmissions: number;
+  annualEmissionsNoise: number;
   temperatureAnomaly: number;
   extremeEvents: ExtremeWeatherEvent[];
   seaLevelRise: number;
@@ -84,11 +85,13 @@ export function createClimateSector(): Sector {
       const co2Concentration = (config.co2Concentration as number) ?? 420;
       const annualEmissions = (config.annualEmissions as number) ?? 37;
       const year = (config.year as number) ?? 2026;
+      const annualEmissionsNoise = (config.annualEmissionsNoise as number) ?? 0.2;
 
       return {
         _sectorId: "climate",
         year,
         tickCount: 0,
+        annualEmissionsNoise,
         co2Concentration,
         annualEmissions,
         temperatureAnomaly: calcTemperatureAnomaly(co2Concentration),
@@ -108,7 +111,7 @@ export function createClimateSector(): Sector {
 
       year += 1;
       co2Conc += emissionsToConcentration(annualEm);
-      annualEm += (rng.next() - 0.5) * 2;
+      annualEm += (rng.next() - 0.5) * s.annualEmissionsNoise;
       annualEm = Math.max(0, annualEm);
 
       const newAnomaly = calcTemperatureAnomaly(co2Conc);
@@ -161,6 +164,7 @@ export function createClimateSector(): Sector {
         _sectorId: "climate",
         year,
         tickCount: s.tickCount + 1,
+        annualEmissionsNoise: s.annualEmissionsNoise,
         co2Concentration: co2Conc,
         annualEmissions: annualEm,
         temperatureAnomaly: newAnomaly,
