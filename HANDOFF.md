@@ -55,12 +55,12 @@
 ## Branch Analyst
 
 ### Pending
-- **Sector Engineer handoff:** Phase 2.1 sentinel network — 30 hospitals across 5 regions ready. Needs regional heatmap analysis: run contemporary counterfactual with all 30 sentinels, produce per-region occupancy/ICU/mortality/surge statistics, publish heatmap. Config in `src/data/indonesian-hospitals.ts`.
 
 ### Active
 
 ### Completed
 - **2026-06-30** — **Phase 1.4: DR Sentinel Counterfactual (30 seeds).** Sector Engineer's `dr-counterfactual.ts` ran at RP-CONTEMP-002 with Makassar sentinel. 14/156 metrics significant, including 2 DR-specific: `sentinelOutput.occupancyRate` (Δ=+0.01, d=0.70) and `sentinelOutput.diseasePrevalence.UNKNOWN` (Δ=+5.52, d=0.91). Deers Rock internal metrics also show divergence: cycles (−4.97, d=−2.71), dialysis sessions (+1.83, d=1.11), outcome records (+3.73, d=0.58). **Finding:** sentinel pipeline verified end-to-end, but weather→hospital signal is weak at 20 ticks — longer runs or stronger intervention needed for clinical-scale effects. Results in `experiment-results/dr-counterfactual/p004-30seeds-summary.json`.
+- **2026-06-30** — **Phase 2.1: Sentinel network regional heatmap (10 seeds, 30 hospitals, 5 regions).** Sector Engineer's 30-hospital network deployed across Java (9), Sumatra (7), Kalimantan (3), Sulawesi (5), Eastern Indonesia (6). Regional variance confirmed: Java 48.3% occupancy, Kalimantan 49.1% (highest), Sulawesi 40.4% (lowest). Intervention effect (reduced emissions) shifts occupancy by −0.2 to +0.3pp per region. ICU and mortality at 0 at 10-tick scale — longer runs needed for acute event capture. Heatmap in `experiment-results/dr-counterfactual/heatmap.json`.
 - **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
 - **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
 - **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
@@ -91,7 +91,6 @@
 
 ### Pending
 - **ROADMAP.md finalized.** All agent feedback incorporated. See `ROADMAP.md` for full document.
-- **Phase 1.2 calibration: 3 of 3 gaps closed.** Gap D (economy wars[] init) routed to Sector Engineer Active. Waiting for fix before P-003 re-run.
 
 ### Active
 
