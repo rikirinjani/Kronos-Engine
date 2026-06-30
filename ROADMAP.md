@@ -33,8 +33,9 @@ Completed: 4 gaps closed (casualty multiplier, war→GDP attacker/defender split
 ### 1.3 Statistical Power ✅
 30-seed proven in P-003 re-run. `runExperiment()` supports arbitrary seeds.
 
-### 1.4 Contemporary Sentinel Counterfactual ⏳ Up next
-Run counterfactual with Deers Rock (e.g., COVID-19 at RP-CONTEMP-002). Prove sentinel in full cross-sector experiment. Gates Phase 2.1.
+### 1.4 Contemporary Sentinel Counterfactual ⏳ Active
+**Owner:** Sector Engineer
+Run counterfactual with Deers Rock (e.g., COVID-19 at RP-CONTEMP-002). Prove sentinel in full cross-sector experiment. Gates Phase 2.1 (sentinels) and 2.2 (Paper 1).
 
 ---
 
