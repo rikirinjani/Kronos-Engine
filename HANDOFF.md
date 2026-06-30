@@ -53,7 +53,20 @@
 ### Pending
 
 ### Active
-- **Phase 1.2 — Model Calibration.** Three gaps from sensitivity sweep: (a) war casualties need magnitude multiplier, (b) war GDP effect needs configurable sign, (c) climate CO₂ drift needs signal-to-noise improvement. World Archivist available for historical baselines (Maddison/CLIO-INFRA).
+- **Phase 1.2 — Model Calibration.** Three gaps from sensitivity sweep. World Archivist delivered reference data (`docs/history/calibration-reference.json`). Specific handler changes needed (see Pending in Meta Platform — routes to Sector Engineer / Timeline Governor).
+
+### Pending (calibration spec — awaiting handler changes)
+- **2026-06-30 — Calibration Gap A: War casualties (geopolitics handler)**
+  **Problem:** `geopolitics.ts:tick` active-war casualty generator (`Math.floor(rng.next() * 500) + 50`) produces ~1K casualties over 30 ticks. Real WWII was 75M — **75,000x gap** per Archivist.
+  **Fix:** Add configurable `casualtyMultiplier` to `GeopoliticsState`. Default = 1 (current behavior). In the tick loop, replace `war.casualties += casualtiesDelta` with `war.casualties += casualtiesDelta * war.casualtyMultiplier` where `casualtyMultiplier` lives on the war object or a sector-level config. For P-003 re-run: set multiplier to 2,500 (gives ~2.5M–41M over 30 ticks, ~3–55% of real WWII scale — plausible for an early-stage war simulation).
+
+- **2026-06-30 — Calibration Gap B: War→GDP sign (economy handler)**
+  **Problem:** `economy.ts:war_start` handler applies 5% GDP hit and −1.5% growth. But base tick autonomous growth outpaces this → net-positive GDP with war (Kaleckian wartime demand). Real WWII: USA grew, DEU/RUS/JPN/CHN collapsed. Handler doesn't distinguish attacker vs defender economies.
+  **Fix:** Split `war_start` handler into attacker/defender branches. Attacker (e.g., DEU): `gdp *= 1.03` (war industrial mobilization), `tradeVolume -= 10` (blockades), `gdpGrowthRate += 2.0`. Defender (e.g., POL, FRA): `gdp *= 0.85`, `tradeVolume -= 50`, `gdpGrowthRate -= 5.0`. Reference: per-decade GDP rates in calibration-reference.json (USA +3.2%, DEU −2.1%, RUS −1.5% for 1939-1949).
+
+- **2026-06-30 — Calibration Gap C: Climate CO₂ drift (climate handler)**
+  **Problem:** `climate.ts:tick` applies `annualEm += (rng.next() - 0.5) * 2` — ±1 Gt/year noise. Over 30 ticks this compounds to ±30 Gt cumulative, swamping any intervention signal (intervention changes emissions by ~0.5 Gt/year via GDP shift handler).
+  **Fix:** Reduce noise amplitude: change `(rng.next() - 0.5) * 2` to `(rng.next() - 0.5) * 0.2` (±0.1 Gt/year). The noise should represent genuine uncertainty in emissions tracking, not ±10% of global annual emissions per tick. Also make the amplitude configurable via sector init config (`annualEmissionsNoise` parameter).
 
 ### Completed
 - **2026-06-29** — Designed and implemented CounterfactualDiff schema + experiment pipeline (3 items from Meta Platform guidance). Delivered: `src/experiment/types.ts` (Intervention, MetricDelta, SectorDiff, CounterfactualDiff, ExperimentRun, ExperimentSet, StatisticalSummary), `src/experiment/diff-engine.ts` (numeric path extraction, metric deltas, event counting, multi-sector diff builder), `src/experiment/stats.ts` (mean/median/SD/CI95/Cohen's d, multi-seed summary). 30 tests passing, `tsc --noEmit` clean.
@@ -84,6 +97,10 @@
 
 ### Pending
 - **ROADMAP.md finalized.** All agent feedback incorporated. See `ROADMAP.md` for full document.
+- **Branch Analyst calibration spec ready for routing — Phase 1.2 Model Calibration.**
+  Three handler changes needed in sector modules to close the calibration gaps before P-003 re-run. See Branch Analyst section for full spec (3 entries under Pending). 
+  **Route to → Sector Engineer or Timeline Governor** (whoever can modify geopolitics/economy/climate tick handlers). Estimated effort: ~50 lines changed across 3 files, ~15 new tests. Each change is additive (configurable parameters with backward-compatible defaults).
+  **Prerequisite for:** Phase 1.3 Statistical Power (currently blocked), Phase 1.4 DR Counterfactual (blocked), Phase 2.2 Paper (blocked).
 
 ### Active
 
