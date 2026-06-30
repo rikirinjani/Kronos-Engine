@@ -1,5 +1,7 @@
 # Kronos Engine — Project Overview
 
+**Codename: Somnium Engine** — *one engine, infinite timelines*
+
 **A deterministic, multi-scale world simulator with pluggable sectors, seeded universes, Rewind Points, and counterfactual branching. Deers Rock HOE serves as the healthcare sentinel — a standalone hospital participating in a larger world without knowing it exists.**
 
 *Philosophy: Simulation as Self-Critique. Counterfactuals by Construction. Every seed is a history — every snapshot is a choice.*
