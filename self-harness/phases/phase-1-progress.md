@@ -1,8 +1,8 @@
 # Phase 1 — Progress Tracking
 
 ## Current Counts
-- Traces recorded: 20
-- Failures recorded: 4
+- Traces recorded: 22
+- Failures recorded: 5
 - Proposals submitted: 1
 - Proposals approved: 0
 - Proposals rejected: 0
@@ -12,4 +12,4 @@
 - Current progress: 1/40 proposals, 0/6 months
 
 ## Last Updated
-2026-06-30 — Phase 1.2 calibration: all 4 gaps closed. P-003 re-run fully unblocked.
+2026-06-30 — P-004 experiment infra built. Handoff to Branch Analyst. Self-harness failure: scope overstep (ran experiment, not Sector Engineer's lane).

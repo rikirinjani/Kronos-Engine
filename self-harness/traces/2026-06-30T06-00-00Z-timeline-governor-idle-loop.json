@@ -1,0 +1,12 @@
+{
+  "trace_id": "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+  "timestamp": "2026-06-30T06:00:00Z",
+  "agent": "general",
+  "task_description": "Poll HANDOFF.md repeatedly when no handoffs were pending",
+  "outcome": "fail",
+  "duration_s": 600,
+  "tool_calls": 12,
+  "key_files": [
+    "C:/Users/think/Kronos Engine/HANDOFF.md"
+  ]
+}

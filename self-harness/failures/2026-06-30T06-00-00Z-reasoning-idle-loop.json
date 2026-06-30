@@ -1,0 +1,14 @@
+{
+  "failure_id": "a9b8c7d6-e5f4-3210-9876-543210fedcba",
+  "timestamp": "2026-06-30T06:00:00Z",
+  "trace_id": "f1a2b3c4-d5e6-7890-abcd-ef1234567890",
+  "category": "reasoning",
+  "severity": "minor",
+  "root_cause": "No termination condition for idle state — kept checking HANDOFF.md despite no handoffs in Timeline Governor section for 3 consecutive reads. Should have asked user for new direction or idled silently.",
+  "trace_summary": "Read HANDOFF.md repeatedly (~4 times) finding no pending entries. Reported same status each time. User had to intervene to stop the loop.",
+  "failure_signature": {
+    "verifier_cause": "User asked 'why are you running non stop' — external signal that agent was in a useless loop",
+    "agent_behavior": "Kept polling a static file for changes that weren't coming, burning tool calls and tokens",
+    "agent_mechanism": "No circuit-breaker on repeated reads of unchanged data — should limit to 1 check per user request"
+  }
+}

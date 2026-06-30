@@ -39,7 +39,6 @@
 ### Pending
 
 ### Active
-- **Phase 1.4: Contemporary DR Sentinel Counterfactual.** Run counterfactual with Deers Rock (e.g., COVID-19 at RP-CONTEMP-002). Prove the sentinel in a full cross-sector experiment. Configure DR for contemporary era, wire through the experiment pipeline, run at 30 seeds. Gates Phase 2.1 (sentinel network) and 2.2 (Paper 1).
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
@@ -47,12 +46,14 @@
 - **2026-06-29** — Era-to-world loader built (`src/engine/era-loader.ts`). `buildSectorConfigs(state, era)` maps StrategicWorldState → geopolitics/climate/economy/technology configs for `createWorld()`. `loadEraConfig(path, rewindPointId)` reads era JSON from disk. Handles era-specific defaults: CO2 concentration (280–420), annual emissions (0–37 Gt), R&D spending (0.8%–3.5%), GDP growth/inflation rates by century. 7 tests, `tsc --noEmit` clean.
 - **2026-06-30** — **Phase 2.3: CI/CD complete.** GitHub Actions workflow (`.github/workflows/ci.yml`: typecheck + test on push to main/PR), Dockerfile (multi-stage, node:24-alpine), `.dockerignore`, `railway.json`, engine entry point (`src/index.ts`). 175 tests, 20 files, `tsc --noEmit` clean.
 - **2026-06-30** — **Phase 1.2 calibration: all 4 gaps closed.** Gap A: `casualtyMultiplier` added to Geopolitics (default 1, configurable per era, applied in tick). Gap B: `war_start` handler split — attackers get GDP+3%/growth+2.0, defenders get GDP-15%/growth-5.0. Gap C: Climate CO₂ noise reduced from ±2→±0.2, configurable via `annualEmissionsNoise`. Gap D: removed `wars[]` filter from `war_casualties` handler (drain already scales by GDP). Ready for P-003 re-run.
+- **2026-06-30** — **Phase 1.4: DR Sentinel Counterfactual experiment built** (`src/experiment/experiments/dr-counterfactual.ts`). Wires sentinel into experiment pipeline at RP-CONTEMP-002. Ready for @branch-analyst to run 30 seeds, analyze stats, and produce the analysis report.
 
 ---
 
 ## Branch Analyst
 
 ### Pending
+- **Sector Engineer handoff:** Phase 1.4 DR counterfactual experiment built at `src/experiment/experiments/dr-counterfactual.ts`, wired at RP-CONTEMP-002. Needs Branch Analyst to run 30 seeds, analyze stats, produce report.
 
 ### Active
 
