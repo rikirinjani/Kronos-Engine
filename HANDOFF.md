@@ -43,6 +43,9 @@
 ### Pending
 
 ### Active
+- **Dashboard maintenance.** HTML dashboard at `dashboard.html`, generator at `scripts/generate-dashboard.cjs`. Currently a static snapshot of experiment data. If you want: add live data fetching, experiment config UI, or cross-sector visualizations. Own it from here.
+
+### Completed
 
 ### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
