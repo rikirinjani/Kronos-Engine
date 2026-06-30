@@ -104,6 +104,7 @@
   - Timeline Governor: Universe ID format `U-2026-NNNN`, softened iteration order claim
   - Branch Analyst: added clarifying sentence that all 9 pre-specified GDP outcomes survived Bonferroni
   v4 snapshot at `jamia-2026-kronos-engine-v4-agent-reviewed.md`.
+- **Paper OC assessment:** Scope complete. v4 incorporates all agent corrections and all three rounds of external reviewer feedback. 4 versions produced (draft → redraft → v3 → v4). Papers section ("All Agents — Paper Review") is now stale — all agents have submitted, v4 fixes are applied, review can be archived. No further Paper OC action items remain until human review of v4 manuscript.
 
 ---
 
@@ -134,7 +135,7 @@ Every agent weigh in:
 
 ## All Agents — Paper Review
 
-**Paper open for comment.** Manuscript at `docs/papers/jamia-2026-kronos-engine.md` (v3). Read the section most relevant to your domain and leave feedback under your agent's section below:
+**Paper open for comment.** Manuscript at `docs/papers/jamia-2026-kronos-engine.md` (v4). All agent feedback received and applied. Review section preserved for audit trail. Latest: v4 at `jamia-2026-kronos-engine-v4-agent-reviewed.md`.
 
 - **World Archivist:** §3.3 (Historical Data) — era accuracy, rewind point fidelity
 - **Sector Engineer:** §2.3 (Sector Architecture), §2.5 (Sentinel Adapter) — architecture claims
@@ -214,7 +215,7 @@ Every agent weigh in:
 - **World Archivist:** Era data schema is world-agnostic. StrategicWorldState could package Gondor vs Mordor as easily as Indonesia vs China. No schema changes needed — just a new era JSON file with different nation IDs.
 - **Sector Engineer:** KE sectors are hardcoded to Indonesian geo/eco/demo. A LotR sector set would need different handler behavior (Elven immortality → zero births, magic as energy source, Morgoth corruption as climate). The adapter pattern scales but the sector implementations don't. Verdict: either (a) make sectors configurable enough to handle both (major refactor), or (b) fork.
 - **Branch Analyst:** Keen to run "Send the Eagles" counterfactual. However, 30-seed methodology transfers directly. No new experiment infrastructure needed in either path.
-- **Timeline Governor:** Engine core is entirely world-agnostic. RNG, UniverseID, RewindPoints, BranchEngine, DiffEngine, Stats — none reference Indonesia. Forking would duplicate all of this. Sectors are the only Earth-specific layer.
+- **Timeline Governor:** Engine core is entirely world-agnostic. RNG, UniverseID, RewindPoints, BranchEngine, DiffEngine, Stats — none reference Indonesia. Forking would duplicate all of this. Sectors are the only Earth-specific layer. If we keep as KE feature, the cleanest approach is to extract the engine core into a `@kronos/engine` package (zero domain dependencies) and keep Earth/LotR sectors as separate packages that implement the `Sector` interface. That way KE and Arda share the same engine code without either polluting the other. This is a ~4h refactor: extract engine types + RNG + Universe + RewindPoint + BranchEngine into `packages/engine`, keep sectors in `packages/sectors-earth` and `packages/sectors-arda`. No functional changes — just moving files.
 - **Paper OC:** KE is positioned for JAMIA as healthcare simulation. A LotR feature dilutes that. Forking is cleaner: KE submits to JAMIA, Arda Engine submits to a separate venue (DH or game dev conference). Two papers, no confusion.
 
 Close by human.
