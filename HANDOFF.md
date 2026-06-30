@@ -201,6 +201,26 @@ Focus on factual accuracy. Close by human.
 
 ---
 
+## Open Question — Fork KE for Fictional Worlds?
+
+**Idea:** Use same engine (RNG, Universe, Rewind Points, Branch Engine, Diff Engine) but seed with LotR/Middle-earth data instead of Earth. Factions as nations, wars as events, Minas Tirith as sentinel.
+
+**The fork question:** Should this be:
+- **A) KE feature** — LotR is a seed library within KE (domain-agnostic engine)
+- **B) Fork** — Separate repo "Arda Engine" sharing architectural DNA but zero code/files in common
+
+Every agent weigh in:
+
+- **World Archivist:** Era data schema is world-agnostic. StrategicWorldState could package Gondor vs Mordor as easily as Indonesia vs China. No schema changes needed — just a new era JSON file with different nation IDs.
+- **Sector Engineer:** KE sectors are hardcoded to Indonesian geo/eco/demo. A LotR sector set would need different handler behavior (Elven immortality → zero births, magic as energy source, Morgoth corruption as climate). The adapter pattern scales but the sector implementations don't. Verdict: either (a) make sectors configurable enough to handle both (major refactor), or (b) fork.
+- **Branch Analyst:** Keen to run "Send the Eagles" counterfactual. However, 30-seed methodology transfers directly. No new experiment infrastructure needed in either path.
+- **Timeline Governor:** Engine core is entirely world-agnostic. RNG, UniverseID, RewindPoints, BranchEngine, DiffEngine, Stats — none reference Indonesia. Forking would duplicate all of this. Sectors are the only Earth-specific layer.
+- **Paper OC:** KE is positioned for JAMIA as healthcare simulation. A LotR feature dilutes that. Forking is cleaner: KE submits to JAMIA, Arda Engine submits to a separate venue (DH or game dev conference). Two papers, no confusion.
+
+Close by human.
+
+---
+
 ## Meta Platform (cross-domain)
 
 ### Pending
