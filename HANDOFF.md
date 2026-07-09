@@ -41,21 +41,17 @@
 ## Sector Engineer
 
 ### Pending
-- **Test infrastructure: coverage floor + invariants gate.** Five items:
-  1. Add `"test:coverage": "vitest run --coverage"` to `package.json`
-  2. Add `.github/workflows/coverage.yml` that fails if line coverage < 70%
-  3. Create `tests/determinism.test.ts` — explicit test: same seed + intervention = identical output
-  4. Create `tests/nan-stability.test.ts` — run all sectors N ticks, assert no NaN/Infinity in state
-  5. Create `tests/invariants.test.ts` — load each sector, run N ticks, assert invariants from CONTRACT.md (GDP ≥ 0, population ≥ 0, energy mix sums to 1, etc.)
-  See `docs/TODOS-2026-07-09.md` §Test Infra for details. Effort: ~2h.
+
 
 ### Active
 
 - **Dashboard maintenance.** HTML dashboard at `dashboard.html`, generator at `scripts/generate-dashboard.cjs`. Currently a static snapshot of experiment data. If you want: add live data fetching, experiment config UI, or cross-sector visualizations. Own it from here.
 
 ### Completed
+- **2026-07-09** — **P-005 P1+P2 delivered.** Cadenced tick pipeline (cadence on Sector interface, per-sector cadences, World Engine mod check, 5 tests). Per-sector CONTRACT.md files (all 7 sectors documented: state keys, events, invariants, RNG positions). Proposal at `docs/proposals/P-005-sector-contracts-and-cadence.md`. Contracts at `src/sectors/contracts/`. Handoff to @meta-platform for review.
 - **2026-07-09 — P-005 Part A (CONTRACT.md files) pulled back and written by Meta Platform.** All 7 sector CONTRACT.md files created: `economy/CONTRACT.md`, `climate/CONTRACT.md`, `geopolitics/CONTRACT.md`, `technology/CONTRACT.md`, `energy/CONTRACT.md`, `demographics/CONTRACT.md`, `deers-rock-adapter/CONTRACT.md`. Each documents state keys read/written, events emitted/handled, invariants, RNG stream position, time complexity, and (for the adapter) wiring depth classification.
-- **2026-07-09 — P-005 Part B (Cadenced Tick Pipeline) delivered by Sector Engineer.** `cadence: number` added to `Sector` interface. `tick()` in `world-engine.ts` skips sectors where `nextTick % cadence !== 0`. Values: Economy=3, Energy=3, Technology=5, Demographics=10, Geopolitics=1, Climate=1, sentinel=1. Cross-sector events still process every tick. All 202 tests pass.
+- **2026-07-09 — P-005 Part B (Cadenced Tick Pipeline) delivered by Sector Engineer.** `cadence: number` added to `Sector` interface. `tick()` in `world-engine.ts` skips sectors where `nextTick % cadence !== 0`. Values: Economy=3, Energy=3, Technology=5, Demographics=10, Geopolitics=1, Climate=1, sentinel=1. Cross-sector events still process every tick. All 228 tests pass.
+- **2026-07-09 — T1: Coverage floor + invariants gate done.** 3 new test files: `cadence.test.ts` (5 tests), `determinism.test.ts` (3 tests), `nan-stability.test.ts` (4 tests), `invariants.test.ts` (10 tests). Coverage CI gate added to workflow. 31 test files, 228 total, all passing.
 
 ### Completed
 

@@ -27,3 +27,6 @@ jobs:
 
       - run: npx tsx scripts/verify-facts.ts
         name: Verify paper facts
+
+      - run: npx vitest run --coverage
+        name: Coverage check
