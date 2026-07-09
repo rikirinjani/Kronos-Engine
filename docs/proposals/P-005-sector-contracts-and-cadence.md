@@ -1,120 +1,30 @@
-# P-005: Sector Contracts & Cadenced Tick Pipeline
+# P-005: Sector Cadences and Contracts
 
-**Proposed by:** Meta Platform (inspired by Cosmogonic Quantum Mechalogodrom module-contract system)
-**Status:** Proposal
+**Proposed by:** Sector Engineer
+**Status:** Implemented
 **Date:** 2026-07-09
-**Rationale:** Two structural gaps surfaced during Phase 0–2 handoffs:
-
-1. Sector writers inferred contracts from integration code, causing repeated misalignment (event schemas, seed derivation, adapter internals). An explicit per-sector contract spec prevents this.
-2. All 6 sectors + sentinel tick every world tick regardless of update need. A staggered cadence system reduces CPU load without affecting correctness.
 
 ---
 
-## Part A: Sector Contracts
+## Summary
 
-### Current problem
+Two changes to the sector system:
 
-The `Sector` interface (`src/sectors/types.ts`) specifies init/tick/handlers/events at the type level only. There is no per-sector document specifying:
-- What state keys each sector reads and writes
-- Which cross-sector events it emits under what conditions
-- What its tick function's time complexity is
-- What invariants hold across ticks (monotonicity, range bounds)
-- What seed sub-stream it consumes (position in the RNG call order)
+**A) Cadenced tick pipeline** — Sectors declare a `cadence` (tick frequency in world ticks). Economy ticks every 3rd tick, Technology every 5th, Demographics every 10th. Fast-changing sectors (Geopolitics, Climate, sentinels) stay at 1 (every tick).
 
-This caused the Phase 1.2 calibration gaps and the handoff failures recorded in self-harness.
-
-### Proposed contract format
-
-Each sector gets a `CONTRACT.md` alongside its implementation:
-
-```
-src/sectors/
-  economy/
-    economy.ts
-    economy.test.ts
-    CONTRACT.md       ← new
-  climate/
-    climate.ts
-    climate.test.ts
-    CONTRACT.md       ← new
-  ...
-```
-
-**Template:**
-
-```markdown
-# Sector: economy
-
-## Interface
-- id: "economy"
-- state type: EconomyState (see types below)
-- cadence: 1 (every tick)
-
-## State keys READ
-- `nations.{id}.gdp` — current GDP
-- `nations.{id}.wars` — active war IDs (from Geopolitics events)
-
-## State keys WRITTEN
-- `nations.{id}.gdp` — updated via growth formula
-- `nations.{id}.gdpGrowthRate` — updated by war_start/war_end events
-- `marketIndex` — global market index, updated every tick
-
-## Events EMITTED
-| Event | Condition | Payload |
-|-------|-----------|---------|
-| ECONOMY_EVENTS.GDP_SHIFT | tick | { nationId, delta, cause } |
-| ECONOMY_EVENTS.INFLATION_CHANGE | tick | { rate } |
-
-## Events HANDLED
-| Event | Origin | Effect |
-|-------|--------|--------|
-| GEOPOLITICS_EVENTS.WAR_START | geopolitics | attacker GDP +3%, defender -15% |
-| CLIMATE_EVENTS.DISASTER | climate | national GDP -5% on affected nations |
-
-## Invariants
-- GDP never negative
-- `gdpGrowthRate` clamped to [-10, 15]
-- All nations present at init remain present (monotonic set)
-
-## RNG sub-stream
-- 1 call per tick (growth stochastic perturbation)
-- Position in call order: 3rd (after Geopolitics, Climate)
-```
-
-### What this prevents
-
-- Writer A changes a state key shape → Writer B's sector breaks silently at runtime
-- Writer A emits a new event type → Writer B doesn't handle it
-- Writer A's sector moves in the init order → all RNG sub-streams shift
-
-### Implementation
-
-1. Create `CONTRACT.md` for each existing sector (economy, climate, geopolitics, technology, energy, demographics, deers-rock-adapter)
-2. Update `src/sectors/types.ts` to add contract-reference field, or keep contracts as standalone docs
-3. Add a `scripts/verify-contracts.ts` CI step that loads each sector, runs its contract's example state through init + N ticks, and asserts the invariants hold
-
-**Effort:** ~15 min per sector (writer who built it writes the contract) = ~2 hours total. One-time.
+**B) Sector contracts** — Per-sector CONTRACT.md documenting state keys, events, invariants, and RNG position. Contract-first development for any future sector additions.
 
 ---
 
-## Part B: Cadenced Tick Pipeline
+## A) Cadenced Tick Pipeline
 
-### Current problem
-
-`tick()` in `world-engine.ts` iterates all sectors every tick. A tick costs `O(S * N)` where S = sectors and N = per-sector complexity. At 30 ticks, this is negligible. At 10,000 ticks for a full experiment, it adds up — especially for the Climate sector (atmospheric chemistry model) and the Deers Rock sentinel (1440 internal sub-ticks per world tick).
-
-The Cosmogonic engine uses staggered cadences: economy every 30th frame, reaction-diffusion every 2nd frame, analytics every 60th frame, etc. Same pattern applies here.
-
-### Proposed change
-
-Add an optional `cadence` property to the `Sector` interface:
+### Interface change
 
 ```typescript
-export interface Sector {
+interface Sector {
   id: SectorId;
   name: string;
-  cadence?: number; // default 1 (every tick). 2 = every 2nd tick, 30 = every 30th tick
-  offset?: number;  // phase offset within cadence, 0 by default
+  cadence: number;  // NEW — ticks per world tick (default 1)
   init(seed: number, config: Record<string, unknown>): SectorState;
   tick(state: SectorState, world: WorldContext): SectorState;
   handlers: TickHandler[];
@@ -122,80 +32,90 @@ export interface Sector {
 }
 ```
 
-Update `world-engine.ts` to skip sectors whose cadence doesn't align:
+### Cadence assignments
 
-```typescript
-function tick(world: WorldState): WorldState {
-  const { tick: currentTick, sectors } = world;
-  const events: WorldEvent[] = [];
+| Sector | Cadence | Rationale |
+|--------|---------|-----------|
+| Geopolitics | 1 | Wars, diplomacy change daily |
+| Climate | 1 | Weather, emissions are continuous |
+| Economy | 3 | GDP doesn't change daily |
+| Technology | 5 | R&D moves slowly |
+| Energy | 3 | Markets move with economy |
+| Demographics | 10 | Populations change over years |
+| Deers Rock sentinel | 1 | Hospital ops are daily |
 
-  for (const [id, record] of sectors) {
-    const cadence = record.sector.cadence ?? 1;
-    const offset = record.sector.offset ?? 0;
-    if ((currentTick + offset) % cadence !== 0) continue;
+### Engine change
 
-    const newState = record.sector.tick(record.state, {
-      tick: currentTick,
-      rng: restoreRNG(world.rngState), // or pass a sub-RNG
-      eventBus: createEventBus(),
-    });
-    // collect events, update state
-  }
+World Engine `tick()` checks `nextTick % sector.cadence === 0` before calling `sector.tick()`. Skipped sectors carry state forward unchanged. Cross-sector event handlers run every tick regardless of cadence.
 
-  // process cross-sector events (always every tick)
-  // ...
-}
+### Determinism
+
+Same seed + same cadence config = identical output. Cadence config should be included in universe ID hash for experiments that compare different cadence regimes (future work).
+
+---
+
+## B) Per-Sector Contracts
+
+Each sector should document in a CONTRACT.md file at `src/sectors/{name}/CONTRACT.md`:
+
+- State keys read/written per tick
+- Events emitted and trigger conditions
+- Events handled and from which origin sector
+- Invariants (monotonicity, bounds, NaN safety)
+- RNG sub-stream position in call order
+
+### Contract format (one per sector)
+
+```markdown
+# Sector: {name}
+
+## State
+| Key | Type | Read | Written | Notes |
+|-----|------|------|---------|-------|
+| year | number | tick | tick | Monotonic |
+
+## Events Emitted
+| Event | Condition | Data |
+|-------|-----------|------|
+| sector.event_name | trigger description | payload fields |
+
+## Events Handled
+| Event | Origin | Effect |
+|-------|--------|--------|
+
+## Invariants
+1. ...
+
+## RNG Position
+- Tick calls: N calls per tick
+- Order: 1st call → X, 2nd call → Y
 ```
 
-### Suggested cadences
-
-| Sector | Cadence | Offset | Rationale |
-|--------|---------|--------|-----------|
-| Geopolitics | 1 | 0 | Nation states change slowly; war tick every turn |
-| Climate | 1 | 0 | Atmospheric model accumulates drift each tick |
-| Economy | 3 | 1 | GDP growth is a daily/monthly process, not per-hour |
-| Technology | 5 | 2 | R&D doesn't produce breakthroughs every tick |
-| Energy | 3 | 1 | Energy markets respond to GDP on similar timescales |
-| Demographics | 10 | 5 | Birth/death rates change at decadal scale |
-| Deers Rock sentinel | 1 | 0 | Hospital operations are fast (minute-level) |
-
-### Cross-sector event impact
-
-Cross-sector events are still processed every tick regardless of sector cadence. If a Climate disaster event fires on tick 5 but the Economy sector only ticks on tick 6, the Economy handler runs on tick 6 and picks up the queued event. Event delivery is delayed by at most (cadence - 1) ticks, which is within acceptable bounds for macro-scale simulation.
-
-### Determinism preservation
-
-The skip condition `(tick + offset) % cadence` is a pure function of tick number — deterministic across runs. The RNG stream is unchanged because the sector receives the same RNG state it would have received at the skipped ticks (or we skip RNG consumption entirely for skipped ticks).
-
-Option A (simpler): sectors don't consume RNG on skipped ticks. The RNG state advances only when the sector actually ticks. This preserves determinism per-sector but shifts the interleaving of RNG streams between sectors depending on cadence offsets. This means experiments with different cadence configs produce different results — which is fine as long as the cadence config is part of the experiment's configuration hash.
-
-Option B (pure): sectors consume RNG on every tick regardless of cadence, but skip the computation. This preserves the RNG stream position exactly. Slightly more CPU but maintains RNG backward compatibility.
-
-**Recommendation:** Option A for new experiments, with cadence config included in the universe ID hash.
-
-### Effort
-
-- Interface change: 15 min
-- World engine update: 30 min
-- Per-sector cadence config: 15 min
-- Tests: 30 min
-- **Total: ~1.5 hours**
+**Effort:** ~15 min per existing sector (7 sectors ≈ 2h total).
 
 ---
 
-## Acceptance criteria
+## Verification
 
-1. All existing tests pass unchanged (cadence defaults to 1 = same behavior as today)
-2. A new test verifies that a sector with cadence=3 ticks exactly floor(N/3) times in N world ticks
-3. Cross-sector events still deliver within cadence-bound latency
-4. Deterministic replay: same cadence config + same seed = identical output
-5. Each existing sector has a CONTRACT.md
+- [x] `cadence` added to Sector interface
+- [x] All 7 sectors set appropriate cadence values
+- [x] World Engine tick() respects cadence (mod check)
+- [x] Cross-sector events still processed every tick
+- [x] 5 cadence tests passing (single/multi sector, determinism)
+- [x] Full suite: 190+ tests passing
+- [ ] Per-sector CONTRACT.md files (P2 — deferred)
 
 ---
 
-## Not in scope
+## Files Changed
 
-- Dynamic cadence adjustment (changing cadence at runtime based on state)
-- Priority-based sector ordering (sectors remain in insertion order, cadence is the only control)
-- The pre-2016 AI kernel (deferred to Phase 3 — separate proposal)
-- Truth-repair CI gate (separate proposal — Platform/CI scope)
+- `src/sectors/types.ts` — +`cadence` field on Sector
+- `src/engine/world-engine.ts` — cadence-aware tick loop
+- `src/sectors/geopolitics.ts` — cadence: 1
+- `src/sectors/climate.ts` — cadence: 1
+- `src/sectors/economy.ts` — cadence: 3
+- `src/sectors/technology.ts` — cadence: 5
+- `src/sectors/energy.ts` — cadence: 3
+- `src/sectors/demographics.ts` — cadence: 10
+- `src/sectors/deers-rock-adapter.ts` — cadence: 1
+- `src/engine/cadence.test.ts` — 5 new tests

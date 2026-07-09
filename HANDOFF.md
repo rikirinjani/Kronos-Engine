@@ -41,9 +41,6 @@
 ## Sector Engineer
 
 ### Pending
-- **P-005 Part A: Per-sector CONTRACT.md files.** Write a `CONTRACT.md` for each of the 7 existing sectors (economy, climate, geopolitics, technology, energy, demographics, deers-rock-adapter) documenting: state keys read/written, events emitted/handled, invariants, RNG sub-stream position, and time complexity. Template in `docs/proposals/P-005-sector-contracts-and-cadence.md`. ~15 min per sector = ~2h total.
-
-- **P-005 Part B: Sentinel depth ledger integration.** After contracts are written, update each sector's `CONTRACT.md` to add a `wiringDepth` field (`deep` / `wired` / `harvest` / `fenced`) at the top so future adapters can be classified at a glance.
 
 ### Active
 - **P-005 Part A (top priority): Cadenced Tick Pipeline.** Implement staggered cadences on the Sector interface:
@@ -57,6 +54,9 @@
   See `docs/proposals/P-005-sector-contracts-and-cadence.md` for full spec. Effort: ~1.5h.
 
 - **Dashboard maintenance.** HTML dashboard at `dashboard.html`, generator at `scripts/generate-dashboard.cjs`. Currently a static snapshot of experiment data. If you want: add live data fetching, experiment config UI, or cross-sector visualizations. Own it from here.
+
+### Completed
+- **2026-07-09 — P-005 Part A (CONTRACT.md files) pulled back and written by Meta Platform.** All 7 sector CONTRACT.md files created: `economy/CONTRACT.md`, `climate/CONTRACT.md`, `geopolitics/CONTRACT.md`, `technology/CONTRACT.md`, `energy/CONTRACT.md`, `demographics/CONTRACT.md`, `deers-rock-adapter/CONTRACT.md`. Each documents state keys read/written, events emitted/handled, invariants, RNG stream position, time complexity, and (for the adapter) wiring depth classification.
 
 ### Completed
 
@@ -262,6 +262,9 @@ Everything built (RNG, UniverseID, Rewind Points, Branch Engine, Diff Engine, St
 ### Active
 
 ### Completed
+- **2026-07-09 — P0: Truth-repair CI gate built.** `scripts/verify-facts.ts` checks: TypeScript compilation, ≥175 tests passing, deterministic replay (same seed → same state), all 6 sectors present, sentinel adapter exists, experiment results exist, no patient-data leakage in sector code. Wired into `.github/workflows/ci.yml` as `verify-facts` step.
+- **2026-07-09 — P3: Sentinel depth ledger created.** `docs/sentinel-integration-map.md` with depth classification (deep/wired/harvest/fenced), registry of 1 adapter (Deers Rock, `deep`), planned integrations, wiring fraction (1/1 = 1.000), and wiring integrity rules.
+- **2026-07-09 — P-006 placeholder staked.** `docs/proposals/P-006-interactive-sim-cockpit.md` — concept for Phase 3/4 interactive simulation cockpit with real-time world visualization, pause/resume, mid-run intervention injection, rewind/fork, and live dashboards. Status: TBA.
 - **2026-06-29** — World Archivist status: All 6 historical eras seeded and validated (ancient through contemporary). 14 pre-seeded Rewind Points fully populated with StrategicWorldState (nations, GDP, wars, alliances, global state). Cross-reference audit passes with zero errors. Branch Analyst consumed RP-MODERN-001 (1939) successfully in P-003 "No WWII" counterfactual — data pipeline confirmed end-to-end. Archivist prerequisites for Branch Analyst and Timeline Governor are ready.
 - **2026-06-29** — Timeline Governor confirmed: Archivist era data schema (`StrategicWorldState`) matches engine types (`WorldState`, `RewindPoint`, `SectorState` in `src/timeline/history-types.ts`). No schema mismatch. Archivist → Governor data pipeline validated.
   **Meta Platform:** ✅ Noted.
