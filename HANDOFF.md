@@ -41,6 +41,13 @@
 ## Sector Engineer
 
 ### Pending
+- **Test infrastructure: coverage floor + invariants gate.** Five items:
+  1. Add `"test:coverage": "vitest run --coverage"` to `package.json`
+  2. Add `.github/workflows/coverage.yml` that fails if line coverage < 70%
+  3. Create `tests/determinism.test.ts` — explicit test: same seed + intervention = identical output
+  4. Create `tests/nan-stability.test.ts` — run all sectors N ticks, assert no NaN/Infinity in state
+  5. Create `tests/invariants.test.ts` — load each sector, run N ticks, assert invariants from CONTRACT.md (GDP ≥ 0, population ≥ 0, energy mix sums to 1, etc.)
+  See `docs/TODOS-2026-07-09.md` §Test Infra for details. Effort: ~2h.
 
 ### Active
 
