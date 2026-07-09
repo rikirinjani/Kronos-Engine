@@ -41,9 +41,9 @@
 ## Sector Engineer
 
 ### Pending
-- **T2: Bidirectional cross-sector feedback loops.** Currently events flow one-way (Climate emits → Economy handles). Add feedback: Economy recession → reduced industrial emissions → Climate CO₂ accumulates slower. Geopolitics war → Energy supply shock → Economy deeper recession. Each sector should both emit AND subscribe. See `docs/TODOS-2026-07-09.md` §T2. Effort: TBD.
-- **T3: Allocation-free hot path refactor.** Replace `{ ...s.nations }` spreads and array copies in sector `tick()` with mutable reuse or typed-array scratch buffers. Hot paths must not allocate per tick. See `docs/TODOS-2026-07-09.md` §T3. Effort: TBD.
-- **T4: Economy depth.** Expand from basic GDP growth to dual-currency (AURUM/UMBRA), cartels, arbitrage, sanctions, black markets, Vickrey auctions. See Cosmogonic `src/sim/economy.ts`. Effort: TBD.
+- **T2: Bidirectional cross-sector feedback loops — DONE.** Added 3 missing feedback loops: Climate→Geopolitics (extreme_weather hurts relations), Geopolitics→Climate (war_start increases emissions), Technology→Economy (innovation boosts GDP growth rate). 228 tests, 31 files.
+- **T3: Allocation-free hot path refactor — DEFERRED.** In-place mutation breaks snapshot/restore determinism (snapshot() stores references, not deep copies). Reverted to spreads. Fix requires: (a) deep-copy in snapshot(), or (b) immutable-sector fork for the hot path. Filed as Phase 3 concern — not worth the determinism risk pre-paper.
+- **T4: Economy depth — DEFERRED.** Dual-currency, cartels, arbitrage, sanctions, black markets, Vickrey auctions. Estimated effort: days to weeks — Phase 3 territory. Not scoped. Discuss with Meta Platform.
 
 ### Active
 - **Dashboard maintenance.** HTML dashboard at `dashboard.html`, generator at `scripts/generate-dashboard.cjs`. Currently a static snapshot of experiment data. If you want: add live data fetching, experiment config UI, or cross-sector visualizations. Own it from here.
