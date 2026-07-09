@@ -41,10 +41,11 @@
 ## Sector Engineer
 
 ### Pending
-
+- **T2: Bidirectional cross-sector feedback loops.** Currently events flow one-way (Climate emits → Economy handles). Add feedback: Economy recession → reduced industrial emissions → Climate CO₂ accumulates slower. Geopolitics war → Energy supply shock → Economy deeper recession. Each sector should both emit AND subscribe. See `docs/TODOS-2026-07-09.md` §T2. Effort: TBD.
+- **T3: Allocation-free hot path refactor.** Replace `{ ...s.nations }` spreads and array copies in sector `tick()` with mutable reuse or typed-array scratch buffers. Hot paths must not allocate per tick. See `docs/TODOS-2026-07-09.md` §T3. Effort: TBD.
+- **T4: Economy depth.** Expand from basic GDP growth to dual-currency (AURUM/UMBRA), cartels, arbitrage, sanctions, black markets, Vickrey auctions. See Cosmogonic `src/sim/economy.ts`. Effort: TBD.
 
 ### Active
-
 - **Dashboard maintenance.** HTML dashboard at `dashboard.html`, generator at `scripts/generate-dashboard.cjs`. Currently a static snapshot of experiment data. If you want: add live data fetching, experiment config UI, or cross-sector visualizations. Own it from here.
 
 ### Completed
