@@ -41,8 +41,21 @@
 ## Sector Engineer
 
 ### Pending
+- **P-005 Part A: Per-sector CONTRACT.md files.** Write a `CONTRACT.md` for each of the 7 existing sectors (economy, climate, geopolitics, technology, energy, demographics, deers-rock-adapter) documenting: state keys read/written, events emitted/handled, invariants, RNG sub-stream position, and time complexity. Template in `docs/proposals/P-005-sector-contracts-and-cadence.md`. ~15 min per sector = ~2h total.
+
+- **P-005 Part B: Sentinel depth ledger integration.** After contracts are written, update each sector's `CONTRACT.md` to add a `wiringDepth` field (`deep` / `wired` / `harvest` / `fenced`) at the top so future adapters can be classified at a glance.
 
 ### Active
+- **P-005 Part A (top priority): Cadenced Tick Pipeline.** Implement staggered cadences on the Sector interface:
+  1. Add optional `cadence?: number` and `offset?: number` to `Sector` interface in `src/sectors/types.ts`
+  2. Update `tick()` in `src/engine/world-engine.ts` to skip sectors whose `(currentTick + offset) % cadence !== 0`
+  3. Assign cadences: Economy=3(1), Technology=5(2), Demographics=10(5), Energy=3(1), Geopolitics=1(0), Climate=1(0), sentinel=1(0)
+  4. Include cadence config in universe/hash for determinism (Option A: no RNG consumption on skipped ticks)
+  5. Cross-sector events still processed every tick (max cadence-1 delivery latency)
+  6. New test: sector with cadence=3 ticks exactly floor(N/3) times in N world ticks
+  7. All existing tests pass unchanged
+  See `docs/proposals/P-005-sector-contracts-and-cadence.md` for full spec. Effort: ~1.5h.
+
 - **Dashboard maintenance.** HTML dashboard at `dashboard.html`, generator at `scripts/generate-dashboard.cjs`. Currently a static snapshot of experiment data. If you want: add live data fetching, experiment config UI, or cross-sector visualizations. Own it from here.
 
 ### Completed
