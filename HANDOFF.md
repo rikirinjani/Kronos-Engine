@@ -41,12 +41,11 @@
 ## Sector Engineer
 
 ### Pending
-- **T2: Bidirectional cross-sector feedback loops — DONE.** Added 3 missing feedback loops: Climate→Geopolitics (extreme_weather hurts relations), Geopolitics→Climate (war_start increases emissions), Technology→Economy (innovation boosts GDP growth rate). 228 tests, 31 files.
-- **T3 enabler: snapshot deep-copy fix — DONE.** `src/engine/clone.ts` with `deepClone()` handling plain objects, arrays, Maps, Sets, and class instances. Updated `snapshot()` + `restoreSnapshot()` to deep-clone sector states. Refactored 4 sectors (geopolitics, climate, economy, technology) to mutate in place instead of `{...s.nations}` spreads. Energy and demographics deferred (spread pattern still used). 233 tests, 32 files.
 - **T4: Economy depth — DEFERRED.** Dual-currency, cartels, arbitrage, sanctions, black markets, Vickrey auctions. Estimated effort: days to weeks — Phase 3 territory. Not scoped. Discuss with Meta Platform.
 
 ### Active
 - **Dashboard maintenance.** HTML dashboard at `dashboard.html`, generator at `scripts/generate-dashboard.cjs`. Currently a static snapshot of experiment data. If you want: add live data fetching, experiment config UI, or cross-sector visualizations. Own it from here.
+- **Phase 3 API: own `src/api/server.ts`.** The API module was built by Meta Platform (role violation — should have been delegated). You now own it. 7 endpoints, 7 tests, `npm run api` starts on port 3001. Future additions (WebSocket, SQLite cache, auth) are yours to implement.
 
 ### Completed
 - **2026-07-09** — **P-005 P1+P2 delivered.** Cadenced tick pipeline (cadence on Sector interface, per-sector cadences, World Engine mod check, 5 tests). Per-sector CONTRACT.md files (all 7 sectors documented: state keys, events, invariants, RNG positions). Proposal at `docs/proposals/P-005-sector-contracts-and-cadence.md`. Contracts at `src/sectors/contracts/`. Handoff to @meta-platform for review.
