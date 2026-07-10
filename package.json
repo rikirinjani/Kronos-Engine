@@ -10,10 +10,13 @@
     "dev": "npx tsx src/index.ts",
     "check": "tsc --noEmit",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "api": "npx tsx src/api/server.ts"
   },
   "devDependencies": {
     "@types/node": "^26.0.1",
+    "@vitest/coverage-v8": "^3.2.7",
     "typescript": "^5.8.0",
     "vitest": "^3.1.0"
   }
