@@ -44,6 +44,12 @@
 - **T4: Economy depth — DEFERRED.** Dual-currency, cartels, arbitrage, sanctions, black markets, Vickrey auctions. Estimated effort: days to weeks — Phase 3 territory. Not scoped. Discuss with Meta Platform.
 
 ### Active
+- **P-007: Pre-2016 AI Kernel.** Deterministic agent cognition module. Spec at `docs/proposals/P-007-ai-kernel.md`. Deliver:
+  1. `src/sim/ai/brains.ts` — 6 primitives: utilityPick, TinyMLP, MarkovChain, fsmStep, goapPlan, MemoryRing
+  2. `src/sim/ai/brains.test.ts` — each primitive tested + determinism
+  3. `src/sim/agents.ts` — Agent interface + CentralBankAgent, TradeAgent examples
+  4. `src/sim/agents.test.ts` — agent wired into sector tick
+  Zero external deps, seeded RNG only, allocation-free hot paths. Effort: ~4h.
 - **Phase 3 API: own `src/api/server.ts`.** 8 endpoints, 8 tests, `npm run api` starts on port 3001. Maintain and extend as needed.
 
 ### Completed
