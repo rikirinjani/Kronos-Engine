@@ -83,6 +83,18 @@ async function handler(req: IncomingMessage, res: ServerResponse): Promise<void>
   try {
     if (method === "OPTIONS") { json(res, OPTIONS_RESPONSE); return; }
 
+    if (path === "/" && method === "GET") {
+      const indexPath = join(__dirname, "index.html");
+      if (existsSync(indexPath)) {
+        const html = readFileSync(indexPath, "utf-8");
+        res.writeHead(200, { "Content-Type": "text/html" });
+        res.end(html);
+      } else {
+        json(res, { error: "index.html not found" }, 404);
+      }
+      return;
+    }
+
     if (path === "/api/status" && method === "GET") {
       json(res, { ok: true, version: "0.1.0", uptime: Math.floor((Date.now() - startTime) / 1000), sectors: ALL_SECTORS.map((s) => s.id).sort(), numEras: loadEraIndex().length, experiments: cache.size });
       return;

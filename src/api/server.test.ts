@@ -46,6 +46,13 @@ describe("API Server", () => {
     expect((data as { experiments: unknown[] }).experiments).toHaveLength(0);
   });
 
+  it("GET / serves index.html", async () => {
+    const { status, data } = await req("/");
+    expect(status).toBe(200);
+    expect(typeof data).toBe("string");
+    expect((data as string)).toContain("Kronos Engine");
+  });
+
   it("POST /api/experiments 400 without rewindPointId", async () => {
     const { status } = await req("/api/experiments", "POST", {});
     expect(status).toBe(400);

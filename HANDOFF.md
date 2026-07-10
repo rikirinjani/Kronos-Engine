@@ -44,14 +44,10 @@
 - **T4: Economy depth — DEFERRED.** Dual-currency, cartels, arbitrage, sanctions, black markets, Vickrey auctions. Estimated effort: days to weeks — Phase 3 territory. Not scoped. Discuss with Meta Platform.
 
 ### Active
-- **P-006: Interactive Simulation Cockpit.** Build a browser dashboard that consumes the Phase 3 API. Spec at `docs/proposals/P-006-interactive-sim-cockpit.md`. Deliverables:
-  1. `src/api/index.html` — single-file cockpit UI (dark theme, fetch-based, vanilla JS)
-  2. `GET /` route in `src/api/server.ts` — serves the HTML
-  3. Pages: dashboard home (status + experiment form), experiment detail (runs table + summary), era browser
-  Effort: ~4h.
-- **Phase 3 API: own `src/api/server.ts`.** 7 endpoints, 7 tests, `npm run api` starts on port 3001. Already built. Maintain and extend as needed.
+- **Phase 3 API: own `src/api/server.ts`.** 8 endpoints, 8 tests, `npm run api` starts on port 3001. Maintain and extend as needed.
 
 ### Completed
+- **2026-07-10** — **P-006: Interactive Simulation Cockpit built.** `src/api/index.html` (single-file, dark theme, vanilla JS, hash-routed SPA). 3 pages: Dashboard (status + experiment form + list), Experiment Detail (runs table, summary stats with Cohen's d, export buttons), Era Browser (era grid with rewind points). `GET /` route added to server.ts. Polls running experiments every 3s. Server tests updated (8 total). 242 tests, 33 files.
 - **2026-07-09** — **P-005 P1+P2 delivered.** Cadenced tick pipeline (cadence on Sector interface, per-sector cadences, World Engine mod check, 5 tests). Per-sector CONTRACT.md files (all 7 sectors documented: state keys, events, invariants, RNG positions). Proposal at `docs/proposals/P-005-sector-contracts-and-cadence.md`. Contracts at `src/sectors/contracts/`. Handoff to @meta-platform for review.
 - **2026-07-09 — P-005 Part A (CONTRACT.md files) pulled back and written by Meta Platform.** All 7 sector CONTRACT.md files created: `economy/CONTRACT.md`, `climate/CONTRACT.md`, `geopolitics/CONTRACT.md`, `technology/CONTRACT.md`, `energy/CONTRACT.md`, `demographics/CONTRACT.md`, `deers-rock-adapter/CONTRACT.md`. Each documents state keys read/written, events emitted/handled, invariants, RNG stream position, time complexity, and (for the adapter) wiring depth classification.
 - **2026-07-09 — P-005 Part B (Cadenced Tick Pipeline) delivered by Sector Engineer.** `cadence: number` added to `Sector` interface. `tick()` in `world-engine.ts` skips sectors where `nextTick % cadence !== 0`. Values: Economy=3, Energy=3, Technology=5, Demographics=10, Geopolitics=1, Climate=1, sentinel=1. Cross-sector events still process every tick. All 228 tests pass.
