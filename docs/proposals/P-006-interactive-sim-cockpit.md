@@ -1,69 +1,81 @@
 # P-006: Interactive Simulation Cockpit
 
-**Proposed by:** Meta Platform (inspired by Cosmogonic Mechalogodrom's real-time interactive cosmic playground)
-**Status:** TBA — placeholder for future Phase 3/4 product work
-**Date:** 2026-07-09
-**Prerequisite:** P-005 (Cadenced Tick Pipeline + Sector Contracts) must land first
+**Proposed by:** Meta Platform
+**Status:** Active spec — ready for implementation
+**Date:** 2026-07-10
+**Prerequisite:** Phase 3 API (`src/api/server.ts`) is live. Cockpit consumes it.
 
 ---
 
 ## Vision
 
-Kronos Engine currently operates in **batch mode**: define experiment → run N seeds → analyze CSV outputs. This proposal describes an **interactive mode** — a real-time simulation cockpit where a user can:
-
-- Watch a running world evolve visually (sector state, cross-sector events, sentinel outputs)
-- Pause/resume at any tick
-- Inject interventions mid-run (heatwave, war, policy change)
-- Rewind to any prior tick and fork
-- See live metric dashboards updating per-tick
-- Export the current session as an experiment run
-
-This mirrors the Cosmogonic Mechalogodrom's interactive cosmic playground — but for research-grade counterfactual simulation rather than A-Life art.
+A browser-based dashboard that talks to the Phase 3 API. No 3D, no real-time engine loop — think experiment workbench, not video game.
 
 ---
 
-## Proposed Architecture
+## Architecture
 
 ```
-┌─────────────────────────────────────────────┐
-│              SIMULATION ENGINE               │
-│  (headless — runs in worker thread or child) │
-├─────────────────────────────────────────────┤
-│  tick() → tick() → intervention → tick() →  │
-└──────────────────┬──────────────────────────┘
-                   │ snapshots + metrics
-                   ▼
-┌─────────────────────────────────────────────┐
-│           COCKPIT SERVER (HTTP/WS)           │
-│  Live state broadcast, intervention relay,   │
-│  snapshot/rewind API, experiment export       │
-├─────────────────────────────────────────────┤
-                   │ JSON + WebSocket
-                   ▼
-┌─────────────────────────────────────────────┐
-│           COCKPIT UI (web dashboard)          │
-│  World map, sector gauges, event log,        │
-│  timeline scrubber, intervention panel        │
-└─────────────────────────────────────────────┘
+Browser (HTML + JS) ──HTTP──> API Server (:3001) ──> Engine
+       │                                                 
+       └── experiment config, run status, results, export
 ```
 
----
-
-## Scope (when picked up)
-
-- **Phase 3 scope:** Counterfactual Query Engine — the API/backend layer
-- **Phase 4 scope:** Interactive cockpit with real-time WebGL visualization (if desired)
-- **Not in Phase 3:** A full WebGL 3D world renderer like Cosmogonic's. The cockpit would use 2D maps + gauges + timelines, not a 3D scene.
+The cockpit is a **single HTML file** (or small static bundle) served by the API server. Uses `fetch()` against the same origin. No build step, no framework.
 
 ---
 
-## Open Questions (to resolve when scoping)
+## Pages / Views
 
-1. WebSocket or SSE for live state broadcast?
-2. Browser-based dashboard or terminal-based TUI?
-3. How much experiment state to keep in memory vs persist to disk?
-4. Does the cockpit need to run the simulation in-process (shared memory) or out-of-process (IPC)?
+### 1. Dashboard home (`GET /`)
+- Server status: uptime, version, sector list, era count
+- Quick experiment form: pick rewind point, set ticks/seeds, add intervention
+- Recent experiments list with status badges
+
+### 2. Experiment detail (`GET /experiment/:id`)
+- **Status bar:** queued → running (progress %) → done / failed
+- **Run table:** one row per seed, expandable to see per-sector diffs
+- **Summary card:** mean, stdDev, Cohen's d per metric, significant flagged
+- **Export buttons:** JSON, CSV downloads
+
+### 3. Era browser (`GET /eras`)
+- All era files with their rewind points
+- Click a rewind point → pre-fill the experiment form
 
 ---
 
-*This proposal is intentionally brief. It exists to reserve the proposal number and stake the concept. Expand when Phase 2 completion triggers Phase 3 planning.*
+## Implementation
+
+### Server-side
+- Add `GET /` route to `src/api/server.ts` that serves `index.html`
+- Add `GET /experiment/:id`, `GET /eras` routes (or reuse existing API + add HTML views)
+
+### Frontend (single HTML file)
+- `src/api/index.html` — served as static file
+- Uses vanilla JS + CSS (no framework, no build step)
+- Fetch-based: `fetch('/api/status')`, `fetch('/api/experiments')`, `POST /api/experiments`
+- CSS-only styling (dark theme, monospace, glass panels)
+- Polling for experiment status (no WebSocket for v1)
+
+### Deliverables
+1. `src/api/index.html` — the cockpit UI (single file, ~300 lines)
+2. `GET /` route in `src/api/server.ts` — serves the HTML
+3. `GET /eras` HTML view — optional, could be client-side rendered from `/api/eras`
+
+---
+
+## Effort
+
+- `index.html`: ~3h (layout, fetch wiring, experiment form, results display)
+- Server route: ~15 min
+- Testing: ~30 min
+- **Total: ~4h**
+
+---
+
+## Not in scope
+
+- Real-time WebSocket streaming (Phase 4 if needed)
+- WebGL 3D visualization (separate project)
+- Auth, user accounts (single-user for now)
+- SQLite cache (can be added later)
