@@ -4,6 +4,7 @@ import { createRNG, restoreRNG } from "./rng.js";
 import type { RNGState } from "./rng.js";
 import { createUniverse } from "./universe.js";
 import type { UniverseID } from "./universe.js";
+import { deepClone } from "./clone.js";
 
 export interface SectorRecord {
   sector: Sector;
@@ -81,7 +82,9 @@ export function tick(world: WorldState): WorldState {
 
   const tickedSectors = new Map<string, SectorRecord>();
   for (const [id, record] of world.sectors) {
-    const newState = record.sector.tick(record.state, ctx);
+    const cadence = record.sector.cadence ?? 1;
+    const isDue = nextTick % cadence === 0;
+    const newState = isDue ? record.sector.tick(record.state, ctx) : record.state;
     tickedSectors.set(id, { sector: record.sector, state: newState });
   }
 
@@ -107,11 +110,11 @@ export function run(world: WorldState, steps: number): WorldState {
 export function snapshot(world: WorldState): WorldSnapshot {
   const sectors: Array<{ id: string; state: SectorState }> = [];
   for (const [id, record] of world.sectors) {
-    sectors.push({ id, state: record.state });
+    sectors.push({ id, state: deepClone(record.state) });
   }
   return {
     tick: world.tick,
-    rngState: world.rngState,
+    rngState: { ...world.rngState },
     sectors,
     universeId: world.universe.id,
   };
@@ -136,7 +139,7 @@ export function restoreSnapshot(snap: WorldSnapshot, sectorMap: Map<string, Sect
     if (!sector) {
       throw new Error(`Unknown sector: ${s.id}`);
     }
-    sectors.set(s.id, { sector, state: s.state });
+    sectors.set(s.id, { sector, state: deepClone(s.state) });
   }
 
   return {

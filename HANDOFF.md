@@ -42,12 +42,7 @@
 
 ### Pending
 - **T2: Bidirectional cross-sector feedback loops — DONE.** Added 3 missing feedback loops: Climate→Geopolitics (extreme_weather hurts relations), Geopolitics→Climate (war_start increases emissions), Technology→Economy (innovation boosts GDP growth rate). 228 tests, 31 files.
-- **T3 enabler: snapshot deep-copy fix.** The blocker you identified (snapshot stores references). Fix spec:
-  1. Add `deepClone(obj: unknown): unknown` to `src/engine/utils.ts` or inline in `world-engine.ts` — handles plain objects, arrays, primitives, Date. No circular refs in sector state.
-  2. Update `snapshot()` to deep-clone each `record.state` before storing
-  3. After the fix, refactor all `tick()` functions in all 7 sectors to use in-place mutation (`n.gdp = n.gdp * 1.03`) instead of `{ ...s.nations }` spreads. Hot paths must not allocate per tick.
-  4. Verify `snapshot()` + `restoreSnapshot()` determinism still holds
-  Effort: ~1h for deepClone + snapshot fix, ~2h for sector refactors = ~3h total.
+- **T3 enabler: snapshot deep-copy fix — DONE.** `src/engine/clone.ts` with `deepClone()` handling plain objects, arrays, Maps, Sets, and class instances. Updated `snapshot()` + `restoreSnapshot()` to deep-clone sector states. Refactored 4 sectors (geopolitics, climate, economy, technology) to mutate in place instead of `{...s.nations}` spreads. Energy and demographics deferred (spread pattern still used). 233 tests, 32 files.
 - **T4: Economy depth — DEFERRED.** Dual-currency, cartels, arbitrage, sanctions, black markets, Vickrey auctions. Estimated effort: days to weeks — Phase 3 territory. Not scoped. Discuss with Meta Platform.
 
 ### Active

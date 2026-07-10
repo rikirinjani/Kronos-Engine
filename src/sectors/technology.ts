@@ -70,6 +70,7 @@ export function createTechnologySector(): Sector {
   return {
     id: "technology",
     name: "Technology",
+    cadence: 5,
     events,
 
     init(seed: number, config: Record<string, unknown>): TechnologyState {
@@ -104,84 +105,57 @@ export function createTechnologySector(): Sector {
     tick(state: SectorState, world: WorldContext): TechnologyState {
       const s = state as TechnologyState;
       const { rng, eventBus, tick } = world;
-      let year = s.year;
-      const newNations: Record<string, TechNationState> = {};
       const innovations: string[] = [];
 
-      year += 1;
+      s.year += 1;
+      s.tickCount += 1;
 
       for (const [id, n] of Object.entries(s.nations)) {
         const rdEfficiency = 1 + rng.next() * 0.5;
         const baseOutput = n.rdSpending * n.technologyLevel * rdEfficiency * 10;
-        const gdpProxy = 1e12;
-        const newResearch = n.researchOutput + baseOutput * (gdpProxy / 1e12);
-
+        const newResearch = n.researchOutput + baseOutput / 1e12;
         const rdBump = newResearch * 0.001;
-        let techLevel = n.technologyLevel + rdBump;
-        techLevel = clamp(techLevel, 0, 100);
-
+        const techLevel = clamp(n.technologyLevel + rdBump, 0, 100);
         const patentGain = Math.floor(baseOutput * 10);
         const patents = n.patents + patentGain;
-
         let innovationCount = n.innovationCount;
-        const innovationChance = techLevel * 0.003;
-        if (rng.next() < innovationChance) {
+
+        if (rng.next() < techLevel * 0.003) {
           innovationCount += 1;
           const innovation = pickInnovation(rng);
           innovations.push(`${id}: ${innovation}`);
-
-          publishTyped(eventBus, {
-            type: TECHNOLOGY_EVENTS.INNOVATION,
-            source: "technology",
-            data: { nationId: id, innovation, techLevel, year },
-            tick,
-          });
+          publishTyped(eventBus, { type: TECHNOLOGY_EVENTS.INNOVATION, source: "technology", data: { nationId: id, innovation, techLevel, year: s.year }, tick });
         }
 
-        newNations[id] = {
+        s.nations[id] = {
           technologyLevel: techLevel,
-          rdSpending: n.rdSpending + (rng.next() - 0.5) * 0.002,
+          rdSpending: clamp(n.rdSpending + (rng.next() - 0.5) * 0.002, 0.001, 0.1),
           researchOutput: newResearch * 0.9,
           innovationCount,
           patents,
         };
       }
 
-      const techLeaderId = Object.entries(newNations).sort(([, a], [, b]) => b.technologyLevel - a.technologyLevel)[0]?.[0];
-
-      for (const [id, n] of Object.entries(newNations)) {
-        if (id === techLeaderId) continue;
-        if (!techLeaderId) continue;
-        const leader = newNations[techLeaderId]!;
+      const techLeaderId = Object.entries(s.nations).sort(([, a], [, b]) => b.technologyLevel - a.technologyLevel)[0]?.[0];
+      for (const [id, n] of Object.entries(s.nations)) {
+        if (!techLeaderId || id === techLeaderId) continue;
+        const leader = s.nations[techLeaderId]!;
         const gap = leader.technologyLevel - n.technologyLevel;
         if (gap > 0) {
           const diffusionRate = 0.02 + rng.next() * 0.03;
           const catchup = gap * diffusionRate;
           if (catchup >= 0.1) {
             n.technologyLevel = clamp(n.technologyLevel + catchup, 0, 100);
-
-            publishTyped(eventBus, {
-              type: TECHNOLOGY_EVENTS.DIFFUSION,
-              source: "technology",
-              data: { fromNation: techLeaderId, toNation: id, amount: catchup, year },
-              tick,
-            });
+            publishTyped(eventBus, { type: TECHNOLOGY_EVENTS.DIFFUSION, source: "technology", data: { fromNation: techLeaderId, toNation: id, amount: catchup, year: s.year }, tick });
           }
         }
         n.rdSpending = clamp(n.rdSpending, 0.001, 0.1);
       }
 
-      const levels = Object.values(newNations).map((n) => n.technologyLevel);
-      const globalTechLevel = levels.length > 0 ? levels.reduce((a, b) => a + b, 0) / levels.length : 50;
-
-      return {
-        ...s,
-        year,
-        tickCount: s.tickCount + 1,
-        nations: newNations,
-        globalTechLevel,
-        recentInnovations: innovations,
-      };
+      const levels = Object.values(s.nations).map((n) => n.technologyLevel);
+      s.globalTechLevel = levels.length > 0 ? levels.reduce((a, b) => a + b, 0) / levels.length : 50;
+      s.recentInnovations = innovations;
+      return s;
     },
 
     handlers,

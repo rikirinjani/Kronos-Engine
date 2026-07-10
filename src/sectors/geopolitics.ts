@@ -1,5 +1,5 @@
 import type { Sector, SectorState, WorldContext, TickHandler, RNG } from "./types.js";
-import { GEOPOLITICS_EVENTS, ECONOMY_EVENTS, publishTyped } from "./events.js";
+import { GEOPOLITICS_EVENTS, ECONOMY_EVENTS, CLIMATE_EVENTS, publishTyped } from "./events.js";
 
 export type Government = "democracy" | "autocracy" | "monarchy" | "theocracy" | "transitional";
 export type AllianceType = "defense" | "economic" | "political";
@@ -104,11 +104,28 @@ export function createGeopoliticsSector(): Sector {
         };
       },
     },
+    {
+      eventType: CLIMATE_EVENTS.EXTREME_WEATHER,
+      handle(event, state) {
+        const s = state as GeopoliticsState;
+        const severity = event.data.severity as number;
+        const newNations = { ...s.nations };
+        for (const n of Object.values(newNations)) {
+          const shifted: Record<string, number> = {};
+          for (const [oid, val] of Object.entries(n.relations)) {
+            shifted[oid] = clamp(val - severity * 2, -100, 100);
+          }
+          n.relations = shifted;
+        }
+        return { ...s, nations: newNations };
+      },
+    },
   ];
 
   return {
     id: "geopolitics",
     name: "Geopolitics",
+    cadence: 1,
     events,
 
     init(seed: number, config: Record<string, unknown>): GeopoliticsState {
@@ -165,16 +182,12 @@ export function createGeopoliticsSector(): Sector {
       const PUBLISH_THRESHOLD = 1;
       const RELATION_THRESHOLD = -60;
 
-      let newNations = { ...s.nations };
-      let newWars = { ...s.wars };
-      let newAlliances = { ...s.alliances };
-      let year = s.year;
+      s.year += 1;
+      s.tickCount += 1;
 
-      year += 1;
-
-      for (const nation of Object.values(newNations)) {
+      for (const nation of Object.values(s.nations)) {
         for (const otherId of Object.keys(nation.relations)) {
-          if (!newNations[otherId]) continue;
+          if (!s.nations[otherId]) continue;
           const drift = (rng.next() - 0.5) * 2 * RELATION_DRIFT;
           const oldVal = nation.relations[otherId]!;
           const newVal = clamp(oldVal + drift, -100, 100);
@@ -191,7 +204,7 @@ export function createGeopoliticsSector(): Sector {
         }
       }
 
-      for (const war of Object.values(newWars)) {
+      for (const war of Object.values(s.wars)) {
         if (war.status !== "active") continue;
         const baseDelta = Math.floor(rng.next() * 500) + 50;
         const casualtiesDelta = Math.floor(baseDelta * s.casualtyMultiplier);
@@ -215,22 +228,22 @@ export function createGeopoliticsSector(): Sector {
         }
       }
 
-      for (const nation of Object.values(newNations)) {
+      for (const nation of Object.values(s.nations)) {
         const hasLowRelation = Object.values(nation.relations).some((v) => v < RELATION_THRESHOLD);
         if (hasLowRelation && rng.next() < 0.02) {
           const enemies = Object.entries(nation.relations)
             .filter(([, v]) => v < RELATION_THRESHOLD)
             .map(([id]) => id);
           const targetId = enemies[Math.floor(rng.next() * enemies.length)]!;
-          const target = newNations[targetId];
+          const target = s.nations[targetId];
           if (!target) continue;
 
           const warId = generateWarId(rng);
-          newWars[warId] = {
+          s.wars[warId] = {
             id: warId,
             name: `${nation.name}-${target.name} Conflict`,
             parties: { attackers: [nation.id], defenders: [target.id] },
-            startYear: year,
+            startYear: s.year,
             status: "active",
             casualties: 0,
           };
@@ -240,20 +253,13 @@ export function createGeopoliticsSector(): Sector {
           publishTyped(eventBus, {
             type: GEOPOLITICS_EVENTS.WAR_START,
             source: "geopolitics",
-            data: { warId, name: newWars[warId]!.name, attackers: [nation.id], defenders: [target.id], year },
+            data: { warId, name: s.wars[warId]!.name, attackers: [nation.id], defenders: [target.id], year: s.year },
             tick,
           });
         }
       }
 
-      return {
-        ...s,
-        year,
-        tickCount: s.tickCount + 1,
-        nations: newNations,
-        wars: newWars,
-        alliances: newAlliances,
-      };
+      return s;
     },
 
     handlers,

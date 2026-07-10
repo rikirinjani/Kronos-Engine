@@ -1,5 +1,5 @@
 import type { Sector, SectorState, WorldContext, TickHandler } from "./types.js";
-import { CLIMATE_EVENTS, ECONOMY_EVENTS, publishTyped } from "./events.js";
+import { CLIMATE_EVENTS, ECONOMY_EVENTS, GEOPOLITICS_EVENTS, publishTyped } from "./events.js";
 
 export type ExtremeWeatherType = "heatwave" | "flood" | "drought" | "hurricane" | "wildfire";
 
@@ -74,11 +74,23 @@ export function createClimateSector(): Sector {
         };
       },
     },
+    {
+      eventType: GEOPOLITICS_EVENTS.WAR_START,
+      handle(event, state) {
+        const s = state as ClimateState;
+        const warEmissions = 2.5;
+        return {
+          ...s,
+          annualEmissions: s.annualEmissions + warEmissions,
+        };
+      },
+    },
   ];
 
   return {
     id: "climate",
     name: "Climate",
+    cadence: 1,
     events,
 
     init(seed: number, config: Record<string, unknown>): ClimateState {
@@ -103,74 +115,61 @@ export function createClimateSector(): Sector {
     tick(state: SectorState, world: WorldContext): ClimateState {
       const s = state as ClimateState;
       const { rng, eventBus, tick } = world;
-      let year = s.year;
-      let co2Conc = s.co2Concentration;
-      let annualEm = s.annualEmissions;
-      let seaLevel = s.seaLevelRise;
-      const eventsThisTick: ExtremeWeatherEvent[] = [];
+      const oldTemp = s.temperatureAnomaly;
+      const oldEmissions = s.annualEmissions;
 
-      year += 1;
-      co2Conc += emissionsToConcentration(annualEm);
-      annualEm += (rng.next() - 0.5) * s.annualEmissionsNoise;
-      annualEm = Math.max(0, annualEm);
+      s.year += 1;
+      s.tickCount += 1;
+      s.co2Concentration += emissionsToConcentration(s.annualEmissions);
+      s.annualEmissions = Math.max(0, s.annualEmissions + (rng.next() - 0.5) * s.annualEmissionsNoise);
+      s.temperatureAnomaly = calcTemperatureAnomaly(s.co2Concentration);
+      s.seaLevelRise += 0.5 + rng.next() * 3.5;
 
-      const newAnomaly = calcTemperatureAnomaly(co2Conc);
-
-      seaLevel += 0.5 + rng.next() * 3.5;
-
-      if (Math.abs(newAnomaly - s.temperatureAnomaly) >= 0.01) {
+      if (Math.abs(s.temperatureAnomaly - oldTemp) >= 0.01) {
         publishTyped(eventBus, {
           type: CLIMATE_EVENTS.TEMP_SHIFT,
           source: "climate",
-          data: { oldAnomaly: s.temperatureAnomaly, newAnomaly, co2Concentration: co2Conc },
+          data: { oldAnomaly: oldTemp, newAnomaly: s.temperatureAnomaly, co2Concentration: s.co2Concentration },
           tick,
         });
       }
 
-      if (Math.abs(annualEm - s.annualEmissions) >= 1) {
+      if (Math.abs(s.annualEmissions - oldEmissions) >= 1) {
         publishTyped(eventBus, {
           type: CLIMATE_EVENTS.EMISSIONS_CHANGE,
           source: "climate",
-          data: { oldEmissions: s.annualEmissions, newEmissions: annualEm },
+          data: { oldEmissions, newEmissions: s.annualEmissions },
           tick,
         });
       }
 
-      const baseEventChance = 0.1 + (newAnomaly - 1.2) * 0.05;
+      const baseEventChance = 0.1 + (s.temperatureAnomaly - 1.2) * 0.05;
       const eventChance = Math.max(0.05, Math.min(0.5, baseEventChance));
+      const newEvents: ExtremeWeatherEvent[] = [];
 
       if (rng.next() < eventChance) {
         const weatherType = pickWeatherType(rng);
-        const severity = Math.round((1 + rng.next() * 4 + newAnomaly * 0.5) * 10) / 10;
+        const severity = Math.round((1 + rng.next() * 4 + s.temperatureAnomaly * 0.5) * 10) / 10;
         const region = extractRegion("global");
 
-        eventsThisTick.push({
+        newEvents.push({
           type: weatherType,
           region,
           severity,
-          year,
-          description: `${weatherType} (severity ${severity}) in ${region} at year ${year}`,
+          year: s.year,
+          description: `${weatherType} (severity ${severity}) in ${region} at year ${s.year}`,
         });
 
         publishTyped(eventBus, {
           type: CLIMATE_EVENTS.EXTREME_WEATHER,
           source: "climate",
-          data: { weatherType, region, severity, year, description: eventsThisTick[eventsThisTick.length - 1]!.description },
+          data: { weatherType, region, severity, year: s.year, description: `${weatherType} (severity ${severity}) in ${region} at year ${s.year}` },
           tick,
         });
       }
 
-      return {
-        _sectorId: "climate",
-        year,
-        tickCount: s.tickCount + 1,
-        annualEmissionsNoise: s.annualEmissionsNoise,
-        co2Concentration: co2Conc,
-        annualEmissions: annualEm,
-        temperatureAnomaly: newAnomaly,
-        extremeEvents: [...s.extremeEvents, ...eventsThisTick],
-        seaLevelRise: seaLevel,
-      };
+      s.extremeEvents = [...s.extremeEvents, ...newEvents];
+      return s;
     },
 
     handlers,

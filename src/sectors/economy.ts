@@ -1,5 +1,5 @@
 import type { Sector, SectorState, WorldContext, TickHandler } from "./types.js";
-import { ECONOMY_EVENTS, GEOPOLITICS_EVENTS, CLIMATE_EVENTS, publishTyped } from "./events.js";
+import { ECONOMY_EVENTS, GEOPOLITICS_EVENTS, CLIMATE_EVENTS, TECHNOLOGY_EVENTS, publishTyped } from "./events.js";
 
 export interface EconomyNationState {
   gdp: number;
@@ -95,11 +95,28 @@ export function createEconomySector(): Sector {
         return { ...s, nations: newNations };
       },
     },
+    {
+      eventType: TECHNOLOGY_EVENTS.INNOVATION,
+      handle(event, state) {
+        const s = state as EconomyState;
+        const nationId = event.data.nationId as string;
+        const n = s.nations[nationId];
+        if (!n) return s;
+        return {
+          ...s,
+          nations: {
+            ...s.nations,
+            [nationId]: { ...n, gdpGrowthRate: n.gdpGrowthRate + 0.5 },
+          },
+        };
+      },
+    },
   ];
 
   return {
     id: "economy",
     name: "Economy",
+    cadence: 3,
     events,
 
     init(seed: number, config: Record<string, unknown>): EconomyState {
@@ -134,57 +151,32 @@ export function createEconomySector(): Sector {
     tick(state: SectorState, world: WorldContext): EconomyState {
       const s = state as EconomyState;
       const { rng, eventBus, tick } = world;
-      let year = s.year;
-      let globalTrade = s.globalTradeVolume;
-      let globalInflation = s.globalInflation;
-      let marketIdx = s.marketIndex;
-      const newNations: Record<string, EconomyNationState> = {};
 
-      year += 1;
+      s.year += 1;
+      s.tickCount += 1;
 
       for (const [id, n] of Object.entries(s.nations)) {
         const growthNoise = (rng.next() - 0.5) * 2;
         const effectiveGrowth = n.gdpGrowthRate + growthNoise;
         const gdpGrowth = n.gdp * (effectiveGrowth / 100);
-        let newGdp = Math.max(1e9, n.gdp + gdpGrowth);
-
+        const newGdp = Math.max(1e9, n.gdp + gdpGrowth);
         const inflDrift = (rng.next() - 0.5) * 0.8;
         const meanReversion = (2.0 - n.inflationRate) * 0.1;
-        let newInflation = n.inflationRate + inflDrift + meanReversion;
-        newInflation = clamp(newInflation, -2, 20);
-
+        const newInflation = clamp(n.inflationRate + inflDrift + meanReversion, -2, 20);
         const tradeNoise = (rng.next() - 0.5) * 4;
-        let newTrade = n.tradeVolume + tradeNoise;
-        newTrade = clamp(newTrade, 0, 100);
+        const newTrade = clamp(n.tradeVolume + tradeNoise, 0, 100);
 
         if (Math.abs(newGdp - n.gdp) > n.gdp * 0.005) {
-          publishTyped(eventBus, {
-            type: ECONOMY_EVENTS.GDP_SHIFT,
-            source: "economy",
-            data: { nationId: id, gdpDelta: newGdp - n.gdp, oldGdp: n.gdp, newGdp },
-            tick,
-          });
+          publishTyped(eventBus, { type: ECONOMY_EVENTS.GDP_SHIFT, source: "economy", data: { nationId: id, gdpDelta: newGdp - n.gdp, oldGdp: n.gdp, newGdp }, tick });
         }
-
         if (Math.abs(newInflation - n.inflationRate) >= 0.3) {
-          publishTyped(eventBus, {
-            type: ECONOMY_EVENTS.INFLATION_CHANGE,
-            source: "economy",
-            data: { nationId: id, oldRate: n.inflationRate, newRate: newInflation },
-            tick,
-          });
+          publishTyped(eventBus, { type: ECONOMY_EVENTS.INFLATION_CHANGE, source: "economy", data: { nationId: id, oldRate: n.inflationRate, newRate: newInflation }, tick });
         }
-
         if (Math.abs(newTrade - n.tradeVolume) >= 3) {
-          publishTyped(eventBus, {
-            type: ECONOMY_EVENTS.TRADE_SHIFT,
-            source: "economy",
-            data: { nationId: id, oldVolume: n.tradeVolume, newVolume: newTrade },
-            tick,
-          });
+          publishTyped(eventBus, { type: ECONOMY_EVENTS.TRADE_SHIFT, source: "economy", data: { nationId: id, oldVolume: n.tradeVolume, newVolume: newTrade }, tick });
         }
 
-        newNations[id] = {
+        s.nations[id] = {
           gdp: newGdp,
           gdpGrowthRate: n.gdpGrowthRate + (rng.next() - 0.5) * 0.3,
           inflationRate: newInflation,
@@ -194,21 +186,11 @@ export function createEconomySector(): Sector {
         };
       }
 
-      const tradeNoise = (rng.next() - 0.5) * 5;
-      globalTrade = Math.max(50, globalTrade + tradeNoise);
-      globalInflation = clamp(globalInflation + (rng.next() - 0.5) * 0.5, 0, 15);
-      const marketNoise = (rng.next() - 0.5) * 8;
-      marketIdx = Math.max(30, marketIdx + marketNoise);
+      s.globalTradeVolume = Math.max(50, s.globalTradeVolume + (rng.next() - 0.5) * 5);
+      s.globalInflation = clamp(s.globalInflation + (rng.next() - 0.5) * 0.5, 0, 15);
+      s.marketIndex = Math.max(30, s.marketIndex + (rng.next() - 0.5) * 8);
 
-      return {
-        ...s,
-        year,
-        tickCount: s.tickCount + 1,
-        nations: newNations,
-        globalTradeVolume: globalTrade,
-        globalInflation,
-        marketIndex: marketIdx,
-      };
+      return s;
     },
 
     handlers,
