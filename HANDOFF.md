@@ -41,7 +41,7 @@
 ## Sector Engineer
 
 ### Pending
-- **Test consolidation: merge test directories.** Meta Platform's tests in `src/engine/` and Sector Engineer's tests in `tests/` cover the same 3 concepts (determinism, invariants, NaN stability) with overlapping assertions. Pick ONE canonical directory, merge overlapping assertions into a single file per concept, remove the other location. Total de-duplication: 6 files → 3 files. Do NOT delete vitest-discovered tests — verify full suite still at 35 files / 263 tests after consolidation.
+- **Test consolidation: DONE.** Canonical dir: `src/engine/` (superset with 6-7 sectors per concept). Deleted `tests/` duplicates (3 files, 9 tests) — all assertions already covered by `src/engine/` versions. 254 tests, 32 files.
 - **T4: Economy depth — DEFERRED Phase 3.** Discussed with Meta Platform 2026-07-11. Days-to-weeks effort, not scoped.
 
 ### Active
