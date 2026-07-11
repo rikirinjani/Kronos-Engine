@@ -41,7 +41,7 @@
 ## Sector Engineer
 
 ### Pending
-- **T4: Economy depth — DEFERRED.** Dual-currency, cartels, arbitrage, sanctions, black markets, Vickrey auctions. Estimated effort: days to weeks — Phase 3 territory. Not scoped. Discuss with Meta Platform.
+- **T4: Economy depth — DEFERRED Phase 3.** Discussed with Meta Platform 2026-07-11. Days-to-weeks effort, not scoped.
 
 ### Active
 - **Phase 3 API: own `src/api/server.ts`.** 8 endpoints, 8 tests, `npm run api` starts on port 3001. Maintain and extend as needed.
@@ -50,13 +50,10 @@
 - **2026-07-10** — **P-007: Pre-2016 AI Kernel built.** `src/sim/ai/brains.ts` (6 primitives: utilityPick, softmaxPick, TinyMLP, MarkovChain, fsmStep, goapPlan, MemoryRing — all deterministic, seeded RNG only). `src/sim/agents.ts` (CentralBankAgent adjusts inflation via utilityPick, TradeAgent retaliates on low relations). 21 tests covering all primitives, agents, and determinism. 263 total tests, 35 files.
 - **2026-07-10** — **P-006: Interactive Simulation Cockpit built.** `src/api/index.html` (single-file, dark theme, vanilla JS, hash-routed SPA). 3 pages: Dashboard (status + experiment form + list), Experiment Detail (runs table, summary stats with Cohen's d, export buttons), Era Browser (era grid with rewind points). `GET /` route added to server.ts. Polls running experiments every 3s. Server tests updated (8 total). 242 tests, 33 files.
 - **2026-07-09** — **P-005 P1+P2 delivered.** Cadenced tick pipeline (cadence on Sector interface, per-sector cadences, World Engine mod check, 5 tests). Per-sector CONTRACT.md files (all 7 sectors documented: state keys, events, invariants, RNG positions). Proposal at `docs/proposals/P-005-sector-contracts-and-cadence.md`. Contracts at `src/sectors/contracts/`. Handoff to @meta-platform for review.
-- **2026-07-09 — P-005 Part A (CONTRACT.md files) pulled back and written by Meta Platform.** All 7 sector CONTRACT.md files created: `economy/CONTRACT.md`, `climate/CONTRACT.md`, `geopolitics/CONTRACT.md`, `technology/CONTRACT.md`, `energy/CONTRACT.md`, `demographics/CONTRACT.md`, `deers-rock-adapter/CONTRACT.md`. Each documents state keys read/written, events emitted/handled, invariants, RNG stream position, time complexity, and (for the adapter) wiring depth classification.
+- **2026-07-09 — P-005 Part A (sector contracts) delivered.** Canonical format at `src/sectors/contracts/*.md` (8 files, tabular). Duplicate CONTRACT.md files removed in 2026-07-11 audit cleanup.
 - **2026-07-09 — P-005 Part B (Cadenced Tick Pipeline) delivered by Sector Engineer.** `cadence: number` added to `Sector` interface. `tick()` in `world-engine.ts` skips sectors where `nextTick % cadence !== 0`. Values: Economy=3, Energy=3, Technology=5, Demographics=10, Geopolitics=1, Climate=1, sentinel=1. Cross-sector events still process every tick. All 228 tests pass.
 - **2026-07-09 — T1: Coverage floor + invariants gate done.** 3 new test files: `cadence.test.ts` (5 tests), `determinism.test.ts` (3 tests), `nan-stability.test.ts` (4 tests), `invariants.test.ts` (10 tests). Coverage CI gate added to workflow. 31 test files, 228 total, all passing.
 
-### Completed
-
-### Completed
 - **2026-06-29** — P-002 Deers Rock sentinel adapter built + tested. `src/sectors/deers-rock-adapter.ts` wraps DR as Sector with zero code modifications (verified). Seed derivation, temporal aggregation (1440 DR ticks/day, configurable), macro injection, sentinel output, multi-instance. **+ deterministic resolution order** (`createSentinels` sorts by hospitalId), **circuit-breaker** (try-catch on step(), fallback to lastKnownGood, publishes health.down), **adapter invariants** (`ADAPTER_INVARIANTS` const documenting 5 boundary rules). **+ integration test** (`src/integration/heatwave.ts`): injects extreme weather at tick 10, runs 30 days, verifies cross-sector impact with DR sentinel output. 142 tests, 15 files, `tsc --noEmit` clean. **Sector Engineer scope fully complete.**
 - **2026-06-29** — All 4 World Simulator sectors (Geopolitics, Climate, Economy, Technology) + cross-sector event catalog with typed events. All wired with cross-sector event handlers. Sector Engineer scope delivered.
 - **2026-06-29** — Era-to-world loader built (`src/engine/era-loader.ts`). `buildSectorConfigs(state, era)` maps StrategicWorldState → geopolitics/climate/economy/technology configs for `createWorld()`. `loadEraConfig(path, rewindPointId)` reads era JSON from disk. Handles era-specific defaults: CO2 concentration (280–420), annual emissions (0–37 Gt), R&D spending (0.8%–3.5%), GDP growth/inflation rates by century. 7 tests, `tsc --noEmit` clean.

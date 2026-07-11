@@ -1,0 +1,107 @@
+{
+  "updated": "2026-07-11T13:36:00Z",
+  "chains": [
+    {
+      "requirement": "P-001: World Simulator Meta Platform",
+      "spec": "docs/proposals/P-001-world-simulator-meta-platform.md",
+      "tasks": ["Meta Platform setup", "Sector interface", "World engine"],
+      "tests": ["src/engine/world-engine.test.ts", "src/engine/universe.test.ts", "src/engine/rng.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "P-001A: Seed and Rewind Point Spec",
+      "spec": "docs/proposals/P-001A-seed-and-rewind-point-spec.md",
+      "tasks": ["Seeded RNG", "Rewind Points", "Universe genealogy"],
+      "tests": ["src/engine/rng.test.ts", "src/timeline/rewind-point.test.ts", "src/timeline/branch.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "P-002: Deers Rock Sentinel Adapter",
+      "spec": "docs/proposals/P-002-deers-rock-adapter.md",
+      "tasks": ["Adapter implementation", "Integration test", "30-hospital network"],
+      "tests": ["src/sectors/deers-rock-adapter.test.ts", "src/data/sentinel-network.test.ts", "src/integration/heatwave.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "P0: Truth-repair CI Gate",
+      "spec": "docs/TODOS-2026-07-09.md",
+      "tasks": ["verify-facts script", "CI workflow update"],
+      "tests": ["scripts/verify-facts.ts (runs as CI step)"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "P-005 Part A: Sector Contracts",
+      "spec": "docs/proposals/P-005-sector-contracts-and-cadence.md",
+      "tasks": ["Write CONTRACT.md files for all sectors"],
+      "tests": ["src/engine/invariants.test.ts", "tests/invariants.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "P-005 Part B: Cadenced Tick Pipeline",
+      "spec": "docs/proposals/P-005-sector-contracts-and-cadence.md",
+      "tasks": ["cadence field on Sector", "Engine tick skip logic", "Per-sector cadences"],
+      "tests": ["src/engine/cadence.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "T1: Coverage Floor + Invariants Gate",
+      "spec": "docs/TODOS-2026-07-09.md",
+      "tasks": ["coverage CI step", "determinism test", "invariants test", "NaN stability test"],
+      "tests": ["src/engine/determinism.test.ts", "src/engine/invariants.test.ts", "src/engine/nan-stability.test.ts", "tests/determinism.test.ts", "tests/invariants.test.ts", "tests/nan-stability.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "T2: Bidirectional Cross-sector Feedback",
+      "spec": "docs/TODOS-2026-07-09.md",
+      "tasks": ["Climate->Geopolitics", "Geopolitics->Climate", "Technology->Economy"],
+      "tests": ["src/sectors/climate.test.ts", "src/sectors/geopolitics.test.ts", "src/sectors/technology.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "T3: Allocation-free Hot Path Refactor",
+      "spec": "docs/TODOS-2026-07-09.md",
+      "tasks": ["deepClone utility", "snapshot deep copy", "4/7 sectors in-place mutation"],
+      "tests": ["src/engine/clone.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "P-006: Interactive Simulation Cockpit",
+      "spec": "docs/proposals/P-006-interactive-sim-cockpit.md",
+      "tasks": ["index.html cockpit", "GET / route", "3 pages: Dashboard, Experiment Detail, Era Browser"],
+      "tests": ["src/api/server.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "P-007: Pre-2016 AI Kernel",
+      "spec": "docs/proposals/P-007-ai-kernel.md",
+      "tasks": ["6 primitives (brains.ts)", "Agent interface + examples (agents.ts)"],
+      "tests": ["src/sim/ai/brains.test.ts", "src/sim/agents.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    },
+    {
+      "requirement": "Phase 3: Counterfactual Query Engine API",
+      "spec": "docs/proposals/P-006-interactive-sim-cockpit.md",
+      "tasks": ["REST API server (7 endpoints)", "Experiment runner integration"],
+      "tests": ["src/api/server.test.ts"],
+      "verification": "VER-2026-001",
+      "status": "verified"
+    }
+  ],
+  "summary": {
+    "total_chains": 12,
+    "verified": 12,
+    "pending": 0,
+    "failed": 0
+  }
+}

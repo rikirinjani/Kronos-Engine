@@ -1,0 +1,12 @@
+{
+    "trigger":  "role_violation",
+    "severity":  "major",
+    "trace_id":  "2026-07-09T18-50-56Z-role-violation-T1-pulled-back.json",
+    "agent":  "meta-platform",
+    "role":  "Coordinator/Platform",
+    "date":  "2026-07-11T13-36-06",
+    "status":  "open",
+    "corrective_action":  "All future sector-engineer-domain tasks must flow through HANDOFF.md. Meta Platform must not write implementation code in Sector Engineer\u0027s domain.",
+    "root_cause":  "Meta Platform implemented T1 (coverage floor + invariants gate) directly instead of delegating to Sector Engineer. Rationalization: \u0027faster to do it myself.\u0027 Violates Constitution Article III: role boundaries.",
+    "ncr_id":  "NCR-2026-001"
+}
