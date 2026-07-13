@@ -41,14 +41,6 @@
 ## Sector Engineer
 
 ### Pending
-- **P-008: TabFM integration for Branch Analyst.** Spec at `docs/proposals/P-008-tabfm-branch-analyst.md`. Deliver:
-  1. Clone + install `google-research/tabfm` (JAX or PyTorch backend)
-  2. FastAPI sidecar: `POST /classify` (5 examples per intent, zero-shot)
-  3. `src/bridge/tabfm-bridge.ts` — TypeScript HTTP client
-  4. Wire into `diff-engine.ts` or `stats.ts` — classify each experiment outcome
-  5. API: `GET /api/experiments/:id/classification`
-  6. 7 starter intent classes (economic_recovery, supply_chain_disruption, etc.)
-  Effort: ~5h.
 - **T4: Economy depth — DEFERRED Phase 3.** Discussed with Meta Platform 2026-07-11. Days-to-weeks effort, not scoped.
 
 ### Active
@@ -85,6 +77,7 @@
 - **2026-06-29** — **P-003 executed (proof of concept).** 3 seeds, 322 metrics.
 - **2026-06-30** — **Phase 1.1: Sensitivity sweep complete.** Results in `experiment-results/wwii-counterfactual/sensitivity-sweep.json`.
 - **2026-06-30** — **P-003 calibrated re-run (30 seeds).** All 4 calibration gaps closed by Sector Engineer. 36/1421 metrics significant. **All 9 nation GDP metrics significant with Cohen's d > 1.0** — war destroys GDP, no-war branch higher. USA +$31.3B, DEU +$10.4B, RUS +$11.5B, CHN +$2.8B. Phase 1.2 calibration complete. Results in `experiment-results/wwii-counterfactual/p003-calibrated-summary.json`.
+- **2026-07-13** — **P-008: TabFM integration complete.** `pip install tabfm` (PyTorch backend). FastAPI sidecar at `sidecar/tabfm_server.py` — `POST /classify` with 7 zero-shot intent classes. `sidecar/intent_examples.py` — 5 examples per class, 12 features each. `src/bridge/tabfm-bridge.ts` — TypeScript HTTP client with feature vector extraction. Mock fallback works without TabFM model loaded. P-003 → economic_recovery (conf=0.85), P-004 → hospital_pressure (conf=0.70). 2 bridge tests passing, `tsc --noEmit` clean.
 
 ---
 
