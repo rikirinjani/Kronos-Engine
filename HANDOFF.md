@@ -41,7 +41,14 @@
 ## Sector Engineer
 
 ### Pending
-- **Test consolidation: DONE.** Canonical dir: `src/engine/` (superset with 6-7 sectors per concept). Deleted `tests/` duplicates (3 files, 9 tests) — all assertions already covered by `src/engine/` versions. 254 tests, 32 files.
+- **P-008: TabFM integration for Branch Analyst.** Spec at `docs/proposals/P-008-tabfm-branch-analyst.md`. Deliver:
+  1. Clone + install `google-research/tabfm` (JAX or PyTorch backend)
+  2. FastAPI sidecar: `POST /classify` (5 examples per intent, zero-shot)
+  3. `src/bridge/tabfm-bridge.ts` — TypeScript HTTP client
+  4. Wire into `diff-engine.ts` or `stats.ts` — classify each experiment outcome
+  5. API: `GET /api/experiments/:id/classification`
+  6. 7 starter intent classes (economic_recovery, supply_chain_disruption, etc.)
+  Effort: ~5h.
 - **T4: Economy depth — DEFERRED Phase 3.** Discussed with Meta Platform 2026-07-11. Days-to-weeks effort, not scoped.
 
 ### Active
