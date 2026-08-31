@@ -170,6 +170,7 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
   return {
     id: `deers-rock-${config.id}`,
     name: `Deers Rock Sentinel (${config.city})`,
+    cadence: 1,
     events: healthEvents,
 
     init(_seed: number, _config: Record<string, unknown>): DeersRockSectorState {

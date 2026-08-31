@@ -22,8 +22,14 @@ describe("Sensitivity Sweep Harness", () => {
     }
   });
 
-  it("noise baseline has few false positives", () => {
-    expect(report.noise.falsePositiveRatio).toBeLessThan(10);
+  it("noise baseline is deterministic — 0 false positives on no-intervention replay", () => {
+    // Under the corrected immutable-baseline semantics a no-intervention replay
+    // from the same rewind point produces byte-identical state: 0 metric deltas,
+    // so the noise floor is a genuine 0/0->0 (perfect determinism), never NaN.
+    expect(Number.isNaN(report.noise.falsePositiveRatio)).toBe(false);
+    expect(report.noise.falsePositiveRatio).toBe(0);
+    expect(report.noise.falsePositiveCount).toBe(0);
+    expect(report.noise.falsePositiveCount).toBeLessThanOrEqual(report.noise.totalMetrics);
   });
 
   it("per-sector data covers all 6 sectors", () => {

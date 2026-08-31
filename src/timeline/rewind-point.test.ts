@@ -2,6 +2,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { createRewindPoint, createInMemoryStore, resetRewindCounter, rewindToSnapshot } from "./rewind-point.js";
 import { createWorld, run, restoreSnapshot } from "../engine/world-engine.js";
 import { createGeopoliticsSector } from "../sectors/geopolitics.js";
+import type { GeopoliticsState } from "../sectors/geopolitics.js";
 import { createEconomySector } from "../sectors/economy.js";
 import { createTechnologySector } from "../sectors/technology.js";
 import { resetUniverseCounter } from "../engine/universe.js";
@@ -114,6 +115,40 @@ describe("createRewindPoint", () => {
     });
     expect(rp.label).toBe("Pre-crisis baseline");
     expect(rp.tags).toEqual(["baseline", "experiment-control"]);
+  });
+});
+
+describe("rewind point baseline immutability (Bug 2 regression)", () => {
+  it("captured sectorStates survive in-place mutation when the parent world keeps running", () => {
+    const world = createWorld(makeSectors(), sampleConfigs);
+    const rp = createRewindPoint(world, "runtime");
+
+    const capturedAt = rp.sectorStates["geopolitics"] as unknown as GeopoliticsState;
+    expect(capturedAt.tickCount).toBe(0);
+
+    // Run the parent world forward; sector tick() mutates state in place.
+    const advanced = run(world, 30);
+
+    // The live world really did advance — proves this test would catch aliasing.
+    const live = advanced.sectors.get("geopolitics")!.state as unknown as GeopoliticsState;
+    expect(live.tickCount).toBe(30);
+    expect(live.year).toBe(2026 + 30);
+
+    // The captured baseline must be untouched.
+    const capturedAfter = rp.sectorStates["geopolitics"] as unknown as GeopoliticsState;
+    expect(capturedAfter.tickCount).toBe(0);
+    expect(capturedAfter.year).toBe(2026);
+  });
+
+  it("verify() still passes after the parent world ran 30 ticks", () => {
+    const store = createInMemoryStore();
+    const world = createWorld(makeSectors(), sampleConfigs);
+    const rp = createRewindPoint(world, "runtime");
+    store.add(rp);
+
+    run(world, 30);
+
+    expect(store.verify(rp.id)).toBe(true);
   });
 });
 

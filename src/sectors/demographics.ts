@@ -80,6 +80,7 @@ export function createDemographicsSector(): Sector {
   return {
     id: "demographics",
     name: "Demographics",
+    cadence: 10,
     events,
 
     init(seed: number, config: Record<string, unknown>): DemographicsState {

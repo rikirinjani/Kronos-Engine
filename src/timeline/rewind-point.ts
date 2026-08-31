@@ -1,4 +1,5 @@
 import { hashState } from "./hash.js";
+import { deepClone } from "../engine/clone.js";
 import type { RNGState } from "../engine/rng.js";
 import type { WorldState } from "../engine/world-engine.js";
 import type { WorldSnapshot } from "../engine/world-engine.js";
@@ -60,7 +61,9 @@ export function createRewindPoint(
 ): RewindPoint {
   const sectorStates: Record<string, SectorState> = {};
   for (const [id, record] of world.sectors) {
-    sectorStates[id] = record.state;
+    // Deep-clone so in-place sector tick() mutation of the live world cannot
+    // corrupt the captured baseline (T3 optimization mutates state in place).
+    sectorStates[id] = deepClone(record.state);
   }
 
   const rp: RewindPoint = {
@@ -138,7 +141,9 @@ export function createInMemoryStore(): RewindPointStore {
 export function rewindToSnapshot(point: RewindPoint): WorldSnapshot {
   const sectors: WorldSnapshot["sectors"] = [];
   for (const [id, state] of Object.entries(point.sectorStates)) {
-    sectors.push({ id, state });
+    // Deep-clone on the way out so restoring cannot alias (and mutate) the
+    // stored rewind point's baseline.
+    sectors.push({ id, state: deepClone(state) });
   }
   return {
     tick: point.tick,

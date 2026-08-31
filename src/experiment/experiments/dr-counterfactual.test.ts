@@ -2,7 +2,7 @@ import { describe, it, expect } from "vitest";
 import { writeFileSync, mkdirSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
-import { runExperiment } from "./dr-counterfactual.js";
+import { runExperiment, runSingleSeed, PRIMARY_OUTCOMES, isBookkeepingPath, assertMatchedHorizon } from "./dr-counterfactual.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -43,5 +43,92 @@ describe("P-004: DR Sentinel Counterfactual", () => {
 
     expect(experiment.summary).toBeDefined();
     expect(experiment.runs).toBeDefined();
+  });
+
+  describe("scientific rigor: matched horizon", () => {
+    it("runs parent and child to the SAME tick", () => {
+      for (const run of experiment.runs) {
+        expect(run.guards.matchedHorizon).toBe(true);
+        expect(run.guards.parentTick).toBe(20);
+        expect(run.guards.childTick).toBe(20);
+        expect(run.guards.childTick).toBe(run.guards.parentTick);
+      }
+    });
+
+    it("assertMatchedHorizon throws when tick counts differ", () => {
+      expect(() => assertMatchedHorizon(20, 23, "test")).toThrow(/Matched-horizon/);
+    });
+  });
+
+  describe("scientific rigor: identical baseline", () => {
+    it("verifies the rewind baseline deep-equals the pristine parent baseline", () => {
+      for (const run of experiment.runs) {
+        expect(run.guards.baselineIdentical).toBe(true);
+        expect(run.guards.baselineStateHash).toMatch(/^[0-9a-f]{8}$/);
+      }
+    });
+  });
+
+  describe("scientific rigor: pre-specified outcomes (CSSD, dialysis, occupancy)", () => {
+    it("declares PRIMARY_OUTCOMES in code", () => {
+      const ids = PRIMARY_OUTCOMES.map((o) => o.id).sort();
+      expect(ids).toEqual(["cssd-cycles", "dialysis-sessions", "occupancy"]);
+      for (const o of PRIMARY_OUTCOMES) {
+        expect(o.paths.length).toBeGreaterThan(0);
+        expect(o.description.length).toBeGreaterThan(0);
+      }
+    });
+
+    it("reports primary outcome effects per run (contract, Deers-Rock is stochastic)", () => {
+      const run = runSingleSeed(42);
+      const ids = new Set(run.primaryOutcomes.map((e) => e.outcomeId));
+      // Effects are only ever reported for pre-specified outcomes.
+      for (const id of ids) {
+        expect(PRIMARY_OUTCOMES.some((o) => o.id === id)).toBe(true);
+      }
+      // Every effect is well-formed and belongs to the sentinel sector.
+      for (const e of run.primaryOutcomes) {
+        expect(typeof e.absoluteDelta).toBe("number");
+        expect(typeof e.path).toBe("string");
+        expect(e.sector.startsWith("deers-rock-")).toBe(true);
+      }
+      // Deers-Rock embeds unseeded randomness, so which outcome shows a nonzero
+      // delta on a given seed varies — but at least one must be observable.
+      expect(ids.size).toBeGreaterThan(0);
+    });
+
+    it("reports primary outcomes at the experiment level", () => {
+      for (const o of PRIMARY_OUTCOMES) {
+        const report = experiment.primaryOutcomes.find((r) => r.id === o.id);
+        expect(report).toBeDefined();
+        expect(report!.perSeedMeanDelta).toHaveLength(seedCount);
+        expect(Array.isArray(report!.observedPaths)).toBe(true);
+        expect(report!.expectedPathCount).toBe(report!.paths.length);
+      }
+      // At least one pre-specified outcome is observable in the 3-seed experiment.
+      expect(experiment.primaryOutcomes.some((r) => r.observedPathCount > 0)).toBe(true);
+    });
+  });
+
+  describe("scientific rigor: bookkeeping metrics", () => {
+    it("excludes year/tickCount from causal metric sets", () => {
+      for (const run of experiment.runs) {
+        for (const sd of Object.values(run.diff.perSector)) {
+          for (const m of sd.metrics) {
+            expect(isBookkeepingPath(m.path)).toBe(false);
+            expect(m.path).not.toBe("year");
+            expect(m.path).not.toBe("tickCount");
+          }
+        }
+      }
+    });
+
+    it("reports bookkeeping clock fields explicitly (and equal across branches)", () => {
+      for (const run of experiment.runs) {
+        expect(run.guards.bookkeeping.year.parent).toBe(run.guards.bookkeeping.year.child);
+        expect(run.guards.bookkeeping.tickCount.parent).toBe(run.guards.bookkeeping.tickCount.child);
+        expect(run.guards.bookkeeping.tickCount.parent).toBe(20);
+      }
+    });
   });
 });

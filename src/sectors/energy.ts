@@ -124,6 +124,7 @@ export function createEnergySector(): Sector {
   return {
     id: "energy",
     name: "Energy",
+    cadence: 3,
     events,
 
     init(seed: number, config: Record<string, unknown>): EnergyState {

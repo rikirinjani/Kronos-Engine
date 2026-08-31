@@ -11,3 +11,10 @@ export type {
   EventBus,
   RNG,
 } from "./types.js";
+// Sector factories — every world sector can be created via the index.
+export { createGeopoliticsSector } from "./geopolitics.js";
+export { createClimateSector } from "./climate.js";
+export { createEconomySector } from "./economy.js";
+export { createTechnologySector } from "./technology.js";
+export { createEnergySector } from "./energy.js";
+export { createDemographicsSector } from "./demographics.js";

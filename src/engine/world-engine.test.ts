@@ -194,9 +194,8 @@ describe("snapshot / restoreSnapshot", () => {
     sectorMap.set("economy", createEconomySector());
     sectorMap.set("technology", createTechnologySector());
 
-    const restored = restoreSnapshot(snap, sectorMap);
-    const a = run(restored, 10);
-    const b = run(restored, 10);
+    const a = run(restoreSnapshot(snap, sectorMap), 10);
+    const b = run(restoreSnapshot(snap, sectorMap), 10);
 
     expect(a.tick).toBe(b.tick);
     expect(a.rngState).toEqual(b.rngState);
@@ -216,25 +215,17 @@ describe("snapshot / restoreSnapshot", () => {
     sectorMap.set("economy", createEconomySector());
     sectorMap.set("technology", createTechnologySector());
 
-    const world = createWorld(makeSectors(), sampleConfigs, { seed: 42 });
-    const snap1 = snapshot(run(world, 5));
-    const r1 = restoreSnapshot(snap1, sectorMap);
+    const snap = snapshot(run(createWorld(makeSectors(), sampleConfigs, { seed: 42 }), 5));
+    const r1 = run(restoreSnapshot(snap, sectorMap), 20);
+    const r2 = run(restoreSnapshot(snap, sectorMap), 20);
 
-    const world2 = createWorld(makeSectors(), sampleConfigs, { seed: 42 });
-    const snap2 = snapshot(run(world2, 5));
-    const r2 = restoreSnapshot(snap2, sectorMap);
-
-    const a = run(r1, 20);
-    const b = run(r2, 20);
-
-    expect(a.tick).toBe(b.tick);
-    expect(a.rngState).toEqual(b.rngState);
+    expect(r1.tick).toBe(r2.tick);
 
     const aStates = Object.fromEntries(
-      [...a.sectors.entries()].map(([id, r]) => [id, r.state]),
+      [...r1.sectors.entries()].map(([id, r]) => [id, r.state]),
     );
     const bStates = Object.fromEntries(
-      [...b.sectors.entries()].map(([id, r]) => [id, r.state]),
+      [...r2.sectors.entries()].map(([id, r]) => [id, r.state]),
     );
     expect(aStates).toEqual(bStates);
   });

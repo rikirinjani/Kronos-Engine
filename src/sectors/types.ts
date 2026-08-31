@@ -29,6 +29,7 @@ export interface WorldContext {
 export interface Sector {
   id: SectorId;
   name: string;
+  cadence: number;
   init(seed: number, config: Record<string, unknown>): SectorState;
   tick(state: SectorState, world: WorldContext): SectorState;
   handlers: TickHandler[];

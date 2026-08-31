@@ -25,3 +25,8 @@ for (const m of sig.sort((a, b) => Math.abs(b.cohensD) - Math.abs(a.cohensD)).sl
   const dir = m.mean > 0 ? "+" : "";
   console.log(`  ${m.path}: Δ=${dir}${m.mean.toFixed(2)} d=${m.cohensD.toFixed(2)} sig=${m.significant}`);
 }
+
+console.log(`Pre-specified primary outcomes: ${experiment.primaryOutcomes.length}`);
+for (const o of experiment.primaryOutcomes) {
+  console.log(`  [${o.id}] ${o.label}: meanΔ=${o.overallMeanDelta.toFixed(4)} observed=${o.observedPathCount}/${o.expectedPathCount} paths, consistent=${o.directionConsistent}`);
+}

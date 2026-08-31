@@ -54,12 +54,13 @@ describe("ClimateSector", () => {
   it("tick increases CO2 concentration and temperature", () => {
     const sector = createClimateSector();
     const state = sector.init(42, sampleConfig as unknown as Record<string, unknown>) as ClimateState;
+    const oldTemp = state.temperatureAnomaly;
     const ctx = makeWorldContext(1, 42);
 
-    const next = sector.tick(state, ctx) as ClimateState;
+    sector.tick(state, ctx);
 
-    expect(next.co2Concentration).toBeGreaterThan(420);
-    expect(next.temperatureAnomaly).toBeGreaterThan(state.temperatureAnomaly);
+    expect(state.co2Concentration).toBeGreaterThan(420);
+    expect(state.temperatureAnomaly).toBeGreaterThan(oldTemp);
   });
 
   it("tick increases sea level", () => {
@@ -149,14 +150,16 @@ describe("ClimateSector", () => {
     const sector = createClimateSector();
     const high = sector.init(42, { annualEmissionsNoise: 2 }) as ClimateState;
     const low = sector.init(42, { annualEmissionsNoise: 0.01 }) as ClimateState;
+    const oldHighEm = high.annualEmissions;
+    const oldLowEm = low.annualEmissions;
     const ctxHi = makeWorldContext(1, 42);
     const ctxLo = makeWorldContext(1, 42);
 
-    const hiNext = sector.tick(high, ctxHi) as ClimateState;
-    const loNext = sector.tick(low, ctxLo) as ClimateState;
+    sector.tick(high, ctxHi);
+    sector.tick(low, ctxLo);
 
-    const hiDrift = Math.abs(hiNext.annualEmissions - high.annualEmissions);
-    const loDrift = Math.abs(loNext.annualEmissions - low.annualEmissions);
+    const hiDrift = Math.abs(high.annualEmissions - oldHighEm);
+    const loDrift = Math.abs(low.annualEmissions - oldLowEm);
 
     expect(hiDrift).toBeGreaterThan(loDrift);
   });

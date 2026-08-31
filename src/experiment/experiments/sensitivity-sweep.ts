@@ -14,7 +14,7 @@ import type { Intervention } from "../../timeline/branch.js";
 import { buildFullDiff } from "../diff-engine.js";
 import { computeSummary, mean, stdDev } from "../stats.js";
 import { loadEraConfig } from "../../engine/era-loader.js";
-import type { ExperimentRun, ExperimentSet, CounterfactualDiff } from "../types.js";
+import type { ExperimentRun, ExperimentSet, CounterfactualDiff, NoiseFloor } from "../types.js";
 import type { Sector, SectorState } from "../../sectors/types.js";
 import type { WorldSnapshot } from "../../engine/world-engine.js";
 
@@ -38,6 +38,13 @@ export interface NoiseBaseline {
   falsePositiveRatio: number;
   avgCiWidth: number;
   avgCohensD: number;
+  /**
+   * Statistical noise-floor summary from the stats layer: expected vs observed
+   * false positives at alpha (see StatisticalSummary.noiseFloor). Under the
+   * corrected immutable-baseline semantics a no-intervention replay produces
+   * 0 metric deltas, so every field here is 0 (perfect determinism).
+   */
+  noiseFloor: NoiseFloor;
 }
 
 export interface PerSectorSweep {
@@ -249,9 +256,15 @@ export function runSweep(): SweepReport {
       n: noiseN,
       totalMetrics: noiseExp.summary.metrics.length,
       falsePositiveCount: noiseSig.length,
-      falsePositiveRatio: Math.round((noiseSig.length / noiseExp.summary.metrics.length) * 10000) / 100,
+      // Guarded division: a deterministic no-intervention replay yields 0
+      // metric deltas, which is a GENUINE 0-FP noise floor (perfect
+      // determinism) — not a 0/0 NaN. Ratio is 0 whenever there are no metrics.
+      falsePositiveRatio: noiseExp.summary.metrics.length === 0
+        ? 0
+        : Math.round((noiseSig.length / noiseExp.summary.metrics.length) * 10000) / 100,
       avgCiWidth: Math.round(mean(noiseExp.summary.metrics.filter((m) => m.stdDev > 0).map((m) => m.ci95Upper - m.ci95Lower)) * 100) / 100,
       avgCohensD: Math.round(mean(noiseExp.summary.metrics.map((m) => Math.abs(m.cohensD))) * 100) / 100,
+      noiseFloor: noiseExp.summary.noiseFloor,
     },
     perSector: [...perSectorData.values()],
     topMetrics,

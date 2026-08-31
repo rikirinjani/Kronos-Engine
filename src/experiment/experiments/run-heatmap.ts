@@ -76,14 +76,15 @@ for (const seed of seeds) {
   const results = extract(snapshot(parent), branch.childSnapshot);
   for (const r of results) {
     if (!regionStats[r.region]) regionStats[r.region] = { occP: [], occB: [], icuP: [], icuB: [], mortP: [], mortB: [], surgeP: 0, surgeB: 0 };
-    regionStats[r.region].occP.push(r.parentOcc);
-    regionStats[r.region].occB.push(r.branchOcc);
-    regionStats[r.region].icuP.push(r.parentIcu);
-    regionStats[r.region].icuB.push(r.branchIcu);
-    regionStats[r.region].mortP.push(r.parentMort);
-    regionStats[r.region].mortB.push(r.branchMort);
-    if (r.parentSurge) regionStats[r.region].surgeP++;
-    if (r.branchSurge) regionStats[r.region].surgeB++;
+    const rs = regionStats[r.region]!;
+    rs.occP.push(r.parentOcc);
+    rs.occB.push(r.branchOcc);
+    rs.icuP.push(r.parentIcu);
+    rs.icuB.push(r.branchIcu);
+    rs.mortP.push(r.parentMort);
+    rs.mortB.push(r.branchMort);
+    if (r.parentSurge) rs.surgeP++;
+    if (r.branchSurge) rs.surgeB++;
   }
   process.stdout.write(".");
 }

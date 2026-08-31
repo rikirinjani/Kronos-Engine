@@ -23,3 +23,14 @@ console.log(`Significant GDP metrics: ${gdpSig.length}`);
 for (const m of gdpSig) {
   console.log(`  ${m.path}: Δ=${m.mean.toFixed(0)} d=${m.cohensD.toFixed(2)}`);
 }
+
+console.log(`Pre-specified primary outcomes: ${experiment.primaryOutcomes.length}`);
+for (const o of experiment.primaryOutcomes) {
+  console.log(`  [${o.id}] ${o.label}: meanΔ=${o.overallMeanDelta.toFixed(2)} observed=${o.observedPathCount}/${o.expectedPathCount} paths, consistent=${o.directionConsistent}`);
+}
+
+const gdpReport = experiment.primaryOutcomes.find((o) => o.id === "nation-gdp");
+if (gdpReport) {
+  console.log(`Nation-GDP primary outcome: ${gdpReport.observedPathCount} paths observed (per-seed mean deltas):`);
+  console.log(`  ${JSON.stringify(gdpReport.perSeedMeanDelta.map((d) => Math.round(d)))}`);
+}

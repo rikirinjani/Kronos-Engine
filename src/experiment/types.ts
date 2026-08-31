@@ -71,8 +71,53 @@ export interface MetricStats {
   ci95Upper: number;
   min: number;
   max: number;
+  /** One-sample effect size dz = mean/sd over per-seed deltas (see cohensDz); 0 when degenerate. */
   cohensD: number;
+  /**
+   * Unadjusted two-sided p-value of the one-sample t-test (H0: mean delta = 0).
+   * NaN when no test was performed (n < 2, or the metric is degenerate).
+   */
+  pValue: number;
+  /** Benjamini–Hochberg FDR-adjusted p-value; NaN for degenerate metrics (excluded from the FDR family). */
+  pAdjusted: number;
+  /** Bonferroni-adjusted p-value (min(1, p * testedCount)); NaN for degenerate metrics. */
+  pBonferroni: number;
+  /** Degrees of freedom of the one-sample t-test (n - 1). */
+  df: number;
+  /** Unadjusted decision: pValue < significanceLevel (0.05). Back-compatible name. */
   significant: boolean;
+  /** FDR decision: pAdjusted < significanceLevel. Always false for degenerate metrics. */
+  significantFDR: boolean;
+  /** Bonferroni decision: pBonferroni < significanceLevel. Always false for degenerate metrics. */
+  significantBonferroni: boolean;
+  /**
+   * True when the per-seed delta series is un-testable: n < 2, sd == 0
+   * (constant delta across seeds), or a numerically meaningless effect size
+   * (|dz| > 1000). Degenerate metrics are excluded from the FDR/Bonferroni
+   * family and never report a p-value or significance.
+   */
+  degenerate?: boolean;
+}
+
+/** Noise-floor comparison: what pure noise would produce vs what was observed. */
+export interface NoiseFloor {
+  significanceLevel: number;
+  /** All metrics in the summary, including degenerate ones. */
+  totalMetrics: number;
+  /** Non-degenerate metrics actually tested for significance (the FDR/Bonferroni family size). */
+  testedMetrics: number;
+  /** Metrics downgraded as un-testable (sd == 0, n < 2, |dz| > 1000). */
+  degenerateMetrics: number;
+  /** Expected false positives at alpha 0.05 if ALL metrics were pure noise: totalMetrics * 0.05. */
+  expectedFalsePositivesAtAlpha05: number;
+  /** Expected false positives among the tested (non-degenerate) metrics only: testedMetrics * 0.05. */
+  expectedFalsePositivesAtAlpha05Tested: number;
+  /** Count of metrics with significant === true (unadjusted p < alpha). */
+  observedSignificant: number;
+  /** Count of metrics with significantFDR === true. */
+  observedSignificantFDR: number;
+  /** Count of metrics with significantBonferroni === true. */
+  observedSignificantBonferroni: number;
 }
 
 export interface StatisticalSummary {
@@ -82,6 +127,16 @@ export interface StatisticalSummary {
   totalTicks: number;
   intervention: Intervention;
   metrics: MetricStats[];
+  /** Alpha used for all significance decisions (0.05). */
+  significanceLevel: number;
+  /** Convenience: count of metrics with significant === true. */
+  observedSignificant: number;
+  /** Convenience: count of metrics with significantFDR === true. */
+  observedSignificantFDR: number;
+  /** Convenience: count of metrics with significantBonferroni === true. */
+  observedSignificantBonferroni: number;
+  /** Noise-floor comparison (expected false positives at alpha vs observed). */
+  noiseFloor: NoiseFloor;
   generatedAt: string;
 }
 
