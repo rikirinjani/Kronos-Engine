@@ -273,6 +273,25 @@ async function main() {
     allExported ? "OK" : `Missing exports in index.ts`,
   );
 
+  // ── Fact 9: Paper-vs-artifact consistency ──
+  // The paper's Results must match the committed, regenerated artifacts
+  // (P-003: 1,233 metrics / 19 significant / 1 FDR / 1 Bonferroni / 0 GDP;
+  // P-004: 212 metrics / 14 significant / 0 Bonferroni). Every superseded
+  // figure from the pre-remediation paper is banned; corrected key figures
+  // must be present. Portable scan (Node fs only — no `rg` dependency).
+  const paperPath = "docs/papers/jamia-2026-kronos-engine.md";
+  const paperText = existsSync(paperPath) ? readFileSync(paperPath, "utf-8") : "";
+  const supersededFigures = ["1,421", "36 observed significant", "31.3", "2.78", "2.35", "156 metrics"];
+  const leftover = supersededFigures.filter((s) => paperText.includes(s));
+  const requiredFigures = ["1,233", "19 significant", "0 of 9"];
+  const missingFigures = requiredFigures.filter((s) => !paperText.includes(s));
+  check(
+    "Paper numbers match corrected artifacts (no 1,421 / 36 sig / 31.3 / 2.78 / 2.35 / 156 metrics; has 1,233 / 19 sig / 0-of-9 GDP)",
+    leftover.length === 0 && missingFigures.length === 0,
+    (leftover.length === 0 ? "OK" : `superseded figures remain: ${leftover.join("; ")}`) +
+      (missingFigures.length === 0 ? "" : ` | missing corrected figures: ${missingFigures.join("; ")}`),
+  );
+
   // ── Summary ──
   const elapsed = ((Date.now() - startTime) / 1000).toFixed(1);
   console.log(`\n${"=".repeat(50)}`);

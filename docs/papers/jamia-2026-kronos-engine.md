@@ -14,9 +14,9 @@
 
 **Objective:** Healthcare systems operate within complex socio-economic and environmental contexts that cannot be experimentally controlled in real-world settings. A hospital administrator cannot observe the same system both with and without a recession, a heatwave, or a pandemic. Simulation offers the only window into those counterfactuals, but existing frameworks either lack macro-level drivers (climate, economy, geopolitics) or sacrifice reproducibility. We present Kronos Engine, a deterministic counterfactual experimentation platform that bridges global systemic drivers and local health system outcomes through a sentinel adapter pattern.
 
-**Materials and Methods:** Kronos Engine implements a modular architecture with six world sectors (Geopolitics, Climate, Economy, Technology, Energy, Demographics) connected to existing hospital simulators via a sentinel adapter — a zero-modification wrapper that translates macro conditions into hospital-relevant parameters and publishes aggregated hospital pressure signals on the world event bus (inbound consumption of these `health.*` signals by world sectors is not yet implemented). The platform enforces full determinism through seeded pseudo-random number generation, sorted iteration order, and snapshot-based rewind points. We conducted two experiments: (1) a "No World War II" counterfactual (30 seeds, 1,421 metrics) examining GDP trajectories across nine nations, and (2) a climate-emissions intervention (30 seeds, 156 metrics) measuring hospital-level operational impact via an Indonesian sentinel hospital.
+**Materials and Methods:** Kronos Engine implements a modular architecture with six world sectors (Geopolitics, Climate, Economy, Technology, Energy, Demographics) connected to existing hospital simulators via a sentinel adapter — a zero-modification wrapper that translates macro conditions into hospital-relevant parameters and publishes aggregated hospital pressure signals on the world event bus (inbound consumption of these `health.*` signals by world sectors is not yet implemented). The platform enforces full determinism through seeded pseudo-random number generation, sorted iteration order, and snapshot-based rewind points. We conducted two experiments: (1) a "No World War II" counterfactual (30 seeds, 1,233 metrics) examining GDP trajectories across nine nations, and (2) a climate-emissions intervention (30 seeds, 212 metrics) measuring hospital-level operational impact via an Indonesian sentinel hospital.
 
-**Results:** The WWII counterfactual produced statistically significant GDP divergence across all nine pre-specified primary outcome nations (Cohen's d > 1.0; Bonferroni-adjusted p < 0.05), with the United States showing the largest mean difference (Δ = +$31.3B, d = 1.13). The climate intervention verified end-to-end (world→hospital) sentinel pipeline operation; 14 of 156 operational metrics reached significance (Bonferroni-corrected), including occupancy rate (d = 0.70), dialysis sessions (d = 1.11), and CSSD sterilization cycles (d = -2.71). A 30-hospital regional network demonstrated the adapter's distributed operational capability, with occupancy ranging from 40.4% (Sulawesi) to 49.1% (Kalimantan) across five Indonesian regions.
+**Results:** The WWII counterfactual produced no defensible GDP effect under multiplicity-controlled statistics: 0 of 9 pre-specified GDP primary outcomes were significant (19 of 1,233 metrics significant at uncorrected α = 0.05, but none after BH-FDR or Bonferroni), with the US mean delta negative (≈ −$24.9M, d = −0.04) and all nine adjusted p-values > 0.8. The single metric surviving both BH-FDR and Bonferroni was the trivially mechanical reduction in `wars.W-1939-01.casualties` (ending the war stops its casualties). The climate intervention verified end-to-end (world→hospital) sentinel pipeline operation; 14 of 212 operational metrics were significant at uncorrected α = 0.05 but none survived BH-FDR or Bonferroni correction, and the uncorrected list was dominated by tiny-variance economy artifacts (e.g. GBR inflation rate d ≈ −47) rather than hospital effects. A 30-hospital regional network demonstrated the adapter's distributed operational capability, with occupancy ranging from 40.4% (Sulawesi) to 49.1% (Kalimantan) across five Indonesian regions.
 
 **Discussion:** The sentinel adapter pattern enables existing, independently validated hospital simulators to participate in reproducible multi-scale counterfactuals without code modification. This paper reports internal consistency and architectural validation; empirical calibration against real hospital admission data is the critical next step. The platform generalizes to any domain where micro-level operations depend on macro-level drivers.
 
@@ -46,7 +46,7 @@ This paper makes five contributions:
 1. **Architecture** — A deterministic, modular counterfactual engine with pluggable sectors and seeded reproducibility
 2. **Sentinel adapter pattern** — Zero-modification integration of standalone simulators into a multi-scale counterfactual platform
 3. **Cross-sector coupling (world → hospital)** — Verified one-way coupling of climate, economy, and health sectors via an integration test; inbound hospital→world feedback is not yet implemented
-4. **Retrospective validation** — WWII counterfactual reproducing known GDP divergence across nine nations, with explicit statistical correction for multiple comparisons
+4. **Retrospective counterfactual** — WWII counterfactual whose corrected analysis shows no defensible GDP effect (0 of 9 primary outcomes significant under BH-FDR/Bonferroni), demonstrating the pipeline's capacity to produce and audit an honest negative result
 5. **Prospective demonstration** — Climate-emissions-to-hospital operational pipeline with a 30-hospital regional network
 
 ---
@@ -216,7 +216,7 @@ The statistical infrastructure for multi-seed experiments consists of:
 - **diff-engine.ts:** Extracts numeric paths from world state snapshots and computes per-metric deltas
 - **stats.ts:** Computes mean, median, standard deviation, 95% confidence intervals, and Cohen's d across seeds
 
-Each experiment consists of *N* seed pairs. For each seed, the engine forks the baseline universe, applies the intervention, runs both branches for *T* ticks, and captures terminal snapshots. The diff engine compares snapshots, producing per-metric deltas. Statistical significance is assessed using Cohen's d (large effect threshold: |d| > 0.8 [16]) with Bonferroni correction for multiple comparisons. For pre-specified primary outcomes (nation-level GDP, global climate variables), we report Bonferroni-corrected p-values; for the broader exploratory metric sweep, we report Cohen's d as an effect-size measure without formal correction, noting potential false positives in the discussion.
+Each experiment consists of *N* seed pairs. For each seed, the engine forks the baseline universe, applies the intervention, runs both branches for *T* ticks, and captures terminal snapshots. The diff engine compares snapshots, producing per-metric deltas. For every metric with at least two non-identical per-seed deltas, significance is assessed with a one-sample t-statistic against H₀: mean delta = 0 and a two-sided p-value with df = n − 1. Effect size is reported as one-sample Cohen's d_z (mean / SD of per-seed deltas) [16] — a standardized shift away from zero, labeled explicitly because it is not a two-group Cohen's d. Metrics that cannot be tested — fewer than two deltas, zero variance (constant delta across seeds), or numerically meaningless effect sizes (|d| > 1000 from floating-point jitter around a constant) — are flagged degenerate and excluded from the testing family. Benjamini–Hochberg FDR and Bonferroni corrections are applied across all non-degenerate metrics at α = 0.05 [15]. Alongside observed significance counts we report the noise floor — the false positives expected by chance at α = 0.05 across the total and the tested (non-degenerate) metric families — so observed counts can be judged against chance.
 
 ### 2.8 Historical Data Layer
 
@@ -252,45 +252,45 @@ Calibration parameters are configurable per era, enabling the same engine to sim
 
 ### 3.1 Experiment 1: WWII Counterfactual (P-003)
 
-**Design:** 30 seeds (42–71). Intervention: WWII ends before escalation (Hitler dies 1938). Rewind point: RP-MODERN-001 (1939). Duration: 30 ticks. Total metrics analyzed: 1,421. This experiment validates the deterministic experimentation framework independently of healthcare-specific assumptions — establishing that the platform correctly propagates macro-level interventions through coupled sector models.
+**Design:** 30 seeds (42–71). Intervention: WWII ends before escalation (Hitler dies 1938). Rewind point: RP-MODERN-001 (1939). Duration: 30 ticks. Total metrics analyzed: 1,233 (291 non-degenerate and testable; 942 degenerate/untestable). This experiment validates the deterministic experimentation framework independently of healthcare-specific assumptions — establishing that the platform correctly propagates macro-level interventions through coupled sector models.
 
-**Statistical note:** With 1,421 metrics, an uncorrected α = 0.05 would yield ∼71 expected false positives by chance. We pre-specified nation-level GDP and global climate variables (CO2, temperature, emissions) as primary outcomes and applied Bonferroni correction (adjusted α = 0.05 / 1,421 ≈ 3.5 × 10⁻⁵). The 36 observed significant metrics is fewer than the ∼71 expected by chance under an uncorrected α = 0.05, confirming the correction's conservatism. Critically, all nine pre-specified primary GDP outcomes survived Bonferroni correction — the intervention effect on national economies is not attributable to chance. Consistency across nine independently-parameterized national economies — each with distinct starting GDP, growth rate, and trade linkages — further supports that the war intervention propagates correctly through the coupled sector model, rather than being an artifact of any single economy's parameterization.
+**Statistical note:** Analysis follows Section 2.7: per-metric one-sample t-tests (df = n − 1), with Benjamini–Hochberg FDR and Bonferroni correction applied across the 291 non-degenerate tested metrics. The noise floor — false positives expected by chance at α = 0.05 — is 61.65 across all 1,233 metrics and 14.55 across the tested family. We observed 19 significant metrics at uncorrected α = 0.05, only slightly above the 14.55 tested-family noise floor, and exactly one survived both BH-FDR and Bonferroni: `wars.W-1939-01.casualties` (d = −1.46, adjusted p ≈ 2.4 × 10⁻⁶). This effect is trivially mechanical — ending the war stops its casualties — and is not a substantive economic finding. Critically, none of the nine pre-specified GDP primary outcomes were significant under any correction (all pAdjusted > 0.8; pBonferroni = 1 for all nine), so the pre-specified primary-outcome direction-consistency criterion is not met. P-003 is therefore best interpreted as an exploratory negative result demonstrating the reproducible counterfactual pipeline — the intervention propagates deterministically through the coupled sector model without producing a statistically defensible macroeconomic outcome.
 
-| Nation | Mean Δ GDP | Cohen's d | Bonferroni-significant |
-|---|---|---|---|
-| United States | +$31,335M | 1.13 | Yes |
-| Germany | +$10,412M | 1.00 | Yes |
-| United Kingdom | +$9,208M | 1.05 | Yes |
-| Russia | +$11,547M | 1.07 | Yes |
-| France | +$6,844M | 1.13 | Yes |
-| Japan | +$5,391M | 1.03 | Yes |
-| Italy | +$4,386M | 1.07 | Yes |
-| China | +$2,781M | 1.07 | Yes |
-| Poland | +$2,678M | 1.11 | Yes |
+| Nation | Mean Δ GDP | Cohen's d_z | p (uncorrected) | pBonferroni | Significant |
+|---|---|---|---|---|---|
+| United States | −$24.9M | −0.04 | 0.767 | 1.00 | No |
+| Germany | −$35.7M | −0.06 | 0.678 | 1.00 | No |
+| United Kingdom | −$47.3M | −0.08 | 0.560 | 1.00 | No |
+| Russia | −$42.7M | −0.07 | 0.609 | 1.00 | No |
+| France | −$53.3M | −0.09 | 0.522 | 1.00 | No |
+| Japan | −$38.1M | −0.06 | 0.652 | 1.00 | No |
+| China | −$4.4M | −0.01 | 0.954 | 1.00 | No |
+| Italy | −$23.4M | −0.04 | 0.771 | 1.00 | No |
+| Poland | −$41.2M | −0.07 | 0.615 | 1.00 | No |
 
 [Figure 2 about here: Bar chart of GDP divergence per nation with 95% CIs]
 
-Climate variables also showed significant divergence: temperature anomaly (d = 2.78), CO2 concentration (d = 2.35), and annual emissions (d = 2.20). Germany's inflation rate was significantly lower in the no-war branch (d = 0.73).
+Climate variables showed no significant divergence in the corrected analysis: temperature anomaly (d = −0.22, p = 0.234), CO2 concentration (d = −0.15, p = 0.417), and annual emissions (d = −0.19, p = 0.313), all non-significant. Germany's inflation rate did not differ significantly between branches (d = −0.02, p = 0.903).
 
-**Caveat:** Effect size magnitudes for GDP are mechanically amplified by the compounding structure of the model (Section 2.3): a persistent growth-rate divergence compounds deterministically, guaranteeing eventual separation of any two branches. These effect sizes confirm that the intervention altered the model's trajectory, but their magnitudes should not be interpreted as calibrated predictions of real WWII GDP loss (which reached 30–40% of GDP for Germany — substantially larger than the relative deltas reported here). The validation is architectural (the model propagates a war intervention through the economy sector to produce GDP divergence) rather than quantitative (the model accurately predicts historical GDP loss magnitudes).
+**Honest framing.** With corrected baselines and multiplicity-controlled statistics, the intervention produces **no defensible GDP effect**: 0 of 9 primary outcomes significant, and primary-outcome direction consistency is not established (all nine mean deltas are small and negative, all with pAdjusted > 0.8). The only multiplicity-controlled survivor is the trivially mechanical reduction in `wars.W-1939-01.casualties` — ending a war stops its casualties. P-003 should therefore be read as an exploratory negative result that demonstrates the reproducible counterfactual pipeline, not as evidence of GDP effects. Any apparent GDP divergence in earlier drafts was an artifact of superseded baselines and uncorrected statistics; the committed, regenerated artifacts (Table in Section 3.1) supersede those figures. The experiment's validation value is architectural: the intervention deterministically propagates through the coupled sector model across seeds, even though the resulting economic effect is statistically indistinguishable from noise.
 
 ### 3.2 Experiment 2: Climate Intervention — Sentinel Health Impact (P-004)
 
-**Design:** 30 seeds (42–71). Intervention: Reduced CO2 concentration (400 ppm) and emissions noise (0.02). Rewind point: RP-CONTEMP-002 (COVID-19 baseline). Duration: 20 ticks. Sentinel: Deers Rock, 133-bed Makassar hospital. Total metrics: 156.
+**Design:** 30 seeds (42–71). Intervention: Reduced CO2 concentration (400 ppm) and emissions noise (0.02). Rewind point: RP-CONTEMP-002 (COVID-19 baseline). Duration: 20 ticks. Sentinel: Deers Rock, 133-bed Makassar hospital. Total metrics: 212 (134 non-degenerate and testable; 78 degenerate/untestable).
 
-**Results:** 14 of 156 metrics reached significance (Bonferroni-adjusted α = 3.2 × 10⁻⁴). At 20 ticks, macro-to-micro propagation remains incomplete, so we interpret these as operational early indicators rather than clinical findings:
+**Results:** 14 of 212 metrics were significant at uncorrected α = 0.05; **none survived BH-FDR (minimum q = 0.198) or Bonferroni (pBonferroni = 1 for all)**. The noise floor at α = 0.05 is 10.6 false positives expected across all 212 metrics and 6.7 across the 134 tested metrics, so the 14 uncorrected significances are plausibly attributable to chance. They are dominated by tiny-variance economy artifacts — e.g. `nations.GBR.inflationRate` (d ≈ −47), `nations.IND.rdSpending` (d ≈ 43), `nations.IDN.rdSpending` (d ≈ 33), `nations.IND.patents` (d ≈ −21), and `marketIndex` (d ≈ −12), all near-zero-variance deltas — rather than by hospital effects. At 20 ticks, macro-to-micro propagation remains incomplete, so we interpret these as operational early indicators rather than clinical findings. The real hospital effects are small:
 
-| Metric | Domain | Cohen's d | Interpretation |
+| Metric | Domain | Cohen's d_z | p (uncorrected) |
 |---|---|---|---|
-| CSSD cycles (sterilization) | Hospital operations | −2.71 | Fewer procedures requiring sterilization |
-| Dialysis sessions | Hospital operations | +1.11 | Increased treatment demand |
-| Disease prevalence (UNKNOWN) | Diagnosis mix | +0.91 | Shift in diagnostic uncertainty |
-| Occupancy rate | Hospital capacity | +0.70 | Higher bed saturation |
-| Outcome records | Clinical activity | +0.58 | More clinical encounters |
+| Tube feedings (clinical nutrition) | Hospital operations | +0.65 | 0.0076 |
+| Disease prevalence (UNKNOWN) | Diagnosis mix | +0.53 | 0.0074 |
+| Outcome records | Clinical activity | +0.51 | 0.0103 |
+| Morgue length | Hospital operations | −0.48 | 0.0201 |
+| Mortality pressure | Sentinel output | −0.48 | 0.0201 |
 
-The "UNKNOWN" disease prevalence category represents cases without a specified ICD code — a proxy for diagnostic uncertainty that shifts with case mix complexity. The occupancy rate divergence (d = 0.70) is the most clinically relevant finding, demonstrating that macro-level climate changes measurably alter hospital bed demand even at 20 ticks.
+The "UNKNOWN" disease prevalence category represents cases without a specified ICD code — a proxy for diagnostic uncertainty that shifts with case mix complexity. The pre-specified hospital primary outcomes (CSSD sterilization cycles d = −0.36, p = 0.091; dialysis sessions d = +0.28, p = 0.154; occupancy rate d = −0.22, p = 0.307) were not statistically significant and are not directionally consistent (negative, positive, and negative respectively). None of the significant hospital metrics survived multiplicity correction (minimum q = 0.198). Because the sibling Deers-Rock simulator uses unseeded `Math.random`/`Date.now`, P-004 is not byte-reproducible run-to-run; the committed summary (212 metrics, 14 uncorrected significances, 0 FDR / 0 Bonferroni) is the reference for this analysis.
 
-**Negative result:** Mortality pressure and ICU occupancy showed no divergence. This is consistent with the short simulation duration — clinical outcomes typically manifest over weeks to months, requiring 100+ tick simulations.
+**Negative result:** ICU occupancy showed no divergence (d = 0.00, p = 1.0). Mortality pressure did move (d = −0.48, p = 0.0201) but did not survive multiplicity correction. This is consistent with the short simulation duration — clinical outcomes typically manifest over weeks to months, requiring 100+ tick simulations.
 
 ### 3.3 Regional Sentinel Network
 
@@ -352,9 +352,9 @@ Real-world health data is noisy, incomplete, and non-repeatable. Simulation offe
 
 **Sector model fidelity:** World sectors use first-order approximations rather than validated macro-economic or climate models. Event magnitudes (e.g., −15% GDP for war defenders) are illustrative calibration targets [13] and have not undergone formal sensitivity analysis against observational data.
 
-**Multiple comparison corrections:** The Bonferroni correction applied to 1,421 metrics (adjusted α ≈ 3.5 × 10⁻⁵) is extremely conservative. We applied it only to the pre-specified primary outcomes (nation-level GDP, global climate variables), which showed consistent large effects. For the broader exploratory metric sweep, we report Cohen's d as an effect-size measure without formal correction — some of the 36 significant metrics may include false positives, and the conservative correction likely masks genuine signals in secondary metrics. Future analyses may adopt a false discovery rate (FDR) approach [15] which is more appropriate for exploratory analyses with many correlated metrics.
+**Multiple comparison corrections:** We apply Benjamini–Hochberg FDR and Bonferroni corrections across all non-degenerate metrics at α = 0.05 (Section 2.7). For P-003 the corrected family is 291 tested metrics (of 1,233); the noise floor is 14.55 expected false positives at α = 0.05, and the 19 uncorrected significances are statistically indistinguishable from chance. Exactly one metric — the mechanical war-casualties reduction — survived FDR or Bonferroni. For P-004 the corrected family is 134 tested metrics (of 212; noise floor 6.7); none of the 14 uncorrected significances survived. The reported effect sizes are one-sample d_z values, not two-group Cohen's d values, and are not comparable to effect sizes in the clinical literature; where effects are driven by near-zero-variance economy deltas (e.g. d ≈ −47 for GBR inflation), they reflect model artifacts rather than substantive intervention effects.
 
-**GDP effect size interpretation:** As noted in Section 3.1, the large Cohen's d values for GDP metrics reflect the compounding structure of the growth model rather than calibrated accuracy against real WWII GDP losses. The effect sizes confirm that the intervention propagates through the model, but their magnitudes should not be interpreted as quantitative predictions.
+**GDP effect size interpretation:** As noted in Section 3.1, the corrected analysis yields no defensible GDP effect: all nine pre-specified GDP primary outcomes were non-significant with small one-sample d_z values (|d| ≤ 0.09), and the effect sizes should not be interpreted as quantitative predictions of real WWII GDP loss (which reached 30–40% of GDP for Germany). The absence of a multiplicity-controlled GDP signal — despite deterministic propagation of the intervention through the sector model — is itself the finding: it constrains claims the platform can support and motivates the architectural (rather than quantitative) framing of this experiment.
 
 ### 4.5 Generalizability
 
@@ -364,7 +364,7 @@ While demonstrated with a healthcare sentinel, the adapter pattern is domain-agn
 
 ## 5. Conclusion
 
-We have presented Kronos Engine, a deterministic counterfactual experimentation platform for multi-scale health system simulation. The sentinel adapter pattern enables existing hospital simulators to participate in world-scale counterfactuals without modification. Two experiments — a "No World War II" retrospective validation and a climate-emissions intervention — demonstrate the platform's ability to produce statistically rigorous, reproducible results across the macro-to-micro scale range.
+We have presented Kronos Engine, a deterministic counterfactual experimentation platform for multi-scale health system simulation. The sentinel adapter pattern enables existing hospital simulators to participate in world-scale counterfactuals without modification. Two experiments — a "No World War II" retrospective counterfactual and a climate-emissions intervention — demonstrate the platform's ability to produce statistically rigorous, reproducible results across the macro-to-micro scale range.
 
 This paper reports internal consistency and architectural correctness. The next step is empirical validation: calibrating the platform against real-world data to transition from "this is an elegant simulation framework" to "this is an informatics platform with empirical credibility."
 
