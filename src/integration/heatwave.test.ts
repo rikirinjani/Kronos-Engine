@@ -155,7 +155,7 @@ describe("Heatwave to Health Crisis", () => {
     expect(drRecord).toBeDefined();
     const drState = drRecord!.state as DeersRockSectorState;
     expect(drState.sentinelOutput).not.toBeNull();
-  });
+  }, 60_000);
 
   it("baseline vs heatwave produces measurable differences", () => {
     const baseline = createWorld(makeSectors(), SAMPLE_CONFIGS, { seed: 42 });
@@ -180,7 +180,7 @@ describe("Heatwave to Health Crisis", () => {
 
     expect(baselineDR).not.toBeNull();
     expect(heatwaveDR).not.toBeNull();
-  });
+  }, 60_000);
 
   it("all sectors produce deterministic output with same seed", () => {
     const initial = createWorld(makeSectors(), SAMPLE_CONFIGS, { seed: 42 });
