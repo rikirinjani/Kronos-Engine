@@ -1,0 +1,27 @@
+{
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "<Kronos Engine contributors — pending human approval>",
+      "affiliation": "<affiliation — pending human approval>",
+      "orcid": "<ORCID iD — pending human approval>"
+    }
+  ],
+  "title": "Kronos Engine",
+  "version": "1.0.0",
+  "access_right": "open",
+  "license": "mit",
+  "keywords": [
+    "counterfactual simulation",
+    "multi-scale simulation",
+    "healthcare informatics",
+    "typeScript"
+  ],
+  "language": "eng",
+  "related_identifiers": [
+    {
+      "relation": "isSupplementTo",
+      "identifier": "<JAMIA DOI — pending>"
+    }
+  ]
+}

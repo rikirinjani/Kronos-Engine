@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software in your research, please cite it as described in the preferred-citation block."
+title: "Kronos Engine"
+version: "1.0.0"
+date-released: "2026-08-31"
+authors:
+  - family-names: "<author family name — pending human approval>"
+    given-names: "<author given name — pending human approval>"
+    orcid: "<ORCID iD — pending human approval>"
+    affiliation: "<affiliation — pending human approval>"
+license: MIT
+type: software
+keywords:
+  - counterfactual simulation
+  - multi-scale simulation
+  - healthcare informatics
+  - typeScript
+abstract: >-
+  Kronos Engine is a deterministic, multi-scale counterfactual simulation
+  engine for modeling healthcare scenarios across multiple scales of
+  resolution. It includes a sentinel adapter for integration with healthcare
+  data systems. The engine provides reproducible, traceable simulation
+  results to support research and analysis.
+preferred-citation:
+  type: article
+  title: "<JAMIA manuscript title — pending>"
+  authors:
+    - family-names: "<author family name — pending human approval>"
+      given-names: "<author given name — pending human approval>"
+      orcid: "<ORCID iD — pending human approval>"
+  journal: "Journal of the American Medical Informatics Association"
+  year: "<year of publication — pending>"
+  doi: "<JAMIA DOI — pending>"

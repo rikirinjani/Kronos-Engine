@@ -1,7 +1,21 @@
 {
   "name": "kronos-engine",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "private": false,
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "files": [
+    "dist",
+    "src",
+    "docs",
+    "scripts",
+    "experiment-results",
+    "README.md",
+    "LICENSE",
+    "CITATION.cff"
+  ],
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
@@ -12,6 +26,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
+    "reproduce": "tsx scripts/reproduce.ts",
     "api": "npx tsx src/api/server.ts"
   },
   "devDependencies": {
