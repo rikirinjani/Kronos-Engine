@@ -8,48 +8,59 @@
   "signal": [
     {
       "n": 3,
-      "totalMetrics": 322,
-      "significantCount": 8,
-      "significantRatio": 2.48,
-      "avgCiWidth": 1411911240.67,
-      "avgCohensD": 1.31,
-      "noiseFloorRatio": 8
+      "totalMetrics": 367,
+      "significantCount": 10,
+      "significantRatio": 2.72,
+      "avgCiWidth": 51528085.68,
+      "avgCohensD": 0.52,
+      "noiseFloorRatio": null
     },
     {
       "n": 5,
-      "totalMetrics": 440,
-      "significantCount": 28,
-      "significantRatio": 6.36,
-      "avgCiWidth": 831249746.55,
-      "avgCohensD": 0.39,
-      "noiseFloorRatio": 28
+      "totalMetrics": 437,
+      "significantCount": 8,
+      "significantRatio": 1.83,
+      "avgCiWidth": 28967840.07,
+      "avgCohensD": 0.29,
+      "noiseFloorRatio": null
     },
     {
       "n": 10,
-      "totalMetrics": 620,
-      "significantCount": 29,
-      "significantRatio": 4.68,
-      "avgCiWidth": 464161139.47,
-      "avgCohensD": 0.2,
-      "noiseFloorRatio": 29
+      "totalMetrics": 576,
+      "significantCount": 13,
+      "significantRatio": 2.26,
+      "avgCiWidth": 19724337.68,
+      "avgCohensD": 0.14,
+      "noiseFloorRatio": null
     },
     {
       "n": 20,
-      "totalMetrics": 1014,
-      "significantCount": 28,
-      "significantRatio": 2.76,
-      "avgCiWidth": 297175182.59,
-      "avgCohensD": 0.09,
-      "noiseFloorRatio": 28
+      "totalMetrics": 870,
+      "significantCount": 10,
+      "significantRatio": 1.15,
+      "avgCiWidth": 13624814.46,
+      "avgCohensD": 0.07,
+      "noiseFloorRatio": null
     }
   ],
   "noise": {
     "n": 20,
-    "totalMetrics": 737,
-    "falsePositiveCount": 1,
-    "falsePositiveRatio": 0.14,
-    "avgCiWidth": 2440712329.57,
-    "avgCohensD": 0.03
+    "totalMetrics": 0,
+    "falsePositiveCount": 0,
+    "falsePositiveRatio": 0,
+    "avgCiWidth": 0,
+    "avgCohensD": 0,
+    "noiseFloor": {
+      "significanceLevel": 0.05,
+      "totalMetrics": 0,
+      "testedMetrics": 0,
+      "degenerateMetrics": 0,
+      "expectedFalsePositivesAtAlpha05": 0,
+      "expectedFalsePositivesAtAlpha05Tested": 0,
+      "observedSignificant": 0,
+      "observedSignificantFDR": 0,
+      "observedSignificantBonferroni": 0
+    }
   },
   "perSector": [
     {
@@ -57,65 +68,65 @@
       "metricsByN": {
         "3": {
           "count": 48,
-          "significant": 1,
-          "avgCiWidth": 6033702895.97,
-          "avgCohensD": 1.17
+          "significant": 3,
+          "avgCiWidth": 256444552.44,
+          "avgCohensD": 0.82
         },
         "5": {
           "count": 48,
-          "significant": 9,
-          "avgCiWidth": 3832075302.61,
-          "avgCohensD": 0.69
+          "significant": 2,
+          "avgCiWidth": 154766646.42,
+          "avgCohensD": 0.49
         },
         "10": {
           "count": 48,
-          "significant": 11,
-          "avgCiWidth": 2129845132.34,
-          "avgCohensD": 0.51
+          "significant": 3,
+          "avgCiWidth": 107630531.4,
+          "avgCohensD": 0.28
         },
         "20": {
           "count": 48,
-          "significant": 12,
-          "avgCiWidth": 1369631895.45,
-          "avgCohensD": 0.42
+          "significant": 3,
+          "avgCiWidth": 74895185.6,
+          "avgCohensD": 0.19
         }
       },
       "noiseFloor": {
-        "falsePositives": 1,
-        "avgCiWidth": 2440712329.57
+        "falsePositives": 0,
+        "avgCiWidth": 0
       }
     },
     {
       "sector": "geopolitics",
       "metricsByN": {
         "3": {
-          "count": 94,
-          "significant": 3,
-          "avgCiWidth": 0.95,
-          "avgCohensD": 0.11
+          "count": 144,
+          "significant": 1,
+          "avgCiWidth": 865397.55,
+          "avgCohensD": 0.22
         },
         "5": {
           "count": 212,
-          "significant": 1,
-          "avgCiWidth": 0.39,
-          "avgCohensD": 0.03
+          "significant": 0,
+          "avgCiWidth": 266476.12,
+          "avgCohensD": 0.11
         },
         "10": {
-          "count": 392,
-          "significant": 1,
-          "avgCiWidth": 0.08,
-          "avgCohensD": 0.02
+          "count": 350,
+          "significant": 4,
+          "avgCiWidth": 89543.09,
+          "avgCohensD": 0.05
         },
         "20": {
-          "count": 786,
-          "significant": 1,
-          "avgCiWidth": 0.03,
-          "avgCohensD": 0
+          "count": 642,
+          "significant": 4,
+          "avgCiWidth": 28304.09,
+          "avgCohensD": 0.03
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 2440712329.57
+        "avgCiWidth": 0
       }
     },
     {
@@ -123,32 +134,32 @@
       "metricsByN": {
         "3": {
           "count": 5,
-          "significant": 1,
-          "avgCiWidth": 9836901.23,
-          "avgCohensD": 2.78
+          "significant": 0,
+          "avgCiWidth": 582268.36,
+          "avgCohensD": 0.62
         },
         "5": {
           "count": 5,
-          "significant": 3,
-          "avgCiWidth": 4271901.78,
-          "avgCohensD": 2.94
+          "significant": 0,
+          "avgCiWidth": 210259.21,
+          "avgCohensD": 0.71
         },
         "10": {
           "count": 5,
-          "significant": 3,
-          "avgCiWidth": 2444804.08,
-          "avgCohensD": 2.3
+          "significant": 1,
+          "avgCiWidth": 121823.97,
+          "avgCohensD": 0.35
         },
         "20": {
           "count": 5,
-          "significant": 3,
-          "avgCiWidth": 1884684.22,
-          "avgCohensD": 1.63
+          "significant": 1,
+          "avgCiWidth": 87525.55,
+          "avgCohensD": 0.19
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 2440712329.57
+        "avgCiWidth": 0
       }
     },
     {
@@ -156,65 +167,65 @@
       "metricsByN": {
         "3": {
           "count": 36,
-          "significant": 0,
-          "avgCiWidth": 22779373.33,
-          "avgCohensD": 1.01
+          "significant": 1,
+          "avgCiWidth": 8544066.63,
+          "avgCohensD": 0.86
         },
         "5": {
           "count": 36,
-          "significant": 10,
-          "avgCiWidth": 9578044.29,
-          "avgCohensD": 1.05
+          "significant": 1,
+          "avgCiWidth": 3066541.64,
+          "avgCohensD": 0.53
         },
         "10": {
           "count": 36,
-          "significant": 7,
-          "avgCiWidth": 5097924.44,
-          "avgCohensD": 0.56
+          "significant": 1,
+          "avgCiWidth": 1984794.13,
+          "avgCohensD": 0.26
         },
         "20": {
           "count": 36,
-          "significant": 8,
-          "avgCiWidth": 3484647.82,
-          "avgCohensD": 0.42
+          "significant": 0,
+          "avgCiWidth": 1519869.53,
+          "avgCohensD": 0.19
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 2440712329.57
+        "avgCiWidth": 0
       }
     },
     {
       "sector": "energy",
       "metricsByN": {
         "3": {
-          "count": 65,
-          "significant": 3,
-          "avgCiWidth": 1921.75,
-          "avgCohensD": 3.7
-        },
-        "5": {
-          "count": 65,
-          "significant": 3,
-          "avgCiWidth": 2190.03,
+          "count": 60,
+          "significant": 1,
+          "avgCiWidth": 2356.34,
           "avgCohensD": 0.63
         },
-        "10": {
-          "count": 65,
+        "5": {
+          "count": 62,
           "significant": 3,
-          "avgCiWidth": 967.35,
-          "avgCohensD": 0.51
+          "avgCiWidth": 1089.73,
+          "avgCohensD": 0.45
+        },
+        "10": {
+          "count": 63,
+          "significant": 2,
+          "avgCiWidth": 627.68,
+          "avgCohensD": 0.27
         },
         "20": {
           "count": 65,
-          "significant": 2,
-          "avgCiWidth": 730.4,
-          "avgCohensD": 0.29
+          "significant": 1,
+          "avgCiWidth": 449.1,
+          "avgCohensD": 0.18
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 2440712329.57
+        "avgCiWidth": 0
       }
     },
     {
@@ -222,37 +233,35 @@
       "metricsByN": {
         "3": {
           "count": 74,
-          "significant": 0,
-          "avgCiWidth": 4954184.1,
-          "avgCohensD": 0.87
+          "significant": 4,
+          "avgCiWidth": 464464.37,
+          "avgCohensD": 0.67
         },
         "5": {
           "count": 74,
           "significant": 2,
-          "avgCiWidth": 3128617.15,
-          "avgCohensD": 0.52
+          "avgCiWidth": 293724.51,
+          "avgCohensD": 0.39
         },
         "10": {
           "count": 74,
-          "significant": 4,
-          "avgCiWidth": 2043692.72,
-          "avgCohensD": 0.43
+          "significant": 2,
+          "avgCiWidth": 221833.23,
+          "avgCohensD": 0.32
         },
         "20": {
           "count": 74,
-          "significant": 2,
-          "avgCiWidth": 1292450.21,
-          "avgCohensD": 0.28
+          "significant": 1,
+          "avgCiWidth": 140238.48,
+          "avgCohensD": 0.17
         }
       },
       "noiseFloor": {
         "falsePositives": 0,
-        "avgCiWidth": 2440712329.57
+        "avgCiWidth": 0
       }
     }
   ],
-  "topMetrics": [
-    "nations.ITA.gdpGrowthRate"
-  ],
-  "generatedAt": "2026-06-30T03:43:12.147Z"
+  "topMetrics": [],
+  "generatedAt": "2026-08-31T11:53:07.389Z"
 }

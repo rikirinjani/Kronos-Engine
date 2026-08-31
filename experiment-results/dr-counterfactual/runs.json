@@ -21,102 +21,13 @@
       "rewindTick": 0,
       "currentTick": 20,
       "totalTicksElapsed": 20,
-      "capturedAt": "2026-06-30T02:39:04.752Z",
+      "capturedAt": "2026-08-31T11:54:47.140Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
-          "metrics": [
-            {
-              "name": "gdp",
-              "path": "nations.USA.gdp",
-              "parentValue": 26410905745312.727,
-              "branchValue": 26380218772436.266,
-              "absoluteDelta": -30686972876.460938,
-              "relativeDelta": -0.12
-            },
-            {
-              "name": "gdp",
-              "path": "nations.CHN.gdp",
-              "parentValue": 17746533283906.4,
-              "branchValue": 17737316591432.902,
-              "absoluteDelta": -9216692473.496094,
-              "relativeDelta": -0.05
-            },
-            {
-              "name": "gdp",
-              "path": "nations.RUS.gdp",
-              "parentValue": 1831261530925.0015,
-              "branchValue": 1832098597933.627,
-              "absoluteDelta": 837067008.6254883,
-              "relativeDelta": 0.05
-            },
-            {
-              "name": "gdp",
-              "path": "nations.IND.gdp",
-              "parentValue": 3314491955534.0454,
-              "branchValue": 3312510148896.5063,
-              "absoluteDelta": -1981806637.5390625,
-              "relativeDelta": -0.06
-            },
-            {
-              "name": "gdp",
-              "path": "nations.IDN.gdp",
-              "parentValue": 1286758515686.1519,
-              "branchValue": 1285609493311.5957,
-              "absoluteDelta": -1149022374.5561523,
-              "relativeDelta": -0.09
-            },
-            {
-              "name": "gdp",
-              "path": "nations.JPN.gdp",
-              "parentValue": 5988090263346.673,
-              "branchValue": 5988464273258.106,
-              "absoluteDelta": 374009911.43359375,
-              "relativeDelta": 0.01
-            },
-            {
-              "name": "gdp",
-              "path": "nations.DEU.gdp",
-              "parentValue": 4767203762335.76,
-              "branchValue": 4765309616603.087,
-              "absoluteDelta": -1894145732.6728516,
-              "relativeDelta": -0.04
-            },
-            {
-              "name": "gdp",
-              "path": "nations.GBR.gdp",
-              "parentValue": 3355342511875.2017,
-              "branchValue": 3354788530051.859,
-              "absoluteDelta": -553981823.3427734,
-              "relativeDelta": -0.02
-            },
-            {
-              "name": "gdp",
-              "path": "nations.FRA.gdp",
-              "parentValue": 3242260434473.9995,
-              "branchValue": 3243436580772.0938,
-              "absoluteDelta": 1176146298.0942383,
-              "relativeDelta": 0.04
-            },
-            {
-              "name": "gdp",
-              "path": "nations.KOR.gdp",
-              "parentValue": 2001407063532.9602,
-              "branchValue": 2002433636623.6282,
-              "absoluteDelta": 1026573090.6679688,
-              "relativeDelta": 0.05
-            },
-            {
-              "name": "gdp",
-              "path": "nations.BRA.gdp",
-              "parentValue": 1767748305036.3105,
-              "branchValue": 1766696155374.091,
-              "absoluteDelta": -1052149662.2194824,
-              "relativeDelta": -0.06
-            }
-          ],
+          "metrics": [],
           "eventCounts": [],
-          "summary": "Top metric changes: nations.USA.gdp: 26410905745312.73 → 26380218772436.27 (-0.1%); nations.CHN.gdp: 17746533283906.40 → 17737316591432.90 (-0.1%); nations.IND.gdp: 3314491955534.05 → 3312510148896.51 (-0.1%); nations.DEU.gdp: 4767203762335.76 → 4765309616603.09 (-0.0%); nations.FRA.gdp: 3242260434474.00 → 3243436580772.09 (+0.0%)"
+          "summary": ""
         },
         "climate": {
           "sectorId": "climate",
@@ -132,828 +43,42 @@
             {
               "name": "co2Concentration",
               "path": "co2Concentration",
-              "parentValue": 579255981.2317806,
-              "branchValue": 578887184.1838964,
-              "absoluteDelta": -368797.04788422585,
-              "relativeDelta": -0.06
+              "parentValue": 136469401.4426253,
+              "branchValue": 136469381.4490273,
+              "absoluteDelta": -19.993598014116287,
+              "relativeDelta": 0
             },
             {
               "name": "annualEmissions",
               "path": "annualEmissions",
-              "parentValue": 670100205.549932,
-              "branchValue": 667944156.8438946,
-              "absoluteDelta": -2156048.706037402,
-              "relativeDelta": -0.32
+              "parentValue": 160857536.09964707,
+              "branchValue": 160857536.05460194,
+              "absoluteDelta": -0.04504513740539551,
+              "relativeDelta": 0
             },
             {
               "name": "temperatureAnomaly",
               "path": "temperatureAnomaly",
-              "parentValue": 62.94102833453336,
-              "branchValue": 62.93827187899685,
-              "absoluteDelta": -0.002756455536506053,
+              "parentValue": 56.68415776483034,
+              "branchValue": 56.68415713073948,
+              "absoluteDelta": -6.340908598190254e-7,
               "relativeDelta": 0
-            },
-            {
-              "name": "length",
-              "path": "extremeEvents.length",
-              "parentValue": 6,
-              "branchValue": 7,
-              "absoluteDelta": 1,
-              "relativeDelta": 16.67
-            },
-            {
-              "name": "seaLevelRise",
-              "path": "seaLevelRise",
-              "parentValue": 44.75861413218081,
-              "branchValue": 48.221957935835235,
-              "absoluteDelta": 3.463343803654425,
-              "relativeDelta": 7.74
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: annualEmissions: 670100205.55 → 667944156.84 (-0.3%); co2Concentration: 579255981.23 → 578887184.18 (-0.1%); seaLevelRise: 44.76 → 48.22 (+7.7%); extremeEvents.length: 6.00 → 7.00 (+16.7%); annualEmissionsNoise: 0.20 → 0.02 (-90.0%)"
+          "summary": "Top metric changes: co2Concentration: 136469401.44 → 136469381.45 (0.0%); annualEmissionsNoise: 0.20 → 0.02 (-90.0%); annualEmissions: 160857536.10 → 160857536.05 (0.0%); temperatureAnomaly: 56.68 → 56.68 (0.0%)"
         },
         "economy": {
           "sectorId": "economy",
-          "metrics": [
-            {
-              "name": "gdp",
-              "path": "nations.USA.gdp",
-              "parentValue": 66128279891.13096,
-              "branchValue": 20952459670.452297,
-              "absoluteDelta": -45175820220.678665,
-              "relativeDelta": -68.32
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.USA.gdpGrowthRate",
-              "parentValue": 2.978109831968323,
-              "branchValue": 2.3849759084638213,
-              "absoluteDelta": -0.5931339235045017,
-              "relativeDelta": -19.92
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.USA.inflationRate",
-              "parentValue": 3.015320384229049,
-              "branchValue": 2.392659557017478,
-              "absoluteDelta": -0.622660827211571,
-              "relativeDelta": -20.65
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.USA.tradeVolume",
-              "parentValue": 49.478369950316846,
-              "branchValue": 59.30160806700587,
-              "absoluteDelta": 9.823238116689026,
-              "relativeDelta": 19.85
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.USA.unemploymentRate",
-              "parentValue": 4.9880984764313325,
-              "branchValue": 5.12381598027423,
-              "absoluteDelta": 0.1357175038428977,
-              "relativeDelta": 2.72
-            },
-            {
-              "name": "gdp",
-              "path": "nations.CHN.gdp",
-              "parentValue": 43950394908.13731,
-              "branchValue": 14616311218.148129,
-              "absoluteDelta": -29334083689.989178,
-              "relativeDelta": -66.74
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.CHN.gdpGrowthRate",
-              "parentValue": 3.296413960889912,
-              "branchValue": 2.850175699940883,
-              "absoluteDelta": -0.44623826094902874,
-              "relativeDelta": -13.54
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.CHN.inflationRate",
-              "parentValue": 2.528633668047745,
-              "branchValue": 2.0391072660160154,
-              "absoluteDelta": -0.48952640203172937,
-              "relativeDelta": -19.36
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.CHN.tradeVolume",
-              "parentValue": 51.722394841723144,
-              "branchValue": 54.81460516434163,
-              "absoluteDelta": 3.0922103226184845,
-              "relativeDelta": 5.98
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.CHN.unemploymentRate",
-              "parentValue": 4.8447082353523,
-              "branchValue": 4.6707849480444565,
-              "absoluteDelta": -0.17392328730784357,
-              "relativeDelta": -3.59
-            },
-            {
-              "name": "gdp",
-              "path": "nations.RUS.gdp",
-              "parentValue": 3979911758.3832817,
-              "branchValue": 1407520636.0821157,
-              "absoluteDelta": -2572391122.301166,
-              "relativeDelta": -64.63
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.RUS.gdpGrowthRate",
-              "parentValue": 2.0113748592091727,
-              "branchValue": 2.1788407615618772,
-              "absoluteDelta": 0.16746590235270453,
-              "relativeDelta": 8.33
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.RUS.inflationRate",
-              "parentValue": 3.031353531841515,
-              "branchValue": 2.551602564822452,
-              "absoluteDelta": -0.47975096701906317,
-              "relativeDelta": -15.83
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.RUS.tradeVolume",
-              "parentValue": 58.15663142967969,
-              "branchValue": 62.648061990737915,
-              "absoluteDelta": 4.491430561058223,
-              "relativeDelta": 7.72
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.RUS.unemploymentRate",
-              "parentValue": 5.260156691772863,
-              "branchValue": 4.887681187246926,
-              "absoluteDelta": -0.37247550452593714,
-              "relativeDelta": -7.08
-            },
-            {
-              "name": "gdp",
-              "path": "nations.IND.gdp",
-              "parentValue": 7718955714.287495,
-              "branchValue": 2656680316.2544394,
-              "absoluteDelta": -5062275398.033055,
-              "relativeDelta": -65.58
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.IND.gdpGrowthRate",
-              "parentValue": 2.654658707953059,
-              "branchValue": 2.7186906061368075,
-              "absoluteDelta": 0.06403189818374866,
-              "relativeDelta": 2.41
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.IND.inflationRate",
-              "parentValue": 2.5462656241069315,
-              "branchValue": 1.7609195822888246,
-              "absoluteDelta": -0.7853460418181069,
-              "relativeDelta": -30.84
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.IND.tradeVolume",
-              "parentValue": 60.30340855848044,
-              "branchValue": 58.491692199371755,
-              "absoluteDelta": -1.8117163591086864,
-              "relativeDelta": -3
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.IND.unemploymentRate",
-              "parentValue": 5.608466387842782,
-              "branchValue": 5.003941020113416,
-              "absoluteDelta": -0.6045253677293658,
-              "relativeDelta": -10.78
-            },
-            {
-              "name": "gdp",
-              "path": "nations.IDN.gdp",
-              "parentValue": 3112855399.245127,
-              "branchValue": 1033276007.1941091,
-              "absoluteDelta": -2079579392.0510182,
-              "relativeDelta": -66.81
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.IDN.gdpGrowthRate",
-              "parentValue": 2.6215077718487003,
-              "branchValue": 2.8447774450760335,
-              "absoluteDelta": 0.22326967322733315,
-              "relativeDelta": 8.52
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.IDN.inflationRate",
-              "parentValue": 1.8254583603739343,
-              "branchValue": 2.0147151394063356,
-              "absoluteDelta": 0.18925677903240135,
-              "relativeDelta": 10.37
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.IDN.tradeVolume",
-              "parentValue": 44.39798647258431,
-              "branchValue": 51.2235906496644,
-              "absoluteDelta": 6.825604177080095,
-              "relativeDelta": 15.37
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.IDN.unemploymentRate",
-              "parentValue": 5.419528946629725,
-              "branchValue": 4.80008835089393,
-              "absoluteDelta": -0.6194405957357958,
-              "relativeDelta": -11.43
-            },
-            {
-              "name": "gdp",
-              "path": "nations.JPN.gdp",
-              "parentValue": 13056239841.235968,
-              "branchValue": 4351728668.8259945,
-              "absoluteDelta": -8704511172.409973,
-              "relativeDelta": -66.67
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.JPN.gdpGrowthRate",
-              "parentValue": 1.9700354343745852,
-              "branchValue": 1.7297242032596833,
-              "absoluteDelta": -0.24031123111490182,
-              "relativeDelta": -12.2
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.JPN.inflationRate",
-              "parentValue": 1.1623324996952662,
-              "branchValue": 1.9333834308314193,
-              "absoluteDelta": 0.7710509311361531,
-              "relativeDelta": 66.34
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.JPN.tradeVolume",
-              "parentValue": 51.5585760185495,
-              "branchValue": 50.0078729595989,
-              "absoluteDelta": -1.550703058950603,
-              "relativeDelta": -3.01
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.JPN.unemploymentRate",
-              "parentValue": 4.323168768081814,
-              "branchValue": 3.892497713677585,
-              "absoluteDelta": -0.4306710544042289,
-              "relativeDelta": -9.96
-            },
-            {
-              "name": "gdp",
-              "path": "nations.DEU.gdp",
-              "parentValue": 11279500845.253885,
-              "branchValue": 3796266390.333079,
-              "absoluteDelta": -7483234454.920807,
-              "relativeDelta": -66.34
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.DEU.gdpGrowthRate",
-              "parentValue": 2.8967119820648803,
-              "branchValue": 2.5437674193875868,
-              "absoluteDelta": -0.35294456267729357,
-              "relativeDelta": -12.18
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.DEU.inflationRate",
-              "parentValue": 1.9131376792015444,
-              "branchValue": 1.9332773351358932,
-              "absoluteDelta": 0.020139655934348744,
-              "relativeDelta": 1.05
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.DEU.tradeVolume",
-              "parentValue": 43.4963802555576,
-              "branchValue": 43.57840558607131,
-              "absoluteDelta": 0.08202533051371574,
-              "relativeDelta": 0.19
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.DEU.unemploymentRate",
-              "parentValue": 4.860630564508028,
-              "branchValue": 5.848264302127063,
-              "absoluteDelta": 0.987633737619035,
-              "relativeDelta": 20.32
-            },
-            {
-              "name": "gdp",
-              "path": "nations.GBR.gdp",
-              "parentValue": 7353560237.124844,
-              "branchValue": 2509452592.0642424,
-              "absoluteDelta": -4844107645.060601,
-              "relativeDelta": -65.87
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.GBR.gdpGrowthRate",
-              "parentValue": 2.2558862994425004,
-              "branchValue": 2.4111009055515757,
-              "absoluteDelta": 0.15521460610907534,
-              "relativeDelta": 6.88
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.GBR.inflationRate",
-              "parentValue": 2.3491038158854494,
-              "branchValue": 1.7888263280625423,
-              "absoluteDelta": -0.5602774878229071,
-              "relativeDelta": -23.85
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.GBR.tradeVolume",
-              "parentValue": 48.08085281122476,
-              "branchValue": 49.59739815350622,
-              "absoluteDelta": 1.5165453422814608,
-              "relativeDelta": 3.15
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.GBR.unemploymentRate",
-              "parentValue": 4.655203334288672,
-              "branchValue": 4.587520611239597,
-              "absoluteDelta": -0.06768272304907441,
-              "relativeDelta": -1.45
-            },
-            {
-              "name": "gdp",
-              "path": "nations.FRA.gdp",
-              "parentValue": 7543377545.910457,
-              "branchValue": 2677791052.467667,
-              "absoluteDelta": -4865586493.442789,
-              "relativeDelta": -64.5
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.FRA.gdpGrowthRate",
-              "parentValue": 2.6932873856974755,
-              "branchValue": 2.931206808402202,
-              "absoluteDelta": 0.23791942270472655,
-              "relativeDelta": 8.83
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.FRA.inflationRate",
-              "parentValue": 2.1773267531452065,
-              "branchValue": 1.499914300112844,
-              "absoluteDelta": -0.6774124530323624,
-              "relativeDelta": -31.11
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.FRA.tradeVolume",
-              "parentValue": 47.80109033267945,
-              "branchValue": 44.85317226219922,
-              "absoluteDelta": -2.9479180704802275,
-              "relativeDelta": -6.17
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.FRA.unemploymentRate",
-              "parentValue": 3.355845734011382,
-              "branchValue": 3.7350476244464517,
-              "absoluteDelta": 0.3792018904350698,
-              "relativeDelta": 11.3
-            },
-            {
-              "name": "gdp",
-              "path": "nations.KOR.gdp",
-              "parentValue": 4534509821.614249,
-              "branchValue": 1601259882.9540527,
-              "absoluteDelta": -2933249938.6601963,
-              "relativeDelta": -64.69
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.KOR.gdpGrowthRate",
-              "parentValue": 2.335686974832789,
-              "branchValue": 2.8339379595825456,
-              "absoluteDelta": 0.4982509847497565,
-              "relativeDelta": 21.33
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.KOR.inflationRate",
-              "parentValue": 2.178422233378967,
-              "branchValue": 1.8882541537915742,
-              "absoluteDelta": -0.2901680795873929,
-              "relativeDelta": -13.32
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.KOR.tradeVolume",
-              "parentValue": 49.18051903415471,
-              "branchValue": 44.01945928297937,
-              "absoluteDelta": -5.161059751175344,
-              "relativeDelta": -10.49
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.KOR.unemploymentRate",
-              "parentValue": 4.120270188082941,
-              "branchValue": 5.508926342125051,
-              "absoluteDelta": 1.3886561540421098,
-              "relativeDelta": 33.7
-            },
-            {
-              "name": "gdp",
-              "path": "nations.BRA.gdp",
-              "parentValue": 4220669268.923775,
-              "branchValue": 1402486302.9432611,
-              "absoluteDelta": -2818182965.980514,
-              "relativeDelta": -66.77
-            },
-            {
-              "name": "gdpGrowthRate",
-              "path": "nations.BRA.gdpGrowthRate",
-              "parentValue": 2.549452240904793,
-              "branchValue": 2.4495130968280128,
-              "absoluteDelta": -0.09993914407678028,
-              "relativeDelta": -3.92
-            },
-            {
-              "name": "inflationRate",
-              "path": "nations.BRA.inflationRate",
-              "parentValue": 2.7847655062982093,
-              "branchValue": 1.9323129436839266,
-              "absoluteDelta": -0.8524525626142827,
-              "relativeDelta": -30.61
-            },
-            {
-              "name": "tradeVolume",
-              "path": "nations.BRA.tradeVolume",
-              "parentValue": 50.3087395504117,
-              "branchValue": 51.7327142553404,
-              "absoluteDelta": 1.4239747049286962,
-              "relativeDelta": 2.83
-            },
-            {
-              "name": "unemploymentRate",
-              "path": "nations.BRA.unemploymentRate",
-              "parentValue": 6.730566751211882,
-              "branchValue": 6.75759663048666,
-              "absoluteDelta": 0.027029879274778068,
-              "relativeDelta": 0.4
-            },
-            {
-              "name": "globalTradeVolume",
-              "path": "globalTradeVolume",
-              "parentValue": 111.41145511996001,
-              "branchValue": 107.90066319401376,
-              "absoluteDelta": -3.5107919259462506,
-              "relativeDelta": -3.15
-            },
-            {
-              "name": "globalInflation",
-              "path": "globalInflation",
-              "parentValue": 3.231837769271806,
-              "branchValue": 2.8179748848779127,
-              "absoluteDelta": -0.4138628843938932,
-              "relativeDelta": -12.81
-            },
-            {
-              "name": "marketIndex",
-              "path": "marketIndex",
-              "parentValue": 98.62204146757722,
-              "branchValue": 91.94026782177389,
-              "absoluteDelta": -6.681773645803332,
-              "relativeDelta": -6.78
-            }
-          ],
+          "metrics": [],
           "eventCounts": [],
-          "summary": "Top metric changes: nations.USA.gdp: 66128279891.13 → 20952459670.45 (-68.3%); nations.CHN.gdp: 43950394908.14 → 14616311218.15 (-66.7%); nations.JPN.gdp: 13056239841.24 → 4351728668.83 (-66.7%); nations.DEU.gdp: 11279500845.25 → 3796266390.33 (-66.3%); nations.IND.gdp: 7718955714.29 → 2656680316.25 (-65.6%)"
+          "summary": ""
         },
         "technology": {
           "sectorId": "technology",
-          "metrics": [
-            {
-              "name": "rdSpending",
-              "path": "nations.USA.rdSpending",
-              "parentValue": 0.03175000810297208,
-              "branchValue": 0.031224191430024816,
-              "absoluteDelta": -0.0005258166729472623,
-              "relativeDelta": -1.66
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.USA.researchOutput",
-              "parentValue": 19409440050.659748,
-              "branchValue": 19075194788.734303,
-              "absoluteDelta": -334245261.92544556,
-              "relativeDelta": -1.72
-            },
-            {
-              "name": "innovationCount",
-              "path": "nations.USA.innovationCount",
-              "parentValue": 7,
-              "branchValue": 6,
-              "absoluteDelta": -1,
-              "relativeDelta": -14.29
-            },
-            {
-              "name": "patents",
-              "path": "nations.USA.patents",
-              "parentValue": 7932,
-              "branchValue": 7895,
-              "absoluteDelta": -37,
-              "relativeDelta": -0.47
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.CHN.rdSpending",
-              "parentValue": 0.026267609679605817,
-              "branchValue": 0.02643230715906248,
-              "absoluteDelta": 0.00016469747945666371,
-              "relativeDelta": 0.63
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.CHN.researchOutput",
-              "parentValue": 8732637587.603594,
-              "branchValue": 8648826922.185734,
-              "absoluteDelta": -83810665.41786003,
-              "relativeDelta": -0.96
-            },
-            {
-              "name": "patents",
-              "path": "nations.CHN.patents",
-              "parentValue": 6270,
-              "branchValue": 6339,
-              "absoluteDelta": 69,
-              "relativeDelta": 1.1
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.RUS.rdSpending",
-              "parentValue": 0.02513452123710886,
-              "branchValue": 0.025380693727638574,
-              "absoluteDelta": 0.00024617249052971343,
-              "relativeDelta": 0.98
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.RUS.researchOutput",
-              "parentValue": 841893518.5525768,
-              "branchValue": 844568850.654259,
-              "absoluteDelta": 2675332.101682186,
-              "relativeDelta": 0.32
-            },
-            {
-              "name": "patents",
-              "path": "nations.RUS.patents",
-              "parentValue": 5706,
-              "branchValue": 5710,
-              "absoluteDelta": 4,
-              "relativeDelta": 0.07
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.IND.rdSpending",
-              "parentValue": 0.024057624338194725,
-              "branchValue": 0.0235084989471361,
-              "absoluteDelta": -0.000549125391058624,
-              "relativeDelta": -2.28
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.IND.researchOutput",
-              "parentValue": 1541808810.4975739,
-              "branchValue": 1529080535.4639778,
-              "absoluteDelta": -12728275.033596039,
-              "relativeDelta": -0.83
-            },
-            {
-              "name": "patents",
-              "path": "nations.IND.patents",
-              "parentValue": 5177,
-              "branchValue": 5350,
-              "absoluteDelta": 173,
-              "relativeDelta": 3.34
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.IDN.rdSpending",
-              "parentValue": 0.025073056660592553,
-              "branchValue": 0.024597698993980885,
-              "absoluteDelta": -0.0004753576666116678,
-              "relativeDelta": -1.9
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.IDN.researchOutput",
-              "parentValue": 560062356.9738693,
-              "branchValue": 550839655.2450664,
-              "absoluteDelta": -9222701.72880292,
-              "relativeDelta": -1.65
-            },
-            {
-              "name": "patents",
-              "path": "nations.IDN.patents",
-              "parentValue": 5420,
-              "branchValue": 5218,
-              "absoluteDelta": -202,
-              "relativeDelta": -3.73
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.JPN.rdSpending",
-              "parentValue": 0.031840259799733754,
-              "branchValue": 0.032179708667565136,
-              "absoluteDelta": 0.0003394488678313823,
-              "relativeDelta": 1.07
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.JPN.researchOutput",
-              "parentValue": 3310175830.6367555,
-              "branchValue": 3299029600.8158374,
-              "absoluteDelta": -11146229.820918083,
-              "relativeDelta": -0.34
-            },
-            {
-              "name": "innovationCount",
-              "path": "nations.JPN.innovationCount",
-              "parentValue": 5,
-              "branchValue": 3,
-              "absoluteDelta": -2,
-              "relativeDelta": -40
-            },
-            {
-              "name": "patents",
-              "path": "nations.JPN.patents",
-              "parentValue": 8095,
-              "branchValue": 8264,
-              "absoluteDelta": 169,
-              "relativeDelta": 2.09
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.DEU.rdSpending",
-              "parentValue": 0.02898277151910588,
-              "branchValue": 0.027999054545070973,
-              "absoluteDelta": -0.0009837169740349073,
-              "relativeDelta": -3.39
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.DEU.researchOutput",
-              "parentValue": 2871579550.97329,
-              "branchValue": 2852721112.3575835,
-              "absoluteDelta": -18858438.615706444,
-              "relativeDelta": -0.66
-            },
-            {
-              "name": "patents",
-              "path": "nations.DEU.patents",
-              "parentValue": 7787,
-              "branchValue": 7755,
-              "absoluteDelta": -32,
-              "relativeDelta": -0.41
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.GBR.rdSpending",
-              "parentValue": 0.02696860299026593,
-              "branchValue": 0.028082009223755446,
-              "absoluteDelta": 0.0011134062334895167,
-              "relativeDelta": 4.13
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.GBR.researchOutput",
-              "parentValue": 1743951523.3327274,
-              "branchValue": 1736006375.3039527,
-              "absoluteDelta": -7945148.028774738,
-              "relativeDelta": -0.46
-            },
-            {
-              "name": "innovationCount",
-              "path": "nations.GBR.innovationCount",
-              "parentValue": 3,
-              "branchValue": 5,
-              "absoluteDelta": 2,
-              "relativeDelta": 66.67
-            },
-            {
-              "name": "patents",
-              "path": "nations.GBR.patents",
-              "parentValue": 7327,
-              "branchValue": 7162,
-              "absoluteDelta": -165,
-              "relativeDelta": -2.25
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.FRA.rdSpending",
-              "parentValue": 0.02771025597443805,
-              "branchValue": 0.02834942534007133,
-              "absoluteDelta": 0.0006391693656332791,
-              "relativeDelta": 2.31
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.FRA.researchOutput",
-              "parentValue": 2103039390.3993888,
-              "branchValue": 2110539694.568837,
-              "absoluteDelta": 7500304.169448137,
-              "relativeDelta": 0.36
-            },
-            {
-              "name": "innovationCount",
-              "path": "nations.FRA.innovationCount",
-              "parentValue": 6,
-              "branchValue": 4,
-              "absoluteDelta": -2,
-              "relativeDelta": -33.33
-            },
-            {
-              "name": "patents",
-              "path": "nations.FRA.patents",
-              "parentValue": 7070,
-              "branchValue": 7316,
-              "absoluteDelta": 246,
-              "relativeDelta": 3.48
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.KOR.rdSpending",
-              "parentValue": 0.028806144735310235,
-              "branchValue": 0.029786785359494392,
-              "absoluteDelta": 0.0009806406241841571,
-              "relativeDelta": 3.4
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.KOR.researchOutput",
-              "parentValue": 1345369182.6052504,
-              "branchValue": 1351385349.1895366,
-              "absoluteDelta": 6016166.584286213,
-              "relativeDelta": 0.45
-            },
-            {
-              "name": "innovationCount",
-              "path": "nations.KOR.innovationCount",
-              "parentValue": 7,
-              "branchValue": 6,
-              "absoluteDelta": -1,
-              "relativeDelta": -14.29
-            },
-            {
-              "name": "patents",
-              "path": "nations.KOR.patents",
-              "parentValue": 7608,
-              "branchValue": 7498,
-              "absoluteDelta": -110,
-              "relativeDelta": -1.45
-            },
-            {
-              "name": "rdSpending",
-              "path": "nations.BRA.rdSpending",
-              "parentValue": 0.019629899417050182,
-              "branchValue": 0.017935453742276876,
-              "absoluteDelta": -0.001694445674773306,
-              "relativeDelta": -8.63
-            },
-            {
-              "name": "researchOutput",
-              "path": "nations.BRA.researchOutput",
-              "parentValue": 731357803.78323,
-              "branchValue": 723383764.7818104,
-              "absoluteDelta": -7974039.001419544,
-              "relativeDelta": -1.09
-            },
-            {
-              "name": "patents",
-              "path": "nations.BRA.patents",
-              "parentValue": 4918,
-              "branchValue": 4894,
-              "absoluteDelta": -24,
-              "relativeDelta": -0.49
-            }
-          ],
+          "metrics": [],
           "eventCounts": [],
-          "summary": "Top metric changes: nations.USA.researchOutput: 19409440050.66 → 19075194788.73 (-1.7%); nations.CHN.researchOutput: 8732637587.60 → 8648826922.19 (-1.0%); nations.DEU.researchOutput: 2871579550.97 → 2852721112.36 (-0.7%); nations.IND.researchOutput: 1541808810.50 → 1529080535.46 (-0.8%); nations.JPN.researchOutput: 3310175830.64 → 3299029600.82 (-0.3%)"
+          "summary": ""
         },
         "deers-rock-makassar-001": {
           "sectorId": "deers-rock",
@@ -961,154 +86,223 @@
             {
               "name": "length",
               "path": "world.state._outcomeRecords.length",
-              "parentValue": 67,
-              "branchValue": 62,
-              "absoluteDelta": -5,
-              "relativeDelta": -7.46
+              "parentValue": 339,
+              "branchValue": 351,
+              "absoluteDelta": 12,
+              "relativeDelta": 3.54
             },
             {
               "name": "length",
               "path": "world.state._cssd.cycles.length",
               "parentValue": 9,
-              "branchValue": 4,
-              "absoluteDelta": -5,
-              "relativeDelta": -55.56
-            },
-            {
-              "name": "length",
-              "path": "world.state._ipc.cases.length",
-              "parentValue": 126,
-              "branchValue": 129,
-              "absoluteDelta": 3,
-              "relativeDelta": 2.38
+              "branchValue": 10,
+              "absoluteDelta": 1,
+              "relativeDelta": 11.11
             },
             {
               "name": "handHygieneCompliance",
               "path": "world.state._ipc.handHygieneCompliance",
-              "parentValue": 86,
-              "branchValue": 92,
-              "absoluteDelta": 6,
-              "relativeDelta": 6.98
+              "parentValue": 77,
+              "branchValue": 87,
+              "absoluteDelta": 10,
+              "relativeDelta": 12.99
             },
             {
               "name": "length",
               "path": "world.state._clinicalNutrition.assessments.length",
-              "parentValue": 20,
-              "branchValue": 21,
-              "absoluteDelta": 1,
-              "relativeDelta": 5
+              "parentValue": 6,
+              "branchValue": 9,
+              "absoluteDelta": 3,
+              "relativeDelta": 50
+            },
+            {
+              "name": "length",
+              "path": "world.state._clinicalNutrition.tpnOrders.length",
+              "parentValue": 4,
+              "branchValue": 6,
+              "absoluteDelta": 2,
+              "relativeDelta": 50
             },
             {
               "name": "length",
               "path": "world.state._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "world.state._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 8,
-              "absoluteDelta": 8,
-              "relativeDelta": null
+              "parentValue": 6,
+              "branchValue": 0,
+              "absoluteDelta": -6,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "world.state._dialysis.sessions.length",
-              "parentValue": 226,
-              "branchValue": 227,
-              "absoluteDelta": 1,
-              "relativeDelta": 0.44
+              "parentValue": 6,
+              "branchValue": 12,
+              "absoluteDelta": 6,
+              "relativeDelta": 100
             },
             {
               "name": "length",
               "path": "lastTickState._outcomeRecords.length",
-              "parentValue": 67,
-              "branchValue": 62,
-              "absoluteDelta": -5,
-              "relativeDelta": -7.46
+              "parentValue": 339,
+              "branchValue": 351,
+              "absoluteDelta": 12,
+              "relativeDelta": 3.54
             },
             {
               "name": "length",
               "path": "lastTickState._cssd.cycles.length",
               "parentValue": 9,
-              "branchValue": 4,
-              "absoluteDelta": -5,
-              "relativeDelta": -55.56
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._ipc.cases.length",
-              "parentValue": 126,
-              "branchValue": 129,
-              "absoluteDelta": 3,
-              "relativeDelta": 2.38
+              "branchValue": 10,
+              "absoluteDelta": 1,
+              "relativeDelta": 11.11
             },
             {
               "name": "handHygieneCompliance",
               "path": "lastTickState._ipc.handHygieneCompliance",
-              "parentValue": 86,
-              "branchValue": 92,
-              "absoluteDelta": 6,
-              "relativeDelta": 6.98
+              "parentValue": 77,
+              "branchValue": 87,
+              "absoluteDelta": 10,
+              "relativeDelta": 12.99
             },
             {
               "name": "length",
               "path": "lastTickState._clinicalNutrition.assessments.length",
-              "parentValue": 20,
-              "branchValue": 21,
-              "absoluteDelta": 1,
-              "relativeDelta": 5
+              "parentValue": 6,
+              "branchValue": 9,
+              "absoluteDelta": 3,
+              "relativeDelta": 50
+            },
+            {
+              "name": "length",
+              "path": "lastTickState._clinicalNutrition.tpnOrders.length",
+              "parentValue": 4,
+              "branchValue": 6,
+              "absoluteDelta": 2,
+              "relativeDelta": 50
             },
             {
               "name": "length",
               "path": "lastTickState._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "lastTickState._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 8,
-              "absoluteDelta": 8,
-              "relativeDelta": null
+              "parentValue": 6,
+              "branchValue": 0,
+              "absoluteDelta": -6,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "lastTickState._dialysis.sessions.length",
-              "parentValue": 226,
-              "branchValue": 227,
-              "absoluteDelta": 1,
-              "relativeDelta": 0.44
+              "parentValue": 6,
+              "branchValue": 12,
+              "absoluteDelta": 6,
+              "relativeDelta": 100
             },
             {
               "name": "occupancyRate",
               "path": "sentinelOutput.occupancyRate",
-              "parentValue": 0.5413533834586466,
-              "branchValue": 0.5488721804511278,
-              "absoluteDelta": 0.007518796992481258,
-              "relativeDelta": 1.39
+              "parentValue": 0.007633587786259542,
+              "branchValue": 0,
+              "absoluteDelta": -0.007633587786259542,
+              "relativeDelta": -100
             },
             {
               "name": "UNKNOWN",
               "path": "sentinelOutput.diseasePrevalence.UNKNOWN",
-              "parentValue": 194,
-              "branchValue": 191,
-              "absoluteDelta": -3,
-              "relativeDelta": -1.55
+              "parentValue": 342,
+              "branchValue": 358,
+              "absoluteDelta": 16,
+              "relativeDelta": 4.68
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: world.state._radiotherapy.fractions.length: 0.00 → 8.00 (+Infinity%); lastTickState._radiotherapy.fractions.length: 0.00 → 8.00 (+Infinity%); world.state._ipc.handHygieneCompliance: 86.00 → 92.00 (+7.0%); lastTickState._ipc.handHygieneCompliance: 86.00 → 92.00 (+7.0%); world.state._outcomeRecords.length: 67.00 → 62.00 (-7.5%)"
+          "summary": "Top metric changes: sentinelOutput.diseasePrevalence.UNKNOWN: 342.00 → 358.00 (+4.7%); world.state._outcomeRecords.length: 339.00 → 351.00 (+3.5%); lastTickState._outcomeRecords.length: 339.00 → 351.00 (+3.5%); world.state._ipc.handHygieneCompliance: 77.00 → 87.00 (+13.0%); lastTickState._ipc.handHygieneCompliance: 77.00 → 87.00 (+13.0%)"
         }
       }
     },
-    "createdAt": "2026-06-30T02:39:04.752Z"
+    "guards": {
+      "matchedHorizon": true,
+      "parentTick": 20,
+      "childTick": 20,
+      "baselineIdentical": true,
+      "baselineStateHash": "4ca27a44",
+      "bookkeeping": {
+        "year": {
+          "parent": 2040,
+          "child": 2040
+        },
+        "tickCount": {
+          "parent": 20,
+          "child": 20
+        }
+      }
+    },
+    "primaryOutcomes": [
+      {
+        "outcomeId": "cssd-cycles",
+        "outcomeLabel": "Sterile Processing (CSSD) cycles",
+        "sector": "deers-rock-makassar-001",
+        "path": "world.state._cssd.cycles.length",
+        "parentValue": 9,
+        "branchValue": 10,
+        "absoluteDelta": 1,
+        "relativeDelta": 11.11
+      },
+      {
+        "outcomeId": "cssd-cycles",
+        "outcomeLabel": "Sterile Processing (CSSD) cycles",
+        "sector": "deers-rock-makassar-001",
+        "path": "lastTickState._cssd.cycles.length",
+        "parentValue": 9,
+        "branchValue": 10,
+        "absoluteDelta": 1,
+        "relativeDelta": 11.11
+      },
+      {
+        "outcomeId": "dialysis-sessions",
+        "outcomeLabel": "Dialysis sessions",
+        "sector": "deers-rock-makassar-001",
+        "path": "world.state._dialysis.sessions.length",
+        "parentValue": 6,
+        "branchValue": 12,
+        "absoluteDelta": 6,
+        "relativeDelta": 100
+      },
+      {
+        "outcomeId": "dialysis-sessions",
+        "outcomeLabel": "Dialysis sessions",
+        "sector": "deers-rock-makassar-001",
+        "path": "lastTickState._dialysis.sessions.length",
+        "parentValue": 6,
+        "branchValue": 12,
+        "absoluteDelta": 6,
+        "relativeDelta": 100
+      },
+      {
+        "outcomeId": "occupancy",
+        "outcomeLabel": "Hospital occupancy",
+        "sector": "deers-rock-makassar-001",
+        "path": "sentinelOutput.occupancyRate",
+        "parentValue": 0.007633587786259542,
+        "branchValue": 0,
+        "absoluteDelta": -0.007633587786259542,
+        "relativeDelta": -100
+      }
+    ],
+    "createdAt": "2026-08-31T11:54:47.177Z"
   },
   {
     "runId": "run-43",
@@ -1132,7 +326,7 @@
       "rewindTick": 0,
       "currentTick": 20,
       "totalTicksElapsed": 20,
-      "capturedAt": "2026-06-30T02:39:07.617Z",
+      "capturedAt": "2026-08-31T11:54:48.508Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -1140,94 +334,334 @@
             {
               "name": "gdp",
               "path": "nations.USA.gdp",
-              "parentValue": 22488881955679.38,
-              "branchValue": 22491170900763.19,
-              "absoluteDelta": 2288945083.8125,
-              "relativeDelta": 0.01
+              "parentValue": 22043142699120.395,
+              "branchValue": 22038546979038.566,
+              "absoluteDelta": -4595720081.828125,
+              "relativeDelta": -0.02
+            },
+            {
+              "name": "length",
+              "path": "nations.USA.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.CHN.gdp",
-              "parentValue": 15973602402035.512,
-              "branchValue": 15975320986535.936,
-              "absoluteDelta": 1718584500.4238281,
-              "relativeDelta": 0.01
+              "parentValue": 15318926112749.213,
+              "branchValue": 15268021751950.71,
+              "absoluteDelta": -50904360798.50195,
+              "relativeDelta": -0.33
+            },
+            {
+              "name": "length",
+              "path": "nations.CHN.wars.length",
+              "parentValue": 0,
+              "branchValue": 1,
+              "absoluteDelta": 1,
+              "relativeDelta": null
             },
             {
               "name": "gdp",
               "path": "nations.RUS.gdp",
-              "parentValue": 1621545883787.6533,
-              "branchValue": 1621763433558.0625,
-              "absoluteDelta": 217549770.4091797,
-              "relativeDelta": 0.01
+              "parentValue": 1522533248548.128,
+              "branchValue": 1551472848384.4727,
+              "absoluteDelta": 28939599836.344727,
+              "relativeDelta": 1.9
+            },
+            {
+              "name": "length",
+              "path": "nations.RUS.wars.length",
+              "parentValue": 2,
+              "branchValue": 1,
+              "absoluteDelta": -1,
+              "relativeDelta": -50
             },
             {
               "name": "gdp",
               "path": "nations.IND.gdp",
-              "parentValue": 2873246128227.4766,
-              "branchValue": 2873524424893.2495,
-              "absoluteDelta": 278296665.7729492,
-              "relativeDelta": 0.01
+              "parentValue": 2803008921816.829,
+              "branchValue": 2800103193516.7124,
+              "absoluteDelta": -2905728300.116699,
+              "relativeDelta": -0.1
+            },
+            {
+              "name": "length",
+              "path": "nations.IND.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.IDN.gdp",
-              "parentValue": 1147157654294.8726,
-              "branchValue": 1147275499474.995,
-              "absoluteDelta": 117845180.1225586,
-              "relativeDelta": 0.01
+              "parentValue": 1097271202576.4902,
+              "branchValue": 1099088005829.8444,
+              "absoluteDelta": 1816803253.354126,
+              "relativeDelta": 0.17
             },
             {
               "name": "gdp",
               "path": "nations.JPN.gdp",
-              "parentValue": 5443471241576.543,
-              "branchValue": 5444222087455.545,
-              "absoluteDelta": 750845879.0019531,
-              "relativeDelta": 0.01
+              "parentValue": 5170665596975.07,
+              "branchValue": 5211864852875.296,
+              "absoluteDelta": 41199255900.225586,
+              "relativeDelta": 0.8
             },
             {
               "name": "gdp",
               "path": "nations.DEU.gdp",
-              "parentValue": 4129820444545.3945,
-              "branchValue": 4130188566521.0835,
-              "absoluteDelta": 368121975.68896484,
-              "relativeDelta": 0.01
+              "parentValue": 4038503262378.322,
+              "branchValue": 4053458604777.4307,
+              "absoluteDelta": 14955342399.108887,
+              "relativeDelta": 0.37
+            },
+            {
+              "name": "length",
+              "path": "nations.DEU.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.GBR.gdp",
-              "parentValue": 3020553695257.619,
-              "branchValue": 3020916604305.985,
-              "absoluteDelta": 362909048.36572266,
-              "relativeDelta": 0.01
+              "parentValue": 2947880044208.2603,
+              "branchValue": 2905292777503.883,
+              "absoluteDelta": -42587266704.37744,
+              "relativeDelta": -1.44
             },
             {
               "name": "gdp",
               "path": "nations.FRA.gdp",
-              "parentValue": 2807776819080.8784,
-              "branchValue": 2808073563783.8433,
-              "absoluteDelta": 296744702.96484375,
-              "relativeDelta": 0.01
+              "parentValue": 2698445531226.808,
+              "branchValue": 2700900274591.543,
+              "absoluteDelta": 2454743364.7348633,
+              "relativeDelta": 0.09
+            },
+            {
+              "name": "length",
+              "path": "nations.FRA.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.KOR.gdp",
-              "parentValue": 1729957503420.4014,
-              "branchValue": 1730159836971.3706,
-              "absoluteDelta": 202333550.96923828,
-              "relativeDelta": 0.01
+              "parentValue": 1662182978850.137,
+              "branchValue": 1658201899265.7996,
+              "absoluteDelta": -3981079584.3374023,
+              "relativeDelta": -0.24
             },
             {
               "name": "gdp",
               "path": "nations.BRA.gdp",
-              "parentValue": 1589820329566.0947,
-              "branchValue": 1590029182244.1606,
-              "absoluteDelta": 208852678.06591797,
-              "relativeDelta": 0.01
+              "parentValue": 1518008599607.4128,
+              "branchValue": 1516452447190.363,
+              "absoluteDelta": -1556152417.0498047,
+              "relativeDelta": -0.1
+            },
+            {
+              "name": "length",
+              "path": "wars.W-32825.parties.attackers.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-32825.parties.defenders.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "startYear",
+              "path": "wars.W-32825.startYear",
+              "parentValue": 2024,
+              "branchValue": 0,
+              "absoluteDelta": -2024,
+              "relativeDelta": -100
+            },
+            {
+              "name": "casualties",
+              "path": "wars.W-32825.casualties",
+              "parentValue": 1729,
+              "branchValue": 0,
+              "absoluteDelta": -1729,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-54331.parties.attackers.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-54331.parties.defenders.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "startYear",
+              "path": "wars.W-54331.startYear",
+              "parentValue": 2030,
+              "branchValue": 0,
+              "absoluteDelta": -2030,
+              "relativeDelta": -100
+            },
+            {
+              "name": "casualties",
+              "path": "wars.W-54331.casualties",
+              "parentValue": 2428,
+              "branchValue": 0,
+              "absoluteDelta": -2428,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-97239.parties.attackers.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-97239.parties.defenders.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "startYear",
+              "path": "wars.W-97239.startYear",
+              "parentValue": 2034,
+              "branchValue": 0,
+              "absoluteDelta": -2034,
+              "relativeDelta": -100
+            },
+            {
+              "name": "casualties",
+              "path": "wars.W-97239.casualties",
+              "parentValue": 1184,
+              "branchValue": 0,
+              "absoluteDelta": -1184,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-25986.parties.attackers.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-25986.parties.defenders.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
+            },
+            {
+              "name": "startYear",
+              "path": "wars.W-25986.startYear",
+              "parentValue": 2035,
+              "branchValue": 0,
+              "absoluteDelta": -2035,
+              "relativeDelta": -100
+            },
+            {
+              "name": "casualties",
+              "path": "wars.W-25986.casualties",
+              "parentValue": 1970,
+              "branchValue": 0,
+              "absoluteDelta": -1970,
+              "relativeDelta": -100
+            },
+            {
+              "name": "length",
+              "path": "wars.W-18919.parties.attackers.length",
+              "parentValue": 0,
+              "branchValue": 1,
+              "absoluteDelta": 1,
+              "relativeDelta": null
+            },
+            {
+              "name": "length",
+              "path": "wars.W-18919.parties.defenders.length",
+              "parentValue": 0,
+              "branchValue": 1,
+              "absoluteDelta": 1,
+              "relativeDelta": null
+            },
+            {
+              "name": "startYear",
+              "path": "wars.W-18919.startYear",
+              "parentValue": 0,
+              "branchValue": 2027,
+              "absoluteDelta": 2027,
+              "relativeDelta": null
+            },
+            {
+              "name": "casualties",
+              "path": "wars.W-18919.casualties",
+              "parentValue": 0,
+              "branchValue": 3505,
+              "absoluteDelta": 3505,
+              "relativeDelta": null
+            },
+            {
+              "name": "length",
+              "path": "wars.W-43908.parties.attackers.length",
+              "parentValue": 0,
+              "branchValue": 1,
+              "absoluteDelta": 1,
+              "relativeDelta": null
+            },
+            {
+              "name": "length",
+              "path": "wars.W-43908.parties.defenders.length",
+              "parentValue": 0,
+              "branchValue": 1,
+              "absoluteDelta": 1,
+              "relativeDelta": null
+            },
+            {
+              "name": "startYear",
+              "path": "wars.W-43908.startYear",
+              "parentValue": 0,
+              "branchValue": 2028,
+              "absoluteDelta": 2028,
+              "relativeDelta": null
+            },
+            {
+              "name": "casualties",
+              "path": "wars.W-43908.casualties",
+              "parentValue": 0,
+              "branchValue": 445,
+              "absoluteDelta": 445,
+              "relativeDelta": null
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: nations.USA.gdp: 22488881955679.38 → 22491170900763.19 (+0.0%); nations.CHN.gdp: 15973602402035.51 → 15975320986535.94 (+0.0%); nations.JPN.gdp: 5443471241576.54 → 5444222087455.54 (+0.0%); nations.DEU.gdp: 4129820444545.39 → 4130188566521.08 (+0.0%); nations.GBR.gdp: 3020553695257.62 → 3020916604305.98 (+0.0%)"
+          "summary": "Top metric changes: nations.CHN.gdp: 15318926112749.21 → 15268021751950.71 (-0.3%); nations.GBR.gdp: 2947880044208.26 → 2905292777503.88 (-1.4%); nations.JPN.gdp: 5170665596975.07 → 5211864852875.30 (+0.8%); nations.RUS.gdp: 1522533248548.13 → 1551472848384.47 (+1.9%); nations.DEU.gdp: 4038503262378.32 → 4053458604777.43 (+0.4%)"
         },
         "climate": {
           "sectorId": "climate",
@@ -1243,30 +677,46 @@
             {
               "name": "co2Concentration",
               "path": "co2Concentration",
-              "parentValue": 218442690.20391923,
-              "branchValue": 218751531.93355203,
-              "absoluteDelta": 308841.72963279486,
-              "relativeDelta": 0.14
+              "parentValue": 110534065.78346467,
+              "branchValue": 112004621.57362977,
+              "absoluteDelta": 1470555.7901650965,
+              "relativeDelta": 1.33
             },
             {
               "name": "annualEmissions",
               "path": "annualEmissions",
-              "parentValue": 225791739.88922334,
-              "branchValue": 226132291.3269344,
-              "absoluteDelta": 340551.43771106005,
-              "relativeDelta": 0.15
+              "parentValue": 125528457.08146575,
+              "branchValue": 124670223.7394731,
+              "absoluteDelta": -858233.3419926465,
+              "relativeDelta": -0.68
             },
             {
               "name": "temperatureAnomaly",
               "path": "temperatureAnomaly",
-              "parentValue": 58.720189714561194,
-              "branchValue": 58.726304587310864,
-              "absoluteDelta": 0.006114872749670042,
-              "relativeDelta": 0.01
+              "parentValue": 55.771898424799446,
+              "branchValue": 55.82910001394783,
+              "absoluteDelta": 0.05720158914838436,
+              "relativeDelta": 0.1
+            },
+            {
+              "name": "length",
+              "path": "extremeEvents.length",
+              "parentValue": 11,
+              "branchValue": 12,
+              "absoluteDelta": 1,
+              "relativeDelta": 9.09
+            },
+            {
+              "name": "seaLevelRise",
+              "path": "seaLevelRise",
+              "parentValue": 51.056711464887485,
+              "branchValue": 46.33603659784421,
+              "absoluteDelta": -4.720674867043272,
+              "relativeDelta": -9.25
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: annualEmissions: 225791739.89 → 226132291.33 (+0.1%); co2Concentration: 218442690.20 → 218751531.93 (+0.1%); annualEmissionsNoise: 0.20 → 0.02 (-90.0%); temperatureAnomaly: 58.72 → 58.73 (+0.0%)"
+          "summary": "Top metric changes: co2Concentration: 110534065.78 → 112004621.57 (+1.3%); annualEmissions: 125528457.08 → 124670223.74 (-0.7%); seaLevelRise: 51.06 → 46.34 (-9.3%); extremeEvents.length: 11.00 → 12.00 (+9.1%); annualEmissionsNoise: 0.20 → 0.02 (-90.0%)"
         },
         "economy": {
           "sectorId": "economy",
@@ -1274,189 +724,853 @@
             {
               "name": "gdp",
               "path": "nations.USA.gdp",
-              "parentValue": 10152889890.757294,
-              "branchValue": 10175401841.734583,
-              "absoluteDelta": 22511950.9772892,
-              "relativeDelta": 0.22
+              "parentValue": 5350167042.890847,
+              "branchValue": 3847088824.9949875,
+              "absoluteDelta": -1503078217.8958597,
+              "relativeDelta": -28.09
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.USA.gdpGrowthRate",
+              "parentValue": -2.0002050278475507,
+              "branchValue": 3.5723052309826016,
+              "absoluteDelta": 5.572510258830152,
+              "relativeDelta": -278.6
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.USA.inflationRate",
+              "parentValue": 2.6428449912052447,
+              "branchValue": 2.8384567327558283,
+              "absoluteDelta": 0.19561174155058358,
+              "relativeDelta": 7.4
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.USA.tradeVolume",
+              "parentValue": 1.7802258413285017,
+              "branchValue": 48.061530691571534,
+              "absoluteDelta": 46.28130485024303,
+              "relativeDelta": 2599.74
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.USA.unemploymentRate",
+              "parentValue": 5.024643930722959,
+              "branchValue": 5.501585835707374,
+              "absoluteDelta": 0.4769419049844146,
+              "relativeDelta": 9.49
+            },
+            {
+              "name": "length",
+              "path": "nations.USA.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.CHN.gdp",
-              "parentValue": 7778544896.694359,
-              "branchValue": 7795792224.624944,
-              "absoluteDelta": 17247327.930584908,
-              "relativeDelta": 0.22
+              "parentValue": 4618719292.108472,
+              "branchValue": 1720442009.2480967,
+              "absoluteDelta": -2898277282.8603754,
+              "relativeDelta": -62.75
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.CHN.gdpGrowthRate",
+              "parentValue": 3.0214161309180776,
+              "branchValue": -1.568799396813847,
+              "absoluteDelta": -4.5902155277319245,
+              "relativeDelta": -151.92
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.CHN.inflationRate",
+              "parentValue": 2.2517917029042205,
+              "branchValue": 2.512997017788239,
+              "absoluteDelta": 0.2612053148840183,
+              "relativeDelta": 11.6
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.CHN.tradeVolume",
+              "parentValue": 50.308736870996654,
+              "branchValue": 2.5137029634788632,
+              "absoluteDelta": -47.79503390751779,
+              "relativeDelta": -95
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.CHN.unemploymentRate",
+              "parentValue": 4.813713891082443,
+              "branchValue": 4.335889322333969,
+              "absoluteDelta": -0.4778245687484741,
+              "relativeDelta": -9.93
+            },
+            {
+              "name": "length",
+              "path": "nations.CHN.wars.length",
+              "parentValue": 0,
+              "branchValue": 1,
+              "absoluteDelta": 1,
+              "relativeDelta": null
             },
             {
               "name": "gdp",
               "path": "nations.RUS.gdp",
-              "parentValue": 781464217.9634143,
-              "branchValue": 783196954.5886103,
-              "absoluteDelta": 1732736.62519598,
-              "relativeDelta": 0.22
+              "parentValue": 356000000,
+              "branchValue": 404000000,
+              "absoluteDelta": 48000000,
+              "relativeDelta": 13.48
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.RUS.gdpGrowthRate",
+              "parentValue": 0.6764247131301089,
+              "branchValue": -1.3628163028741256,
+              "absoluteDelta": -2.0392410160042345,
+              "relativeDelta": -301.47
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.RUS.inflationRate",
+              "parentValue": 2.31713772659462,
+              "branchValue": 2.1580543850461766,
+              "absoluteDelta": -0.15908334154844317,
+              "relativeDelta": -6.87
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.RUS.tradeVolume",
+              "parentValue": 0,
+              "branchValue": 3.1114454502239823,
+              "absoluteDelta": 3.1114454502239823,
+              "relativeDelta": null
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.RUS.unemploymentRate",
+              "parentValue": 4.816409646417014,
+              "branchValue": 5.012195295654237,
+              "absoluteDelta": 0.19578564923722297,
+              "relativeDelta": 4.06
+            },
+            {
+              "name": "length",
+              "path": "nations.RUS.wars.length",
+              "parentValue": 2,
+              "branchValue": 1,
+              "absoluteDelta": -1,
+              "relativeDelta": -50
             },
             {
               "name": "gdp",
               "path": "nations.IND.gdp",
-              "parentValue": 1184680075.6703873,
-              "branchValue": 1187306860.760566,
-              "absoluteDelta": 2626785.090178728,
-              "relativeDelta": 0.22
+              "parentValue": 686284316.2916095,
+              "branchValue": 467618771.41010916,
+              "absoluteDelta": -218665544.88150036,
+              "relativeDelta": -31.86
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.IND.gdpGrowthRate",
+              "parentValue": -1.9843245790340005,
+              "branchValue": 3.9172506638336926,
+              "absoluteDelta": 5.901575242867693,
+              "relativeDelta": -297.41
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.IND.inflationRate",
+              "parentValue": 2.4771813278220276,
+              "branchValue": 2.3529236468422656,
+              "absoluteDelta": -0.12425768097976198,
+              "relativeDelta": -5.02
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.IND.tradeVolume",
+              "parentValue": 1.636922162026167,
+              "branchValue": 54.02477032877505,
+              "absoluteDelta": 52.38784816674888,
+              "relativeDelta": 3200.39
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.IND.unemploymentRate",
+              "parentValue": 5.271146823884919,
+              "branchValue": 5.073145017260686,
+              "absoluteDelta": -0.19800180662423372,
+              "relativeDelta": -3.76
+            },
+            {
+              "name": "length",
+              "path": "nations.IND.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.IDN.gdp",
-              "parentValue": 538016051.0195649,
-              "branchValue": 539208991.2657279,
-              "absoluteDelta": 1192940.2461630106,
-              "relativeDelta": 0.22
+              "parentValue": 356000000,
+              "branchValue": 404000000,
+              "absoluteDelta": 48000000,
+              "relativeDelta": 13.48
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.IDN.gdpGrowthRate",
+              "parentValue": 4.630778394523077,
+              "branchValue": 5.036926349182614,
+              "absoluteDelta": 0.406147954659537,
+              "relativeDelta": 8.77
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.IDN.inflationRate",
+              "parentValue": 2.2055840858026885,
+              "branchValue": 2.997502727099426,
+              "absoluteDelta": 0.7919186412967374,
+              "relativeDelta": 35.91
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.IDN.tradeVolume",
+              "parentValue": 42.02492708247155,
+              "branchValue": 45.98096852749586,
+              "absoluteDelta": 3.9560414450243115,
+              "relativeDelta": 9.41
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.IDN.unemploymentRate",
+              "parentValue": 5.299793171114288,
+              "branchValue": 5.305403408361599,
+              "absoluteDelta": 0.005610237247310579,
+              "relativeDelta": 0.11
             },
             {
               "name": "gdp",
               "path": "nations.JPN.gdp",
-              "parentValue": 2618473667.948472,
-              "branchValue": 2624279596.25878,
-              "absoluteDelta": 5805928.31030798,
-              "relativeDelta": 0.22
+              "parentValue": 1601144246.7477605,
+              "branchValue": 898513847.6360636,
+              "absoluteDelta": -702630399.111697,
+              "relativeDelta": -43.88
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.JPN.gdpGrowthRate",
+              "parentValue": 3.504124913504347,
+              "branchValue": 3.1732191919349133,
+              "absoluteDelta": -0.33090572156943354,
+              "relativeDelta": -9.44
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.JPN.inflationRate",
+              "parentValue": 2.3275446432608367,
+              "branchValue": 2.1921526547684334,
+              "absoluteDelta": -0.1353919884924033,
+              "relativeDelta": -5.82
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.JPN.tradeVolume",
+              "parentValue": 52.76428056880832,
+              "branchValue": 49.53831305168569,
+              "absoluteDelta": -3.2259675171226263,
+              "relativeDelta": -6.11
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.JPN.unemploymentRate",
+              "parentValue": 5.5844542008126155,
+              "branchValue": 5.433529909700155,
+              "absoluteDelta": -0.1509242911124602,
+              "relativeDelta": -2.7
             },
             {
               "name": "gdp",
               "path": "nations.DEU.gdp",
-              "parentValue": 1732934435.368745,
-              "branchValue": 1736776862.0547059,
-              "absoluteDelta": 3842426.6859607697,
-              "relativeDelta": 0.22
+              "parentValue": 893237823.5843204,
+              "branchValue": 657648323.9557285,
+              "absoluteDelta": -235589499.6285919,
+              "relativeDelta": -26.37
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.DEU.gdpGrowthRate",
+              "parentValue": -1.5637949348660185,
+              "branchValue": 3.216887569334358,
+              "absoluteDelta": 4.780682504200376,
+              "relativeDelta": -305.71
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.DEU.inflationRate",
+              "parentValue": 3.094879013765093,
+              "branchValue": 2.3954862671086485,
+              "absoluteDelta": -0.6993927466564442,
+              "relativeDelta": -22.6
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.DEU.tradeVolume",
+              "parentValue": 1.5030746310949326,
+              "branchValue": 51.76473155245185,
+              "absoluteDelta": 50.261656921356916,
+              "relativeDelta": 3343.92
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.DEU.unemploymentRate",
+              "parentValue": 5.219822134589776,
+              "branchValue": 5.561288624303415,
+              "absoluteDelta": 0.341466489713639,
+              "relativeDelta": 6.54
+            },
+            {
+              "name": "length",
+              "path": "nations.DEU.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.GBR.gdp",
-              "parentValue": 1412264711.9727345,
-              "branchValue": 1415396119.3163536,
-              "absoluteDelta": 3131407.343619108,
-              "relativeDelta": 0.22
+              "parentValue": 1020201259.3306857,
+              "branchValue": 551805176.0969516,
+              "absoluteDelta": -468396083.23373413,
+              "relativeDelta": -45.91
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.GBR.gdpGrowthRate",
+              "parentValue": 4.957837548898533,
+              "branchValue": 5.973836311069317,
+              "absoluteDelta": 1.015998762170784,
+              "relativeDelta": 20.49
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.GBR.inflationRate",
+              "parentValue": 2.874244785940835,
+              "branchValue": 2.547279701332917,
+              "absoluteDelta": -0.32696508460791796,
+              "relativeDelta": -11.38
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.GBR.tradeVolume",
+              "parentValue": 40.33634212333709,
+              "branchValue": 41.48829592298716,
+              "absoluteDelta": 1.151953799650073,
+              "relativeDelta": 2.86
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.GBR.unemploymentRate",
+              "parentValue": 4.953849192592315,
+              "branchValue": 5.1030772113008425,
+              "absoluteDelta": 0.1492280187085271,
+              "relativeDelta": 3.01
             },
             {
               "name": "gdp",
               "path": "nations.FRA.gdp",
-              "parentValue": 1170063593.4590786,
-              "branchValue": 1172657969.4977903,
-              "absoluteDelta": 2594376.0387117863,
-              "relativeDelta": 0.22
+              "parentValue": 909740967.315028,
+              "branchValue": 459952787.8331089,
+              "absoluteDelta": -449788179.48191905,
+              "relativeDelta": -49.44
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.FRA.gdpGrowthRate",
+              "parentValue": 5.009547369577922,
+              "branchValue": 3.0935662756673987,
+              "absoluteDelta": -1.9159810939105228,
+              "relativeDelta": -38.25
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.FRA.inflationRate",
+              "parentValue": 2.6383977408755728,
+              "branchValue": 2.627745976818332,
+              "absoluteDelta": -0.010651764057240776,
+              "relativeDelta": -0.4
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.FRA.tradeVolume",
+              "parentValue": 37.82926221098751,
+              "branchValue": 50.606790540739894,
+              "absoluteDelta": 12.777528329752386,
+              "relativeDelta": 33.78
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.FRA.unemploymentRate",
+              "parentValue": 5.2376733081182465,
+              "branchValue": 4.431298492592759,
+              "absoluteDelta": -0.8063748155254871,
+              "relativeDelta": -15.4
+            },
+            {
+              "name": "length",
+              "path": "nations.FRA.wars.length",
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "gdp",
               "path": "nations.KOR.gdp",
-              "parentValue": 764986122.0476491,
-              "branchValue": 766682321.8748055,
-              "absoluteDelta": 1696199.8271563053,
-              "relativeDelta": 0.22
+              "parentValue": 508940018.3036664,
+              "branchValue": 404000000,
+              "absoluteDelta": -104940018.30366641,
+              "relativeDelta": -20.62
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.KOR.gdpGrowthRate",
+              "parentValue": 3.051673582778312,
+              "branchValue": 3.8132006807951253,
+              "absoluteDelta": 0.7615270980168134,
+              "relativeDelta": 24.95
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.KOR.inflationRate",
+              "parentValue": 2.0995548298151063,
+              "branchValue": 2.095267197037937,
+              "absoluteDelta": -0.004287632777169481,
+              "relativeDelta": -0.2
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.KOR.tradeVolume",
+              "parentValue": 52.222708562389016,
+              "branchValue": 53.19564506690949,
+              "absoluteDelta": 0.9729365045204759,
+              "relativeDelta": 1.86
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.KOR.unemploymentRate",
+              "parentValue": 5.53454301354941,
+              "branchValue": 5.364573081955314,
+              "absoluteDelta": -0.16996993159409612,
+              "relativeDelta": -3.07
             },
             {
               "name": "gdp",
               "path": "nations.BRA.gdp",
-              "parentValue": 736400682.150967,
-              "branchValue": 738033499.6280198,
-              "absoluteDelta": 1632817.4770528078,
-              "relativeDelta": 0.22
+              "parentValue": 461921116.66275656,
+              "branchValue": 404000000,
+              "absoluteDelta": -57921116.66275656,
+              "relativeDelta": -12.54
+            },
+            {
+              "name": "gdpGrowthRate",
+              "path": "nations.BRA.gdpGrowthRate",
+              "parentValue": 2.9338531469693407,
+              "branchValue": 2.971626931987703,
+              "absoluteDelta": 0.03777378501836237,
+              "relativeDelta": 1.29
+            },
+            {
+              "name": "inflationRate",
+              "path": "nations.BRA.inflationRate",
+              "parentValue": 2.54448084994116,
+              "branchValue": 2.0105948848217277,
+              "absoluteDelta": -0.5338859651194325,
+              "relativeDelta": -20.98
+            },
+            {
+              "name": "tradeVolume",
+              "path": "nations.BRA.tradeVolume",
+              "parentValue": 46.49427560158074,
+              "branchValue": 49.99180718231946,
+              "absoluteDelta": 3.4975315807387233,
+              "relativeDelta": 7.52
+            },
+            {
+              "name": "unemploymentRate",
+              "path": "nations.BRA.unemploymentRate",
+              "parentValue": 4.991299556335434,
+              "branchValue": 5.515751393395476,
+              "absoluteDelta": 0.5244518370600417,
+              "relativeDelta": 10.51
+            },
+            {
+              "name": "globalTradeVolume",
+              "path": "globalTradeVolume",
+              "parentValue": 102.07929759519175,
+              "branchValue": 102.06813838100061,
+              "absoluteDelta": -0.011159214191138744,
+              "relativeDelta": -0.01
+            },
+            {
+              "name": "globalInflation",
+              "path": "globalInflation",
+              "parentValue": 3.0515976132592186,
+              "branchValue": 3.6353299958864227,
+              "absoluteDelta": 0.5837323826272041,
+              "relativeDelta": 19.13
+            },
+            {
+              "name": "marketIndex",
+              "path": "marketIndex",
+              "parentValue": 104.06081785075366,
+              "branchValue": 99.22092166915536,
+              "absoluteDelta": -4.839896181598306,
+              "relativeDelta": -4.65
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: nations.USA.gdp: 10152889890.76 → 10175401841.73 (+0.2%); nations.CHN.gdp: 7778544896.69 → 7795792224.62 (+0.2%); nations.JPN.gdp: 2618473667.95 → 2624279596.26 (+0.2%); nations.DEU.gdp: 1732934435.37 → 1736776862.05 (+0.2%); nations.GBR.gdp: 1412264711.97 → 1415396119.32 (+0.2%)"
+          "summary": "Top metric changes: nations.CHN.gdp: 4618719292.11 → 1720442009.25 (-62.8%); nations.USA.gdp: 5350167042.89 → 3847088824.99 (-28.1%); nations.JPN.gdp: 1601144246.75 → 898513847.64 (-43.9%); nations.GBR.gdp: 1020201259.33 → 551805176.10 (-45.9%); nations.FRA.gdp: 909740967.32 → 459952787.83 (-49.4%)"
         },
         "technology": {
           "sectorId": "technology",
           "metrics": [
             {
+              "name": "rdSpending",
+              "path": "nations.USA.rdSpending",
+              "parentValue": 0.032657361977268005,
+              "branchValue": 0.035172400380950423,
+              "absoluteDelta": 0.002515038403682418,
+              "relativeDelta": 7.7
+            },
+            {
               "name": "researchOutput",
               "path": "nations.USA.researchOutput",
-              "parentValue": 4364955555.2428465,
-              "branchValue": 4372471449.330384,
-              "absoluteDelta": 7515894.0875377655,
-              "relativeDelta": 0.17
+              "parentValue": 11854763821.232761,
+              "branchValue": 11831017217.025314,
+              "absoluteDelta": -23746604.207447052,
+              "relativeDelta": -0.2
+            },
+            {
+              "name": "innovationCount",
+              "path": "nations.USA.innovationCount",
+              "parentValue": 1,
+              "branchValue": 2,
+              "absoluteDelta": 1,
+              "relativeDelta": 100
+            },
+            {
+              "name": "patents",
+              "path": "nations.USA.patents",
+              "parentValue": 1711,
+              "branchValue": 1634,
+              "absoluteDelta": -77,
+              "relativeDelta": -4.5
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.CHN.rdSpending",
+              "parentValue": 0.02753374734008685,
+              "branchValue": 0.027036227290984236,
+              "absoluteDelta": -0.0004975200491026122,
+              "relativeDelta": -1.81
             },
             {
               "name": "researchOutput",
               "path": "nations.CHN.researchOutput",
-              "parentValue": 3120415574.4991693,
-              "branchValue": 3125257171.271643,
-              "absoluteDelta": 4841596.772473812,
-              "relativeDelta": 0.16
+              "parentValue": 5885220613.960019,
+              "branchValue": 5219155013.071985,
+              "absoluteDelta": -666065600.8880339,
+              "relativeDelta": -11.32
+            },
+            {
+              "name": "innovationCount",
+              "path": "nations.CHN.innovationCount",
+              "parentValue": 1,
+              "branchValue": 2,
+              "absoluteDelta": 1,
+              "relativeDelta": 100
+            },
+            {
+              "name": "patents",
+              "path": "nations.CHN.patents",
+              "parentValue": 1408,
+              "branchValue": 1342,
+              "absoluteDelta": -66,
+              "relativeDelta": -4.69
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.RUS.rdSpending",
+              "parentValue": 0.02251968406513333,
+              "branchValue": 0.0216881031752564,
+              "absoluteDelta": -0.000831580889876931,
+              "relativeDelta": -3.69
             },
             {
               "name": "researchOutput",
               "path": "nations.RUS.researchOutput",
-              "parentValue": 243938746.02569947,
-              "branchValue": 244402431.250339,
-              "absoluteDelta": 463685.22463953495,
-              "relativeDelta": 0.19
+              "parentValue": 146964383.86362,
+              "branchValue": 385554493.23403686,
+              "absoluteDelta": 238590109.37041685,
+              "relativeDelta": 162.35
+            },
+            {
+              "name": "patents",
+              "path": "nations.RUS.patents",
+              "parentValue": 1023,
+              "branchValue": 1025,
+              "absoluteDelta": 2,
+              "relativeDelta": 0.2
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.IND.rdSpending",
+              "parentValue": 0.02013685569912195,
+              "branchValue": 0.022511874377261844,
+              "absoluteDelta": 0.0023750186781398945,
+              "relativeDelta": 11.79
             },
             {
               "name": "researchOutput",
               "path": "nations.IND.researchOutput",
-              "parentValue": 341444691.4411014,
-              "branchValue": 342043238.64214116,
-              "absoluteDelta": 598547.2010397911,
-              "relativeDelta": 0.18
+              "parentValue": 787830701.1274258,
+              "branchValue": 773185041.629095,
+              "absoluteDelta": -14645659.498330832,
+              "relativeDelta": -1.86
+            },
+            {
+              "name": "innovationCount",
+              "path": "nations.IND.innovationCount",
+              "parentValue": 1,
+              "branchValue": 3,
+              "absoluteDelta": 2,
+              "relativeDelta": 200
+            },
+            {
+              "name": "patents",
+              "path": "nations.IND.patents",
+              "parentValue": 986,
+              "branchValue": 909,
+              "absoluteDelta": -77,
+              "relativeDelta": -7.81
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.IDN.rdSpending",
+              "parentValue": 0.02099627648666501,
+              "branchValue": 0.02159498031949624,
+              "absoluteDelta": 0.0005987038328312301,
+              "relativeDelta": 2.85
             },
             {
               "name": "researchOutput",
               "path": "nations.IDN.researchOutput",
-              "parentValue": 165268491.17111993,
-              "branchValue": 165525612.974066,
-              "absoluteDelta": 257121.8029460609,
-              "relativeDelta": 0.16
+              "parentValue": 272467913.0908936,
+              "branchValue": 287911262.3533287,
+              "absoluteDelta": 15443349.262435079,
+              "relativeDelta": 5.67
+            },
+            {
+              "name": "innovationCount",
+              "path": "nations.IDN.innovationCount",
+              "parentValue": 0,
+              "branchValue": 1,
+              "absoluteDelta": 1,
+              "relativeDelta": null
+            },
+            {
+              "name": "patents",
+              "path": "nations.IDN.patents",
+              "parentValue": 752,
+              "branchValue": 835,
+              "absoluteDelta": 83,
+              "relativeDelta": 11.04
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.JPN.rdSpending",
+              "parentValue": 0.030729635057970883,
+              "branchValue": 0.02934047730034217,
+              "absoluteDelta": -0.0013891577576287117,
+              "relativeDelta": -4.52
             },
             {
               "name": "researchOutput",
               "path": "nations.JPN.researchOutput",
-              "parentValue": 1328179697.7716925,
-              "branchValue": 1330626610.5252607,
-              "absoluteDelta": 2446912.7535681725,
-              "relativeDelta": 0.18
+              "parentValue": 1893629957.124127,
+              "branchValue": 2341766961.5944433,
+              "absoluteDelta": 448137004.4703164,
+              "relativeDelta": 23.67
+            },
+            {
+              "name": "innovationCount",
+              "path": "nations.JPN.innovationCount",
+              "parentValue": 2,
+              "branchValue": 1,
+              "absoluteDelta": -1,
+              "relativeDelta": -50
+            },
+            {
+              "name": "patents",
+              "path": "nations.JPN.patents",
+              "parentValue": 1528,
+              "branchValue": 1526,
+              "absoluteDelta": -2,
+              "relativeDelta": -0.13
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.DEU.rdSpending",
+              "parentValue": 0.030886716422159226,
+              "branchValue": 0.030983715534675868,
+              "absoluteDelta": 0.00009699911251664223,
+              "relativeDelta": 0.31
             },
             {
               "name": "researchOutput",
               "path": "nations.DEU.researchOutput",
-              "parentValue": 629628078.9040984,
-              "branchValue": 630728056.9078805,
-              "absoluteDelta": 1099978.0037821531,
-              "relativeDelta": 0.17
+              "parentValue": 1414263922.79695,
+              "branchValue": 1621197951.3040168,
+              "absoluteDelta": 206934028.50706673,
+              "relativeDelta": 14.63
+            },
+            {
+              "name": "patents",
+              "path": "nations.DEU.patents",
+              "parentValue": 1468,
+              "branchValue": 1579,
+              "absoluteDelta": 111,
+              "relativeDelta": 7.56
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.GBR.rdSpending",
+              "parentValue": 0.029321095038671044,
+              "branchValue": 0.028807446303311734,
+              "absoluteDelta": -0.0005136487353593101,
+              "relativeDelta": -1.75
             },
             {
               "name": "researchOutput",
               "path": "nations.GBR.researchOutput",
-              "parentValue": 665508820.150345,
-              "branchValue": 666712982.9441655,
-              "absoluteDelta": 1204162.7938205004,
-              "relativeDelta": 0.18
+              "parentValue": 1661877169.8095582,
+              "branchValue": 1127604260.1851184,
+              "absoluteDelta": -534272909.6244397,
+              "relativeDelta": -32.15
+            },
+            {
+              "name": "innovationCount",
+              "path": "nations.GBR.innovationCount",
+              "parentValue": 1,
+              "branchValue": 3,
+              "absoluteDelta": 2,
+              "relativeDelta": 200
+            },
+            {
+              "name": "patents",
+              "path": "nations.GBR.patents",
+              "parentValue": 1417,
+              "branchValue": 1391,
+              "absoluteDelta": -26,
+              "relativeDelta": -1.83
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.FRA.rdSpending",
+              "parentValue": 0.02868410996487365,
+              "branchValue": 0.032609437555540355,
+              "absoluteDelta": 0.003925327590666706,
+              "relativeDelta": 13.68
             },
             {
               "name": "researchOutput",
               "path": "nations.FRA.researchOutput",
-              "parentValue": 511354533.3091166,
-              "branchValue": 512155719.11323816,
-              "absoluteDelta": 801185.8041215539,
-              "relativeDelta": 0.16
+              "parentValue": 1037106825.8188742,
+              "branchValue": 1085091650.75137,
+              "absoluteDelta": 47984824.93249571,
+              "relativeDelta": 4.63
+            },
+            {
+              "name": "patents",
+              "path": "nations.FRA.patents",
+              "parentValue": 1323,
+              "branchValue": 1560,
+              "absoluteDelta": 237,
+              "relativeDelta": 17.91
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.KOR.rdSpending",
+              "parentValue": 0.03014481263468042,
+              "branchValue": 0.02916704358160496,
+              "absoluteDelta": -0.0009777690530754606,
+              "relativeDelta": -3.24
             },
             {
               "name": "researchOutput",
               "path": "nations.KOR.researchOutput",
-              "parentValue": 350282563.9066522,
-              "branchValue": 350882043.92923397,
-              "absoluteDelta": 599480.0225817561,
-              "relativeDelta": 0.17
+              "parentValue": 678001086.817612,
+              "branchValue": 611974726.5131779,
+              "absoluteDelta": -66026360.30443418,
+              "relativeDelta": -9.74
+            },
+            {
+              "name": "innovationCount",
+              "path": "nations.KOR.innovationCount",
+              "parentValue": 1,
+              "branchValue": 3,
+              "absoluteDelta": 2,
+              "relativeDelta": 200
+            },
+            {
+              "name": "patents",
+              "path": "nations.KOR.patents",
+              "parentValue": 1510,
+              "branchValue": 1414,
+              "absoluteDelta": -96,
+              "relativeDelta": -6.36
+            },
+            {
+              "name": "rdSpending",
+              "path": "nations.BRA.rdSpending",
+              "parentValue": 0.022580086767207835,
+              "branchValue": 0.022534545964095747,
+              "absoluteDelta": -0.000045540803112087413,
+              "relativeDelta": -0.2
             },
             {
               "name": "researchOutput",
               "path": "nations.BRA.researchOutput",
-              "parentValue": 239858730.00718752,
-              "branchValue": 240253427.90178195,
-              "absoluteDelta": 394697.8945944309,
-              "relativeDelta": 0.16
+              "parentValue": 497065296.8221221,
+              "branchValue": 482753902.4990072,
+              "absoluteDelta": -14311394.323114872,
+              "relativeDelta": -2.88
+            },
+            {
+              "name": "patents",
+              "path": "nations.BRA.patents",
+              "parentValue": 928,
+              "branchValue": 983,
+              "absoluteDelta": 55,
+              "relativeDelta": 5.93
+            },
+            {
+              "name": "length",
+              "path": "recentInnovations.length",
+              "parentValue": 3,
+              "branchValue": 7,
+              "absoluteDelta": 4,
+              "relativeDelta": 133.33
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: nations.USA.researchOutput: 4364955555.24 → 4372471449.33 (+0.2%); nations.CHN.researchOutput: 3120415574.50 → 3125257171.27 (+0.2%); nations.JPN.researchOutput: 1328179697.77 → 1330626610.53 (+0.2%); nations.GBR.researchOutput: 665508820.15 → 666712982.94 (+0.2%); nations.DEU.researchOutput: 629628078.90 → 630728056.91 (+0.2%)"
+          "summary": "Top metric changes: nations.CHN.researchOutput: 5885220613.96 → 5219155013.07 (-11.3%); nations.GBR.researchOutput: 1661877169.81 → 1127604260.19 (-32.1%); nations.JPN.researchOutput: 1893629957.12 → 2341766961.59 (+23.7%); nations.RUS.researchOutput: 146964383.86 → 385554493.23 (+162.3%); nations.DEU.researchOutput: 1414263922.80 → 1621197951.30 (+14.6%)"
         },
         "deers-rock-makassar-001": {
           "sectorId": "deers-rock",
@@ -1464,154 +1578,247 @@
             {
               "name": "length",
               "path": "world.state._outcomeRecords.length",
-              "parentValue": 55,
-              "branchValue": 57,
-              "absoluteDelta": 2,
-              "relativeDelta": 3.64
+              "parentValue": 346,
+              "branchValue": 342,
+              "absoluteDelta": -4,
+              "relativeDelta": -1.16
+            },
+            {
+              "name": "length",
+              "path": "world.state.morgue.length",
+              "parentValue": 11,
+              "branchValue": 5,
+              "absoluteDelta": -6,
+              "relativeDelta": -54.55
             },
             {
               "name": "length",
               "path": "world.state._cssd.cycles.length",
               "parentValue": 11,
-              "branchValue": 8,
-              "absoluteDelta": -3,
-              "relativeDelta": -27.27
-            },
-            {
-              "name": "length",
-              "path": "world.state._ipc.cases.length",
-              "parentValue": 128,
-              "branchValue": 159,
-              "absoluteDelta": 31,
-              "relativeDelta": 24.22
+              "branchValue": 9,
+              "absoluteDelta": -2,
+              "relativeDelta": -18.18
             },
             {
               "name": "handHygieneCompliance",
               "path": "world.state._ipc.handHygieneCompliance",
-              "parentValue": 89,
-              "branchValue": 97,
-              "absoluteDelta": 8,
-              "relativeDelta": 8.99
+              "parentValue": 82,
+              "branchValue": 88,
+              "absoluteDelta": 6,
+              "relativeDelta": 7.32
             },
             {
               "name": "length",
               "path": "world.state._clinicalNutrition.assessments.length",
-              "parentValue": 22,
-              "branchValue": 17,
+              "parentValue": 10,
+              "branchValue": 7,
+              "absoluteDelta": -3,
+              "relativeDelta": -30
+            },
+            {
+              "name": "length",
+              "path": "world.state._clinicalNutrition.tpnOrders.length",
+              "parentValue": 6,
+              "branchValue": 1,
               "absoluteDelta": -5,
-              "relativeDelta": -22.73
+              "relativeDelta": -83.33
             },
             {
               "name": "length",
               "path": "world.state._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 2,
-              "absoluteDelta": 2,
-              "relativeDelta": null
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "world.state._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 35,
-              "absoluteDelta": 35,
-              "relativeDelta": null
+              "parentValue": 7,
+              "branchValue": 0,
+              "absoluteDelta": -7,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "world.state._dialysis.sessions.length",
-              "parentValue": 226,
-              "branchValue": 229,
-              "absoluteDelta": 3,
-              "relativeDelta": 1.33
+              "parentValue": 14,
+              "branchValue": 12,
+              "absoluteDelta": -2,
+              "relativeDelta": -14.29
             },
             {
               "name": "length",
               "path": "lastTickState._outcomeRecords.length",
-              "parentValue": 55,
-              "branchValue": 57,
-              "absoluteDelta": 2,
-              "relativeDelta": 3.64
+              "parentValue": 346,
+              "branchValue": 342,
+              "absoluteDelta": -4,
+              "relativeDelta": -1.16
+            },
+            {
+              "name": "length",
+              "path": "lastTickState.morgue.length",
+              "parentValue": 11,
+              "branchValue": 5,
+              "absoluteDelta": -6,
+              "relativeDelta": -54.55
             },
             {
               "name": "length",
               "path": "lastTickState._cssd.cycles.length",
               "parentValue": 11,
-              "branchValue": 8,
-              "absoluteDelta": -3,
-              "relativeDelta": -27.27
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._ipc.cases.length",
-              "parentValue": 128,
-              "branchValue": 159,
-              "absoluteDelta": 31,
-              "relativeDelta": 24.22
+              "branchValue": 9,
+              "absoluteDelta": -2,
+              "relativeDelta": -18.18
             },
             {
               "name": "handHygieneCompliance",
               "path": "lastTickState._ipc.handHygieneCompliance",
-              "parentValue": 89,
-              "branchValue": 97,
-              "absoluteDelta": 8,
-              "relativeDelta": 8.99
+              "parentValue": 82,
+              "branchValue": 88,
+              "absoluteDelta": 6,
+              "relativeDelta": 7.32
             },
             {
               "name": "length",
               "path": "lastTickState._clinicalNutrition.assessments.length",
-              "parentValue": 22,
-              "branchValue": 17,
+              "parentValue": 10,
+              "branchValue": 7,
+              "absoluteDelta": -3,
+              "relativeDelta": -30
+            },
+            {
+              "name": "length",
+              "path": "lastTickState._clinicalNutrition.tpnOrders.length",
+              "parentValue": 6,
+              "branchValue": 1,
               "absoluteDelta": -5,
-              "relativeDelta": -22.73
+              "relativeDelta": -83.33
             },
             {
               "name": "length",
               "path": "lastTickState._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 2,
-              "absoluteDelta": 2,
-              "relativeDelta": null
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "lastTickState._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 35,
-              "absoluteDelta": 35,
-              "relativeDelta": null
+              "parentValue": 7,
+              "branchValue": 0,
+              "absoluteDelta": -7,
+              "relativeDelta": -100
             },
             {
               "name": "length",
               "path": "lastTickState._dialysis.sessions.length",
-              "parentValue": 226,
-              "branchValue": 229,
-              "absoluteDelta": 3,
-              "relativeDelta": 1.33
+              "parentValue": 14,
+              "branchValue": 12,
+              "absoluteDelta": -2,
+              "relativeDelta": -14.29
             },
             {
               "name": "occupancyRate",
               "path": "sentinelOutput.occupancyRate",
-              "parentValue": 0.5413533834586466,
-              "branchValue": 0.5263157894736842,
-              "absoluteDelta": -0.015037593984962405,
-              "relativeDelta": -2.78
+              "parentValue": 0.03816793893129771,
+              "branchValue": 0,
+              "absoluteDelta": -0.03816793893129771,
+              "relativeDelta": -100
+            },
+            {
+              "name": "mortalityPressure",
+              "path": "sentinelOutput.mortalityPressure",
+              "parentValue": 11,
+              "branchValue": 5,
+              "absoluteDelta": -6,
+              "relativeDelta": -54.55
             },
             {
               "name": "UNKNOWN",
               "path": "sentinelOutput.diseasePrevalence.UNKNOWN",
-              "parentValue": 185,
-              "branchValue": 196,
-              "absoluteDelta": 11,
-              "relativeDelta": 5.95
+              "parentValue": 354,
+              "branchValue": 347,
+              "absoluteDelta": -7,
+              "relativeDelta": -1.98
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: world.state._radiotherapy.fractions.length: 0.00 → 35.00 (+Infinity%); lastTickState._radiotherapy.fractions.length: 0.00 → 35.00 (+Infinity%); world.state._ipc.cases.length: 128.00 → 159.00 (+24.2%); lastTickState._ipc.cases.length: 128.00 → 159.00 (+24.2%); sentinelOutput.diseasePrevalence.UNKNOWN: 185.00 → 196.00 (+6.0%)"
+          "summary": "Top metric changes: world.state._radiotherapy.fractions.length: 7.00 → 0.00 (-100.0%); lastTickState._radiotherapy.fractions.length: 7.00 → 0.00 (-100.0%); sentinelOutput.diseasePrevalence.UNKNOWN: 354.00 → 347.00 (-2.0%); world.state.morgue.length: 11.00 → 5.00 (-54.5%); world.state._ipc.handHygieneCompliance: 82.00 → 88.00 (+7.3%)"
         }
       }
     },
-    "createdAt": "2026-06-30T02:39:07.617Z"
+    "guards": {
+      "matchedHorizon": true,
+      "parentTick": 20,
+      "childTick": 20,
+      "baselineIdentical": true,
+      "baselineStateHash": "d1742971",
+      "bookkeeping": {
+        "year": {
+          "parent": 2040,
+          "child": 2040
+        },
+        "tickCount": {
+          "parent": 20,
+          "child": 20
+        }
+      }
+    },
+    "primaryOutcomes": [
+      {
+        "outcomeId": "cssd-cycles",
+        "outcomeLabel": "Sterile Processing (CSSD) cycles",
+        "sector": "deers-rock-makassar-001",
+        "path": "world.state._cssd.cycles.length",
+        "parentValue": 11,
+        "branchValue": 9,
+        "absoluteDelta": -2,
+        "relativeDelta": -18.18
+      },
+      {
+        "outcomeId": "cssd-cycles",
+        "outcomeLabel": "Sterile Processing (CSSD) cycles",
+        "sector": "deers-rock-makassar-001",
+        "path": "lastTickState._cssd.cycles.length",
+        "parentValue": 11,
+        "branchValue": 9,
+        "absoluteDelta": -2,
+        "relativeDelta": -18.18
+      },
+      {
+        "outcomeId": "dialysis-sessions",
+        "outcomeLabel": "Dialysis sessions",
+        "sector": "deers-rock-makassar-001",
+        "path": "world.state._dialysis.sessions.length",
+        "parentValue": 14,
+        "branchValue": 12,
+        "absoluteDelta": -2,
+        "relativeDelta": -14.29
+      },
+      {
+        "outcomeId": "dialysis-sessions",
+        "outcomeLabel": "Dialysis sessions",
+        "sector": "deers-rock-makassar-001",
+        "path": "lastTickState._dialysis.sessions.length",
+        "parentValue": 14,
+        "branchValue": 12,
+        "absoluteDelta": -2,
+        "relativeDelta": -14.29
+      },
+      {
+        "outcomeId": "occupancy",
+        "outcomeLabel": "Hospital occupancy",
+        "sector": "deers-rock-makassar-001",
+        "path": "sentinelOutput.occupancyRate",
+        "parentValue": 0.03816793893129771,
+        "branchValue": 0,
+        "absoluteDelta": -0.03816793893129771,
+        "relativeDelta": -100
+      }
+    ],
+    "createdAt": "2026-08-31T11:54:48.541Z"
   },
   {
     "runId": "run-44",
@@ -1635,7 +1842,7 @@
       "rewindTick": 0,
       "currentTick": 20,
       "totalTicksElapsed": 20,
-      "capturedAt": "2026-06-30T02:39:09.579Z",
+      "capturedAt": "2026-08-31T11:54:49.895Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -1657,30 +1864,30 @@
             {
               "name": "co2Concentration",
               "path": "co2Concentration",
-              "parentValue": 388456149.78227186,
-              "branchValue": 388456129.89268523,
-              "absoluteDelta": -19.889586627483368,
+              "parentValue": 96120656.82432207,
+              "branchValue": 96120637.09445715,
+              "absoluteDelta": -19.729864925146103,
               "relativeDelta": 0
             },
             {
               "name": "annualEmissions",
               "path": "annualEmissions",
-              "parentValue": 427051539.61380947,
-              "branchValue": 427051539.96079904,
-              "absoluteDelta": 0.34698957204818726,
+              "parentValue": 106086693.42712256,
+              "branchValue": 106086693.93044859,
+              "absoluteDelta": 0.503326028585434,
               "relativeDelta": 0
             },
             {
               "name": "temperatureAnomaly",
               "path": "temperatureAnomaly",
-              "parentValue": 61.21168048134018,
-              "branchValue": 61.211680259735175,
-              "absoluteDelta": -2.2160500634527125e-7,
+              "parentValue": 55.16718046254495,
+              "branchValue": 55.16717957415585,
+              "absoluteDelta": -8.883890956212781e-7,
               "relativeDelta": 0
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: co2Concentration: 388456149.78 → 388456129.89 (0.0%); annualEmissions: 427051539.61 → 427051539.96 (0.0%); annualEmissionsNoise: 0.20 → 0.02 (-90.0%); temperatureAnomaly: 61.21 → 61.21 (0.0%)"
+          "summary": "Top metric changes: co2Concentration: 96120656.82 → 96120637.09 (0.0%); annualEmissions: 106086693.43 → 106086693.93 (0.0%); annualEmissionsNoise: 0.20 → 0.02 (-90.0%); temperatureAnomaly: 55.17 → 55.17 (0.0%)"
         },
         "economy": {
           "sectorId": "economy",
@@ -1700,169 +1907,238 @@
             {
               "name": "length",
               "path": "world.state._outcomeRecords.length",
-              "parentValue": 57,
-              "branchValue": 69,
-              "absoluteDelta": 12,
-              "relativeDelta": 21.05
+              "parentValue": 352,
+              "branchValue": 354,
+              "absoluteDelta": 2,
+              "relativeDelta": 0.57
             },
             {
               "name": "length",
               "path": "world.state._cssd.cycles.length",
-              "parentValue": 10,
-              "branchValue": 4,
-              "absoluteDelta": -6,
-              "relativeDelta": -60
+              "parentValue": 11,
+              "branchValue": 9,
+              "absoluteDelta": -2,
+              "relativeDelta": -18.18
             },
             {
               "name": "length",
               "path": "world.state._ipc.cases.length",
-              "parentValue": 136,
-              "branchValue": 126,
-              "absoluteDelta": -10,
-              "relativeDelta": -7.35
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "handHygieneCompliance",
               "path": "world.state._ipc.handHygieneCompliance",
-              "parentValue": 81,
-              "branchValue": 63,
-              "absoluteDelta": -18,
-              "relativeDelta": -22.22
+              "parentValue": 69,
+              "branchValue": 78,
+              "absoluteDelta": 9,
+              "relativeDelta": 13.04
             },
             {
               "name": "length",
               "path": "world.state._clinicalNutrition.assessments.length",
-              "parentValue": 16,
-              "branchValue": 17,
-              "absoluteDelta": 1,
-              "relativeDelta": 6.25
+              "parentValue": 9,
+              "branchValue": 6,
+              "absoluteDelta": -3,
+              "relativeDelta": -33.33
             },
             {
               "name": "length",
               "path": "world.state._clinicalNutrition.tubeFeedings.length",
-              "parentValue": 1,
-              "branchValue": 2,
+              "parentValue": 0,
+              "branchValue": 1,
               "absoluteDelta": 1,
-              "relativeDelta": 100
+              "relativeDelta": null
             },
             {
               "name": "length",
-              "path": "world.state._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 3,
-              "absoluteDelta": 3,
-              "relativeDelta": null
+              "path": "world.state._clinicalNutrition.tpnOrders.length",
+              "parentValue": 3,
+              "branchValue": 7,
+              "absoluteDelta": 4,
+              "relativeDelta": 133.33
             },
             {
               "name": "length",
               "path": "world.state._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 42,
-              "absoluteDelta": 42,
-              "relativeDelta": null
+              "parentValue": 2,
+              "branchValue": 6,
+              "absoluteDelta": 4,
+              "relativeDelta": 200
             },
             {
               "name": "length",
               "path": "world.state._dialysis.sessions.length",
-              "parentValue": 226,
-              "branchValue": 227,
-              "absoluteDelta": 1,
-              "relativeDelta": 0.44
+              "parentValue": 13,
+              "branchValue": 8,
+              "absoluteDelta": -5,
+              "relativeDelta": -38.46
             },
             {
               "name": "length",
               "path": "lastTickState._outcomeRecords.length",
-              "parentValue": 57,
-              "branchValue": 69,
-              "absoluteDelta": 12,
-              "relativeDelta": 21.05
+              "parentValue": 352,
+              "branchValue": 354,
+              "absoluteDelta": 2,
+              "relativeDelta": 0.57
             },
             {
               "name": "length",
               "path": "lastTickState._cssd.cycles.length",
-              "parentValue": 10,
-              "branchValue": 4,
-              "absoluteDelta": -6,
-              "relativeDelta": -60
+              "parentValue": 11,
+              "branchValue": 9,
+              "absoluteDelta": -2,
+              "relativeDelta": -18.18
             },
             {
               "name": "length",
               "path": "lastTickState._ipc.cases.length",
-              "parentValue": 136,
-              "branchValue": 126,
-              "absoluteDelta": -10,
-              "relativeDelta": -7.35
+              "parentValue": 1,
+              "branchValue": 0,
+              "absoluteDelta": -1,
+              "relativeDelta": -100
             },
             {
               "name": "handHygieneCompliance",
               "path": "lastTickState._ipc.handHygieneCompliance",
-              "parentValue": 81,
-              "branchValue": 63,
-              "absoluteDelta": -18,
-              "relativeDelta": -22.22
+              "parentValue": 69,
+              "branchValue": 78,
+              "absoluteDelta": 9,
+              "relativeDelta": 13.04
             },
             {
               "name": "length",
               "path": "lastTickState._clinicalNutrition.assessments.length",
-              "parentValue": 16,
-              "branchValue": 17,
-              "absoluteDelta": 1,
-              "relativeDelta": 6.25
+              "parentValue": 9,
+              "branchValue": 6,
+              "absoluteDelta": -3,
+              "relativeDelta": -33.33
             },
             {
               "name": "length",
               "path": "lastTickState._clinicalNutrition.tubeFeedings.length",
-              "parentValue": 1,
-              "branchValue": 2,
+              "parentValue": 0,
+              "branchValue": 1,
               "absoluteDelta": 1,
-              "relativeDelta": 100
+              "relativeDelta": null
             },
             {
               "name": "length",
-              "path": "lastTickState._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 3,
-              "absoluteDelta": 3,
-              "relativeDelta": null
+              "path": "lastTickState._clinicalNutrition.tpnOrders.length",
+              "parentValue": 3,
+              "branchValue": 7,
+              "absoluteDelta": 4,
+              "relativeDelta": 133.33
             },
             {
               "name": "length",
               "path": "lastTickState._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 42,
-              "absoluteDelta": 42,
-              "relativeDelta": null
+              "parentValue": 2,
+              "branchValue": 6,
+              "absoluteDelta": 4,
+              "relativeDelta": 200
             },
             {
               "name": "length",
               "path": "lastTickState._dialysis.sessions.length",
-              "parentValue": 226,
-              "branchValue": 227,
-              "absoluteDelta": 1,
-              "relativeDelta": 0.44
+              "parentValue": 13,
+              "branchValue": 8,
+              "absoluteDelta": -5,
+              "relativeDelta": -38.46
             },
             {
               "name": "occupancyRate",
               "path": "sentinelOutput.occupancyRate",
-              "parentValue": 0.5263157894736842,
-              "branchValue": 0.5714285714285714,
-              "absoluteDelta": 0.045112781954887216,
-              "relativeDelta": 8.57
+              "parentValue": 0.007633587786259542,
+              "branchValue": 0,
+              "absoluteDelta": -0.007633587786259542,
+              "relativeDelta": -100
             },
             {
               "name": "UNKNOWN",
               "path": "sentinelOutput.diseasePrevalence.UNKNOWN",
-              "parentValue": 187,
-              "branchValue": 207,
-              "absoluteDelta": 20,
-              "relativeDelta": 10.7
+              "parentValue": 359,
+              "branchValue": 356,
+              "absoluteDelta": -3,
+              "relativeDelta": -0.84
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: world.state._radiotherapy.fractions.length: 0.00 → 42.00 (+Infinity%); lastTickState._radiotherapy.fractions.length: 0.00 → 42.00 (+Infinity%); sentinelOutput.diseasePrevalence.UNKNOWN: 187.00 → 207.00 (+10.7%); world.state._ipc.handHygieneCompliance: 81.00 → 63.00 (-22.2%); lastTickState._ipc.handHygieneCompliance: 81.00 → 63.00 (-22.2%)"
+          "summary": "Top metric changes: world.state._ipc.handHygieneCompliance: 69.00 → 78.00 (+13.0%); lastTickState._ipc.handHygieneCompliance: 69.00 → 78.00 (+13.0%); world.state._dialysis.sessions.length: 13.00 → 8.00 (-38.5%); lastTickState._dialysis.sessions.length: 13.00 → 8.00 (-38.5%); world.state._clinicalNutrition.tpnOrders.length: 3.00 → 7.00 (+133.3%)"
         }
       }
     },
-    "createdAt": "2026-06-30T02:39:09.579Z"
+    "guards": {
+      "matchedHorizon": true,
+      "parentTick": 20,
+      "childTick": 20,
+      "baselineIdentical": true,
+      "baselineStateHash": "e931d3e5",
+      "bookkeeping": {
+        "year": {
+          "parent": 2040,
+          "child": 2040
+        },
+        "tickCount": {
+          "parent": 20,
+          "child": 20
+        }
+      }
+    },
+    "primaryOutcomes": [
+      {
+        "outcomeId": "cssd-cycles",
+        "outcomeLabel": "Sterile Processing (CSSD) cycles",
+        "sector": "deers-rock-makassar-001",
+        "path": "world.state._cssd.cycles.length",
+        "parentValue": 11,
+        "branchValue": 9,
+        "absoluteDelta": -2,
+        "relativeDelta": -18.18
+      },
+      {
+        "outcomeId": "cssd-cycles",
+        "outcomeLabel": "Sterile Processing (CSSD) cycles",
+        "sector": "deers-rock-makassar-001",
+        "path": "lastTickState._cssd.cycles.length",
+        "parentValue": 11,
+        "branchValue": 9,
+        "absoluteDelta": -2,
+        "relativeDelta": -18.18
+      },
+      {
+        "outcomeId": "dialysis-sessions",
+        "outcomeLabel": "Dialysis sessions",
+        "sector": "deers-rock-makassar-001",
+        "path": "world.state._dialysis.sessions.length",
+        "parentValue": 13,
+        "branchValue": 8,
+        "absoluteDelta": -5,
+        "relativeDelta": -38.46
+      },
+      {
+        "outcomeId": "dialysis-sessions",
+        "outcomeLabel": "Dialysis sessions",
+        "sector": "deers-rock-makassar-001",
+        "path": "lastTickState._dialysis.sessions.length",
+        "parentValue": 13,
+        "branchValue": 8,
+        "absoluteDelta": -5,
+        "relativeDelta": -38.46
+      },
+      {
+        "outcomeId": "occupancy",
+        "outcomeLabel": "Hospital occupancy",
+        "sector": "deers-rock-makassar-001",
+        "path": "sentinelOutput.occupancyRate",
+        "parentValue": 0.007633587786259542,
+        "branchValue": 0,
+        "absoluteDelta": -0.007633587786259542,
+        "relativeDelta": -100
+      }
+    ],
+    "createdAt": "2026-08-31T11:54:49.925Z"
   }
 ]
