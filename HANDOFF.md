@@ -264,5 +264,6 @@ Everything built (RNG, UniverseID, Rewind Points, Branch Engine, Diff Engine, St
   **Meta Platform:** ✅ Noted.
 - **2026-06-30** — Timeline Governor built the era-to-world JSON loader (`src/engine/era-loader.ts` + tests). Phase 1.1 complete before roadmap was even finalized.
 - **2026-06-29** — **Sector Engineer:** Era-to-world loader built (`src/engine/era-loader.ts`). `buildSectorConfigs(state, era)` maps StrategicWorldState → sector configs. `loadEraConfig(path, rewindPointId)` reads era JSON from disk. Handles era-specific defaults for CO2, emissions, R&D, GDP growth, inflation, trade volume. 7 tests. **Handoff complete — usable by Branch Analyst for future counterfactuals.**
+- **2026-08-31** — **Sentinel feedback descoped as unimplemented per 2026-08-31 reopening audit (NCR-2026-003 related).** `health.*` events (`health.pressure`, `health.mortality`, `health.surge`, `health.down`, `health.supply-crisis`) published by `src/sectors/deers-rock-adapter.ts` are not consumed by any sector — current integration is world→hospital only; hospital→world feedback is design intent. Docs corrected to remove affirmative bidirectional claims: `docs/sentinel-integration-map.md`, `docs/proposals/P-002-deers-rock-adapter.md`, `docs/papers/jamia-2026-kronos-engine.md`. Full bidirectional wiring requires a sector subscribing to `health.*`.
 
 ---

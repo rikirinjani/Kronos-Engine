@@ -14,9 +14,9 @@
 
 **Objective:** Healthcare systems operate within complex socio-economic and environmental contexts that cannot be experimentally controlled in real-world settings. A hospital administrator cannot observe the same system both with and without a recession, a heatwave, or a pandemic. Simulation offers the only window into those counterfactuals, but existing frameworks either lack macro-level drivers (climate, economy, geopolitics) or sacrifice reproducibility. We present Kronos Engine, a deterministic counterfactual experimentation platform that bridges global systemic drivers and local health system outcomes through a sentinel adapter pattern.
 
-**Materials and Methods:** Kronos Engine implements a modular architecture with six world sectors (Geopolitics, Climate, Economy, Technology, Energy, Demographics) connected to existing hospital simulators via a sentinel adapter — a zero-modification wrapper that translates macro conditions into hospital-relevant parameters and aggregates hospital pressure signals back to the world. The platform enforces full determinism through seeded pseudo-random number generation, sorted iteration order, and snapshot-based rewind points. We conducted two experiments: (1) a "No World War II" counterfactual (30 seeds, 1,421 metrics) examining GDP trajectories across nine nations, and (2) a climate-emissions intervention (30 seeds, 156 metrics) measuring hospital-level operational impact via an Indonesian sentinel hospital.
+**Materials and Methods:** Kronos Engine implements a modular architecture with six world sectors (Geopolitics, Climate, Economy, Technology, Energy, Demographics) connected to existing hospital simulators via a sentinel adapter — a zero-modification wrapper that translates macro conditions into hospital-relevant parameters and publishes aggregated hospital pressure signals on the world event bus (inbound consumption of these `health.*` signals by world sectors is not yet implemented). The platform enforces full determinism through seeded pseudo-random number generation, sorted iteration order, and snapshot-based rewind points. We conducted two experiments: (1) a "No World War II" counterfactual (30 seeds, 1,421 metrics) examining GDP trajectories across nine nations, and (2) a climate-emissions intervention (30 seeds, 156 metrics) measuring hospital-level operational impact via an Indonesian sentinel hospital.
 
-**Results:** The WWII counterfactual produced statistically significant GDP divergence across all nine pre-specified primary outcome nations (Cohen's d > 1.0; Bonferroni-adjusted p < 0.05), with the United States showing the largest mean difference (Δ = +$31.3B, d = 1.13). The climate intervention verified end-to-end sentinel pipeline operation; 14 of 156 operational metrics reached significance (Bonferroni-corrected), including occupancy rate (d = 0.70), dialysis sessions (d = 1.11), and CSSD sterilization cycles (d = -2.71). A 30-hospital regional network demonstrated the adapter's distributed operational capability, with occupancy ranging from 40.4% (Sulawesi) to 49.1% (Kalimantan) across five Indonesian regions.
+**Results:** The WWII counterfactual produced statistically significant GDP divergence across all nine pre-specified primary outcome nations (Cohen's d > 1.0; Bonferroni-adjusted p < 0.05), with the United States showing the largest mean difference (Δ = +$31.3B, d = 1.13). The climate intervention verified end-to-end (world→hospital) sentinel pipeline operation; 14 of 156 operational metrics reached significance (Bonferroni-corrected), including occupancy rate (d = 0.70), dialysis sessions (d = 1.11), and CSSD sterilization cycles (d = -2.71). A 30-hospital regional network demonstrated the adapter's distributed operational capability, with occupancy ranging from 40.4% (Sulawesi) to 49.1% (Kalimantan) across five Indonesian regions.
 
 **Discussion:** The sentinel adapter pattern enables existing, independently validated hospital simulators to participate in reproducible multi-scale counterfactuals without code modification. This paper reports internal consistency and architectural validation; empirical calibration against real hospital admission data is the critical next step. The platform generalizes to any domain where micro-level operations depend on macro-level drivers.
 
@@ -45,7 +45,7 @@ This paper makes five contributions:
 
 1. **Architecture** — A deterministic, modular counterfactual engine with pluggable sectors and seeded reproducibility
 2. **Sentinel adapter pattern** — Zero-modification integration of standalone simulators into a multi-scale counterfactual platform
-3. **Cross-sector feedback** — Verified end-to-end coupling of climate, economy, and health sectors via an integration test
+3. **Cross-sector coupling (world → hospital)** — Verified one-way coupling of climate, economy, and health sectors via an integration test; inbound hospital→world feedback is not yet implemented
 4. **Retrospective validation** — WWII counterfactual reproducing known GDP divergence across nine nations, with explicit statistical correction for multiple comparisons
 5. **Prospective demonstration** — Climate-emissions-to-hospital operational pipeline with a 30-hospital regional network
 
@@ -72,7 +72,7 @@ DEERS ROCK (micro, 1 tick = 1 minute) [×N sentinels]
 ADAPTER LAYER (aggregation, signal extraction)
     |  occupancy, mortality, prevalence
     v
-CHRONOS ENGINE (reads as regional sentinel output)
+CHRONOS ENGINE (sentinel output published — not consumed)
 ```
 
 The world engine ticks once per simulated day. Each tick executes six world sectors in sequence. Sectors communicate through a typed event bus — events published in tick *t* are consumed at the start of tick *t+1*, preventing circular dependencies while allowing realistic one-day propagation lag.
@@ -118,9 +118,9 @@ Event magnitudes are calibrated to approximate historical ranges — for example
 
 Sectors communicate through a typed event bus with a one-tick propagation delay. An example chain illustrates the full cross-sector pathway:
 
-Climate `extreme_weather` → Economy `gdp_shift` (agricultural loss) → Adapter builds `MacroConditionPacket` with elevated `admissionMultiplier` (uninsured patients increase) → Deers Rock occupancy rises → Sentinel reports `health.pressure` → Geopolitics receives regional stability signal.
+Climate `extreme_weather` → Economy `gdp_shift` (agricultural loss) → Adapter builds `MacroConditionPacket` with elevated `admissionMultiplier` (uninsured patients increase) → Deers Rock occupancy rises → Sentinel reports `health.pressure` (published on the event bus; as of 2026-08-31 no sector subscribes to `health.*`, so the signal is not consumed).
 
-The integration test (Section 2.6) validates that this round-trip from climate event to hospital outcome produces measurable signal.
+The integration test (Section 2.6) validates the world→hospital leg of this pathway: a climate event produces a measurable hospital outcome. It does not exercise inbound `health.*` consumption, which is unimplemented.
 
 ### 2.5 Sentinel Adapter Pattern
 
@@ -199,14 +199,14 @@ String-based hashing avoids ambiguity when sentinel IDs share numeric suffixes, 
 
 ### 2.6 Integration Test: Heatwave to Health Crisis
 
-A full round-trip integration test validates the architecture end-to-end:
+An integration test validates the world→hospital leg of the architecture:
 
 1. Initialize universe with seed 42 at RP-CONTEMP-002 (COVID-19 baseline)
 2. Run 10 days without intervention (baseline)
 3. At day 10, inject a heatwave into the Climate sector
 4. Run 30 more days
 
-Expected chain: Climate heatwave → Economy recession → `MacroConditionPacket` with elevated `admissionMultiplier` → Deers Rock occupancy rises → Sentinel reports elevated `health.pressure`. The test verified that climate-to-hospital propagation produces measurable operational signal at 30 ticks, confirming architecture correctness.
+Expected chain: Climate heatwave → Economy recession → `MacroConditionPacket` with elevated `admissionMultiplier` → Deers Rock occupancy rises → Sentinel reports elevated `health.pressure`. The test verified that climate-to-hospital (world→hospital) propagation produces measurable operational signal at 30 ticks, confirming the outbound direction; inbound `health.*` consumption is not implemented.
 
 ### 2.7 Counterfactual Pipeline
 

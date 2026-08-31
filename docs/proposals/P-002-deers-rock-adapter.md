@@ -1,5 +1,7 @@
 # P-002: Deers Rock as Sentinel Adapter (Zero Modifications)
 
+> **STATUS NOTE (2026-08-31):** Inbound sentinel→world feedback (consumption of the adapter's `health.*` events — `health.pressure`, `health.mortality`, `health.surge`, `health.down`, `health.supply-crisis`) is **not implemented**: no sector registers a handler for any `health.*` event, so published sentinel signals are dropped. The world→hospital direction is verified (macro events → `MacroConditionPacket` → 1,440 DR ticks/day → aggregated `HospitalSentinelOutput`). The proposal's bidirectional claims (e.g., "Full Round Trip", "The Feedback Loop That Makes This Novel") should be read as **design intent**, not current behavior. See `docs/sentinel-integration-map.md` → "Bidirectional Claims vs Current State".
+
 **Goal:** Integrate Deers Rock into Kronos Engine as a `Sector` without changing a single file in `C:\Users\think\Deers-Rock\`.
 
 **No single line in Deers Rock's source knows the world exists.**
