@@ -1,0 +1,11 @@
+{
+  "description": "Deers Rock reopening audit verification (2026-08-31, DR side). Eight specialist lanes (4 recon + 6 fixer) plus coordinator synthesis established: (1) cross-process determinism PROVEN (byte-identical SHA-256, seeds 42/0/7, 200 ticks; genuine mulberry32 bit-identical to canonical for 100k outputs); (2) per-sentinel seed derivation verified (worldSeed ^ hospitalId*2654435761, djb2 hospitalId); (3) sentinel independence PROVEN (A!=B!=C, B byte-identical cross-process, perturbation of A changes neither B nor C); (4) macro->micro adapter INERT (admission_surge/staff_shortage dropped by world.ts switch; 3/5 packet fields never read; sentinel output byte-identical with/without events over 20 world ticks); (5) micro->macro channel DEAD (zero health.* subscribers; 22 forced events + direct injection changed 0 world sectors); (6) P-004 counterfactual NOT reproducible (156/14 committed vs 515/42 fresh vs 532/31+530/41 stale; effects are stale-build nondeterminism + rewind-aliasing artifacts); (7) 10/14 'significant' metrics are duplicates/degenerate; BH-FDR 9, Bonferroni 8 survivors; 7.8 expected false positives. Evidence: reopen-audit/01-08, traces dr-reopen-audit-synthesis.pm1, dr-reopen-paper-package.pm1.",
+  "linked_tasks": [
+    "NCR-2026-006",
+    "dr-reopen-audit"
+  ],
+  "ver_id": "VER-2026-004",
+  "date": "2026-08-31T20-30-00",
+  "evidence_path": "C:\\Users\\think\\Project_v2\\Deers-Rock\\reopen-audit\\",
+  "outcome": "PASS with findings — architectural core verified; coupling claims refuted"
+}

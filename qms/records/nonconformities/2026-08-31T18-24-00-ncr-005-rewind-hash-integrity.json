@@ -1,0 +1,13 @@
+{
+    "trigger": "integrity_layer_defective",
+    "severity": "major",
+    "trace_id": "kronos-reopen-audit.pm1",
+    "agent": "timeline-governor",
+    "role": "Timeline Governor",
+    "date": "2026-08-31T18-24-00",
+    "status": "open",
+    "corrective_action": "(1) Deep-clone sector states in createRewindPoint (rewind-point.ts:62-63 stores references; in-place sector mutation aliases/corrupts captured state — probe: RP captured tickCount 0, after parent ran 30 ticks RP state showed tickCount 3, verify() still true). (2) Fix hashState (timeline/hash.ts): the sorted-key replacer array drops all nested content — probes show nested GDP changes, rngState seed changes, and emptied sectorStates all produce identical hashes; only top-level tick scalar is captured. (3) Add regression tests: RP must remain unchanged after parent continues; verify() must fail when state is mutated. (4) Re-run P-003/P-004 after fix — current branch diff compares child year 1972 vs parent 1969 (3-tick baseline offset), so year/tickCount (d=4.82) top the significant list as artifacts.",
+    "root_cause": "Two compounding defects: RewindPoint stores state by reference while sector tick mutates in place, and hashState cannot see nested state, making RewindPoint.verify() vacuous. Net effect: every P-003 counterfactual diff is contaminated by a 3-tick/3-year horizon mismatch and a corrupted baseline; the headline 'significant' metrics year/tickCount are artifacts of the bug.",
+    "ncr_id": "NCR-2026-005",
+    "evidence": "probes (deleted after run): hashState deep-change equal (795adbf5==795adbf5), rngState-change equal, empty-sectorStates equal; rewind-point.ts:62-63; world-engine.ts restoreSnapshot:132"
+}

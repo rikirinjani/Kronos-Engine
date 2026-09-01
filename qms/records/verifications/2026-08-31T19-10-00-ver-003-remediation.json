@@ -1,0 +1,21 @@
+{
+    "description": "Remediation verification (2026-08-31, same session as VER-2026-002). Six fixer lanes applied in worktree C:\\Users\\think\\Project_v2\\Kronos-Engine-remediation (branch reopen-remediation): fix-1 hashState canonical serialization + RewindPoint deep-clone baseline immutability; fix-2 verify-facts CI gate repair + sector factory exports; fix-3 stats rebuild (one-sample t p-values, BH-FDR, Bonferroni, degenerate guards, noise floor); fix-4 sensitivity-sweep noise baseline guard; fix-5 counterfactual redesign (pre-specified PRIMARY_OUTCOMES, matched-horizon + identical-baseline guards, bookkeeping strip); fix-6 sentinel documentation honesty.",
+    "linked_tasks": [
+        "NCR-2026-003",
+        "NCR-2026-004",
+        "NCR-2026-005",
+        "reopen-audit-2026-08-31"
+    ],
+    "ver_id": "VER-2026-003",
+    "date": "2026-08-31T19-10-00",
+    "evidence_path": "npx vitest run (34 files / 307 tests pass, exit 0); npx tsc --noEmit (clean, exit 0); npx tsx scripts/verify-facts.ts (12/12 checks, exit 0); P-003 calibrated regenerated twice (1233 metrics, 19 sig uncorrected, 1 FDR, 1 Bonferroni, 0 GDP sig, reproducible); P-004 30-seed rerun (212 metrics, 14 sig, DR nondeterminism noted)",
+    "result": "pass_with_findings",
+    "findings": [
+        "Corrected P-003: only wars.W-1939-01.casualties survives FDR (d=-1.46, q=2.4e-6) - trivially mechanical; zero GDP effects; nation-gdp primary consistent=false. Paper's headline claim does not survive even after fixes.",
+        "Corrected P-004: 14 sig at p<0.05 dominated by tiny-variance economy artifacts (d +-10..47); real hospital effects small (d 0.48-0.65); pre-specified primaries consistent=false.",
+        "Deers-Rock sibling uses unseeded Math.random / Date.now -> P-004 not byte-reproducible run-to-run (external repo, out of worktree scope).",
+        "PROJECT-OVERVIEW.md still asserts bidirectional sentinel integration (doc follow-up needed).",
+        "Worktree uncommitted; merge pending human approval; main repo committed artifacts still carry pre-fix numbers."
+    ],
+    "verdict": "Engineering remediation verified green (suite + gate); paper must be reconstructed from corrected numbers with P-003 as honest negative result"
+}

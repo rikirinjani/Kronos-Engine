@@ -1,0 +1,19 @@
+{
+    "description": "Reproducibility package verification (2026-08-31). One-command reproduction path built and verified: scripts/reproduce.ts runs 5 deterministic gates and exits 0. Independently re-run by orchestrator: tsc clean, 307 tests / 34 files, verify-facts 12/12 exit 0, P-003 regenerated in-memory matches committed artifact (1233 metrics, 19 sig / 1 FDR / 1 Bonferroni, 0 GDP, paths match within 1e-6), sensitivity sweep noise fields present with finite falsePositiveRatio 0. P-004 reported informational (Deers-Rock unseeded Math.random/Date.now nondeterminism — exact reproduction not guaranteed). Release metadata prepared: MIT LICENSE, CITATION.cff 1.2.0, .zenodo.json, package.json v1.0.0 (engines node>=22, reproduce script), RELEASE-CHECKLIST.md with 7 human gates (authors/ORCID/affiliations/JAMIA DOI placeholders per governance §18 — no invented values).",
+    "linked_tasks": [
+        "reproduce-package",
+        "release-metadata-v1.0.0",
+        "VER-2026-003"
+    ],
+    "ver_id": "VER-2026-004",
+    "date": "2026-08-31T19-40-00",
+    "evidence_path": "npx tsx scripts/reproduce.ts (exit 0, 5/5 gates, 69.6s); git log on reopen-remediation: 6b397fc, 1e36cbd, f9bb0b7, cfdeebf, d436fd0",
+    "result": "pass",
+    "findings": [
+        "Deterministic reproduction path verified end-to-end (exit 0)",
+        "P-004 not byte-reproducible due to external Deers-Rock nondeterminism - documented, informational-only gate",
+        "Release metadata placeholders await human fill-in (RELEASE-CHECKLIST.md gates 1-3)",
+        "Zenodo GitHub integration + tag v1.0.0 + DOI minting are human-gated (gates 4-7)"
+    ],
+    "verdict": "Reproducibility package complete and verified; release metadata prepared, stopped at authorization boundary (governance §18)"
+}

@@ -1,0 +1,22 @@
+{
+    "description": "Reopening audit verification (2026-08-31): 256 tests / 33 files pass (vitest run 18.73s); tsc --noEmit clean; P-003 regenerated in-memory byte-identical (835 metrics, 24 significant, 0 mismatches, 0.4s); determinism probes pass for same-seed, diff-seed, snapshot/restore-continuation; power analysis computed from observed d-values; sentinel feedback wiring audited (health.* unhandled); 13 preseeded rewind points confirmed; verify-facts gate fails 7/11 (see NCR-2026-004).",
+    "linked_tasks": [
+        "reopen-audit-2026-08-31"
+    ],
+    "ver_id": "VER-2026-002",
+    "date": "2026-08-31T18-26-00",
+    "evidence_path": "npx vitest run; npx tsc --noEmit; npx tsx scripts/verify-facts.ts; transient tsx probes (deleted); node -e power analysis",
+    "result": "fail_with_findings",
+    "findings": [
+        "paper P-003 numbers fabricated vs committed data (NCR-2026-003)",
+        "verify-facts CI gate broken 7/11 (NCR-2026-004)",
+        "hashState vacuous + rewind aliasing corrupts baselines (NCR-2026-005)",
+        "P-003 significant count (24) below noise floor (41.8 expected false positives at alpha=0.05 uncorrected)",
+        "no multiplicity correction anywhere in stats.ts",
+        "sentinel health.* feedback loop not implemented (no subscriber)",
+        "EVENT_SUBSCRIPTIONS decorative; 2 declared pathways unwired",
+        "calibration casualty gap still OPEN per calibration-reference.json (1e4-1e5 recommendation vs 2500 used)",
+        "14 preseeded RP claim = over-count (13 actual)"
+    ],
+    "verdict": "NOT publishable as-is; engineering remediation required before paper reconstruction"
+}

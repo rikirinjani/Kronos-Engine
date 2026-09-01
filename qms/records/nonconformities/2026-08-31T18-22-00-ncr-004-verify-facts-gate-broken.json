@@ -1,0 +1,13 @@
+{
+    "trigger": "broken_ci_gate",
+    "severity": "major",
+    "trace_id": "kronos-reopen-audit.pm1",
+    "agent": "meta-platform",
+    "role": "Coordinator/Platform",
+    "date": "2026-08-31T18-22-00",
+    "status": "open",
+    "corrective_action": "Fix scripts/verify-facts.ts: (1) parse vitest output correctly (regex does not match 'Tests 256 passed' format, reports 0); (2) determinism check compares globally-unique UniverseIDs instead of state hashes; (3) export the 6 sector factories from src/sectors/index.ts (verify-facts Fact 8 fails); (4) replace `rg` dependency with a portable JS leak scan that does not false-positive on the adapter's intentional bed.patientId occupancy read. Gate must pass before CI is trusted.",
+    "root_cause": "The 'truth-repair' CI gate itself fails on current code: 7 passed / 4 failed, exit code 1. Run: `npx tsx scripts/verify-facts.ts`. Failures: test-count regex parses 0 tests; determinism check conflates unique universe id with state identity; index-export check fails because src/sectors/index.ts exports only events/types; patient-data leak check silently skipped (rg not installed). A broken honesty gate cannot enforce honesty.",
+    "ncr_id": "NCR-2026-004",
+    "evidence": "scripts/verify-facts.ts; run output '11 checks: 7 passed, 4 failed' exit 1"
+}

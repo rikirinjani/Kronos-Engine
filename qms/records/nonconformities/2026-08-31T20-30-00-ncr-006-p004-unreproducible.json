@@ -1,0 +1,11 @@
+{
+  "description": "Deers Rock P-004 counterfactual artifacts are unreproducible and their reported statistical results are invalid (found by DR reopen audit 2026-08-31). Committed p004-30seeds (156 metrics, 14 significant, d=-2.71/+1.11/+0.91/+0.70/+0.58) regenerates as 515/42 (fresh deterministic build) and 532/31+530/41 (pre-fix build, run-to-run non-reproducible). Root causes: (1) experiment hardcodes worldSeed=42 so deterministic build gives d=0 on all DR metrics; (2) committed seed-varying DR values require unseeded Math.random in the stale pre-fix dist; (3) rewind-point aliasing bug (sector state stored by reference, in-place mutation corrupts branch baseline); (4) stats.ts cohensD against all-zero control (one-sample standardized mean, not two-group d) and significance without multiplicity correction. Corrected analysis: 7.8 expected false positives at alpha=0.05, 71% of significant flags are duplicates/degenerate, BH-FDR 9 survivors, Bonferroni 8. Impact: previous paper numbers (LOS 82.9, deaths 4.3, 82% disaster mortality, 14/156) must not be published; prior byte-for-byte reproduction claim is FALSE.",
+  "linked_tasks": [
+    "VER-2026-004"
+  ],
+  "ncr_id": "NCR-2026-006",
+  "date": "2026-08-31T20-30-00",
+  "severity": "major",
+  "category": "unreproducible-results",
+  "status": "OPEN — requires adapter consumption path + stats rebuild before re-running"
+}
