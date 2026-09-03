@@ -104,13 +104,13 @@ function loadEraState(eraFile: string, rpId: string): EraState {
   return raw.states[rpId]!;
 }
 
-function createAllSectors(): Sector[] {
+function createAllSectors(worldSeed: number): Sector[] {
   return [
     createGeopoliticsSector(),
     createClimateSector(),
     createEconomySector(),
     createTechnologySector(),
-    deersRockAdapter({ ...SENTINEL }, 42),
+    deersRockAdapter({ ...SENTINEL }, worldSeed),
   ];
 }
 
@@ -322,7 +322,7 @@ export function runSingleSeed(seed: number): GuardedExperimentRun {
   resetRewindCounter();
 
   const era = loadEraState("era-contemporary.json", "RP-CONTEMP-002");
-  const sectors = createAllSectors();
+  const sectors = createAllSectors(seed);
   const sectorMap = new Map(sectors.map((s) => [s.id, s]));
   const configs = buildSectorConfigs(era);
   const world = createWorld(sectors, configs, { seed });
