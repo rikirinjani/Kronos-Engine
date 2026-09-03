@@ -2,7 +2,7 @@ import type { Sector, SectorState, WorldContext, TickHandler } from "./types.js"
 import { CLIMATE_EVENTS, GEOPOLITICS_EVENTS, ECONOMY_EVENTS } from "./events.js";
 import type { World } from "../../../Deers-Rock/dist/index.js";
 import type { HospitalState } from "../../../Deers-Rock/dist/engine/state-store.js";
-import { createWorld, step } from "../../../Deers-Rock/dist/index.js";
+import { createWorld, step, computeSupplyStress } from "../../../Deers-Rock/dist/index.js";
 
 const TICKS_PER_WORLD_TICK = 1440;
 
@@ -100,7 +100,8 @@ function extractSentinelOutput(world: World, config: HospitalSentinelConfig, wor
   const occ = extractOccupancy(state);
   const mortalityCount = (state as unknown as Record<string, unknown>).morgue instanceof Array ? (state.morgue as unknown[]).length : 0;
   const diseasePrev = extractDiseasePrevalence(state);
-  const supplyStress = 0.3;
+  // Phase E: replace hardcoded 0.3 with actual DR-derived supply stress
+  const supplyStress = computeSupplyStress(state);
 
   const activeEncounters = state.encounters.size;
   const staffStress = Math.min(1, activeEncounters / (Object.keys(state.wardCapacity).length * 3));
