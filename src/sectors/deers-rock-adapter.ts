@@ -209,6 +209,12 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
         if (i === 0 && macroPacket.staffAvailabilityModifier < 1.0) {
           world.queue.schedule("staff_shortage", 0, { modifier: macroPacket.staffAvailabilityModifier });
         }
+        if (i === 0 && macroPacket.supplyChainPressure > 0) {
+          world.queue.schedule("supply_chain_pressure", 0, { pressure: macroPacket.supplyChainPressure });
+        }
+        if (i === 0 && macroPacket.activeDisasterType) {
+          world.queue.schedule("active_disaster", 0, { disasterType: macroPacket.activeDisasterType });
+        }
         try {
           world = step(world);
           circuitTripped = false;
