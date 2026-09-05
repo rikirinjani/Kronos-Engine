@@ -16,19 +16,19 @@
     "checkpoint": {
       "id": "RP-2026-0001",
       "tick": 0,
-      "stateHash": "f03c7aa9"
+      "stateHash": "efb6ae33"
     },
-    "baselineHash": "6a71ee4e",
-    "interventionHash": "2741cdb4"
+    "baselineHash": "693928f8",
+    "interventionHash": "84e90a59"
   },
   "run2": {
     "checkpoint": {
       "id": "RP-2026-0001",
       "tick": 0,
-      "stateHash": "f03c7aa9"
+      "stateHash": "efb6ae33"
     },
-    "baselineHash": "6a71ee4e",
-    "interventionHash": "2741cdb4"
+    "baselineHash": "693928f8",
+    "interventionHash": "84e90a59"
   },
   "verdicts": {
     "baselineReproducible": true,
@@ -38,13 +38,13 @@
   "causalTrace": {
     "sentinelOutput.occupancyRate": {
       "baseline": 0.5419847328244275,
-      "intervention": 0.5648854961832062,
-      "delta": 0.022900763358778664
+      "intervention": 0.5419847328244275,
+      "delta": 0
     },
     "sentinelOutput.icuOccupancyRate": {
       "baseline": 0.03571428571428571,
-      "intervention": 0.07142857142857142,
-      "delta": 0.03571428571428571
+      "intervention": 0.03571428571428571,
+      "delta": 0
     },
     "sentinelOutput.mortalityPressure": {
       "baseline": 0,
@@ -53,8 +53,8 @@
     },
     "sentinelOutput.supplyStress": {
       "baseline": 0.4917703703703704,
-      "intervention": 0.519525925925926,
-      "delta": 0.027755555555555533
+      "intervention": 0.4917703703703704,
+      "delta": 0
     },
     "sentinelOutput.staffStress": {
       "baseline": 1,
@@ -62,5 +62,5 @@
       "delta": 0
     }
   },
-  "createdAt": "2026-09-05T01:44:51.950Z"
+  "createdAt": "2026-09-05T07:54:06.986Z"
 }

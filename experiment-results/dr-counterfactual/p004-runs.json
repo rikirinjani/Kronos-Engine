@@ -21,7 +21,7 @@
       "rewindTick": 0,
       "currentTick": 20,
       "totalTicksElapsed": 20,
-      "capturedAt": "2026-08-31T11:53:09.498Z",
+      "capturedAt": "2026-09-05T09:21:00.702Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -85,159 +85,23 @@
           "metrics": [
             {
               "name": "length",
-              "path": "world.state._outcomeRecords.length",
-              "parentValue": 343,
-              "branchValue": 342,
-              "absoluteDelta": -1,
-              "relativeDelta": -0.29
+              "path": "world.queue.events.length",
+              "parentValue": 74,
+              "branchValue": 67,
+              "absoluteDelta": -7,
+              "relativeDelta": -9.46
             },
             {
-              "name": "length",
-              "path": "world.state.morgue.length",
-              "parentValue": 14,
-              "branchValue": 6,
-              "absoluteDelta": -8,
-              "relativeDelta": -57.14
-            },
-            {
-              "name": "length",
-              "path": "world.state._cssd.cycles.length",
-              "parentValue": 9,
-              "branchValue": 11,
-              "absoluteDelta": 2,
-              "relativeDelta": 22.22
-            },
-            {
-              "name": "length",
-              "path": "world.state._ipc.cases.length",
-              "parentValue": 1,
-              "branchValue": 0,
-              "absoluteDelta": -1,
-              "relativeDelta": -100
-            },
-            {
-              "name": "handHygieneCompliance",
-              "path": "world.state._ipc.handHygieneCompliance",
-              "parentValue": 84,
-              "branchValue": 85,
-              "absoluteDelta": 1,
-              "relativeDelta": 1.19
-            },
-            {
-              "name": "length",
-              "path": "world.state._clinicalNutrition.assessments.length",
-              "parentValue": 7,
-              "branchValue": 5,
-              "absoluteDelta": -2,
-              "relativeDelta": -28.57
-            },
-            {
-              "name": "length",
-              "path": "world.state._clinicalNutrition.tpnOrders.length",
-              "parentValue": 4,
-              "branchValue": 9,
-              "absoluteDelta": 5,
-              "relativeDelta": 125
-            },
-            {
-              "name": "length",
-              "path": "world.state._dialysis.sessions.length",
-              "parentValue": 15,
-              "branchValue": 7,
-              "absoluteDelta": -8,
-              "relativeDelta": -53.33
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._outcomeRecords.length",
-              "parentValue": 343,
-              "branchValue": 342,
-              "absoluteDelta": -1,
-              "relativeDelta": -0.29
-            },
-            {
-              "name": "length",
-              "path": "lastTickState.morgue.length",
-              "parentValue": 14,
-              "branchValue": 6,
-              "absoluteDelta": -8,
-              "relativeDelta": -57.14
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._cssd.cycles.length",
-              "parentValue": 9,
-              "branchValue": 11,
-              "absoluteDelta": 2,
-              "relativeDelta": 22.22
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._ipc.cases.length",
-              "parentValue": 1,
-              "branchValue": 0,
-              "absoluteDelta": -1,
-              "relativeDelta": -100
-            },
-            {
-              "name": "handHygieneCompliance",
-              "path": "lastTickState._ipc.handHygieneCompliance",
-              "parentValue": 84,
-              "branchValue": 85,
-              "absoluteDelta": 1,
-              "relativeDelta": 1.19
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._clinicalNutrition.assessments.length",
-              "parentValue": 7,
-              "branchValue": 5,
-              "absoluteDelta": -2,
-              "relativeDelta": -28.57
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._clinicalNutrition.tpnOrders.length",
-              "parentValue": 4,
-              "branchValue": 9,
-              "absoluteDelta": 5,
-              "relativeDelta": 125
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._dialysis.sessions.length",
-              "parentValue": 15,
-              "branchValue": 7,
-              "absoluteDelta": -8,
-              "relativeDelta": -53.33
-            },
-            {
-              "name": "occupancyRate",
-              "path": "sentinelOutput.occupancyRate",
-              "parentValue": 0.022900763358778626,
-              "branchValue": 0,
-              "absoluteDelta": -0.022900763358778626,
-              "relativeDelta": -100
-            },
-            {
-              "name": "mortalityPressure",
-              "path": "sentinelOutput.mortalityPressure",
-              "parentValue": 14,
-              "branchValue": 6,
-              "absoluteDelta": -8,
-              "relativeDelta": -57.14
-            },
-            {
-              "name": "UNKNOWN",
-              "path": "sentinelOutput.diseasePrevalence.UNKNOWN",
-              "parentValue": 353,
-              "branchValue": 345,
-              "absoluteDelta": -8,
-              "relativeDelta": -2.27
+              "name": "counter",
+              "path": "world.queue.counter",
+              "parentValue": 319,
+              "branchValue": 313,
+              "absoluteDelta": -6,
+              "relativeDelta": -1.88
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: world.state.morgue.length: 14.00 → 6.00 (-57.1%); world.state._dialysis.sessions.length: 15.00 → 7.00 (-53.3%); lastTickState.morgue.length: 14.00 → 6.00 (-57.1%); lastTickState._dialysis.sessions.length: 15.00 → 7.00 (-53.3%); sentinelOutput.mortalityPressure: 14.00 → 6.00 (-57.1%)"
+          "summary": "Top metric changes: world.queue.events.length: 74.00 → 67.00 (-9.5%); world.queue.counter: 319.00 → 313.00 (-1.9%)"
         }
       }
     },
@@ -246,7 +110,7 @@
       "parentTick": 20,
       "childTick": 20,
       "baselineIdentical": true,
-      "baselineStateHash": "2994ebf9",
+      "baselineStateHash": "c026182b",
       "bookkeeping": {
         "year": {
           "parent": 2040,
@@ -258,59 +122,8 @@
         }
       }
     },
-    "primaryOutcomes": [
-      {
-        "outcomeId": "cssd-cycles",
-        "outcomeLabel": "Sterile Processing (CSSD) cycles",
-        "sector": "deers-rock-makassar-001",
-        "path": "world.state._cssd.cycles.length",
-        "parentValue": 9,
-        "branchValue": 11,
-        "absoluteDelta": 2,
-        "relativeDelta": 22.22
-      },
-      {
-        "outcomeId": "cssd-cycles",
-        "outcomeLabel": "Sterile Processing (CSSD) cycles",
-        "sector": "deers-rock-makassar-001",
-        "path": "lastTickState._cssd.cycles.length",
-        "parentValue": 9,
-        "branchValue": 11,
-        "absoluteDelta": 2,
-        "relativeDelta": 22.22
-      },
-      {
-        "outcomeId": "dialysis-sessions",
-        "outcomeLabel": "Dialysis sessions",
-        "sector": "deers-rock-makassar-001",
-        "path": "world.state._dialysis.sessions.length",
-        "parentValue": 15,
-        "branchValue": 7,
-        "absoluteDelta": -8,
-        "relativeDelta": -53.33
-      },
-      {
-        "outcomeId": "dialysis-sessions",
-        "outcomeLabel": "Dialysis sessions",
-        "sector": "deers-rock-makassar-001",
-        "path": "lastTickState._dialysis.sessions.length",
-        "parentValue": 15,
-        "branchValue": 7,
-        "absoluteDelta": -8,
-        "relativeDelta": -53.33
-      },
-      {
-        "outcomeId": "occupancy",
-        "outcomeLabel": "Hospital occupancy",
-        "sector": "deers-rock-makassar-001",
-        "path": "sentinelOutput.occupancyRate",
-        "parentValue": 0.022900763358778626,
-        "branchValue": 0,
-        "absoluteDelta": -0.022900763358778626,
-        "relativeDelta": -100
-      }
-    ],
-    "createdAt": "2026-08-31T11:53:09.535Z"
+    "primaryOutcomes": [],
+    "createdAt": "2026-09-05T09:21:00.747Z"
   },
   {
     "runId": "run-43",
@@ -334,7 +147,7 @@
       "rewindTick": 0,
       "currentTick": 20,
       "totalTicksElapsed": 20,
-      "capturedAt": "2026-08-31T11:53:11.252Z",
+      "capturedAt": "2026-09-05T09:21:03.688Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -1585,175 +1398,23 @@
           "metrics": [
             {
               "name": "length",
-              "path": "world.state._outcomeRecords.length",
-              "parentValue": 344,
-              "branchValue": 362,
-              "absoluteDelta": 18,
-              "relativeDelta": 5.23
+              "path": "world.queue.events.length",
+              "parentValue": 79,
+              "branchValue": 72,
+              "absoluteDelta": -7,
+              "relativeDelta": -8.86
             },
             {
-              "name": "length",
-              "path": "world.state.morgue.length",
-              "parentValue": 13,
-              "branchValue": 12,
-              "absoluteDelta": -1,
-              "relativeDelta": -7.69
-            },
-            {
-              "name": "length",
-              "path": "world.state._cssd.cycles.length",
-              "parentValue": 11,
-              "branchValue": 7,
-              "absoluteDelta": -4,
-              "relativeDelta": -36.36
-            },
-            {
-              "name": "handHygieneCompliance",
-              "path": "world.state._ipc.handHygieneCompliance",
-              "parentValue": 75,
-              "branchValue": 73,
-              "absoluteDelta": -2,
-              "relativeDelta": -2.67
-            },
-            {
-              "name": "length",
-              "path": "world.state._clinicalNutrition.assessments.length",
-              "parentValue": 7,
-              "branchValue": 13,
-              "absoluteDelta": 6,
-              "relativeDelta": 85.71
-            },
-            {
-              "name": "length",
-              "path": "world.state._clinicalNutrition.tubeFeedings.length",
-              "parentValue": 1,
-              "branchValue": 2,
-              "absoluteDelta": 1,
-              "relativeDelta": 100
-            },
-            {
-              "name": "length",
-              "path": "world.state._clinicalNutrition.tpnOrders.length",
-              "parentValue": 6,
-              "branchValue": 5,
-              "absoluteDelta": -1,
-              "relativeDelta": -16.67
-            },
-            {
-              "name": "length",
-              "path": "world.state._radiotherapy.fractions.length",
-              "parentValue": 5,
-              "branchValue": 7,
-              "absoluteDelta": 2,
-              "relativeDelta": 40
-            },
-            {
-              "name": "length",
-              "path": "world.state._dialysis.sessions.length",
-              "parentValue": 7,
-              "branchValue": 13,
-              "absoluteDelta": 6,
-              "relativeDelta": 85.71
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._outcomeRecords.length",
-              "parentValue": 344,
-              "branchValue": 362,
-              "absoluteDelta": 18,
-              "relativeDelta": 5.23
-            },
-            {
-              "name": "length",
-              "path": "lastTickState.morgue.length",
-              "parentValue": 13,
-              "branchValue": 12,
-              "absoluteDelta": -1,
-              "relativeDelta": -7.69
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._cssd.cycles.length",
-              "parentValue": 11,
-              "branchValue": 7,
-              "absoluteDelta": -4,
-              "relativeDelta": -36.36
-            },
-            {
-              "name": "handHygieneCompliance",
-              "path": "lastTickState._ipc.handHygieneCompliance",
-              "parentValue": 75,
-              "branchValue": 73,
-              "absoluteDelta": -2,
-              "relativeDelta": -2.67
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._clinicalNutrition.assessments.length",
-              "parentValue": 7,
-              "branchValue": 13,
-              "absoluteDelta": 6,
-              "relativeDelta": 85.71
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._clinicalNutrition.tubeFeedings.length",
-              "parentValue": 1,
-              "branchValue": 2,
-              "absoluteDelta": 1,
-              "relativeDelta": 100
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._clinicalNutrition.tpnOrders.length",
-              "parentValue": 6,
-              "branchValue": 5,
-              "absoluteDelta": -1,
-              "relativeDelta": -16.67
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._radiotherapy.fractions.length",
-              "parentValue": 5,
-              "branchValue": 7,
-              "absoluteDelta": 2,
-              "relativeDelta": 40
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._dialysis.sessions.length",
-              "parentValue": 7,
-              "branchValue": 13,
-              "absoluteDelta": 6,
-              "relativeDelta": 85.71
-            },
-            {
-              "name": "occupancyRate",
-              "path": "sentinelOutput.occupancyRate",
-              "parentValue": 0.007633587786259542,
-              "branchValue": 0.015267175572519083,
-              "absoluteDelta": 0.007633587786259542,
-              "relativeDelta": 100
-            },
-            {
-              "name": "mortalityPressure",
-              "path": "sentinelOutput.mortalityPressure",
-              "parentValue": 13,
-              "branchValue": 12,
-              "absoluteDelta": -1,
-              "relativeDelta": -7.69
-            },
-            {
-              "name": "UNKNOWN",
-              "path": "sentinelOutput.diseasePrevalence.UNKNOWN",
-              "parentValue": 346,
-              "branchValue": 367,
-              "absoluteDelta": 21,
-              "relativeDelta": 6.07
+              "name": "counter",
+              "path": "world.queue.counter",
+              "parentValue": 353,
+              "branchValue": 337,
+              "absoluteDelta": -16,
+              "relativeDelta": -4.53
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: sentinelOutput.diseasePrevalence.UNKNOWN: 346.00 → 367.00 (+6.1%); world.state._outcomeRecords.length: 344.00 → 362.00 (+5.2%); lastTickState._outcomeRecords.length: 344.00 → 362.00 (+5.2%); world.state._clinicalNutrition.assessments.length: 7.00 → 13.00 (+85.7%); world.state._dialysis.sessions.length: 7.00 → 13.00 (+85.7%)"
+          "summary": "Top metric changes: world.queue.counter: 353.00 → 337.00 (-4.5%); world.queue.events.length: 79.00 → 72.00 (-8.9%)"
         }
       }
     },
@@ -1762,7 +1423,7 @@
       "parentTick": 20,
       "childTick": 20,
       "baselineIdentical": true,
-      "baselineStateHash": "9a3580be",
+      "baselineStateHash": "430d3536",
       "bookkeeping": {
         "year": {
           "parent": 2040,
@@ -1774,59 +1435,8 @@
         }
       }
     },
-    "primaryOutcomes": [
-      {
-        "outcomeId": "cssd-cycles",
-        "outcomeLabel": "Sterile Processing (CSSD) cycles",
-        "sector": "deers-rock-makassar-001",
-        "path": "world.state._cssd.cycles.length",
-        "parentValue": 11,
-        "branchValue": 7,
-        "absoluteDelta": -4,
-        "relativeDelta": -36.36
-      },
-      {
-        "outcomeId": "cssd-cycles",
-        "outcomeLabel": "Sterile Processing (CSSD) cycles",
-        "sector": "deers-rock-makassar-001",
-        "path": "lastTickState._cssd.cycles.length",
-        "parentValue": 11,
-        "branchValue": 7,
-        "absoluteDelta": -4,
-        "relativeDelta": -36.36
-      },
-      {
-        "outcomeId": "dialysis-sessions",
-        "outcomeLabel": "Dialysis sessions",
-        "sector": "deers-rock-makassar-001",
-        "path": "world.state._dialysis.sessions.length",
-        "parentValue": 7,
-        "branchValue": 13,
-        "absoluteDelta": 6,
-        "relativeDelta": 85.71
-      },
-      {
-        "outcomeId": "dialysis-sessions",
-        "outcomeLabel": "Dialysis sessions",
-        "sector": "deers-rock-makassar-001",
-        "path": "lastTickState._dialysis.sessions.length",
-        "parentValue": 7,
-        "branchValue": 13,
-        "absoluteDelta": 6,
-        "relativeDelta": 85.71
-      },
-      {
-        "outcomeId": "occupancy",
-        "outcomeLabel": "Hospital occupancy",
-        "sector": "deers-rock-makassar-001",
-        "path": "sentinelOutput.occupancyRate",
-        "parentValue": 0.007633587786259542,
-        "branchValue": 0.015267175572519083,
-        "absoluteDelta": 0.007633587786259542,
-        "relativeDelta": 100
-      }
-    ],
-    "createdAt": "2026-08-31T11:53:11.278Z"
+    "primaryOutcomes": [],
+    "createdAt": "2026-09-05T09:21:03.709Z"
   },
   {
     "runId": "run-44",
@@ -1850,7 +1460,7 @@
       "rewindTick": 0,
       "currentTick": 20,
       "totalTicksElapsed": 20,
-      "capturedAt": "2026-08-31T11:53:12.607Z",
+      "capturedAt": "2026-09-05T09:21:06.913Z",
       "perSector": {
         "geopolitics": {
           "sectorId": "geopolitics",
@@ -1914,207 +1524,23 @@
           "metrics": [
             {
               "name": "length",
-              "path": "world.state._outcomeRecords.length",
-              "parentValue": 350,
-              "branchValue": 354,
-              "absoluteDelta": 4,
-              "relativeDelta": 1.14
+              "path": "world.queue.events.length",
+              "parentValue": 73,
+              "branchValue": 75,
+              "absoluteDelta": 2,
+              "relativeDelta": 2.74
             },
             {
-              "name": "length",
-              "path": "world.state.morgue.length",
-              "parentValue": 13,
-              "branchValue": 9,
-              "absoluteDelta": -4,
-              "relativeDelta": -30.77
-            },
-            {
-              "name": "length",
-              "path": "world.state._cssd.cycles.length",
-              "parentValue": 9,
-              "branchValue": 10,
-              "absoluteDelta": 1,
-              "relativeDelta": 11.11
-            },
-            {
-              "name": "length",
-              "path": "world.state._ipc.cases.length",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
-            },
-            {
-              "name": "handHygieneCompliance",
-              "path": "world.state._ipc.handHygieneCompliance",
-              "parentValue": 72,
-              "branchValue": 77,
-              "absoluteDelta": 5,
-              "relativeDelta": 6.94
-            },
-            {
-              "name": "isolationBedsInUse",
-              "path": "world.state._ipc.isolationBedsInUse",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
-            },
-            {
-              "name": "length",
-              "path": "world.state._clinicalNutrition.tubeFeedings.length",
-              "parentValue": 1,
-              "branchValue": 0,
-              "absoluteDelta": -1,
-              "relativeDelta": -100
-            },
-            {
-              "name": "length",
-              "path": "world.state._clinicalNutrition.tpnOrders.length",
-              "parentValue": 3,
-              "branchValue": 4,
-              "absoluteDelta": 1,
-              "relativeDelta": 33.33
-            },
-            {
-              "name": "length",
-              "path": "world.state._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
-            },
-            {
-              "name": "length",
-              "path": "world.state._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 9,
-              "absoluteDelta": 9,
-              "relativeDelta": null
-            },
-            {
-              "name": "length",
-              "path": "world.state._dialysis.sessions.length",
-              "parentValue": 13,
-              "branchValue": 8,
-              "absoluteDelta": -5,
-              "relativeDelta": -38.46
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._outcomeRecords.length",
-              "parentValue": 350,
-              "branchValue": 354,
-              "absoluteDelta": 4,
-              "relativeDelta": 1.14
-            },
-            {
-              "name": "length",
-              "path": "lastTickState.morgue.length",
-              "parentValue": 13,
-              "branchValue": 9,
-              "absoluteDelta": -4,
-              "relativeDelta": -30.77
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._cssd.cycles.length",
-              "parentValue": 9,
-              "branchValue": 10,
-              "absoluteDelta": 1,
-              "relativeDelta": 11.11
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._ipc.cases.length",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
-            },
-            {
-              "name": "handHygieneCompliance",
-              "path": "lastTickState._ipc.handHygieneCompliance",
-              "parentValue": 72,
-              "branchValue": 77,
-              "absoluteDelta": 5,
-              "relativeDelta": 6.94
-            },
-            {
-              "name": "isolationBedsInUse",
-              "path": "lastTickState._ipc.isolationBedsInUse",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._clinicalNutrition.tubeFeedings.length",
-              "parentValue": 1,
-              "branchValue": 0,
-              "absoluteDelta": -1,
-              "relativeDelta": -100
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._clinicalNutrition.tpnOrders.length",
-              "parentValue": 3,
-              "branchValue": 4,
-              "absoluteDelta": 1,
-              "relativeDelta": 33.33
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._radiotherapy.plans.length",
-              "parentValue": 0,
-              "branchValue": 1,
-              "absoluteDelta": 1,
-              "relativeDelta": null
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._radiotherapy.fractions.length",
-              "parentValue": 0,
-              "branchValue": 9,
-              "absoluteDelta": 9,
-              "relativeDelta": null
-            },
-            {
-              "name": "length",
-              "path": "lastTickState._dialysis.sessions.length",
-              "parentValue": 13,
-              "branchValue": 8,
-              "absoluteDelta": -5,
-              "relativeDelta": -38.46
-            },
-            {
-              "name": "occupancyRate",
-              "path": "sentinelOutput.occupancyRate",
-              "parentValue": 0.007633587786259542,
-              "branchValue": 0.022900763358778626,
-              "absoluteDelta": 0.015267175572519085,
-              "relativeDelta": 200
-            },
-            {
-              "name": "mortalityPressure",
-              "path": "sentinelOutput.mortalityPressure",
-              "parentValue": 13,
-              "branchValue": 9,
-              "absoluteDelta": -4,
-              "relativeDelta": -30.77
-            },
-            {
-              "name": "UNKNOWN",
-              "path": "sentinelOutput.diseasePrevalence.UNKNOWN",
-              "parentValue": 354,
-              "branchValue": 360,
-              "absoluteDelta": 6,
-              "relativeDelta": 1.69
+              "name": "counter",
+              "path": "world.queue.counter",
+              "parentValue": 331,
+              "branchValue": 342,
+              "absoluteDelta": 11,
+              "relativeDelta": 3.32
             }
           ],
           "eventCounts": [],
-          "summary": "Top metric changes: world.state._radiotherapy.fractions.length: 0.00 → 9.00 (+Infinity%); lastTickState._radiotherapy.fractions.length: 0.00 → 9.00 (+Infinity%); sentinelOutput.diseasePrevalence.UNKNOWN: 354.00 → 360.00 (+1.7%); world.state._ipc.handHygieneCompliance: 72.00 → 77.00 (+6.9%); world.state._dialysis.sessions.length: 13.00 → 8.00 (-38.5%)"
+          "summary": "Top metric changes: world.queue.counter: 331.00 → 342.00 (+3.3%); world.queue.events.length: 73.00 → 75.00 (+2.7%)"
         }
       }
     },
@@ -2123,7 +1549,7 @@
       "parentTick": 20,
       "childTick": 20,
       "baselineIdentical": true,
-      "baselineStateHash": "b4927126",
+      "baselineStateHash": "83783971",
       "bookkeeping": {
         "year": {
           "parent": 2040,
@@ -2135,58 +1561,7 @@
         }
       }
     },
-    "primaryOutcomes": [
-      {
-        "outcomeId": "cssd-cycles",
-        "outcomeLabel": "Sterile Processing (CSSD) cycles",
-        "sector": "deers-rock-makassar-001",
-        "path": "world.state._cssd.cycles.length",
-        "parentValue": 9,
-        "branchValue": 10,
-        "absoluteDelta": 1,
-        "relativeDelta": 11.11
-      },
-      {
-        "outcomeId": "cssd-cycles",
-        "outcomeLabel": "Sterile Processing (CSSD) cycles",
-        "sector": "deers-rock-makassar-001",
-        "path": "lastTickState._cssd.cycles.length",
-        "parentValue": 9,
-        "branchValue": 10,
-        "absoluteDelta": 1,
-        "relativeDelta": 11.11
-      },
-      {
-        "outcomeId": "dialysis-sessions",
-        "outcomeLabel": "Dialysis sessions",
-        "sector": "deers-rock-makassar-001",
-        "path": "world.state._dialysis.sessions.length",
-        "parentValue": 13,
-        "branchValue": 8,
-        "absoluteDelta": -5,
-        "relativeDelta": -38.46
-      },
-      {
-        "outcomeId": "dialysis-sessions",
-        "outcomeLabel": "Dialysis sessions",
-        "sector": "deers-rock-makassar-001",
-        "path": "lastTickState._dialysis.sessions.length",
-        "parentValue": 13,
-        "branchValue": 8,
-        "absoluteDelta": -5,
-        "relativeDelta": -38.46
-      },
-      {
-        "outcomeId": "occupancy",
-        "outcomeLabel": "Hospital occupancy",
-        "sector": "deers-rock-makassar-001",
-        "path": "sentinelOutput.occupancyRate",
-        "parentValue": 0.007633587786259542,
-        "branchValue": 0.022900763358778626,
-        "absoluteDelta": 0.015267175572519085,
-        "relativeDelta": 200
-      }
-    ],
-    "createdAt": "2026-08-31T11:53:12.635Z"
+    "primaryOutcomes": [],
+    "createdAt": "2026-09-05T09:21:06.961Z"
   }
 ]

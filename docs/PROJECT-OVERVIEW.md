@@ -169,7 +169,7 @@ Scale from 1 to 30+ Deers Rock sentinels across Indonesian cities. Each gets der
 
 Contributions:
 1. **Architecture** — deterministic multi-scale engine with sentinel adapter pattern
-2. **Cross-sector feedback loop** — Climate → Economy → Health verified in integration test
+2. **Cross-sector propagation** — Climate → Economy → Health (world→hospital) verified in integration test; hospital→world feedback (`health.*` events) is design intent, not yet implemented
 3. **Sentinel paradigm** — standalone hospital participating in world simulation without code changes
 4. **Counterfactual validation** — WWII GDP impact reproduced across all 9 nations (d > 1.0)
 5. **Prospective application** — policy stress-testing, hospital investment, early warning

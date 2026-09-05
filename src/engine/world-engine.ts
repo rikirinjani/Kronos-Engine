@@ -4,7 +4,7 @@ import { createRNG, restoreRNG } from "./rng.js";
 import type { RNGState } from "./rng.js";
 import { createUniverse } from "./universe.js";
 import type { UniverseID } from "./universe.js";
-import { deepClone } from "./clone.js";
+import { deepClone, reconstructFromSnapshot } from "./clone.js";
 
 export interface SectorRecord {
   sector: Sector;
@@ -23,6 +23,11 @@ export interface WorldSnapshot {
   rngState: RNGState;
   sectors: Array<{ id: string; state: SectorState }>;
   universeId: string;
+  /**
+   * Optional reconstruct functions for Snapshotable sector states.
+   * When present, restoreSnapshot uses these instead of deepClone.
+   */
+  sectorReconstructors?: Record<string, (canonicalState: unknown) => SectorState>;
 }
 
 export interface WorldConfig {
@@ -139,7 +144,13 @@ export function restoreSnapshot(snap: WorldSnapshot, sectorMap: Map<string, Sect
     if (!sector) {
       throw new Error(`Unknown sector: ${s.id}`);
     }
-    sectors.set(s.id, { sector, state: deepClone(s.state) });
+    // Use sectorReconstructors if available — this rebuilds fresh runtime instances
+    // from canonical state, avoiding class-instance and closure aliasing.
+    const reconstruct = snap.sectorReconstructors?.[s.id];
+    const state = reconstruct
+      ? reconstruct(s.state)
+      : deepClone(s.state);
+    sectors.set(s.id, { sector, state });
   }
 
   return {

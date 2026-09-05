@@ -10,7 +10,7 @@ import { deersRockAdapter } from "../../sectors/deers-rock-adapter.js";
 import type { Sector, SectorState } from "../../sectors/types.js";
 import { createWorld, run, snapshot, restoreSnapshot, resetUniverseCounter } from "../../engine/index.js";
 import type { WorldSnapshot, WorldState } from "../../engine/world-engine.js";
-import { createRewindPoint, forkBranch, hashState, resetBranchCounter, resetRewindCounter } from "../../timeline/index.js";
+import { createRewindPoint, rewindToSnapshot, forkBranch, hashState, resetBranchCounter, resetRewindCounter } from "../../timeline/index.js";
 import type { RewindPoint } from "../../timeline/rewind-point.js";
 import { buildFullDiff } from "../diff-engine.js";
 import { computeSummary } from "../stats.js";
@@ -189,15 +189,7 @@ export function assertMatchedHorizon(parentTick: number, childTick: number, cont
 
 /** Rebuild the pre-intervention world exactly as forkBranch does, and deep-compare against the pristine parent baseline. */
 function restoredPreInterventionSnapshot(rp: RewindPoint, sectorMap: Map<string, Sector>): WorldState {
-  return restoreSnapshot(
-    {
-      tick: rp.tick,
-      rngState: rp.rngState,
-      sectors: Object.entries(rp.sectorStates).map(([id, state]) => ({ id, state })),
-      universeId: rp.universeId,
-    },
-    sectorMap,
-  );
+  return restoreSnapshot(rewindToSnapshot(rp), sectorMap);
 }
 
 /**

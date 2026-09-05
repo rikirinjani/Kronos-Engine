@@ -174,6 +174,7 @@ export function forkBranch(
       state,
     })),
     universeId: rewindPoint.universeId,
+    sectorReconstructors: rewindPoint.sectorReconstructors,
   };
 
   const restored = restoreSnapshot(rewindSnap, sectorMap);

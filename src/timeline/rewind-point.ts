@@ -1,5 +1,5 @@
 import { hashState } from "./hash.js";
-import { deepClone } from "../engine/clone.js";
+import { deepClone, extractSnapshot, reconstructFromSnapshot } from "../engine/clone.js";
 import type { RNGState } from "../engine/rng.js";
 import type { WorldState } from "../engine/world-engine.js";
 import type { WorldSnapshot } from "../engine/world-engine.js";
@@ -15,6 +15,12 @@ export interface RewindPoint {
   label: string;
   origin: RewindOrigin;
   sectorStates: Record<string, SectorState>;
+  /**
+   * Optional reconstruct functions for Snapshotable sector states.
+   * When present, restoreSnapshot uses these instead of deepClone,
+   * producing independent runtime instances (no aliasing).
+   */
+  sectorReconstructors?: Record<string, (canonicalState: unknown) => SectorState>;
   stateHash: string;
   rngState: RNGState;
   historicalContext?: {
@@ -60,10 +66,21 @@ export function createRewindPoint(
   },
 ): RewindPoint {
   const sectorStates: Record<string, SectorState> = {};
+  const sectorReconstructors: Record<string, (canonicalState: unknown) => SectorState> = {};
+  let hasReconstructors = false;
+
   for (const [id, record] of world.sectors) {
-    // Deep-clone so in-place sector tick() mutation of the live world cannot
-    // corrupt the captured baseline (T3 optimization mutates state in place).
-    sectorStates[id] = deepClone(record.state);
+    // For Snapshotable objects (e.g. DR adapter state), extract canonical
+    // serializable state via __snapshot() and store the __reconstruct function.
+    // This avoids storing class instances that would alias on restore.
+    // For plain objects, deepClone as before.
+    if ("__snapshot" in record.state && "__reconstruct" in record.state) {
+      sectorStates[id] = (record.state as any).__snapshot() as SectorState;
+      sectorReconstructors[id] = (record.state as any).__reconstruct.bind(record.state);
+      hasReconstructors = true;
+    } else {
+      sectorStates[id] = deepClone(record.state);
+    }
   }
 
   const rp: RewindPoint = {
@@ -73,6 +90,7 @@ export function createRewindPoint(
     label: overrides?.label ?? `Snapshot at tick ${world.tick}`,
     origin,
     sectorStates,
+    sectorReconstructors: hasReconstructors ? sectorReconstructors : undefined,
     stateHash: "",
     rngState: world.rngState,
     created: new Date().toISOString(),
@@ -141,8 +159,9 @@ export function createInMemoryStore(): RewindPointStore {
 export function rewindToSnapshot(point: RewindPoint): WorldSnapshot {
   const sectors: WorldSnapshot["sectors"] = [];
   for (const [id, state] of Object.entries(point.sectorStates)) {
-    // Deep-clone on the way out so restoring cannot alias (and mutate) the
-    // stored rewind point's baseline.
+    // For Snapshotable sectors, the stored state is already canonical (from __snapshot).
+    // Deep-clone only the canonical state (plain objects/Maps) to prevent mutation.
+    // The actual runtime reconstruction happens in restoreSnapshot via sectorReconstructors.
     sectors.push({ id, state: deepClone(state) });
   }
   return {
@@ -150,5 +169,6 @@ export function rewindToSnapshot(point: RewindPoint): WorldSnapshot {
     rngState: point.rngState,
     sectors,
     universeId: point.universeId,
+    sectorReconstructors: point.sectorReconstructors,
   };
 }

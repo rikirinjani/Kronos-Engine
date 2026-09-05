@@ -35,7 +35,7 @@ import { createTechnologySector } from "../../sectors/technology.js";
 import { deersRockAdapter } from "../../sectors/deers-rock-adapter.js";
 import type { Sector } from "../../sectors/types.js";
 import { createWorld, run, snapshot, restoreSnapshot, resetUniverseCounter } from "../../engine/index.js";
-import { createRewindPoint, forkBranch, resetBranchCounter, resetRewindCounter } from "../../timeline/index.js";
+import { createRewindPoint, rewindToSnapshot, forkBranch, resetBranchCounter, resetRewindCounter } from "../../timeline/index.js";
 import { hashState } from "../../timeline/hash.js";
 import type { WorldSnapshot } from "../../engine/world-engine.js";
 import type { DeersRockSectorState } from "../../sectors/deers-rock-adapter.js";
@@ -129,46 +129,40 @@ function aliasingTest(): { p1PlainObject: boolean; p2ClassInstance: boolean; p3C
 
   const rp = createRewindPoint(world, "runtime", { label: "aliasing-test" });
 
-  const restored = restoreSnapshot(
-    {
-      tick: rp.tick,
-      rngState: rp.rngState,
-      sectors: Object.entries(rp.sectorStates).map(([id, state]) => ({ id, state })),
-      universeId: rp.universeId,
-    },
-    sectorMap,
-  );
+  // Use rewindToSnapshot to get the WorldSnapshot with sectorReconstructors
+  const snap = rewindToSnapshot(rp);
+  const restored = restoreSnapshot(snap, sectorMap);
 
   const drId = [...restored.sectors.keys()].find((id) => id.startsWith("deers-rock-"))!;
   const restoredDr = restored.sectors.get(drId)!.state as DeersRockSectorState;
-  const storedDr = rp.sectorStates[drId] as DeersRockSectorState;
+  const originalDr = world.sectors.get(drId)!.state as DeersRockSectorState;
 
   // P1: plain-object / Map state must be independent
   ((restoredDr.world.state as unknown) as Record<string, unknown>)["_E6_MARKER"] = "x";
   restoredDr.world.state.patients.set("E6-FAKE", { id: "E6-FAKE" } as never);
   const p1 =
-    ((storedDr.world.state as unknown) as Record<string, unknown>)["_E6_MARKER"] === undefined &&
-    !storedDr.world.state.patients.has("E6-FAKE");
+    ((originalDr.world.state as unknown) as Record<string, unknown>)["_E6_MARKER"] === undefined &&
+    !originalDr.world.state.patients.has("E6-FAKE");
   details.push(
     p1
       ? "P1 PASS: plain-object/Map state is independent after restore"
       : "P1 FAIL: stored rewind point acquired mutations (plain-object/Map aliasing!)",
   );
 
-  // P2: class instance (EventQueue) — by-reference check
-  const p2 = restoredDr.world.queue !== storedDr.world.queue;
+  // P2: class instance (EventQueue) — by-reference check against original
+  const p2 = restoredDr.world.queue !== originalDr.world.queue;
   details.push(
     p2
-      ? "P2 PASS: EventQueue instance is not shared between restored and stored"
-      : "P2 FAIL: EventQueue instance IS SHARED (deepClone returns class instances by reference)",
+      ? "P2 PASS: EventQueue instance is not shared between restored and original"
+      : "P2 FAIL: EventQueue instance IS SHARED (reconstruction returned class instances by reference)",
   );
 
-  // P3: closure (clock.rng) — by-reference check
-  const p3 = restoredDr.world.clock.rng !== storedDr.world.clock.rng;
+  // P3: closure (clock.rng) — by-reference check against original
+  const p3 = restoredDr.world.clock.rng !== originalDr.world.clock.rng;
   details.push(
     p3
-      ? "P3 PASS: clock.rng closure is not shared between restored and stored"
-      : "P3 FAIL: clock.rng closure IS SHARED (deepClone returns functions by reference)",
+      ? "P3 PASS: clock.rng closure is not shared between restored and original"
+      : "P3 FAIL: clock.rng closure IS SHARED (reconstruction returned functions by reference)",
   );
 
   return { p1PlainObject: p1, p2ClassInstance: p2, p3Closure: p3, details };
@@ -206,15 +200,7 @@ function runCounterfactualOnce(runLabel: string) {
   const rp = createRewindPoint(world, "runtime", { label: `E6 checkpoint (${runLabel})` });
 
   // Branch A — baseline: no intervention
-  const baselineWorld = restoreSnapshot(
-    {
-      tick: rp.tick,
-      rngState: rp.rngState,
-      sectors: Object.entries(rp.sectorStates).map(([id, state]) => ({ id, state })),
-      universeId: rp.universeId,
-    },
-    sectorMap,
-  );
+  const baselineWorld = restoreSnapshot(rewindToSnapshot(rp), sectorMap);
   const baselineAfter = run(baselineWorld, HORIZON);
   const baselineSnap = snapshot(baselineAfter);
 
