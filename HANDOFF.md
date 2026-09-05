@@ -41,13 +41,13 @@
 ## Sector Engineer
 
 ### Pending
-- **E3: health.* micro→macro subscriber (Phase E, 2026-09-05).** DR adapter publishes `health.pressure|mortality|supply-crisis|surge|down`; KE has zero subscribers. Full spec in `docs/E3-HEALTH-SUBSCRIBER-HANDOFF.md`: new passive `health-surveillance` sector (per-hospital records, no national aggregation, no rng, no feedback), causal integration test driven by the REAL adapter event path (seed 42, 60 ticks). DR must NOT be modified for this.
 - **T4: Economy depth — DEFERRED Phase 3.** Discussed with Meta Platform 2026-07-11. Days-to-weeks effort, not scoped.
 
 ### Active
 - **Phase 3 API: own `src/api/server.ts`.** 8 endpoints, 8 tests, `npm run api` starts on port 3001. Maintain and extend as needed.
 
 ### Completed
+- **2026-09-05** — **E3: health-surveillance sector implemented.** Passive per-hospital recorder subscribes to `health.pressure|mortality|supply-crisis|surge|down` events from DR adapter. No rng, no wall-clock, no feedback, no national aggregation. 4 integration tests (real event path, determinism, isolation). 324/324 tests pass, tsc clean. Commit `89adeaa`.
 - **2026-07-10** — **P-007: Pre-2016 AI Kernel built.** `src/sim/ai/brains.ts` (6 primitives: utilityPick, softmaxPick, TinyMLP, MarkovChain, fsmStep, goapPlan, MemoryRing — all deterministic, seeded RNG only). `src/sim/agents.ts` (CentralBankAgent adjusts inflation via utilityPick, TradeAgent retaliates on low relations). 21 tests covering all primitives, agents, and determinism. 263 total tests, 35 files.
 - **2026-07-10** — **P-006: Interactive Simulation Cockpit built.** `src/api/index.html` (single-file, dark theme, vanilla JS, hash-routed SPA). 3 pages: Dashboard (status + experiment form + list), Experiment Detail (runs table, summary stats with Cohen's d, export buttons), Era Browser (era grid with rewind points). `GET /` route added to server.ts. Polls running experiments every 3s. Server tests updated (8 total). 242 tests, 33 files.
 - **2026-07-09** — **P-005 P1+P2 delivered.** Cadenced tick pipeline (cadence on Sector interface, per-sector cadences, World Engine mod check, 5 tests). Per-sector CONTRACT.md files (all 7 sectors documented: state keys, events, invariants, RNG positions). Proposal at `docs/proposals/P-005-sector-contracts-and-cadence.md`. Contracts at `src/sectors/contracts/`. Handoff to @meta-platform for review.
