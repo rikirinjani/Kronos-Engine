@@ -1,0 +1,77 @@
+{
+  "experiment": "E5-sentinel-isolation-under-coupling",
+  "seed": 42,
+  "horizon": 20,
+  "sentinels": [
+    {
+      "id": "sentinel-A",
+      "city": "Makassar",
+      "beds": 133,
+      "patients": 50,
+      "ticksPerDay": 10
+    },
+    {
+      "id": "sentinel-B",
+      "city": "Makassar",
+      "beds": 133,
+      "patients": 50,
+      "ticksPerDay": 10
+    },
+    {
+      "id": "sentinel-C",
+      "city": "Makassar",
+      "beds": 133,
+      "patients": 50,
+      "ticksPerDay": 10
+    }
+  ],
+  "intervention": {
+    "target": "deers-rock-sentinel-A",
+    "events": [
+      {
+        "type": "supply_chain_pressure",
+        "data": {
+          "pressure": 0.8
+        }
+      },
+      {
+        "type": "active_disaster",
+        "data": {
+          "disasterType": "natural-disaster"
+        }
+      }
+    ]
+  },
+  "perSentinel": {
+    "deers-rock-sentinel-A": {
+      "baselineHash": "55fa30b7",
+      "interventionHash": "b3a061dd",
+      "changed": true
+    },
+    "deers-rock-sentinel-B": {
+      "baselineHash": "82f63798",
+      "interventionHash": "82f63798",
+      "changed": false
+    },
+    "deers-rock-sentinel-C": {
+      "baselineHash": "7cb455a6",
+      "interventionHash": "7cb455a6",
+      "changed": false
+    }
+  },
+  "rngIsolation": {
+    "baselineHash": "9f6977e3",
+    "interventionHash": "9f6977e3",
+    "identical": true
+  },
+  "nonDrSectorsIdentical": true,
+  "verdict": {
+    "aChanged": true,
+    "bUnchanged": true,
+    "cUnchanged": true,
+    "rngIsolated": true,
+    "nonDrClean": true,
+    "pass": true
+  },
+  "createdAt": "2026-09-05T01:48:07.651Z"
+}

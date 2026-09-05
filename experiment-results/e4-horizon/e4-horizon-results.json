@@ -1,0 +1,525 @@
+{
+  "experiment": "E4-horizon-sensitivity",
+  "mechanism": "fresh-worlds (two worlds from same seed; intervention via init-time climate config; no restore/forkBranch — avoids deepClone class-instance/closure aliasing in the DR sector state)",
+  "horizons": [
+    20,
+    40,
+    60
+  ],
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "intervention": {
+    "type": "emissions_control",
+    "params": {
+      "annualEmissionsNoise": 0.02,
+      "co2Concentration": 400
+    }
+  },
+  "metrics": [
+    "sentinelOutput.occupancyRate",
+    "sentinelOutput.icuOccupancyRate",
+    "sentinelOutput.mortalityPressure",
+    "sentinelOutput.supplyStress",
+    "sentinelOutput.staffStress"
+  ],
+  "cells": [
+    {
+      "seed": 42,
+      "horizon": 20,
+      "baselineHash": "693928f8",
+      "interventionHash": "de86d401",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.5419847328244275,
+          "intervention": 0.5419847328244275,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 0.03571428571428571,
+          "intervention": 0.03571428571428571,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.4917703703703704,
+          "intervention": 0.4917703703703704,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "horizon": 20,
+      "baselineHash": "afbe3a1a",
+      "interventionHash": "8da28dcb",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.5801526717557252,
+          "intervention": 0.5801526717557252,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 0.03571428571428571,
+          "intervention": 0.03571428571428571,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.5198074074074074,
+          "intervention": 0.5198074074074074,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "horizon": 20,
+      "baselineHash": "1d708beb",
+      "interventionHash": "8a11a915",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.5343511450381679,
+          "intervention": 0.5343511450381679,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 0.10714285714285714,
+          "intervention": 0.10714285714285714,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.5212481481481481,
+          "intervention": 0.5212481481481481,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "horizon": 40,
+      "baselineHash": "9794a95d",
+      "interventionHash": "2fad6b3a",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.7175572519083969,
+          "intervention": 0.7175572519083969,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 0.21428571428571427,
+          "intervention": 0.21428571428571427,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.5166592592592594,
+          "intervention": 0.5166592592592594,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "horizon": 40,
+      "baselineHash": "ef5587f5",
+      "interventionHash": "373a7dc7",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.816793893129771,
+          "intervention": 0.816793893129771,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 0.6785714285714286,
+          "intervention": 0.6785714285714286,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.5008592592592592,
+          "intervention": 0.5008592592592592,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "horizon": 40,
+      "baselineHash": "6c3eb95c",
+      "interventionHash": "b7ddb594",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.7251908396946565,
+          "intervention": 0.7251908396946565,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 0.25,
+          "intervention": 0.25,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.5018407407407407,
+          "intervention": 0.5018407407407407,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 42,
+      "horizon": 60,
+      "baselineHash": "a374f0a3",
+      "interventionHash": "59de04fd",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.916030534351145,
+          "intervention": 0.916030534351145,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.49215925925925935,
+          "intervention": 0.49215925925925935,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "horizon": 60,
+      "baselineHash": "af69496f",
+      "interventionHash": "b0f3a34b",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.5256925925925927,
+          "intervention": 0.5256925925925927,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "horizon": 60,
+      "baselineHash": "a29e372c",
+      "interventionHash": "7ee29bf0",
+      "metrics": {
+        "sentinelOutput.occupancyRate": {
+          "baseline": 0.9007633587786259,
+          "intervention": 0.9007633587786259,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.icuOccupancyRate": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.mortalityPressure": {
+          "baseline": 0,
+          "intervention": 0,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.supplyStress": {
+          "baseline": 0.4928740740740741,
+          "intervention": 0.4928740740740741,
+          "absDiff": 0,
+          "direction": "none"
+        },
+        "sentinelOutput.staffStress": {
+          "baseline": 1,
+          "intervention": 1,
+          "absDiff": 0,
+          "direction": "none"
+        }
+      }
+    }
+  ],
+  "directionConsistency": [
+    {
+      "seed": 42,
+      "metric": "sentinelOutput.occupancyRate",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 42,
+      "metric": "sentinelOutput.icuOccupancyRate",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 42,
+      "metric": "sentinelOutput.mortalityPressure",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 42,
+      "metric": "sentinelOutput.supplyStress",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 42,
+      "metric": "sentinelOutput.staffStress",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 43,
+      "metric": "sentinelOutput.occupancyRate",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 43,
+      "metric": "sentinelOutput.icuOccupancyRate",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 43,
+      "metric": "sentinelOutput.mortalityPressure",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 43,
+      "metric": "sentinelOutput.supplyStress",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 43,
+      "metric": "sentinelOutput.staffStress",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 44,
+      "metric": "sentinelOutput.occupancyRate",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 44,
+      "metric": "sentinelOutput.icuOccupancyRate",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 44,
+      "metric": "sentinelOutput.mortalityPressure",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 44,
+      "metric": "sentinelOutput.supplyStress",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    },
+    {
+      "seed": 44,
+      "metric": "sentinelOutput.staffStress",
+      "directions": [
+        "none",
+        "none",
+        "none"
+      ],
+      "directionConsistent": true
+    }
+  ],
+  "createdAt": "2026-09-05T01:47:46.695Z"
+}

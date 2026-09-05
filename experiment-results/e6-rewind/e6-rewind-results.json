@@ -1,0 +1,66 @@
+{
+  "experiment": "E6-rewind-counterfactual-reproducibility",
+  "seed": 42,
+  "horizon": 20,
+  "precondition": {
+    "rewindImplementation": "createRewindPoint deepClone at capture (rewind-point.ts:66) + rewindToSnapshot deepClone at restore (rewind-point.ts:146) + restoreSnapshot deepClone (world-engine.ts:142)"
+  },
+  "intervention": {
+    "type": "emissions_control",
+    "params": {
+      "annualEmissionsNoise": 0.02,
+      "co2Concentration": 400
+    }
+  },
+  "run1": {
+    "checkpoint": {
+      "id": "RP-2026-0001",
+      "tick": 0,
+      "stateHash": "f03c7aa9"
+    },
+    "baselineHash": "6a71ee4e",
+    "interventionHash": "2741cdb4"
+  },
+  "run2": {
+    "checkpoint": {
+      "id": "RP-2026-0001",
+      "tick": 0,
+      "stateHash": "f03c7aa9"
+    },
+    "baselineHash": "6a71ee4e",
+    "interventionHash": "2741cdb4"
+  },
+  "verdicts": {
+    "baselineReproducible": true,
+    "interventionReproducible": true,
+    "interventionConsumed": true
+  },
+  "causalTrace": {
+    "sentinelOutput.occupancyRate": {
+      "baseline": 0.5419847328244275,
+      "intervention": 0.5648854961832062,
+      "delta": 0.022900763358778664
+    },
+    "sentinelOutput.icuOccupancyRate": {
+      "baseline": 0.03571428571428571,
+      "intervention": 0.07142857142857142,
+      "delta": 0.03571428571428571
+    },
+    "sentinelOutput.mortalityPressure": {
+      "baseline": 0,
+      "intervention": 0,
+      "delta": 0
+    },
+    "sentinelOutput.supplyStress": {
+      "baseline": 0.4917703703703704,
+      "intervention": 0.519525925925926,
+      "delta": 0.027755555555555533
+    },
+    "sentinelOutput.staffStress": {
+      "baseline": 1,
+      "intervention": 1,
+      "delta": 0
+    }
+  },
+  "createdAt": "2026-09-05T01:44:51.950Z"
+}
