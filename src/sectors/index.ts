@@ -18,3 +18,4 @@ export { createEconomySector } from "./economy.js";
 export { createTechnologySector } from "./technology.js";
 export { createEnergySector } from "./energy.js";
 export { createDemographicsSector } from "./demographics.js";
+export { createHealthSurveillanceSector } from "./health-surveillance.js";
