@@ -417,7 +417,12 @@ export function runExperiment(seeds: number[] = [42, 43, 44]): GuardedExperiment
 }
 
 if (process.argv[1] && fileURLToPath(import.meta.url).replace(/\\/g, "/").endsWith("dr-counterfactual.ts") && process.argv[1].replace(/\\/g, "/").includes("dr-counterfactual")) {
-  const result = runExperiment();
+  // Parse seeds from command line: --seeds 42,43,44,... or use default [42,43,44]
+  const seedsArg = process.argv.find((a) => a.startsWith("--seeds="));
+  const seeds = seedsArg
+    ? seedsArg.split("=")[1]!.split(",").map(Number)
+    : [42, 43, 44];
+  const result = runExperiment(seeds);
   const outDir = join(dirname(fileURLToPath(import.meta.url)), "../../../experiment-results/dr-counterfactual");
   const summaryPath = join(outDir, "summary.json");
   const runsPath = join(outDir, "runs.json");
