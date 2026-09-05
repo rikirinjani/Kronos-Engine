@@ -41,6 +41,7 @@
 ## Sector Engineer
 
 ### Pending
+- **E3: health.* micro→macro subscriber (Phase E, 2026-09-05).** DR adapter publishes `health.pressure|mortality|supply-crisis|surge|down`; KE has zero subscribers. Full spec in `docs/E3-HEALTH-SUBSCRIBER-HANDOFF.md`: new passive `health-surveillance` sector (per-hospital records, no national aggregation, no rng, no feedback), causal integration test driven by the REAL adapter event path (seed 42, 60 ticks). DR must NOT be modified for this.
 - **T4: Economy depth — DEFERRED Phase 3.** Discussed with Meta Platform 2026-07-11. Days-to-weeks effort, not scoped.
 
 ### Active

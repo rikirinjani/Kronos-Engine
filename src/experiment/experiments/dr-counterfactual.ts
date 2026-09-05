@@ -308,7 +308,7 @@ export function buildPrimaryOutcomeReport(runs: GuardedExperimentRun[], outcomes
   });
 }
 
-export function runSingleSeed(seed: number): GuardedExperimentRun {
+export function runSingleSeed(seed: number, horizon = 20): GuardedExperimentRun {
   resetUniverseCounter();
   resetBranchCounter();
   resetRewindCounter();
@@ -328,10 +328,10 @@ export function runSingleSeed(seed: number): GuardedExperimentRun {
   // parent advances.
   const baselineSnap = snapshot(world);
 
-  const parentAfter20 = run(world, 20);
+  const parentAfterHorizon = run(world, horizon);
 
   // Guard: the rewind point's stored baseline must deep-equal the pristine
-  // parent baseline even after the parent branch advanced 20 ticks.
+  // parent baseline even after the parent branch advanced to the horizon.
   assertBaselineIntegrity(baselineSnap, rp, sectorMap);
 
   const intervention: Record<string, Record<string, unknown>> = {
@@ -341,9 +341,9 @@ export function runSingleSeed(seed: number): GuardedExperimentRun {
     },
   };
 
-  const branch = forkBranch(world, rp, intervention, sectorMap, 20, "Lower CO2 reduces extreme weather");
+  const branch = forkBranch(world, rp, intervention, sectorMap, horizon, "Lower CO2 reduces extreme weather");
 
-  const parentSnap = snapshot(parentAfter20);
+  const parentSnap = snapshot(parentAfterHorizon);
 
   // Guard: both branches ran the SAME number of ticks from the SAME baseline.
   assertMatchedHorizon(parentSnap.tick, branch.childSnapshot.tick, "P-004 DR Sentinel");
@@ -371,7 +371,7 @@ export function runSingleSeed(seed: number): GuardedExperimentRun {
     runId: `run-${seed}`,
     seed,
     rewindTick: rp.tick,
-    totalTicks: 20,
+    totalTicks: horizon,
     intervention: {
       type: "emissions_control",
       label: "Lower emissions reduce heatwave impact on hospitals",
@@ -385,15 +385,15 @@ export function runSingleSeed(seed: number): GuardedExperimentRun {
   };
 }
 
-export function runExperiment(seeds: number[] = [42, 43, 44]): GuardedExperimentSet {
-  const runs = seeds.map((seed) => runSingleSeed(seed));
+export function runExperiment(seeds: number[] = [42, 43, 44], horizon = 20): GuardedExperimentSet {
+  const runs = seeds.map((seed) => runSingleSeed(seed, horizon));
   const intervention = runs[0]!.intervention;
   const summary = computeSummary(runs, intervention);
   const setId = `SET-${new Date().getFullYear()}-DR`;
 
   return {
     setId,
-    label: "P-004: DR Sentinel Counterfactual (COVID-19)",
+    label: `P-004: DR Sentinel Counterfactual (COVID-19, horizon=${horizon})`,
     description: "Branch at RP-CONTEMP-002 (COVID-19, 2020). Intervention reduces CO2 concentration and noise → fewer extreme weather events → less hospital surge.",
     intervention,
     rewindTick: runs[0]!.rewindTick,
@@ -414,7 +414,9 @@ if (process.argv[1] && fileURLToPath(import.meta.url).replace(/\\/g, "/").endsWi
   const seeds = seedsArg
     ? seedsArg.split("=")[1]!.split(",").map(Number)
     : [42, 43, 44];
-  const result = runExperiment(seeds);
+  const horizonArg = process.argv.find((a) => a.startsWith("--horizon="));
+  const horizon = horizonArg ? Number(horizonArg.split("=")[1]) : 20;
+  const result = runExperiment(seeds, horizon);
   const outDir = join(dirname(fileURLToPath(import.meta.url)), "../../../experiment-results/dr-counterfactual");
   const summaryPath = join(outDir, "summary.json");
   const runsPath = join(outDir, "runs.json");
