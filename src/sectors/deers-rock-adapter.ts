@@ -197,6 +197,60 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
 
   const handlers: TickHandler[] = [];
 
+  // Moved to outer scope so tick() can access them for snapshot closure fix.
+  // Previously these were inside init(), making them inaccessible from tick().
+  function makeSnapshot(self: DeersRockSectorState): DeersRockWorldSnapshot {
+    const w = self.world;
+    const events = (w.queue as any).events as Array<{ id: string; type: string; scheduledTick: number; data: Record<string, unknown> }>;
+    const counter = (w.queue as any).counter as number;
+    return {
+      clockTick: w.clock.tick,
+      hospitalTimeMs: w.clock.hospitalTimeMs,
+      rngSeed: w.clock.rngSeed,
+      events: events.map(e => ({ ...e })),
+      eventCounter: counter,
+      hospitalState: w.state,
+      sentinelOutput: self.sentinelOutput,
+      lastTickState: self.lastTickState,
+      circuitBreakerTripped: self.circuitBreakerTripped,
+      config: self.config,
+    };
+  }
+
+  function doReconstruct(self: DeersRockSectorState, snapshot: DeersRockWorldSnapshot): DeersRockSectorState {
+    const clock = createClock(60, snapshot.rngSeed);
+    let restoredClock = clock;
+    for (let i = 0; i < snapshot.clockTick; i++) {
+      restoredClock = { ...restoredClock, tick: i + 1, hospitalTimeMs: (i + 1) * restoredClock.tickIntervalMs * restoredClock.speedMultiplier };
+    }
+
+    const queue = new EventQueue();
+    for (const evt of snapshot.events) {
+      (queue as any).events.push(evt);
+    }
+    (queue as any).counter = snapshot.eventCounter;
+
+    const world: World = {
+      clock: restoredClock,
+      state: snapshot.hospitalState,
+      queue,
+      handlers: self.world.handlers,
+      journalPath: self.world.journalPath,
+    };
+
+    const reconstructed: DeersRockSectorState = {
+      _sectorId: "deers-rock",
+      config: snapshot.config,
+      world,
+      lastTickState: snapshot.lastTickState,
+      sentinelOutput: snapshot.sentinelOutput,
+      circuitBreakerTripped: snapshot.circuitBreakerTripped,
+      __snapshot() { return makeSnapshot(reconstructed); },
+      __reconstruct(snap) { return doReconstruct(reconstructed, snap as DeersRockWorldSnapshot); },
+    };
+    return reconstructed;
+  }
+
   return {
     id: `deers-rock-${config.id}`,
     name: `Deers Rock Sentinel (${config.city})`,
@@ -211,58 +265,6 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
       }
       const hospitalSeed = getHospitalSeed(worldSeed, Math.abs(hash) || 1);
       const drWorld = createWorld(config.patients, undefined, hospitalSeed);
-
-      function makeSnapshot(self: DeersRockSectorState): DeersRockWorldSnapshot {
-        const w = self.world;
-        const events = (w.queue as any).events as Array<{ id: string; type: string; scheduledTick: number; data: Record<string, unknown> }>;
-        const counter = (w.queue as any).counter as number;
-        return {
-          clockTick: w.clock.tick,
-          hospitalTimeMs: w.clock.hospitalTimeMs,
-          rngSeed: w.clock.rngSeed,
-          events: events.map(e => ({ ...e })),
-          eventCounter: counter,
-          hospitalState: w.state,
-          sentinelOutput: self.sentinelOutput,
-          lastTickState: self.lastTickState,
-          circuitBreakerTripped: self.circuitBreakerTripped,
-          config: self.config,
-        };
-      }
-
-      function doReconstruct(self: DeersRockSectorState, snapshot: DeersRockWorldSnapshot): DeersRockSectorState {
-        const clock = createClock(60, snapshot.rngSeed);
-        let restoredClock = clock;
-        for (let i = 0; i < snapshot.clockTick; i++) {
-          restoredClock = { ...restoredClock, tick: i + 1, hospitalTimeMs: (i + 1) * restoredClock.tickIntervalMs * restoredClock.speedMultiplier };
-        }
-
-        const queue = new EventQueue();
-        for (const evt of snapshot.events) {
-          (queue as any).events.push(evt);
-        }
-        (queue as any).counter = snapshot.eventCounter;
-
-        const world: World = {
-          clock: restoredClock,
-          state: snapshot.hospitalState,
-          queue,
-          handlers: self.world.handlers,
-          journalPath: self.world.journalPath,
-        };
-
-        const reconstructed: DeersRockSectorState = {
-          _sectorId: "deers-rock",
-          config: snapshot.config,
-          world,
-          lastTickState: snapshot.lastTickState,
-          sentinelOutput: snapshot.sentinelOutput,
-          circuitBreakerTripped: snapshot.circuitBreakerTripped,
-          __snapshot() { return makeSnapshot(reconstructed); },
-          __reconstruct(snap) { return doReconstruct(reconstructed, snap as DeersRockWorldSnapshot); },
-        };
-        return reconstructed;
-      }
 
       const initialState: DeersRockSectorState = {
         _sectorId: "deers-rock",
@@ -353,13 +355,19 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
         });
       }
 
-      return {
+      // Fix: reassign __snapshot/__reconstruct so closures capture THIS tick's state,
+      // not the stale `s` reference from the spread. The ...s spread copies the old
+      // __snapshot closure which reads self.sentinelOutput from tick 0 (null).
+      const newState: DeersRockSectorState = {
         ...s,
         world,
         lastTickState: world.state,
         sentinelOutput,
         circuitBreakerTripped: circuitTripped,
       };
+      newState.__snapshot = function () { return makeSnapshot(newState); };
+      newState.__reconstruct = function (snap) { return doReconstruct(newState, snap as DeersRockWorldSnapshot); };
+      return newState;
     },
 
     handlers,
