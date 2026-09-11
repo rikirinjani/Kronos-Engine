@@ -1,0 +1,84 @@
+{
+  "seed": 1003,
+  "horizon": 50,
+  "timestamp": "2026-09-11T13:30:59.434Z",
+  "results": {
+    "pt0": {
+      "result": {
+        "occ": 0.8244274809160306,
+        "enc": 325,
+        "pts": 108
+      },
+      "rngContaminated": false
+    },
+    "pt1": {
+      "result": {
+        "occ": 0.8244274809160306,
+        "enc": 325,
+        "pts": 108
+      },
+      "rngContaminated": false
+    },
+    "pt2": {
+      "result": {
+        "occ": 0.8244274809160306,
+        "enc": 325,
+        "pts": 108
+      },
+      "rngContaminated": false
+    },
+    "pt3": {
+      "result": {
+        "occ": 0.8244274809160306,
+        "enc": 325,
+        "pts": 108
+      },
+      "rngContaminated": false
+    },
+    "pt5": {
+      "result": {
+        "occ": 0.8244274809160306,
+        "enc": 325,
+        "pts": 108
+      },
+      "rngContaminated": false
+    },
+    "pt10": {
+      "result": {
+        "occ": 0.8244274809160306,
+        "enc": 325,
+        "pts": 108
+      },
+      "rngContaminated": false
+    },
+    "pt50": {
+      "result": {
+        "occ": 0.9083969465648855,
+        "enc": 335,
+        "pts": 119
+      },
+      "rngContaminated": false
+    }
+  },
+  "freshRuns": [
+    {
+      "occ": 0.8244274809160306,
+      "enc": 325,
+      "pts": 108
+    },
+    {
+      "occ": 0.8244274809160306,
+      "enc": 325,
+      "pts": 108
+    },
+    {
+      "occ": 0.8244274809160306,
+      "enc": 325,
+      "pts": 108
+    }
+  ],
+  "deterministicWithinParent": false,
+  "minimalDivergingParentTicks": 50,
+  "rngContaminated": false,
+  "cumulativeContamination": false
+}

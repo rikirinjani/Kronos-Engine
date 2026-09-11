@@ -1,0 +1,60 @@
+{
+  "seed": 1003,
+  "horizon": 50,
+  "timestamp": "2026-09-11T03:29:22.170Z",
+  "caseA": {
+    "occ": 0.8244274809160306,
+    "icu": 0.7142857142857143,
+    "mort": 0,
+    "supply": 0.32433333333333336,
+    "staff": 1,
+    "healthEvents": 0,
+    "healthDetails": {},
+    "encounters": 325,
+    "patients": 108,
+    "sentinelNull": false
+  },
+  "caseB": {
+    "occ": 0.8778625954198473,
+    "icu": 0.9642857142857143,
+    "mort": 0,
+    "supply": 0.324137037037037,
+    "staff": 1,
+    "healthEvents": 2,
+    "healthDetails": {
+      "health.pressure": 2
+    },
+    "encounters": 339,
+    "patients": 115,
+    "sentinelNull": false
+  },
+  "caseC": {
+    "occ": 0.8778625954198473,
+    "icu": 0.9642857142857143,
+    "mort": 0,
+    "supply": 0.324137037037037,
+    "staff": 1,
+    "healthEvents": 2,
+    "healthDetails": {
+      "health.pressure": 2
+    },
+    "encounters": 339,
+    "patients": 115,
+    "sentinelNull": false
+  },
+  "caseD": {
+    "occ": 0.8244274809160306,
+    "icu": 0.7142857142857143,
+    "mort": 0,
+    "supply": 0.32433333333333336,
+    "staff": 1,
+    "healthEvents": 0,
+    "healthDetails": {},
+    "encounters": 325,
+    "patients": 108,
+    "sentinelNull": false
+  },
+  "counterResetEffect": true,
+  "reinitFixes": true,
+  "contaminationDetected": true
+}

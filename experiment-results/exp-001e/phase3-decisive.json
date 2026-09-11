@@ -1,0 +1,75 @@
+{
+  "seed": 1003,
+  "horizon": 50,
+  "timestamp": "2026-09-11T13:26:19.668Z",
+  "test1_parentMutatesRewindState": false,
+  "fingerprintBefore": {
+    "bedsSize": 131,
+    "bedsOccupied": 0,
+    "encounters": 0,
+    "labOrders": 0,
+    "medOrders": 0,
+    "radOrders": 0,
+    "surgOrders": 0,
+    "charges": 0,
+    "edTriages": 0,
+    "charts": 0,
+    "agentPool": 122,
+    "referralLetters": 0,
+    "morgue": 0
+  },
+  "fingerprintAfter": {
+    "bedsSize": 131,
+    "bedsOccupied": 0,
+    "encounters": 0,
+    "labOrders": 0,
+    "medOrders": 0,
+    "radOrders": 0,
+    "surgOrders": 0,
+    "charges": 0,
+    "edTriages": 0,
+    "charts": 0,
+    "agentPool": 122,
+    "referralLetters": 0,
+    "morgue": 0
+  },
+  "caseA": {
+    "occ": 0.8244274809160306,
+    "icu": 0.7142857142857143,
+    "supply": 0.32767407407407406,
+    "encounters": 325,
+    "patients": 108
+  },
+  "caseB": {
+    "occ": 0.9083969465648855,
+    "icu": 1,
+    "supply": 0.33039999999999997,
+    "encounters": 335,
+    "patients": 119
+  },
+  "caseB2": {
+    "occ": 0.9083969465648855,
+    "icu": 1,
+    "supply": 0.33039999999999997,
+    "encounters": 335,
+    "patients": 119
+  },
+  "caseB3a": {
+    "occ": 0.9083969465648855,
+    "icu": 1,
+    "supply": 0.33039999999999997,
+    "encounters": 335,
+    "patients": 119
+  },
+  "caseB3b": {
+    "occ": 0.9083969465648855,
+    "icu": 1,
+    "supply": 0.33039999999999997,
+    "encounters": 335,
+    "patients": 119
+  },
+  "aEqualsB_uncloned": false,
+  "aEqualsB_cloned": false,
+  "deterministic": true,
+  "mechanism": "REJECTED: parent run does NOT mutate the rewind-point hospitalState. Reference-sharing is NOT the mechanism."
+}

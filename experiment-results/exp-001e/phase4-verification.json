@@ -1,0 +1,139 @@
+{
+  "timestamp": "2026-09-11T14:01:02.311Z",
+  "parentTicks": 50,
+  "seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "horizons": [
+    10,
+    25,
+    50
+  ],
+  "allPass": true,
+  "results": [
+    {
+      "seed": 1001,
+      "horizon": 10,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1001,
+      "horizon": 25,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1001,
+      "horizon": 50,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1002,
+      "horizon": 10,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1002,
+      "horizon": 25,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1002,
+      "horizon": 50,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1003,
+      "horizon": 10,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1003,
+      "horizon": 25,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1003,
+      "horizon": 50,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1004,
+      "horizon": 10,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1004,
+      "horizon": 25,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1004,
+      "horizon": 50,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1005,
+      "horizon": 10,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": true
+    },
+    {
+      "seed": 1005,
+      "horizon": 25,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    },
+    {
+      "seed": 1005,
+      "horizon": 50,
+      "pass": true,
+      "isolationOk": true,
+      "reproducOk": true,
+      "strictIsolationOk": false
+    }
+  ]
+}

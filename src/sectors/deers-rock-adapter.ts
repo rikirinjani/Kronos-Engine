@@ -5,6 +5,7 @@ import type { HospitalState } from "../../../Deers-Rock/dist/engine/state-store.
 import { createWorld, step, computeSupplyStress } from "../../../Deers-Rock/dist/index.js";
 import { EventQueue } from "../../../Deers-Rock/dist/engine/event-queue.js";
 import { createClock, cloneClockWithRng } from "../../../Deers-Rock/dist/engine/clock.js";
+import { deepClone } from "../engine/clone.js";
 
 const TICKS_PER_WORLD_TICK = 1440;
 
@@ -203,15 +204,19 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
     const w = self.world;
     const events = (w.queue as any).events as Array<{ id: string; type: string; scheduledTick: number; data: Record<string, unknown> }>;
     const counter = (w.queue as any).counter as number;
+    // EXP-001E: deep-clone mutable state so the canonical snapshot is immutable and
+    // immune to later in-place mutation of the live world (e.g. CSSD trays mutated
+    // by cssdHandler). Without this, a parent run contaminates a previously captured
+    // rewind point, and branches reconstructed from it diverge from a fresh branch.
     return {
       clockTick: w.clock.tick,
       hospitalTimeMs: w.clock.hospitalTimeMs,
       rngSeed: w.clock.rngSeed,
-      events: events.map(e => ({ ...e })),
+      events: deepClone(events),
       eventCounter: counter,
-      hospitalState: w.state,
+      hospitalState: deepClone(w.state),
       sentinelOutput: self.sentinelOutput,
-      lastTickState: self.lastTickState,
+      lastTickState: deepClone(self.lastTickState),
       circuitBreakerTripped: self.circuitBreakerTripped,
       config: self.config,
     };
@@ -232,7 +237,9 @@ export function deersRockAdapter(config: HospitalSentinelConfig, worldSeed: numb
 
     const world: World = {
       clock: restoredClock,
-      state: snapshot.hospitalState,
+      // EXP-001E: clone the canonical state so this branch never aliases (and thus
+      // mutates) the rewind point's stored snapshot across multiple branch forks.
+      state: deepClone(snapshot.hospitalState),
       queue,
       handlers: self.world.handlers,
       journalPath: self.world.journalPath,
