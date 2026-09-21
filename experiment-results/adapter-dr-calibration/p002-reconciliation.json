@@ -1,0 +1,117 @@
+{
+  "artifact": "P-002 contract vs implementation reconciliation",
+  "generatedAt": "2026-09-21",
+  "primarySpecification": "docs/proposals/P-002-deers-rock-adapter.md",
+  "reconciliationReport": "docs/experiments/P-002-IMPLEMENTATION-RECONCILIATION.md",
+  "note": "Reconciliation only. No correction implemented. P-002 and frozen Phase F unmodified.",
+  "statusVocabulary": ["CONFORMING", "IMPLEMENTATION DIVERGENCE", "DR CONSUMPTION DIVERGENCE", "SPECIFICATION SUPERSEDED", "SPECIFICATION AMBIGUOUS", "DEAD / UNCONSUMED"],
+  "fields": [
+    {
+      "field": "admissionMultiplier",
+      "p002Specification": { "declaration": "admissionMultiplier: number; // 1.0 = baseline", "source": "P-002:176", "narrativeScale": "Pandemic declared -> admissionMultiplier x 2.5", "narrativeSource": "P-002:81", "validation": "Pandemic -> admissionMultiplier = 2.5 (valid)", "validationSource": "P-002:257" },
+      "currentAdapter": { "formula": "1.0 + 0.3*w + 0.2*k", "w": "number of EXTREME_WEATHER events this tick, in {0,1}", "k": "number of WAR_START events this tick, <= 5", "mMax": 2.3, "ordinaryValue": 1.3, "source": "deers-rock-adapter.ts:157,166,172" },
+      "drConsumer": { "mechanism": "floor(baseAdmit * m); baseAdmit = floor(rng()*3) in {0,1,2}; toAdmit = min(beds, max(1, scaledAdmit))", "source": "markov.js:58-60" },
+      "calibrationBehavior": { "shape": "3-state staircase", "steps": [1.5, 2.0], "emittedValueEffect": "step 0 (no effect)" },
+      "status": "IMPLEMENTATION DIVERGENCE",
+      "nuance": "P-002's interface declaration line says only '1.0 = baseline' (satisfied by the implementation). The multiplicative scale appears only in narrative and validation tables. Under a strict reading of the declaration line the implementation CONFORMS; under a prescriptive reading of the examples it DIVERGES.",
+      "jev": { "classificationCorrect": "Partially", "score": 1.33, "confidence": 0.4 },
+      "correctionBoundary": "SPECIFICATION CHANGE REQUIRED (alternative reading: MUST CORRECT TO CONFORM TO P-002)"
+    },
+    {
+      "field": "supplyChainPressure",
+      "p002Specification": { "declaration": "supplyChainPressure: number; // 0-1", "source": "P-002:178", "qualitative": "Climate disaster -> supply stress", "qualitativeSource": "P-002:83" },
+      "currentAdapter": { "formula": "max(previous, 0.4) on EXTREME_WEATHER", "emitted": [0, 0.4], "withinDeclaredRange": true, "source": "deers-rock-adapter.ts:167" },
+      "drConsumer": { "mechanism": "effectiveMin = minStock + (maxStock - minStock) * p; restock only when clock.tick % 50 === 0", "source": "central-supply.js:78-85" },
+      "calibrationBehavior": { "deadZone": "<= 0.450", "onset": 0.475, "saturated": ">= 0.525" },
+      "status": "CONFORMING",
+      "note": "Thresholding and restock-boundary time quantization are DR model properties, not adapter divergences. P-002 declares a range and never promises a continuous or proportional response.",
+      "jev": { "classificationCorrect": "Yes", "score": 1.91, "confidence": 0.86 },
+      "correctionBoundary": "OPTIONAL MODELING CHANGE (response shape only)"
+    },
+    {
+      "field": "activeDisasterType",
+      "p002Specification": { "declaration": "activeDisasterType?: string; // pandemic, earthquake, etc.", "source": "P-002:180" },
+      "currentAdapter": { "emittedValues": ["natural-disaster"], "source": "deers-rock-adapter.ts:168" },
+      "drRecognizedVocabulary": { "natural-disaster": "earthquake", "mass-casualty": "mass_casualty", "unknown": "no activation (safe behaviour)", "source": "scenario.js:2-8" },
+      "vocabularyTable": [
+        { "p002Value": "pandemic", "adapterCanEmit": false, "drRecognizes": false, "status": "DR CONSUMPTION DIVERGENCE" },
+        { "p002Value": "earthquake", "adapterCanEmit": false, "drRecognizes": "indirectly via natural-disaster", "status": "layer mismatch" },
+        { "p002Value": "natural-disaster", "adapterCanEmit": true, "drRecognizes": true, "status": "CONFORMING" },
+        { "p002Value": "mass-casualty", "adapterCanEmit": false, "drRecognizes": true, "status": "unreachable" },
+        { "p002Value": "etc. (unspecified)", "adapterCanEmit": false, "drRecognizes": false, "status": "SPECIFICATION AMBIGUOUS" }
+      ],
+      "status": "DR CONSUMPTION DIVERGENCE",
+      "note": "P-002's only named example 'pandemic' has no DR mapping. The adapter emits a CATEGORY where P-002 names SCENARIO TYPES.",
+      "jev": { "classificationCorrect": "Yes", "score": 1.62, "confidence": 0.42 },
+      "correctionBoundary": "SPECIFICATION CHANGE REQUIRED"
+    },
+    {
+      "field": "staffAvailabilityModifier",
+      "p002Specification": { "declaration": "staffAvailabilityModifier: number; // 0-1", "source": "P-002:179", "qualitative": "reduce staff availability on war", "qualitativeSource": "P-002:75" },
+      "currentAdapter": { "formula": "min(1.0, 0.85) on WAR_START", "emitted": [1.0, 0.85], "withinDeclaredRange": true, "source": "deers-rock-adapter.ts:173" },
+      "drConsumer": { "mechanism": "poliCapacity = max(1, floor(capacityPerTick * modifier))", "source": "outpatient.js:97-99" },
+      "calibrationBehavior": { "endpointEffect": "none on occupancy, ICU occupancy, supplyStress or encounters" },
+      "status": "CONFORMING",
+      "note": "P-002 declares the field's meaning and range but never specifies which sentinel endpoints must respond. Absence of a supplyStress effect is therefore not a defect.",
+      "jev": { "classificationCorrect": "Yes", "score": 1.93, "confidence": 0.9 },
+      "correctionBoundary": "OPTIONAL MODELING CHANGE (endpoint effect only)"
+    },
+    {
+      "field": "diagnosisWeightOverrides",
+      "p002Specification": { "declaration": "diagnosisWeightOverrides: Record<string, number>; // ICD code -> weight", "source": "P-002:177", "narrative": "respiratoryCaseWeight: +40%", "narrativeSource": "P-002:23" },
+      "currentAdapter": { "behavior": "computed, populated, returned; NEVER scheduled", "source": "deers-rock-adapter.ts:158,169,175,181,189" },
+      "drConsumer": { "consumer": "none", "note": "DR has its own SCENARIO_DEFS.icdWeights consumed by getScenarioEffects", "source": "scenario.js:180" },
+      "calibrationBehavior": null,
+      "status": "DEAD / UNCONSUMED",
+      "lifecycle": "UNRESOLVED",
+      "note": "Not classified as IMPLEMENTATION DIVERGENCE because P-002 does not establish the field as required behaviour.",
+      "jev": { "classificationCorrect": "Yes", "score": 1.84, "confidence": 0.76 },
+      "correctionBoundary": "UNRESOLVED"
+    },
+    {
+      "field": "climate severity",
+      "p002Specification": { "declaration": "NOT MENTIONED in the P-002 packet", "packetFields": ["tick", "admissionMultiplier", "diagnosisWeightOverrides", "supplyChainPressure", "staffAvailabilityModifier", "activeDisasterType"], "qualitativePromise": "Climate disaster -> trauma surge, supply stress", "qualitativeSource": "P-002:83" },
+      "currentAdapter": { "behavior": "severity is never read", "source": "deers-rock-adapter.ts:164-183" },
+      "drCounterpart": { "variable": "_scenario.active.severity", "units": "normalized interpolation parameter [0,1]", "nativeSampling": "0.3 + rng()*0.7", "macroOverride": 0.6 },
+      "status": "SPECIFICATION AMBIGUOUS",
+      "mappingStatus": "UNDEFINED",
+      "note": "The absence of severity transmission is NOT a divergence from P-002, which never promised it. It is a specification gap. Separately, activeDisasterType (categorical) + fixed DR severity 0.6 IS consistent with P-002.",
+      "jev": { "classificationCorrect": "Yes", "score": 1.96, "confidence": 0.95 },
+      "correctionBoundary": "SPECIFICATION CHANGE REQUIRED"
+    }
+  ],
+  "reopeningAuditReconciliation": {
+    "source": "Deers-Rock/reopen-audit/paper/deers-rock-reopening-paper.md",
+    "claim": "the macro->micro channel is inert; DR drops the only two scheduled events and never reads the other three fields",
+    "fourMeanings": [
+      { "id": 1, "meaning": "implementation absent", "appliesToReopeningPaper": true, "appliesToCurrentState": false },
+      { "id": 2, "meaning": "implementation present but below DR thresholds", "appliesToReopeningPaper": false, "appliesToCurrentState": true },
+      { "id": 3, "meaning": "implementation present but semantically divergent", "appliesToReopeningPaper": false, "appliesToCurrentState": true },
+      { "id": 4, "meaning": "implementation present but endpoint-insensitive", "appliesToReopeningPaper": false, "appliesToCurrentState": true }
+    ],
+    "disposition": "SUPERSEDED (meaning 1), NOT REFUTED",
+    "currentStateCharacterisation": "meanings 2 + 3 + 4 combined",
+    "jev": { "interpretationCorrect": "Yes", "score": 1.95, "confidence": 0.93, "fourWayDistinctionValid": "Yes", "fourWayScore": 1.92 }
+  },
+  "correctionBoundary": {
+    "SPECIFICATION CHANGE REQUIRED": ["admissionMultiplier scale semantics", "activeDisasterType vocabulary", "climate severity transmission", "primary endpoint selection"],
+    "UNRESOLVED": ["diagnosisWeightOverrides lifecycle"],
+    "OPTIONAL MODELING CHANGE": ["supplyChainPressure response shape", "staffAvailabilityModifier endpoint effect"],
+    "MUST CORRECT TO CONFORM TO P-002": [],
+    "note": "No item is MUST CORRECT outright: in every case the authoritative text is narrative rather than declarative, or silent. P-002 is not precise enough to generate unambiguous code obligations.",
+    "jev": { "boundarySufficient": "Mostly sufficient", "boundaryScore": 0.77, "minimumSetSufficient": "Partially", "minimumSetScore": 0.8 }
+  },
+  "unresolvedIssues": [
+    "Is P-002's x 2.5 example binding or illustrative?",
+    "What is the authoritative activeDisasterType vocabulary and its DR mappings?",
+    "Is diagnosisWeightOverrides deprecated, reserved, planned or accidental?",
+    "Is climate severity intended to be transmitted at all?",
+    "Which sentinel endpoint is primary?",
+    "Does P-002's narrative naming drift (admissionRateMultiplier, staffAbsenteeism %) constitute superseded naming or a documentation error?",
+    "Jev flagged possible behaviour-mistaken-for-specification (0.67, conf 0.00) without identifying where",
+    "Jev flagged that some proposed corrections may lack specification support (0.58, conf 0.13)"
+  ],
+  "correctionsImplemented": [],
+  "p002Modified": false,
+  "frozenPhaseFModified": false
+}
