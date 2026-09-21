@@ -40,6 +40,40 @@
     "JAMIA manuscript evidence matrix cites Phase F causal pathway results that are materially qualified by this defect."
   ],
   "not_a_nonconformity": "This defect was not introduced by EXP-002 work. It is pre-existing and present in frozen Phase F artifacts.",
+  "impact_assessment": {
+    "report": "docs/experiments/PHASE-F-ECONOMY-CLIMATE-COUPLING-IMPACT.md",
+    "mode": "common-mode in mechanism, comparison-destroying in effect",
+    "evidence": {
+      "common_mode_tick3_co2": {
+        "seed42_control": 4655842.2,
+        "seed42_intervention": 4656362.2,
+        "relative_difference": "0.011%",
+        "note": "Explosion term is near-identical across arms despite 520 ppm initial separation."
+      },
+      "differential_exposure_window_ticks": {
+        "observed": 3,
+        "horizon": 20,
+        "fraction": 0.15,
+        "counterfactual_corrected": 20,
+        "compression": "85%"
+      },
+      "phase_f_frozen_statistics": {
+        "occupancyRate_directionConsistency": 0,
+        "icuOccupancyRate_directionConsistency": 0,
+        "mortalityPressure_directionConsistency": 0,
+        "supplyStress_directionConsistency": 0.2,
+        "seeds_with_any_nonzero_delta": 1,
+        "seeds_total": 5,
+        "firstEventTick_control": [8, 4, 6, 6, 2],
+        "firstEventTick_intervention": [8, 4, 6, 6, 2]
+      }
+    },
+    "phase_f_not_an_overclaim": "Frozen report.md self-classifies as 'E - Null stochastic result' and states the >=80% direction-consistency criterion was NOT MET. The defect does not create a false positive; it renders the honest null uninterpretable, because the intended treatment contrast was absent for 85% of the horizon.",
+    "classification": "pathway-validity impact",
+    "recommendation": "C (correct implementation + new Phase F version) with a D-component (dimensional-consistency audit of all cross-sector couplings). Frozen Phase F artifacts must be preserved as the historical record.",
+    "provenance_gap_noted": "experiment-results/phase-f/ and docs/PHASE-F-DESIGN.md are untracked in git; freeze is enforced by convention, not version control. Recommend committing or hashing into a manifest.",
+    "frozen_artifacts_modified": false
+  },
   "corrective_action_proposed": [
     "Option 1 (recommended): re-derive emissionsFactor so a 2.5% GDP growth delta yields a realistic emissions increment (order 0.1-1 Gt/tick); re-run Phase F. Blast radius: Phase F artifacts, QMS records, manuscript evidence matrix, Zenodo package.",
     "Option 2: clamp climate state to a physically bounded CO2/anomaly range. Still alters frozen behaviour.",
