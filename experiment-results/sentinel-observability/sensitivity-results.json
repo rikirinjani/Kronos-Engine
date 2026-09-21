@@ -1,0 +1,325 @@
+{
+  "generatedAt": "2026-09-21T07:20:59.459Z",
+  "hospitalId": "makassar-001",
+  "patients": 50,
+  "worldSeed": 42,
+  "admissionSweep": [
+    {
+      "m": 1,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "m": 1.1,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "m": 1.3,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "m": 1.5,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5725190839694656,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.5223777777777777,
+        "encounters": 158,
+        "morgue": 0,
+        "admissions": 75
+      }
+    },
+    {
+      "m": 2,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.6030534351145038,
+        "icuOccupancy": 0,
+        "supplyStress": 0.5203703703703704,
+        "encounters": 163,
+        "morgue": 0,
+        "admissions": 79
+      }
+    }
+  ],
+  "pressureSweep": [
+    {
+      "p": 0,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "p": 0.2,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "p": 0.4,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "p": 0.6,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.006037037037037037,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "p": 0.8,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.006037037037037037,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "p": 1,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.006037037037037037,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    }
+  ],
+  "disaster": {
+    "none": {
+      "keTick": 20,
+      "occupancy": 0.5419847328244275,
+      "icuOccupancy": 0.03571428571428571,
+      "supplyStress": 0.4917703703703704,
+      "encounters": 156,
+      "morgue": 0,
+      "admissions": 71
+    },
+    "natural": {
+      "keTick": 20,
+      "occupancy": 0.549618320610687,
+      "icuOccupancy": 0.07142857142857142,
+      "supplyStress": 0.519925925925926,
+      "encounters": 160,
+      "morgue": 0,
+      "admissions": 72
+    }
+  },
+  "staff": [
+    {
+      "s": 1,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    },
+    {
+      "s": 0.85,
+      "final": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      }
+    }
+  ],
+  "adapterEquivalent": {
+    "keTick": 20,
+    "occupancy": 0.5343511450381679,
+    "icuOccupancy": 0.07142857142857142,
+    "supplyStress": 0.49214814814814817,
+    "encounters": 156,
+    "morgue": 0,
+    "admissions": 70
+  },
+  "horizon": [
+    {
+      "h": 5,
+      "base": {
+        "keTick": 5,
+        "occupancy": 0.3969465648854962,
+        "icuOccupancy": 0,
+        "supplyStress": 0.5064407407407407,
+        "encounters": 73,
+        "morgue": 0,
+        "admissions": 52
+      },
+      "extreme": {
+        "keTick": 5,
+        "occupancy": 0.42748091603053434,
+        "icuOccupancy": 0,
+        "supplyStress": 0.5064925925925926,
+        "encounters": 75,
+        "morgue": 0,
+        "admissions": 56
+      }
+    },
+    {
+      "h": 10,
+      "base": {
+        "keTick": 10,
+        "occupancy": 0.44274809160305345,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.5129296296296296,
+        "encounters": 102,
+        "morgue": 0,
+        "admissions": 58
+      },
+      "extreme": {
+        "keTick": 10,
+        "occupancy": 0.48091603053435117,
+        "icuOccupancy": 0,
+        "supplyStress": 0.5128814814814814,
+        "encounters": 101,
+        "morgue": 0,
+        "admissions": 63
+      }
+    },
+    {
+      "h": 20,
+      "base": {
+        "keTick": 20,
+        "occupancy": 0.5419847328244275,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.4917703703703704,
+        "encounters": 156,
+        "morgue": 0,
+        "admissions": 71
+      },
+      "extreme": {
+        "keTick": 20,
+        "occupancy": 0.5877862595419847,
+        "icuOccupancy": 0,
+        "supplyStress": 0.0060185185185185185,
+        "encounters": 163,
+        "morgue": 0,
+        "admissions": 77
+      }
+    },
+    {
+      "h": 30,
+      "base": {
+        "keTick": 30,
+        "occupancy": 0.6106870229007634,
+        "icuOccupancy": 0.03571428571428571,
+        "supplyStress": 0.504362962962963,
+        "encounters": 204,
+        "morgue": 0,
+        "admissions": 80
+      },
+      "extreme": {
+        "keTick": 30,
+        "occupancy": 0.6870229007633588,
+        "icuOccupancy": 0.07142857142857142,
+        "supplyStress": 0,
+        "encounters": 221,
+        "morgue": 0,
+        "admissions": 90
+      }
+    },
+    {
+      "h": 40,
+      "base": {
+        "keTick": 40,
+        "occupancy": 0.7175572519083969,
+        "icuOccupancy": 0.21428571428571427,
+        "supplyStress": 0.5166592592592594,
+        "encounters": 262,
+        "morgue": 0,
+        "admissions": 94
+      },
+      "extreme": {
+        "keTick": 40,
+        "occupancy": 0.8091603053435115,
+        "icuOccupancy": 0.6428571428571429,
+        "supplyStress": 0.012414814814814814,
+        "encounters": 277,
+        "morgue": 0,
+        "admissions": 106
+      }
+    },
+    {
+      "h": 60,
+      "base": {
+        "keTick": 60,
+        "occupancy": 0.916030534351145,
+        "icuOccupancy": 1,
+        "supplyStress": 0.49215925925925935,
+        "encounters": 376,
+        "morgue": 0,
+        "admissions": 120
+      },
+      "extreme": {
+        "keTick": 60,
+        "occupancy": 0.9694656488549618,
+        "icuOccupancy": 1,
+        "supplyStress": 0,
+        "encounters": 385,
+        "morgue": 0,
+        "admissions": 127
+      }
+    }
+  ]
+}
