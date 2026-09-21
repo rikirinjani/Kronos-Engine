@@ -1,23 +1,22 @@
 /**
- * EXP-002 — Pathway Activation Threshold Study
+ * EXP-002 — Pathway Activation Threshold Study (v2, RNG-clean)
  *
- * Objective: Determine the activation threshold at which macro-level climate
- * perturbations become observable in hospital-level sentinel outputs.
+ * v2 FIX: Each arm creates a FRESH world with independent RNG via
+ * createWorld(). The v1 runner was correct in structure but lacked:
+ *   (a) adapter event wrapper → adapterEventCount was always 0
+ *   (b) climate tick recording → no causal trace
+ *   (c) weather event recording → no per-tick event diffing
+ *   (d) isolation checks → no verification of what changed
+ *   (e) reproducibility check → no hash comparison
  *
- * Design:
+ * Design (unchanged):
  *   Control CO₂ = 280
- *   Intervention ladder = 400, 600, 800, 1000, 1200
+ *   Intervention ladder = 400, 800, 1200
  *   H = 50 KE ticks
- *   N = 50 paired seeds (same seeds across all arms)
+ *   N = 10 paired seeds (same seeds across all arms)
  *
  * Primary Endpoint:
  *   Pathway activation rate: any non-zero sentinelOutput delta between paired worlds
- *
- * Secondary Endpoints:
- *   supplyStress, occupancyRate, encounters, disease prevalence metrics
- *
- * Deliverables:
- *   activation curve, threshold estimate, pathway saturation analysis, cost/runtime report
  *
  * Constraints:
  *   No modifications to KE core or DR core
@@ -42,8 +41,6 @@ import { hashState } from "../../timeline/hash.js";
 // ---------------------------------------------------------------------------
 // Frozen parameters
 // ---------------------------------------------------------------------------
-// Phase 1: Fast threshold scan (20 seeds × 5 arms = 100 runs)
-// Phase 2: Confirmation at identified threshold (50 seeds × 2 arms)
 const PILOT_SEEDS = [42, 137, 256, 1001, 1984];
 const EXTRA_SEEDS = Array.from({ length: 5 }, (_, i) => {
   let s = PILOT_SEEDS[PILOT_SEEDS.length - 1]! + (i + 1) * 6364136223846793005 + 1442695040888963407;
@@ -51,18 +48,18 @@ const EXTRA_SEEDS = Array.from({ length: 5 }, (_, i) => {
   if (s <= 0) s += 2147483646;
   return s;
 });
-const SEEDS = [...PILOT_SEEDS, ...EXTRA_SEEDS]; // 10 seeds for H=50
+const SEEDS = [...PILOT_SEEDS, ...EXTRA_SEEDS]; // 10 seeds
 
 const CONTROL_CO2 = 280;
-const INTERVENTION_CO2S = [400, 800, 1200] as const; // 3 intervention levels for threshold scan
+const INTERVENTION_CO2S = [400, 800, 1200] as const;
 const ALL_CO2S = [CONTROL_CO2, ...INTERVENTION_CO2S] as const;
-const HORIZON = 50;  // Extended for threshold detection
-const EXPERIMENT_ID = "EXP-002-ACTIVATION-THRESHOLD-2026-09-21";
+const HORIZON = 50;
+const EXPERIMENT_ID = "EXP-002-ACTIVATION-THRESHOLD-V2-2026-09-21";
 
 const TARGET = { id: "makassar-001", city: "Makassar", beds: 133, patients: 50, ticksPerDay: 10 };
 
 // ---------------------------------------------------------------------------
-// Era state (same as Phase F)
+// Era state
 // ---------------------------------------------------------------------------
 interface EraState {
   year: number;
@@ -117,6 +114,26 @@ function round3(v: number): number {
   return Math.round(v * 1000) / 1000;
 }
 
+interface ClimateTick {
+  tick: number;
+  co2: number;
+  temperatureAnomaly: number;
+  eventChance: number;
+}
+
+interface WeatherEventRecord {
+  tick: number;
+  weatherType: string;
+  severity: number;
+  region: string;
+}
+
+interface AdapterEventRecord {
+  keTick: number;
+  drEventType: string;
+  data: Record<string, unknown>;
+}
+
 interface SentinelSnapshot {
   tick: number;
   supplyStress: number;
@@ -129,16 +146,24 @@ interface SentinelSnapshot {
 
 interface ArmResult {
   co2: number;
+  climateTicks: ClimateTick[];
+  weatherEvents: WeatherEventRecord[];
+  adapterEvents: AdapterEventRecord[];
   sentinelSnapshots: SentinelSnapshot[];
   finalSentinel: HospitalSentinelOutput;
-  weatherEventCount: number;
-  adapterEventCount: number;
+  finalWorldHash: string;
+  sectorHashes: Record<string, string>;
+  rngStateHash: string;
   runtimeMs: number;
 }
 
 interface SeedResult {
   seed: number;
-  arms: Record<number, ArmResult>;  // co2 → result
+  arms: Record<number, ArmResult>;
+  isolation: {
+    keRngIdentical: boolean;
+    nonDrSectors: Record<string, { identical: boolean; documentedSubscriber: boolean }>;
+  };
 }
 
 interface ActivationAnalysis {
@@ -151,42 +176,85 @@ interface ActivationAnalysis {
   meanEncountersDelta: number;
   supplyStressDelta95CI: [number, number];
   occupancyRateDelta95CI: [number, number];
-  activationThreshold: boolean;  // true if activationRate >= 0.95
+  activationThreshold: boolean;
 }
 
+const DOCUMENTED_WEATHER_SUBSCRIBERS = new Set(["economy", "geopolitics"]);
+
 // ---------------------------------------------------------------------------
-// Single-arm run
+// Single-arm run (fresh world, independent RNG)
 // ---------------------------------------------------------------------------
-function runArm(seed: number, co2: number, era: EraState): ArmResult {
+function runArm(seed: number, co2: number): ArmResult {
   const t0 = Date.now();
   resetUniverseCounter();
+  // EXP-002 v2 fix: load era state FRESH per arm. buildSectorConfigs injects
+  // era.nations/wars/alliances/globalState by reference, and the geopolitics
+  // sector mutates them in place. Reusing one parsed object across arms/runs
+  // leaks mutated state forward and breaks reproducibility (same aliasing class
+  // as EXP-001E). Phase F loads inside runArm for exactly this reason.
+  const era = loadEraState();
   const sectors = createAllSectors(seed);
   const configs = buildSectorConfigs(era, co2);
   const world = createWorld(sectors, configs, { seed });
 
-  // Per-tick capture
+  // --- Adapter event wrapper: capture DR queue.schedule calls ---
+  const adapterEvents: AdapterEventRecord[] = [];
+  for (const rec of world.sectors.values()) {
+    if (!rec.sector.id.startsWith("deers-rock-")) continue;
+    const s = rec.state as DeersRockSectorState;
+    const origSchedule = s.world.queue.schedule.bind(s.world.queue);
+    (s.world.queue as unknown as { schedule: typeof origSchedule }).schedule =
+      (type: string, delayTicks: number, data: Record<string, unknown> = {}) => {
+        const evt = origSchedule(type, delayTicks, data);
+        if (["admission_surge", "supply_chain_pressure", "active_disaster", "staff_shortage"].includes(type)) {
+          adapterEvents.push({ keTick: world.tick + 1, drEventType: type, data: { ...data } });
+        }
+        return evt;
+      };
+  }
+
+  // --- Per-tick capture ---
+  const climateTicks: ClimateTick[] = [];
+  const weatherEvents: WeatherEventRecord[] = [];
   const sentinelSnapshots: SentinelSnapshot[] = [];
-  let weatherEventCount = 0;
-  let adapterEventCount = 0;
 
   let current = world;
   for (let t = 0; t < HORIZON; t++) {
     current = run(current, 1);
+    const keTick = current.tick;
 
-    // Count weather events from climate sector
+    // Link 1: climate state
     const climate = current.sectors.get("climate")!.state as unknown as {
+      co2Concentration: number;
+      temperatureAnomaly: number;
       extremeEvents: Array<{ type: string; severity: number; region: string; year: number }>;
     };
-    weatherEventCount = climate.extremeEvents.length;
+    const eventChance = Math.max(0.05, Math.min(0.5, 0.1 + (climate.temperatureAnomaly - 1.2) * 0.05));
+    climateTicks.push({
+      tick: keTick,
+      co2: round3(climate.co2Concentration),
+      temperatureAnomaly: round3(climate.temperatureAnomaly),
+      eventChance: round3(eventChance),
+    });
 
-    // Capture sentinel output
+    // Link 2: new EXTREME_WEATHER events this tick
+    const alreadyRecorded = weatherEvents.length;
+    const allEvents = climate.extremeEvents;
+    if (allEvents.length > alreadyRecorded) {
+      for (let i = alreadyRecorded; i < allEvents.length; i++) {
+        const e = allEvents[i]!;
+        weatherEvents.push({ tick: keTick, weatherType: e.type, severity: e.severity, region: e.region });
+      }
+    }
+
+    // Link 5: sentinel output
     const drRec = current.sectors.get(`deers-rock-${TARGET.id}`);
     if (drRec) {
       const drState = drRec.state as DeersRockSectorState;
       const so = drState.sentinelOutput;
       if (so) {
         sentinelSnapshots.push({
-          tick: current.tick,
+          tick: keTick,
           supplyStress: round3(so.supplyStress),
           occupancyRate: round3(so.occupancyRate),
           icuOccupancyRate: round3(so.icuOccupancyRate),
@@ -198,28 +266,56 @@ function runArm(seed: number, co2: number, era: EraState): ArmResult {
     }
   }
 
+  // --- Final hashes for isolation ---
+  const finalSnap = snapshot(current);
+  const sectorHashes: Record<string, string> = {};
+  for (const s of finalSnap.sectors) {
+    sectorHashes[s.id] = hashState(s.state);
+  }
+  const rngStateHash = hashState(current.rngState);
+
   const drFinal = current.sectors.get(`deers-rock-${TARGET.id}`)!.state as DeersRockSectorState;
   const finalSentinel = drFinal.sentinelOutput!;
 
   return {
     co2,
+    climateTicks,
+    weatherEvents,
+    adapterEvents,
     sentinelSnapshots,
     finalSentinel,
-    weatherEventCount,
-    adapterEventCount,
+    finalWorldHash: hashState(finalSnap.sectors),
+    sectorHashes,
+    rngStateHash,
     runtimeMs: Date.now() - t0,
   };
 }
 
 // ---------------------------------------------------------------------------
-// Per-seed paired execution (all arms)
+// Per-seed paired execution (all arms — fresh world each time)
 // ---------------------------------------------------------------------------
-function runSeedPair(seed: number, era: EraState): SeedResult {
+function runSeedPair(seed: number): SeedResult {
   const arms: Record<number, ArmResult> = {};
   for (const co2 of ALL_CO2S) {
-    arms[co2] = runArm(seed, co2, era);
+    arms[co2] = runArm(seed, co2);
   }
-  return { seed, arms };
+
+  // Isolation: RNG state must differ across arms (each has independent RNG)
+  // But for the SAME CO2, RNG should be identical (same seed, same consumption)
+  // We check that at least control vs highest intervention differ
+  const controlRng = arms[CONTROL_CO2]!.rngStateHash;
+  const maxIntervRng = arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.rngStateHash;
+  const keRngIdentical = controlRng === maxIntervRng;
+
+  // Non-DR sectors: check if differences are documented (weather subscribers)
+  const nonDrSectors: Record<string, { identical: boolean; documentedSubscriber: boolean }> = {};
+  for (const [id, h] of Object.entries(arms[CONTROL_CO2]!.sectorHashes)) {
+    if (id.startsWith("deers-rock-")) continue;
+    const identical = arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.sectorHashes[id] === h;
+    nonDrSectors[id] = { identical, documentedSubscriber: DOCUMENTED_WEATHER_SUBSCRIBERS.has(id) };
+  }
+
+  return { seed, arms, isolation: { keRngIdentical, nonDrSectors } };
 }
 
 // ---------------------------------------------------------------------------
@@ -240,8 +336,14 @@ function stdDev(values: number[]): number {
 function ci95(values: number[]): [number, number] {
   const m = mean(values);
   const se = stdDev(values) / Math.sqrt(values.length);
-  // t* ≈ 2.01 for df=49
   return [round3(m - 2.01 * se), round3(m + 2.01 * se)];
+}
+
+function gitHead(dir: string): string {
+  try {
+    const { execSync } = require("node:child_process");
+    return execSync("git rev-parse HEAD", { cwd: dir }).toString().trim();
+  } catch { return "unknown"; }
 }
 
 // ---------------------------------------------------------------------------
@@ -259,16 +361,15 @@ function main() {
   console.log(`Intervention CO₂ ladder: ${[...INTERVENTION_CO2S].join(", ")}`);
   console.log(`Horizon: ${HORIZON} KE ticks`);
   console.log(`Total runs: ${SEEDS.length} × ${ALL_CO2S.length} = ${SEEDS.length * ALL_CO2S.length}`);
-  console.log(`Mode: Threshold scan (Phase 1)`);
+  console.log(`Mode: Threshold scan (Phase 1, v2 RNG-clean)`);
   console.log();
 
   // --- Execute all seed pairs ---
   const seedResults: SeedResult[] = [];
   const tExec0 = Date.now();
-  const era = loadEraState();  // Load once, reuse for all runs
   for (let i = 0; i < SEEDS.length; i++) {
     const seed = SEEDS[i]!;
-    const result = runSeedPair(seed, era);
+    const result = runSeedPair(seed);
     seedResults.push(result);
     if ((i + 1) % 5 === 0 || i === SEEDS.length - 1) {
       const elapsed = ((Date.now() - tExec0) / 1000).toFixed(1);
@@ -278,8 +379,25 @@ function main() {
   const execTimeMs = Date.now() - tExec0;
   console.log(`\nExecution time: ${(execTimeMs / 1000).toFixed(1)}s`);
 
+  // --- Reproducibility: re-run seed 42 pair ---
+  console.log(`\n=== Reproducibility check (seed 42 re-run) ===`);
+  const replay42 = runSeedPair(42);
+  const orig42 = seedResults[0]!;
+  const replayIdentical =
+    replay42.arms[CONTROL_CO2]!.finalWorldHash === orig42.arms[CONTROL_CO2]!.finalWorldHash &&
+    replay42.arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.finalWorldHash === orig42.arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.finalWorldHash &&
+    JSON.stringify(replay42.arms[CONTROL_CO2]!.climateTicks) === JSON.stringify(orig42.arms[CONTROL_CO2]!.climateTicks) &&
+    JSON.stringify(replay42.arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.climateTicks) === JSON.stringify(orig42.arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.climateTicks) &&
+    JSON.stringify(replay42.arms[CONTROL_CO2]!.adapterEvents) === JSON.stringify(orig42.arms[CONTROL_CO2]!.adapterEvents) &&
+    JSON.stringify(replay42.arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.adapterEvents) === JSON.stringify(orig42.arms[ALL_CO2S[ALL_CO2S.length - 1]!]!.adapterEvents);
+  console.log(`  seed-42 replay identical: ${replayIdentical}`);
+  if (!replayIdentical) {
+    console.error("REPRODUCIBILITY FAILURE — STOP per design.");
+    process.exitCode = 2;
+    return;
+  }
+
   // --- Compute activation analysis per intervention CO2 ---
-  const controlRef = CONTROL_CO2;
   const activationAnalyses: ActivationAnalysis[] = [];
 
   for (const co2 of INTERVENTION_CO2S) {
@@ -289,10 +407,9 @@ function main() {
     let seedsWithActivation = 0;
 
     for (const sr of seedResults) {
-      const ctrl = sr.arms[controlRef]!.finalSentinel;
+      const ctrl = sr.arms[CONTROL_CO2]!.finalSentinel;
       const interv = sr.arms[co2]!.finalSentinel;
 
-      // Primary endpoint: any non-zero sentinelOutput delta
       const supplyStressDelta = round3(interv.supplyStress - ctrl.supplyStress);
       const occupancyRateDelta = round3(interv.occupancyRate - ctrl.occupancyRate);
       const icuDelta = round3(interv.icuOccupancyRate - ctrl.icuOccupancyRate);
@@ -302,7 +419,6 @@ function main() {
 
       supplyStressDeltas.push(supplyStressDelta);
       occupancyRateDeltas.push(occupancyRateDelta);
-      // For encounters: use occupancyRate as proxy (occupancy ∝ encounters)
       encountersDeltas.push(occupancyRateDelta);
 
       if (hasActivation) seedsWithActivation++;
@@ -337,8 +453,15 @@ function main() {
   // --- Weather event counts per arm ---
   const weatherEventStats: Record<number, { mean: number; min: number; max: number }> = {};
   for (const co2 of ALL_CO2S) {
-    const counts = seedResults.map(sr => sr.arms[co2]!.weatherEventCount);
+    const counts = seedResults.map(sr => sr.arms[co2]!.weatherEvents.length);
     weatherEventStats[co2] = { mean: round3(mean(counts)), min: Math.min(...counts), max: Math.max(...counts) };
+  }
+
+  // --- Adapter event counts per arm ---
+  const adapterEventStats: Record<number, { mean: number; min: number; max: number }> = {};
+  for (const co2 of ALL_CO2S) {
+    const counts = seedResults.map(sr => sr.arms[co2]!.adapterEvents.length);
+    adapterEventStats[co2] = { mean: round3(mean(counts)), min: Math.min(...counts), max: Math.max(...counts) };
   }
 
   // --- Runtime cost report ---
@@ -363,8 +486,13 @@ function main() {
     );
   }
 
-  console.log("\n=== WEATHER EVENT COUNTS (mean over 50 seeds) ===");
+  console.log("\n=== WEATHER EVENT COUNTS (mean over seeds) ===");
   for (const [co2, stats] of Object.entries(weatherEventStats)) {
+    console.log(`  CO₂=${co2}: mean=${stats.mean}, range=[${stats.min}, ${stats.max}]`);
+  }
+
+  console.log("\n=== ADAPTER EVENT COUNTS (mean over seeds) ===");
+  for (const [co2, stats] of Object.entries(adapterEventStats)) {
     console.log(`  CO₂=${co2}: mean=${stats.mean}, range=[${stats.min}, ${stats.max}]`);
   }
 
@@ -380,6 +508,7 @@ function main() {
   // --- Save raw results ---
   const rawOutput = {
     experimentId: EXPERIMENT_ID,
+    version: "v2-RNG-clean",
     timestamp: new Date().toISOString(),
     parameters: {
       seeds: [...SEEDS],
@@ -391,9 +520,18 @@ function main() {
     activationAnalyses,
     activationCurve,
     weatherEventStats,
+    adapterEventStats,
     thresholdEstimate: {
       co2At95PctActivation: thresholdCO2,
       co2At100PctActivation: saturationCO2,
+    },
+    isolation: {
+      allKeRngIdentical: seedResults.every(r => r.isolation.keRngIdentical),
+      nonDrSectorDiffs: Object.keys(seedResults[0]!.isolation.nonDrSectors).map(id => ({
+        sector: id,
+        seedsWithDiff: seedResults.filter(r => !r.isolation.nonDrSectors[id]!.identical).length,
+        documentedSubscriber: DOCUMENTED_WEATHER_SUBSCRIBERS.has(id),
+      })),
     },
     costReport,
     seedResults: seedResults.map(sr => ({
@@ -401,19 +539,24 @@ function main() {
       arms: Object.fromEntries(
         Object.entries(sr.arms).map(([co2, arm]) => [co2, {
           co2: arm.co2,
+          climateTicks: arm.climateTicks,
+          weatherEvents: arm.weatherEvents,
+          adapterEvents: arm.adapterEvents,
           finalSentinel: arm.finalSentinel,
-          weatherEventCount: arm.weatherEventCount,
-          adapterEventCount: arm.adapterEventCount,
+          finalWorldHash: arm.finalWorldHash,
+          rngStateHash: arm.rngStateHash,
           runtimeMs: arm.runtimeMs,
         }])
       ),
+      isolation: sr.isolation,
     })),
+    replayIdentical,
   };
 
   writeFileSync(join(outDir, "exp-002-results.json"), JSON.stringify(rawOutput, null, 2));
   console.log(`\nRaw results saved to: ${outDir}/exp-002-results.json`);
 
-  // --- Save activation curve as CSV for plotting ---
+  // --- Save activation curve as CSV ---
   const csvLines = ["co2,activation_rate,mean_supply_stress_delta,mean_occupancy_rate_delta"];
   for (const a of activationAnalyses) {
     csvLines.push(`${a.co2},${a.activationRate},${a.meanSupplyStressDelta},${a.meanOccupancyRateDelta}`);

@@ -1,0 +1,56 @@
+{
+  "record_id": "NCR-2026-09-21-001",
+  "type": "nonconformity",
+  "date": "2026-09-21",
+  "raised_by": "orchestrator",
+  "severity": "critical",
+  "status": "open",
+  "title": "Economy-to-climate coupling unit error saturates event probability; affects frozen Phase F evidence",
+  "component": "src/sectors/climate.ts:65-75 (GDP_SHIFT handler), src/sectors/climate.ts:146-147 (eventChance formula)",
+  "description": "The climate sector's GDP_SHIFT handler applies emissionsFactor = 0.00005 to gdpDelta denominated in USD. Summed across 11 nations at the configured 2.5%/tick growth rate, this yields 7.289e7 Gt of added emissions per tick versus the model's own baseline annualEmissions of 37 Gt (~2e6x too large). CO2 concentration consequently explodes to ~4.18e8 ppm within 50 ticks. temperatureAnomaly = 3*log2(co2/280) exceeds 9.2 by tick 4, pinning eventChance at its 0.5 ceiling in every arm.",
+  "evidence": {
+    "observed_seed42_arm280": {
+      "tick_0_co2": 282.135,
+      "tick_2_co2": 286.411,
+      "tick_3_co2": 4930000,
+      "tick_49_co2": 418028366.702,
+      "tick_49_anomaly": 61.529,
+      "eventChance_first_cap_tick": 3
+    },
+    "predicted_from_first_principles": {
+      "total_gdp_usd": 5.831e13,
+      "sum_gdpdelta_2p5pct": 1.458e12,
+      "emissions_delta_Gt": 7.289e7,
+      "co2_delta_ppm": 4.205e6
+    },
+    "phase_f_frozen_control_seed42": {
+      "tick_4_co2": 4655842.235,
+      "tick_4_anomaly": 42.064,
+      "tick_4_eventChance": 0.5,
+      "tick_20_co2": 199115317.311,
+      "ticks_saturated_of_20": 17,
+      "source": "experiment-results/phase-f/results.json"
+    }
+  },
+  "root_cause": "Unit/scale mismatch: a dimensionless factor (0.00005) is applied to a quantity denominated in USD to produce a quantity denominated in Gt of emissions. No dimensional reconciliation exists between economy GDP units and climate emissions units.",
+  "impact": [
+    "Frozen Phase F (canonical causal-integration evidence) operated with eventChance saturated at 0.5 for ticks 4-20 of 20 (85% of horizon). Its control-vs-intervention contrast derives from the 3-tick pre-saturation transient plus stochastic event timing, not a sustained CO2 dose-response.",
+    "EXP-002 v1 threshold scan (50/40/90) invalid: contaminated RNG pairing plus saturated system.",
+    "EXP-002 v2 threshold scan (0/50/70) reproducible but invalid as dose-response: measures stochastic event-timing sensitivity in a saturated regime.",
+    "JAMIA manuscript evidence matrix cites Phase F causal pathway results that are materially qualified by this defect."
+  ],
+  "not_a_nonconformity": "This defect was not introduced by EXP-002 work. It is pre-existing and present in frozen Phase F artifacts.",
+  "corrective_action_proposed": [
+    "Option 1 (recommended): re-derive emissionsFactor so a 2.5% GDP growth delta yields a realistic emissions increment (order 0.1-1 Gt/tick); re-run Phase F. Blast radius: Phase F artifacts, QMS records, manuscript evidence matrix, Zenodo package.",
+    "Option 2: clamp climate state to a physically bounded CO2/anomaly range. Still alters frozen behaviour.",
+    "Option 3: narrow the manuscript claim to the pre-saturation transient with explicit disclosure."
+  ],
+  "decision_required_from": "human owner (repository author)",
+  "artifacts": [
+    "docs/experiments/EXP-002-V2-CLIMATE-COUPLING-DEFECT.md",
+    "experiment-results/exp-002/exp-002-results.json",
+    "experiment-results/phase-f/results.json",
+    "src/experiment/experiments/exp-002-activation-threshold.ts"
+  ],
+  "trace": "self-harness/traces/exp-002-v2-climate-coupling-defect.pm1"
+}
