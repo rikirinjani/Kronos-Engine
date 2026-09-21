@@ -1,0 +1,4 @@
+co2,activation_rate,mean_supply_stress_delta,mean_occupancy_rate_delta
+400,0.5,0.016,0.008
+800,0.4,-0.003,-0.003
+1200,0.9,0.014,0.003
