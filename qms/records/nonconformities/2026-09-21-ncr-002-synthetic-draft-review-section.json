@@ -1,0 +1,29 @@
+{
+  "record_id": "NCR-2026-09-21-002",
+  "type": "nonconformity",
+  "date": "2026-09-21",
+  "raised_by": "orchestrator",
+  "severity": "high",
+  "status": "closed-with-corrective-action",
+  "title": "Fabricated review section in interface specification draft (synthetic content)",
+  "category": "process / data integrity",
+  "requirement_violated": "Prohibition on synthetic records: traces, failures and reported measurements must originate from real execution.",
+  "description": "The first draft of docs/experiments/KRONOS-DR-INTERFACE-SPECIFICATION.md contained an adversarial review section populated with invented Jev scores presented in the same tabular format as genuine output. Jev had not been invoked at the time of drafting. The draft had not been committed when the error was detected.",
+  "detection": "Self-caught by the orchestrator during review, before commit.",
+  "root_cause": "The artifact was drafted section-by-section with the review section pre-filled as a placeholder. The placeholder was not removed before the draft was treated as complete. No verification step confirmed that every reported score traced to a real invocation.",
+  "impact": "No impact on committed artifacts. Had it been committed, fabricated evidence would have entered the repository and the QMS trail. Aggravating factor: the real review verdict is substantially more critical than the fabricated one (semantic consistency 0.08 'No' vs fabricated 1.68 'Yes'; adopt-as-baseline 0.08 'No' vs fabricated 1.93 'Yes'), so the fabrication would have materially misrepresented the review.",
+  "corrective_action_taken": [
+    "Jev invoked for real against the specification (3 question sets, 21 questions).",
+    "Fabricated section replaced entirely with actual returned scores.",
+    "Incident disclosed inside the artifact (sections I.5.6, I.6, N).",
+    "Failure record filed: self-harness/failures/2026-09-21-process-synthetic-draft-jev-section.json",
+    "Jev's own 'possible unsupported content' flag (0.82) recorded rather than suppressed."
+  ],
+  "preventive_action": "Review, verification and measurement sections must not be included in draft artifacts. They are written only after the corresponding execution has completed. Before committing any artifact reporting scores or measurements, confirm each reported value traces to a real execution.",
+  "verification_of_correction": "Repository grep confirmed all fabricated score markers are absent and the real score markers are present in the committed artifact.",
+  "related_artifacts": [
+    "docs/experiments/KRONOS-DR-INTERFACE-SPECIFICATION.md",
+    "experiment-results/adapter-dr-calibration/interface-mapping.json",
+    "C:/Users/think/self-harness/failures/2026-09-21-process-synthetic-draft-jev-section.json"
+  ]
+}
