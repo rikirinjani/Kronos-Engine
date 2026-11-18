@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.vscode/
+*.journal
+*.db
+*.sqlite
+.env

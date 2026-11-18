@@ -1,0 +1,67 @@
+[
+  {
+    "region": "Java",
+    "hospitals": 9,
+    "dataPoints": 90,
+    "parentOccupancy": 0.483,
+    "branchOccupancy": 0.481,
+    "parentIcu": 0,
+    "branchIcu": 0,
+    "parentMortality": 0,
+    "branchMortality": 0,
+    "parentSurges": 0,
+    "branchSurges": 0
+  },
+  {
+    "region": "Sumatra",
+    "hospitals": 7,
+    "dataPoints": 70,
+    "parentOccupancy": 0.464,
+    "branchOccupancy": 0.467,
+    "parentIcu": 0,
+    "branchIcu": 0,
+    "parentMortality": 0,
+    "branchMortality": 0,
+    "parentSurges": 0,
+    "branchSurges": 0
+  },
+  {
+    "region": "Kalimantan",
+    "hospitals": 3,
+    "dataPoints": 30,
+    "parentOccupancy": 0.491,
+    "branchOccupancy": 0.485,
+    "parentIcu": 0,
+    "branchIcu": 0,
+    "parentMortality": 0,
+    "branchMortality": 0,
+    "parentSurges": 0,
+    "branchSurges": 0
+  },
+  {
+    "region": "Sulawesi",
+    "hospitals": 5,
+    "dataPoints": 50,
+    "parentOccupancy": 0.404,
+    "branchOccupancy": 0.406,
+    "parentIcu": 0,
+    "branchIcu": 0,
+    "parentMortality": 0,
+    "branchMortality": 0,
+    "parentSurges": 0,
+    "branchSurges": 0
+  },
+  {
+    "region": "Eastern Indonesia",
+    "hospitals": 6,
+    "dataPoints": 60,
+    "parentOccupancy": 0.427,
+    "branchOccupancy": 0.423,
+    "parentIcu": 0,
+    "branchIcu": 0,
+    "parentMortality": 0,
+    "branchMortality": 0,
+    "parentSurges": 0,
+    "branchSurges": 0
+  }
+]

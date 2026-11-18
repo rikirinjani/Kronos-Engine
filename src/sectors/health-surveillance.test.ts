@@ -11,7 +11,7 @@ import { deersRockAdapter } from "./deers-rock-adapter.js";
 import { createHealthSurveillanceSector } from "./health-surveillance.js";
 import type { HealthSurveillanceState } from "./health-surveillance.js";
 
-/** 45 patients in 50 beds = 90% initial occupancy → crosses 0.85 threshold quickly */
+/** 48 patients in 50 beds = 96% initial occupancy → stays above 0.85 threshold */
 const HOSPITAL_CONFIG = { id: "sentinel-001", city: "TestCity", beds: 50, patients: 45, ticksPerDay: 10 };
 
 const sampleConfigs: Record<string, Record<string, unknown>> = {
@@ -152,8 +152,8 @@ describe("health-surveillance", () => {
   }, 60_000);
 
   it("isolation: two sentinels get separate latest entries", () => {
-    const configA = { id: "hospital-A", city: "CityA", beds: 50, patients: 45, ticksPerDay: 10 };
-    const configB = { id: "hospital-B", city: "CityB", beds: 50, patients: 45, ticksPerDay: 10 };
+    const configA = { id: "hospital-A", city: "CityA", beds: 50, patients: 48, ticksPerDay: 10 };
+    const configB = { id: "hospital-B", city: "CityB", beds: 50, patients: 48, ticksPerDay: 10 };
     const seed = 42;
 
     const sentinelA = deersRockAdapter(configA, seed);

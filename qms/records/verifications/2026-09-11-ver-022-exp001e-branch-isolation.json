@@ -1,0 +1,27 @@
+{
+    "id": "VER-2026-022",
+    "type": "exp001e-branch-isolation-verification",
+    "title": "EXP-001E Counterfactual Branch Isolation Repair — verification",
+    "result": "PASS",
+    "verdict": "VERIFIED",
+    "method": "Root-cause isolation via snapshot field diff, capture-time vs restore-time alias experiments (pre-clone), fresh-process variant matrix, multi-seed/multi-horizon isolation+reproducibility matrix, full and targeted test suites, and confirmation that the EXP-001D snapshot fix is preserved",
+    "requirement": "EXP-001E (counterfactual branch isolation repair)",
+    "evidence": {
+        "rootCause": "makeSnapshot() stored hospitalState by reference; doReconstruct() aliased it; cssdHandler mutates shared CSSD tray objects in place. A parent run mutated a previously captured rewind point's t0 _cssd.trays.",
+        "snapshotDiff": "deep-serialised rp.sectorStates before/after 50-tick parent run: 21 changed fields before fix, all in hospitalState._cssd.trays[i] (sterilizedAt 0->28200000, expiresAt 100->566, cycleId null->'CYCLE-26'); 0 changed fields after fix",
+        "aliasExperiment": "fresh-preclone=0.8244; parent50-preclone=0.8244; parent50-clone(after parent)=0.9084 -> parent effect is entirely rewind-state mutation, not counters/global state",
+        "nonReproducibility": "two branches from same rewind point: 0.8244 then 0.9084 before fix; 0.8244 then 0.8244 after fix",
+        "variantMatrix": "fresh-clone/noclone, fresh-twice-noclone, parent50-clone/noclone/reset-clone, parent50-twice-clone all converge to fresh baseline 0.8244/325/108 after fix",
+        "multiSeed": "seeds 1001-1005 x horizons 10/25/50; parent 50 ticks; 15/15 isolation OK and reproducible OK",
+        "build": "tsc exit 0",
+        "tests": "vitest run clone-aliasing-regression + deers-rock-adapter + rewind-point + world-engine -> 87/0 pass; new exp-001e-branch-isolation.test.ts -> 3/3 pass",
+        "fullSuite": "586 passed, 3 failed; all 3 failures pre-existing and unrelated (health-surveillance isolation fails identically with adapter reverted to HEAD; zenodo-package copies fail to resolve ../../../Deers-Rock/dist/index.js)",
+        "exp001dPreserved": "7/7 checks pass",
+        "residual": "module-global DR ID counters not captured in snapshot -> ID labels (e.g. CSSD cycleId) differ between fresh and parented branches; trajectory identical across all 15 seed/horizon combos; resetting counters in doReconstruct unsafe for rewind points at tick>0",
+        "report": "docs/experiments/EXP-001E-branch-isolation-repair-and-verification.md"
+    },
+    "keCommit": "e9d0fed0c5b525d7cf96c2d1a058fb8d3717f573",
+    "branch": "exp-001-counterfactual-stability",
+    "timestamp": "2026-09-11T14:12:00Z",
+    "notes": "Repair restores branch isolation and reproducibility. Deltas observed under repaired instrumentation remain observed signals, not validated causal effects. No Monte Carlo re-run; no frozen evidence modified. The underlying DR in-place mutation of CSSD trays is documented as a latent immutability violation but not modified in this repair."
+}

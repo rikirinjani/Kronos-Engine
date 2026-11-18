@@ -1,0 +1,124 @@
+{
+  "stats": {
+    "occupancyRate": {
+      "perSeed": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "median": 0,
+      "min": 0,
+      "max": 0,
+      "stdDev": 0,
+      "directionConsistency": 0,
+      "positive": 0,
+      "negative": 0,
+      "zero": 5
+    },
+    "icuOccupancyRate": {
+      "perSeed": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "median": 0,
+      "min": 0,
+      "max": 0,
+      "stdDev": 0,
+      "directionConsistency": 0,
+      "positive": 0,
+      "negative": 0,
+      "zero": 5
+    },
+    "mortalityPressure": {
+      "perSeed": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "mean": 0,
+      "median": 0,
+      "min": 0,
+      "max": 0,
+      "stdDev": 0,
+      "directionConsistency": 0,
+      "positive": 0,
+      "negative": 0,
+      "zero": 5
+    },
+    "supplyStress": {
+      "perSeed": [
+        0,
+        0,
+        0,
+        0,
+        0.17
+      ],
+      "mean": 0.034,
+      "median": 0,
+      "min": 0,
+      "max": 0.17,
+      "stdDev": 0.076,
+      "directionConsistency": 0.2,
+      "positive": 1,
+      "negative": 0,
+      "zero": 4
+    },
+    "admissionSurgeFlips": 0,
+    "eventOccurrenceRate": {
+      "controlArmSeedsWithWeather": 5,
+      "interventionArmSeedsWithWeather": 5,
+      "controlTotalEvents": 39,
+      "interventionTotalEvents": 41,
+      "firstEventTickControl": [
+        8,
+        4,
+        6,
+        6,
+        2
+      ],
+      "firstEventTickIntervention": [
+        8,
+        4,
+        6,
+        6,
+        2
+      ]
+    }
+  },
+  "isolationAggregate": {
+    "allUntargetedSentinelsIdentical": false,
+    "allKeRngIdentical": false,
+    "nonDrSectorDiffs": [
+      {
+        "sector": "geopolitics",
+        "seedsWithDiff": 1,
+        "documentedSubscriber": true
+      },
+      {
+        "sector": "climate",
+        "seedsWithDiff": 5,
+        "documentedSubscriber": false
+      },
+      {
+        "sector": "economy",
+        "seedsWithDiff": 1,
+        "documentedSubscriber": true
+      },
+      {
+        "sector": "technology",
+        "seedsWithDiff": 1,
+        "documentedSubscriber": false
+      }
+    ]
+  },
+  "replayIdentical": true
+}

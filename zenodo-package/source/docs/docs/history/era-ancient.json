@@ -1,0 +1,156 @@
+{
+  "meta": {
+    "era": "ancient",
+    "label": "Ancient Era",
+    "span": "~3000 BCE – 500 CE",
+    "seedPrefix": "S-ANCIENT",
+    "generated": "2026-06-29",
+    "archivist": "World Archivist",
+    "description": "Rise of civilizations, classical empires, foundational philosophical and religious movements."
+  },
+  "rewindPoints": [
+    {
+      "id": "RP-ANCIENT-001",
+      "year": 476,
+      "label": "Fall of Rome",
+      "calendarDate": "0476-09-04",
+      "description": "Romulus Augustulus deposed. Western Roman Empire falls. Traditional marker for end of antiquity and beginning of medieval period."
+    }
+  ],
+  "states": {
+    "RP-ANCIENT-001": {
+      "year": 476,
+      "label": "Fall of Western Roman Empire (476 CE)",
+      "nations": [
+        {
+          "id": "BYZ",
+          "name": "Eastern Roman Empire (Byzantine)",
+          "region": "mediterranean",
+          "population": 15000000,
+          "gdp": 4000000000,
+          "territory": { "regionIds": ["anatolia", "greece", "levant", "egypt"], "capital": "Constantinople" },
+          "government": "autocracy",
+          "technologyLevel": 42,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 35, "infantMortality": 300.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "PER": -60, "VIS": 30, "VAN": -40, "GEO": 40, "ARM": 45 }
+        },
+        {
+          "id": "PER",
+          "name": "Sassanid Persian Empire",
+          "region": "middle-east",
+          "population": 12000000,
+          "gdp": 3500000000,
+          "territory": { "regionIds": ["persia", "mesopotamia"], "capital": "Ctesiphon" },
+          "government": "autocracy",
+          "technologyLevel": 40,
+          "militaryPower": 42,
+          "healthMetrics": { "lifeExpectancy": 34, "infantMortality": 310.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "BYZ": -60, "HEP": 30 }
+        },
+        {
+          "id": "VIS",
+          "name": "Visigothic Kingdom",
+          "region": "europe",
+          "population": 2000000,
+          "gdp": 300000000,
+          "territory": { "regionIds": ["gaul", "hispania"], "capital": "Toulouse" },
+          "government": "monarchy",
+          "technologyLevel": 25,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 30, "infantMortality": 350.0, "hospitalBedsPer1000": 0.1, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "BYZ": 30, "VAN": -40, "FRA": -50 }
+        },
+        {
+          "id": "VAN",
+          "name": "Vandal Kingdom",
+          "region": "mediterranean",
+          "population": 1000000,
+          "gdp": 150000000,
+          "territory": { "regionIds": ["north-africa", "corsica", "sardinia"], "capital": "Carthage" },
+          "government": "monarchy",
+          "technologyLevel": 22,
+          "militaryPower": 28,
+          "healthMetrics": { "lifeExpectancy": 30, "infantMortality": 350.0, "hospitalBedsPer1000": 0.1, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "BYZ": -40, "VIS": -40, "ROM": -50 }
+        },
+        {
+          "id": "FRA",
+          "name": "Frankish Kingdom",
+          "region": "europe",
+          "population": 2500000,
+          "gdp": 300000000,
+          "territory": { "regionIds": ["northern-gaul", "rhine"], "capital": "Tournai" },
+          "government": "monarchy",
+          "technologyLevel": 24,
+          "militaryPower": 32,
+          "healthMetrics": { "lifeExpectancy": 30, "infantMortality": 350.0, "hospitalBedsPer1000": 0.1, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "VIS": -50, "BYZ": 25 }
+        },
+        {
+          "id": "CHN",
+          "name": "Northern Wei / Southern Dynasties (China)",
+          "region": "east-asia",
+          "population": 50000000,
+          "gdp": 5000000000,
+          "territory": { "regionIds": ["northern-china", "southern-china"], "capital": "Luoyang" },
+          "government": "monarchy",
+          "technologyLevel": 38,
+          "militaryPower": 50,
+          "healthMetrics": { "lifeExpectancy": 33, "infantMortality": 320.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GOK": -40, "RUR": 20 }
+        },
+        {
+          "id": "IND",
+          "name": "Gupta Empire",
+          "region": "south-asia",
+          "population": 40000000,
+          "gdp": 4000000000,
+          "territory": { "regionIds": ["northern-india", "central-india"], "capital": "Pataliputra" },
+          "government": "monarchy",
+          "technologyLevel": 40,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 330.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "HUN": -60, "CHN": 25 }
+        }
+      ],
+      "wars": [],
+      "alliances": [],
+      "globalState": {
+        "totalPopulation": 210000000,
+        "avgTechnologyLevel": 24,
+        "avgHealthOutcome": 32,
+        "co2Emissions": 50000000,
+        "tradeVolume": 5
+      }
+    }
+  },
+  "calibration": {
+    "sources": [
+      { "attribute": "population (Byzantine)", "source": "McEvedy & Jones, Atlas of World Population History" },
+      { "attribute": "population (China)", "source": "Chinese historical census records / Bielenstein estimates" },
+      { "attribute": "gdp per capita", "source": "Maddison Project — ancient GDP/cap ~$400-600 (1990 Intl$)" },
+      { "attribute": "technologyLevel", "note": "Defined from: iron-working, writing systems, urban infrastructure, military technology" }
+    ],
+    "estimates": [
+      { "attribute": "all GPD figures", "note": "Highly approximate. Derived from population estimates × estimated GDP/capita for period/stage." },
+      { "attribute": "lifeExpectancy", "note": "Estimates from osteological data. High infant mortality dominates average." },
+      { "attribute": "diplomatic relations", "note": "Simplified. Ancient diplomacy was more fragmented than modern nation-state model suggests." }
+    ],
+    "note": "Ancient era data carries high uncertainty. All figures should be treated as order-of-magnitude estimates suitable for strategic simulation, not historical scholarship."
+  }
+}

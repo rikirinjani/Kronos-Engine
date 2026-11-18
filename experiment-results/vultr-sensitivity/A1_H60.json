@@ -1,0 +1,774 @@
+{
+  "experimentId": "VULTR-SENS-2026-09-10",
+  "label": "A1_H60",
+  "exploratory": true,
+  "canonical": false,
+  "disclaimer": "EXPLORATORY — NON-CANONICAL. Not manuscript evidence. Does not modify or supersede frozen Phase F.",
+  "executedAt": "2026-09-10T16:28:39.080Z",
+  "durationSec": 432.112,
+  "environment": {
+    "keCommit": "4d7e4128f6ad800fa762f443f36aa4f45d31e4d9",
+    "drCommit": "5884ba39729768693bb91dfd796d8fe2e246ea68",
+    "node": "v22.23.2",
+    "platform": "linux",
+    "arch": "x64",
+    "host": "unknown"
+  },
+  "parameters": {
+    "horizon": 60,
+    "ticksPerDay": 10,
+    "controlCo2": 280,
+    "interventionCo2": 800,
+    "annualEmissions": 37,
+    "noise": 0.2,
+    "gdpGrowth": 2.5,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49
+    ]
+  },
+  "results": [
+    {
+      "seed": 42,
+      "deltas": {
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": 0
+      },
+      "lastDiffLink": "L1_macro_only",
+      "isolation": {
+        "sentinelBIdentical": true,
+        "sentinelCIdentical": true
+      },
+      "control": {
+        "weatherTotal": 22,
+        "adapterEventCount": 94,
+        "firstWeatherTick": 8,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.8931297709923665,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "I10": 33,
+            "E11": 31,
+            "N39": 31,
+            "A09": 29,
+            "K29": 24
+          },
+          "supplyStress": 0.4865592592592593,
+          "staffStress": 1,
+          "admissionSurge": false
+        },
+        "finalHash": "cfc89e14",
+        "lastRow": {
+          "t": 60,
+          "co2": 820036956.049,
+          "anomaly": 64.445,
+          "eventChance": 0.5,
+          "weather": 22,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.893,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.487,
+          "occupiedBeds": 117
+        }
+      },
+      "intervention": {
+        "weatherTotal": 22,
+        "adapterEventCount": 94,
+        "firstWeatherTick": 8,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.8931297709923665,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "I10": 33,
+            "E11": 31,
+            "N39": 31,
+            "A09": 29,
+            "K29": 24
+          },
+          "supplyStress": 0.4865592592592593,
+          "staffStress": 1,
+          "admissionSurge": false
+        },
+        "finalHash": "033e7648",
+        "lastRow": {
+          "t": 60,
+          "co2": 820037476.049,
+          "anomaly": 64.445,
+          "eventChance": 0.5,
+          "weather": 22,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.893,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.487,
+          "occupiedBeds": 117
+        }
+      }
+    },
+    {
+      "seed": 43,
+      "deltas": {
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": 0
+      },
+      "lastDiffLink": "L1_macro_only",
+      "isolation": {
+        "sentinelBIdentical": true,
+        "sentinelCIdentical": true
+      },
+      "control": {
+        "weatherTotal": 30,
+        "adapterEventCount": 122,
+        "firstWeatherTick": 4,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9236641221374046,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 40,
+            "I10": 37,
+            "N39": 25,
+            "J15": 24,
+            "E78": 24
+          },
+          "supplyStress": 0.48916296296296297,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "3789e3c4",
+        "lastRow": {
+          "t": 60,
+          "co2": 295047771.289,
+          "anomaly": 60.021,
+          "eventChance": 0.5,
+          "weather": 30,
+          "admitMult": 1.3,
+          "supplyPressure": 0.2,
+          "scenario": "earthquake",
+          "occ": 0.924,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.489,
+          "occupiedBeds": 121
+        }
+      },
+      "intervention": {
+        "weatherTotal": 30,
+        "adapterEventCount": 122,
+        "firstWeatherTick": 4,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9236641221374046,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 40,
+            "I10": 37,
+            "N39": 25,
+            "J15": 24,
+            "E78": 24
+          },
+          "supplyStress": 0.48916296296296297,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "778e549d",
+        "lastRow": {
+          "t": 60,
+          "co2": 295048291.289,
+          "anomaly": 60.021,
+          "eventChance": 0.5,
+          "weather": 30,
+          "admitMult": 1.3,
+          "supplyPressure": 0.2,
+          "scenario": "earthquake",
+          "occ": 0.924,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.489,
+          "occupiedBeds": 121
+        }
+      }
+    },
+    {
+      "seed": 44,
+      "deltas": {
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": 0
+      },
+      "lastDiffLink": "L1_macro_only",
+      "isolation": {
+        "sentinelBIdentical": true,
+        "sentinelCIdentical": true
+      },
+      "control": {
+        "weatherTotal": 25,
+        "adapterEventCount": 115,
+        "firstWeatherTick": 6,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9694656488549618,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 63,
+            "I10": 39,
+            "K29": 28,
+            "J15": 27,
+            "J45": 24
+          },
+          "supplyStress": 0.4857814814814815,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "7325ccfd",
+        "lastRow": {
+          "t": 60,
+          "co2": 734713020.836,
+          "anomaly": 63.97,
+          "eventChance": 0.5,
+          "weather": 25,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.969,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.486,
+          "occupiedBeds": 127
+        }
+      },
+      "intervention": {
+        "weatherTotal": 25,
+        "adapterEventCount": 115,
+        "firstWeatherTick": 6,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9694656488549618,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 63,
+            "I10": 39,
+            "K29": 28,
+            "J15": 27,
+            "J45": 24
+          },
+          "supplyStress": 0.4857814814814815,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "4e16bfe8",
+        "lastRow": {
+          "t": 60,
+          "co2": 734713540.836,
+          "anomaly": 63.97,
+          "eventChance": 0.5,
+          "weather": 25,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.969,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.486,
+          "occupiedBeds": 127
+        }
+      }
+    },
+    {
+      "seed": 45,
+      "deltas": {
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": 0
+      },
+      "lastDiffLink": "L1_macro_only",
+      "isolation": {
+        "sentinelBIdentical": true,
+        "sentinelCIdentical": true
+      },
+      "control": {
+        "weatherTotal": 28,
+        "adapterEventCount": 122,
+        "firstWeatherTick": 6,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9694656488549618,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 53,
+            "I10": 45,
+            "A91": 25,
+            "N39": 17,
+            "K29": 16
+          },
+          "supplyStress": 0.4887851851851852,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "675a74da",
+        "lastRow": {
+          "t": 60,
+          "co2": 606280559.19,
+          "anomaly": 63.138,
+          "eventChance": 0.5,
+          "weather": 28,
+          "admitMult": 1.3,
+          "supplyPressure": 0.1,
+          "scenario": "earthquake",
+          "occ": 0.969,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.489,
+          "occupiedBeds": 127
+        }
+      },
+      "intervention": {
+        "weatherTotal": 28,
+        "adapterEventCount": 122,
+        "firstWeatherTick": 6,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9694656488549618,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 53,
+            "I10": 45,
+            "A91": 25,
+            "N39": 17,
+            "K29": 16
+          },
+          "supplyStress": 0.4887851851851852,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "53a5aae5",
+        "lastRow": {
+          "t": 60,
+          "co2": 606281079.19,
+          "anomaly": 63.138,
+          "eventChance": 0.5,
+          "weather": 28,
+          "admitMult": 1.3,
+          "supplyPressure": 0.1,
+          "scenario": "earthquake",
+          "occ": 0.969,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.489,
+          "occupiedBeds": 127
+        }
+      }
+    },
+    {
+      "seed": 46,
+      "deltas": {
+        "occupancyRate": -0.023,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": -0.071
+      },
+      "lastDiffLink": "L2_event",
+      "isolation": {
+        "sentinelBIdentical": false,
+        "sentinelCIdentical": false
+      },
+      "control": {
+        "weatherTotal": 28,
+        "adapterEventCount": 119,
+        "firstWeatherTick": 2,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.916030534351145,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 52,
+            "I10": 33,
+            "D64": 23,
+            "J45": 20,
+            "A01": 18
+          },
+          "supplyStress": 0.3396518518518519,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "c1b3991f",
+        "lastRow": {
+          "t": 60,
+          "co2": 363002044.74,
+          "anomaly": 60.918,
+          "eventChance": 0.5,
+          "weather": 28,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.916,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.34,
+          "occupiedBeds": 120
+        }
+      },
+      "intervention": {
+        "weatherTotal": 36,
+        "adapterEventCount": 135,
+        "firstWeatherTick": 2,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.8931297709923665,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 58,
+            "I10": 33,
+            "D64": 23,
+            "A01": 21,
+            "J45": 21
+          },
+          "supplyStress": 0.2685185185185185,
+          "staffStress": 1,
+          "admissionSurge": false
+        },
+        "finalHash": "9d855cb4",
+        "lastRow": {
+          "t": 60,
+          "co2": 299116577.544,
+          "anomaly": 60.081,
+          "eventChance": 0.5,
+          "weather": 36,
+          "admitMult": 1.5,
+          "supplyPressure": 0.5,
+          "scenario": "earthquake",
+          "occ": 0.893,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.269,
+          "occupiedBeds": 117
+        }
+      }
+    },
+    {
+      "seed": 47,
+      "deltas": {
+        "occupancyRate": -0.053,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": 0.032
+      },
+      "lastDiffLink": "L2_event",
+      "isolation": {
+        "sentinelBIdentical": false,
+        "sentinelCIdentical": false
+      },
+      "control": {
+        "weatherTotal": 27,
+        "adapterEventCount": 110,
+        "firstWeatherTick": 4,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9694656488549618,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "I10": 50,
+            "A09": 31,
+            "E11": 30,
+            "N39": 27,
+            "E78": 21
+          },
+          "supplyStress": 0.28703703703703703,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "464f2ad7",
+        "lastRow": {
+          "t": 60,
+          "co2": 439946597.362,
+          "anomaly": 61.75,
+          "eventChance": 0.5,
+          "weather": 27,
+          "admitMult": 1.2,
+          "supplyPressure": 0.5,
+          "scenario": "earthquake",
+          "occ": 0.969,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.287,
+          "occupiedBeds": 127
+        }
+      },
+      "intervention": {
+        "weatherTotal": 33,
+        "adapterEventCount": 139,
+        "firstWeatherTick": 2,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.916030534351145,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "I10": 44,
+            "E11": 36,
+            "J15": 24,
+            "N39": 22,
+            "A01": 22
+          },
+          "supplyStress": 0.3185925925925926,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "50e5f312",
+        "lastRow": {
+          "t": 60,
+          "co2": 339983720.72,
+          "anomaly": 60.635,
+          "eventChance": 0.5,
+          "weather": 33,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.916,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.319,
+          "occupiedBeds": 120
+        }
+      }
+    },
+    {
+      "seed": 48,
+      "deltas": {
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": -0.168
+      },
+      "lastDiffLink": "L2_event",
+      "isolation": {
+        "sentinelBIdentical": false,
+        "sentinelCIdentical": false
+      },
+      "control": {
+        "weatherTotal": 32,
+        "adapterEventCount": 126,
+        "firstWeatherTick": 4,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9312977099236641,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "J15": 35,
+            "E11": 24,
+            "I10": 23,
+            "N39": 22,
+            "G40": 17
+          },
+          "supplyStress": 0.48846296296296293,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "d3d01668",
+        "lastRow": {
+          "t": 60,
+          "co2": 458611716.877,
+          "anomaly": 61.93,
+          "eventChance": 0.5,
+          "weather": 32,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.931,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.488,
+          "occupiedBeds": 122
+        }
+      },
+      "intervention": {
+        "weatherTotal": 31,
+        "adapterEventCount": 129,
+        "firstWeatherTick": 1,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9312977099236641,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "J15": 35,
+            "E11": 24,
+            "I10": 23,
+            "N39": 22,
+            "G40": 17
+          },
+          "supplyStress": 0.32054444444444447,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "e0531003",
+        "lastRow": {
+          "t": 60,
+          "co2": 391753773.487,
+          "anomaly": 61.248,
+          "eventChance": 0.5,
+          "weather": 31,
+          "admitMult": 1.3,
+          "supplyPressure": 0.4,
+          "scenario": "earthquake",
+          "occ": 0.931,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.321,
+          "occupiedBeds": 122
+        }
+      }
+    },
+    {
+      "seed": 49,
+      "deltas": {
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0,
+        "supplyStress": 0
+      },
+      "lastDiffLink": "L1_macro_only",
+      "isolation": {
+        "sentinelBIdentical": true,
+        "sentinelCIdentical": true
+      },
+      "control": {
+        "weatherTotal": 25,
+        "adapterEventCount": 110,
+        "firstWeatherTick": 4,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9312977099236641,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 45,
+            "I10": 34,
+            "J15": 33,
+            "N39": 32,
+            "J18": 26
+          },
+          "supplyStress": 0.4888444444444444,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "d91e3bf7",
+        "lastRow": {
+          "t": 60,
+          "co2": 591371239.432,
+          "anomaly": 63.031,
+          "eventChance": 0.5,
+          "weather": 25,
+          "admitMult": 1.5,
+          "supplyPressure": 0.3,
+          "scenario": "earthquake",
+          "occ": 0.931,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.489,
+          "occupiedBeds": 122
+        }
+      },
+      "intervention": {
+        "weatherTotal": 25,
+        "adapterEventCount": 110,
+        "firstWeatherTick": 4,
+        "final": {
+          "tick": 60,
+          "hospitalId": "makassar-001",
+          "city": "Makassar",
+          "occupancyRate": 0.9312977099236641,
+          "icuOccupancyRate": 1,
+          "mortalityPressure": 0,
+          "diseasePrevalence": {
+            "E11": 45,
+            "I10": 34,
+            "J15": 33,
+            "N39": 32,
+            "J18": 26
+          },
+          "supplyStress": 0.4888444444444444,
+          "staffStress": 1,
+          "admissionSurge": true
+        },
+        "finalHash": "404aef64",
+        "lastRow": {
+          "t": 60,
+          "co2": 591371759.432,
+          "anomaly": 63.031,
+          "eventChance": 0.5,
+          "weather": 25,
+          "admitMult": 1.5,
+          "supplyPressure": 0.3,
+          "scenario": "earthquake",
+          "occ": 0.931,
+          "icu": 1,
+          "mort": 0,
+          "supplyStress": 0.489,
+          "occupiedBeds": 122
+        }
+      }
+    }
+  ]
+}

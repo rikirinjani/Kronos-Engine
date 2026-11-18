@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Kronos Engine</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0e17;color:#c8d0e0;font-family:'JetBrains Mono','Cascadia Code','Fira Code',monospace;font-size:14px;padding:20px}
+h1{color:#e0e8f0;font-size:20px;margin-bottom:4px}
+h2{color:#a0b0c8;font-size:16px;margin:16px 0 8px}
+h3{color:#b0c0d8;font-size:14px;margin:12px 0 6px}
+a{color:#6a9fd8;text-decoration:none;cursor:pointer}
+a:hover{color:#8abff8}
+.header{display:flex;gap:20px;align-items:baseline;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid #1a2a3a}
+.header a{font-size:13px;color:#7088a8}
+.header a.active{color:#e0e8f0}
+.card{background:#131a2b;border:1px solid #1e2d42;border-radius:8px;padding:16px;margin-bottom:12px}
+.row{display:flex;gap:16px;flex-wrap:wrap}
+.col{flex:1;min-width:200px}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px}
+.badge-running{background:#1a3a2a;color:#6ad4a0}
+.badge-done{background:#1a2a3a;color:#6a9fd8}
+.badge-failed{background:#3a1a1a;color:#e06060}
+table{width:100%;border-collapse:collapse;font-size:13px}
+td,th{padding:6px 8px;text-align:left;border-bottom:1px solid #1a2a3a}
+th{color:#7088a8;font-weight:400}
+td{color:#c8d0e0}
+.mono{font-family:monospace;font-size:12px}
+.sig{color:#6ad4a0}
+.ns{color:#607080}
+input,select,button{background:#0e1520;color:#c8d0e0;border:1px solid #1e2d42;border-radius:4px;padding:6px 10px;font-family:inherit;font-size:13px}
+input:focus,select:focus{outline:none;border-color:#3a5a7a}
+button{background:#1a2a3a;cursor:pointer}
+button:hover{background:#2a3a4a}
+pre{font-family:monospace;font-size:12px;color:#8098b0;overflow-x:auto;max-height:400px}
+.era-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px}
+.era-card{background:#0e1520;border:1px solid #1a2a3a;border-radius:6px;padding:12px;cursor:pointer}
+.era-card:hover{border-color:#3a5a7a}
+.era-card h4{color:#b0c8e0;font-size:13px}
+.era-card .rp{color:#607080;font-size:11px;display:block;margin:2px 0}
+.hidden{display:none}
+.status-bar{height:4px;background:#1a2a3a;border-radius:2px;margin:4px 0;overflow:hidden}
+.status-bar-fill{height:100%;background:#4a8ac8;transition:width .3s}
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>⚙ Kronos Engine</h1>
+  <a href="#dashboard" id="nav-dashboard" class="active" onclick="route()">Dashboard</a>
+  <a href="#eras" id="nav-eras" onclick="route()">Eras</a>
+  <span style="flex:1"></span>
+  <span id="status-indicator" style="font-size:12px;color:#607080">⏳</span>
+</div>
+<div id="view"></div>
+
+<script>
+const API = "";
+let erasCache = [];
+let experimentsCache = [];
+
+function $(id){return document.getElementById(id)}
+
+async function api(path, opts){
+  const r = await fetch(API + path, opts);
+  return r.json();
+}
+
+function qs(key){return new URLSearchParams(location.hash.split("?")[1]||"").get(key)}
+
+function route(){
+  const hash = location.hash || "#dashboard";
+  document.querySelectorAll(".header a").forEach(a => a.classList.remove("active"));
+  const navMap = { "#dashboard": "nav-dashboard", "#eras": "nav-eras" };
+  const navId = navMap[hash.split("?")[0]];
+  if (navId) $(navId)?.classList.add("active");
+  const h = hash.split("?")[0];
+  if (h === "#dashboard") renderDashboard();
+  else if (h === "#eras") renderEras();
+  else if (h.startsWith("#experiment-")) renderExperiment(h.replace("#experiment-", ""));
+  else renderDashboard();
+}
+
+async function renderDashboard(){
+  const [status, exps] = await Promise.all([api("/api/status"), api("/api/experiments")]);
+  const eras = await api("/api/eras");
+  erasCache = eras.eras || [];
+  experimentsCache = exps.experiments || [];
+  const view = $("view");
+  view.innerHTML = `
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <h2>Server</h2>
+          <div style="font-size:13px;color:#8098b0">
+            v${status.version} · uptime ${status.uptime}s · ${status.sectors?.length||0} sectors · ${status.numEras||0} eras · ${status.experiments||0} experiments
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <h2>New Experiment</h2>
+          <div style="display:grid;gap:8px;grid-template-columns:1fr 1fr">
+            <select id="form-era"><option value="">Select era…</option></select>
+            <select id="form-rp"><option value="">Select rewind point…</option></select>
+            <input id="form-label" placeholder="Label" value="Experiment">
+            <input id="form-ticks" placeholder="Ticks" value="20" type="number" min="1" max="100">
+            <input id="form-seeds" placeholder="Seeds" value="3" type="number" min="1" max="30">
+            <button onclick="runExperiment()">Run</button>
+          </div>
+          <div id="form-status" style="margin-top:8px;font-size:12px;color:#6ad4a0"></div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <h2>Experiments (${experimentsCache.length})</h2>
+          <div id="exp-list"></div>
+        </div>
+      </div>
+    </div>
+  `;
+  const eraSel = $("form-era");
+  for (const e of erasCache) {
+    const opt = document.createElement("option");
+    opt.value = e.era; opt.textContent = e.label;
+    eraSel.appendChild(opt);
+  }
+  eraSel.onchange = () => {
+    const era = erasCache.find(e => e.era === eraSel.value);
+    const rpSel = $("form-rp");
+    rpSel.innerHTML = '<option value="">Select rewind point…</option>';
+    if (era) for (const rp of era.rewindPoints) {
+      const opt = document.createElement("option");
+      opt.value = rp; opt.textContent = rp;
+      rpSel.appendChild(opt);
+    }
+  };
+  renderExpList();
+}
+
+function renderExpList(){
+  const el = $("exp-list");
+  if (!el) return;
+  if (experimentsCache.length === 0){ el.innerHTML = '<div style="color:#607080">No experiments yet</div>'; return; }
+  el.innerHTML = experimentsCache.map(e => `
+    <div style="padding:6px 0;border-bottom:1px solid #1a2a3a">
+      <a href="#experiment-${e.id}" onclick="route()">${e.label}</a>
+      <span class="badge badge-${e.status}">${e.status}</span>
+      <span style="float:right;color:#607080;font-size:12px">${e.numSeeds} seeds · ${e.ticks} ticks</span>
+      ${e.status === "running" ? `<div class="status-bar"><div class="status-bar-fill" style="width:${e.progress}%"></div></div>` : ""}
+    </div>
+  `).join("");
+}
+
+async function runExperiment(){
+  const eraSel = $("form-era");
+  const rpSel = $("form-rp");
+  const data = {
+    era: eraSel.value, rewindPointId: rpSel.value,
+    label: $("form-label").value || "Experiment",
+    ticks: parseInt($("form-ticks").value) || 20,
+    numSeeds: parseInt($("form-seeds").value) || 3,
+    intervention: { type: "custom", label: "Default", description: "", params: {} },
+  };
+  if (!data.rewindPointId){ $("form-status").textContent = "Select a rewind point"; return; }
+  $("form-status").textContent = "Queuing…";
+  await api("/api/experiments", { method: "POST", headers: {"Content-Type":"application/json"}, body: JSON.stringify(data) });
+  $("form-status").textContent = "Experiment queued!";
+  renderDashboard();
+}
+
+async function renderExperiment(id){
+  const { experiment } = await api(`/api/experiments/${id}`);
+  if (!experiment){ $("view").innerHTML = '<div class="card">Not found</div>'; return; }
+  const v = $("view");
+  v.innerHTML = `
+    <div class="card">
+      <h2>${experiment.label} <span class="badge badge-${experiment.status}">${experiment.status}</span></h2>
+      <div style="font-size:13px;color:#607080">${experiment.rewindPointId} · ${experiment.ticks} ticks · ${experiment.numSeeds} seeds</div>
+      <div style="margin-top:8px">
+        <button onclick="exportJSON('${id}')">Export JSON</button>
+        <button onclick="exportCSV('${id}')">Export CSV</button>
+      </div>
+      ${experiment.status === "running" ? `<div class="status-bar"><div class="status-bar-fill" style="width:${experiment.progress||0}%"></div></div>` : ""}
+    </div>
+    ${experiment.summary ? renderSummary(experiment.summary) : ""}
+    ${experiment.runs.length > 0 ? renderRuns(experiment.runs) : ""}
+  `;
+}
+
+function renderSummary(s){
+  const metrics = s.metrics || [];
+  const sig = metrics.filter(m => m.significant);
+  return `
+    <div class="card">
+      <h2>Summary (${sig.length}/${metrics.length} significant)</h2>
+      <div style="max-height:300px;overflow-y:auto">
+        <table>
+          <tr><th>Metric</th><th>Mean</th><th>σ</th><th>d</th><th>Sig</th></tr>
+          ${metrics.slice(0,50).map(m => `<tr class="${m.significant?'sig':'ns'}"><td class="mono">${m.path}</td><td>${typeof m.mean==='number'?m.mean.toFixed(2):m.mean}</td><td>${m.stdDev?.toFixed(2)||'-'}</td><td>${m.cohensD?.toFixed(2)||'-'}</td><td>${m.significant?'✓':'✗'}</td></tr>`).join("")}
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+function renderRuns(runs){
+  return `
+    <div class="card">
+      <h2>Runs (${runs.length})</h2>
+      ${runs.map(r => `
+        <div style="margin:8px 0;padding:8px;background:#0e1520;border-radius:4px">
+          <div style="font-size:13px;color:#8098b0">${r.runId} · seed ${r.seed}</div>
+          <pre>${JSON.stringify(r.diff.perSector, null, 2).slice(0,500)}</pre>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+async function renderEras(){
+  const { eras } = await api("/api/eras");
+  const v = $("view");
+  v.innerHTML = `
+    <div class="card"><h2>Era Browser</h2></div>
+    <div class="era-grid">
+      ${(eras||[]).map(e => `
+        <div class="era-card" onclick="location.hash='#dashboard';setTimeout(()=>{var s=document.getElementById('form-era');if(s){s.value='${e.era}';s.onchange()}},100)">
+          <h4>${e.label}</h4>
+          <span style="color:#607080;font-size:12px">${e.era}</span>
+          ${(e.rewindPoints||[]).map(rp => `<span class="rp">${rp}</span>`).join("")}
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function exportJSON(id){ window.open(API + `/api/export/${id}/json`, "_blank"); }
+function exportCSV(id){ window.open(API + `/api/export/${id}/csv`, "_blank"); }
+
+async function poll(){
+  const s = await api("/api/status");
+  $("status-indicator").textContent = `✓ ${s.sectors?.length||0} sectors · ${s.experiments||0} exps`;
+  if (experimentsCache.some(e => e.status === "running")) {
+    const exps = await api("/api/experiments");
+    experimentsCache = exps.experiments || [];
+    renderExpList();
+    if (location.hash.startsWith("#experiment-")) {
+      renderExperiment(location.hash.replace("#experiment-", ""));
+    }
+  }
+}
+
+window.onhashchange = route;
+route();
+setInterval(poll, 3000);
+</script>
+</body>
+</html>

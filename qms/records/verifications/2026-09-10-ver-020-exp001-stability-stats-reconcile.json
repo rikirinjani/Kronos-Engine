@@ -1,0 +1,13 @@
+{
+    "id": "VER-2026-020",
+    "type": "exp001-stability-stats-reconciliation",
+    "title": "fix-1 (EXP-001 stability stats) reconciliation",
+    "result": "PASS",
+    "verdict": "RECONCILED",
+    "method": "Independent re-verification of fixer-lane completion: source inspection, TypeScript build, stats test suite, and PM-1 trace presence",
+    "requirement": "EXP-001 / fix-1",
+    "evidence": "src/experiment/stats.ts contains percentile, quantiles, positiveProportion, negativeProportion, stabilityIndex, classifyTrajectory, computeStabilityAnalysis; src/experiment/types.ts contains TrajectoryClass, MetricStability, StabilityAnalysis; tsc --noEmit exit 0; vitest run src/experiment/stats.test.ts 64/64 pass; trace self-harness/traces/exp001-stability-stats.pm1 present with agent=fixer, outcome=pass",
+    "keCommit": "4d7e412 (working tree, uncommitted changes)",
+    "timestamp": "2026-09-10T19:50:17Z",
+    "notes": "Reconciliation per NCR-20260731 corrective action: sub-agent completion checked for actual filesystem changes and a trace before marking reconciled. Both checks passed. classifyTrajectory signature is (delta, p5, p25, p75, p95) per the agreed 5-class scheme, documented in code."
+}

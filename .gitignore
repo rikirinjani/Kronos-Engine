@@ -5,3 +5,6 @@ dist/
 *.db
 *.sqlite
 .env
+
+# Contains a hardcoded Zenodo API token - never commit
+zenodo-package/upload.ps1

@@ -1,0 +1,30 @@
+{
+  "title": "Kronos Engine: Zenodo Evidence Package for JAMIA 2026 Manuscript",
+  "description": "Frozen experiment artifacts and manuscript evidence package for 'Kronos Engine: A Deterministic Counterfactual Experimentation Platform with Sentinel Adapter Pattern for Multi-Scale Health System Simulation' (JAMIA 2026 submission). Contains frozen JSON results for P-003 (WWII counterfactual), P-004 (Deers Rock sentinel), and Phase F (causal-null replication), along with the primary manuscript, claim audit, experiment freeze documentation, and reproducibility guide.",
+  "creators": [
+    {
+      "name": "Riki Rinjani",
+      "affiliation": "Hisfarma IAI",
+      "orcid": "0009-0002-9364-2637"
+    }
+  ],
+  "keywords": [
+    "counterfactual simulation",
+    "agent-based modeling",
+    "health system simulation",
+    "sentinel adapter",
+    "experimental reproducibility",
+    "deterministic replay",
+    "Kronos Engine"
+  ],
+  "license": "MIT",
+  "type": "dataset",
+  "notes": "This is the evidence package for a JAMIA 2026 manuscript. The companion software repository (github.com/rikirinjani/Kronos-Engine) is not yet public. DOI is pending Zenodo publication. All frozen artifacts are verifiable against commit 4d7e4128f6ad800fa762f443f36aa4f45d31e4d9.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/rikirinjani/Kronos-Engine",
+      "relation": "isSupplementTo",
+      "type": "url"
+    }
+  ]
+}

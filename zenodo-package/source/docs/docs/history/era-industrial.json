@@ -1,0 +1,342 @@
+{
+  "meta": {
+    "era": "industrial",
+    "label": "Industrial Era",
+    "span": "1800–1914",
+    "seedPrefix": "S-INDUSTRIAL",
+    "generated": "2026-06-29",
+    "archivist": "World Archivist",
+    "description": "Industrial Revolution, European imperialism, nationalism, railroads, telegraph, mass politics, pre-WWI order."
+  },
+  "rewindPoints": [
+    {
+      "id": "RP-INDUST-001",
+      "year": 1815,
+      "label": "Congress of Vienna",
+      "calendarDate": "1815-06-09",
+      "description": "Post-Napoleonic settlement. Europe's great powers redraw borders and establish the Concert of Europe — a century of relative great-power peace."
+    },
+    {
+      "id": "RP-INDUST-002",
+      "year": 1914,
+      "label": "WWI Trigger",
+      "calendarDate": "1914-06-28",
+      "description": "Assassination of Archduke Franz Ferdinand. Alliance system triggers chain reaction — Europe descends into World War I."
+    }
+  ],
+  "states": {
+    "RP-INDUST-001": {
+      "year": 1815,
+      "label": "Congress of Vienna (1815)",
+      "nations": [
+        {
+          "id": "GBR",
+          "name": "United Kingdom of Great Britain and Ireland",
+          "region": "europe",
+          "population": 14000000,
+          "gdp": 5000000000,
+          "territory": { "regionIds": ["england", "scotland", "wales", "ireland"], "capital": "London" },
+          "government": "monarchy",
+          "technologyLevel": 55,
+          "militaryPower": 65,
+          "healthMetrics": { "lifeExpectancy": 40, "infantMortality": 210.0, "hospitalBedsPer1000": 0.5, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "FRA": 30, "RUS": 50, "AUS": 55, "PRU": 50, "USA": 40 }
+        },
+        {
+          "id": "RUS",
+          "name": "Russian Empire",
+          "region": "eurasia",
+          "population": 45000000,
+          "gdp": 4500000000,
+          "territory": { "regionIds": ["european-russia", "siberia", "poland", "finland"], "capital": "Saint Petersburg" },
+          "government": "autocracy",
+          "technologyLevel": 35,
+          "militaryPower": 60,
+          "healthMetrics": { "lifeExpectancy": 33, "infantMortality": 280.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 50, "AUS": 40, "PRU": 45, "FRA": 35, "OTT": -65, "SWE": 40 }
+        },
+        {
+          "id": "AUS",
+          "name": "Austrian Empire",
+          "region": "europe",
+          "population": 21000000,
+          "gdp": 2800000000,
+          "territory": { "regionIds": ["austria", "hungary", "bohemia", "galicia", "lombardy-venetia", "croatia"], "capital": "Vienna" },
+          "government": "autocracy",
+          "technologyLevel": 40,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 35, "infantMortality": 260.0, "hospitalBedsPer1000": 0.3, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 55, "RUS": 40, "PRU": 30, "FRA": 35, "OTT": -50 }
+        },
+        {
+          "id": "PRU",
+          "name": "Kingdom of Prussia",
+          "region": "europe",
+          "population": 11000000,
+          "gdp": 2000000000,
+          "territory": { "regionIds": ["brandenburg", "prussia", "silesia", "rhineland", "westphalia"], "capital": "Berlin" },
+          "government": "monarchy",
+          "technologyLevel": 42,
+          "militaryPower": 48,
+          "healthMetrics": { "lifeExpectancy": 35, "infantMortality": 260.0, "hospitalBedsPer1000": 0.3, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 50, "RUS": 45, "AUS": 30, "FRA": 25 }
+        },
+        {
+          "id": "FRA",
+          "name": "Kingdom of France (Bourbon Restoration)",
+          "region": "europe",
+          "population": 29000000,
+          "gdp": 4000000000,
+          "territory": { "regionIds": ["france"], "capital": "Paris" },
+          "government": "monarchy",
+          "technologyLevel": 44,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 37, "infantMortality": 240.0, "hospitalBedsPer1000": 0.4, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 30, "RUS": 35, "AUS": 35, "PRU": 25 }
+        },
+        {
+          "id": "OTT",
+          "name": "Ottoman Empire",
+          "region": "middle-east",
+          "population": 28000000,
+          "gdp": 2000000000,
+          "territory": { "regionIds": ["anatolia", "balkans", "levant", "egypt", "hejaz"], "capital": "Constantinople" },
+          "government": "monarchy",
+          "technologyLevel": 32,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 34, "infantMortality": 280.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "RUS": -65, "AUS": -50, "GBR": 25, "FRA": 20, "IRN": -30 }
+        },
+        {
+          "id": "CHN",
+          "name": "Qing Dynasty",
+          "region": "east-asia",
+          "population": 350000000,
+          "gdp": 35000000000,
+          "territory": { "regionIds": ["china", "tibet", "xinjiang", "mongolia"], "capital": "Beijing" },
+          "government": "autocracy",
+          "technologyLevel": 32,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 35, "infantMortality": 270.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 20, "RUS": 30, "JPN": 15 }
+        },
+        {
+          "id": "USA",
+          "name": "United States of America",
+          "region": "north-america",
+          "population": 8500000,
+          "gdp": 800000000,
+          "territory": { "regionIds": ["eastern-us", "southern-us", "louisiana"], "capital": "Washington, D.C." },
+          "government": "democracy",
+          "technologyLevel": 45,
+          "militaryPower": 20,
+          "healthMetrics": { "lifeExpectancy": 39, "infantMortality": 220.0, "hospitalBedsPer1000": 0.3, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 40, "FRA": 60, "SPA": 25 }
+        }
+      ],
+      "wars": [],
+      "alliances": [],
+      "globalState": {
+        "totalPopulation": 1000000000,
+        "avgTechnologyLevel": 30,
+        "avgHealthOutcome": 36,
+        "co2Emissions": 200000000,
+        "tradeVolume": 15
+      }
+    },
+    "RP-INDUST-002": {
+      "year": 1914,
+      "label": "WWI Trigger (1914)",
+      "nations": [
+        {
+          "id": "GBR",
+          "name": "United Kingdom of Great Britain and Ireland",
+          "region": "europe",
+          "population": 46000000,
+          "gdp": 10000000000,
+          "territory": { "regionIds": ["england", "scotland", "wales", "ireland"], "capital": "London" },
+          "government": "monarchy",
+          "technologyLevel": 65,
+          "militaryPower": 70,
+          "healthMetrics": { "lifeExpectancy": 52, "infantMortality": 110.0, "hospitalBedsPer1000": 1.2, "universalCoverage": false },
+          "alliances": ["TRIPLE-ENTENTE"],
+          "wars": [],
+          "relations": { "FRA": 70, "RUS": 60, "DEU": -60, "AUT": -50, "USA": 70, "JPN": 50 }
+        },
+        {
+          "id": "DEU",
+          "name": "German Empire",
+          "region": "europe",
+          "population": 67000000,
+          "gdp": 12000000000,
+          "territory": { "regionIds": ["germany", "alsace-lorraine", "east-prussia"], "capital": "Berlin" },
+          "government": "monarchy",
+          "technologyLevel": 68,
+          "militaryPower": 78,
+          "healthMetrics": { "lifeExpectancy": 50, "infantMortality": 160.0, "hospitalBedsPer1000": 1.5, "universalCoverage": true },
+          "alliances": ["CENTRAL-POWERS"],
+          "wars": [],
+          "relations": { "AUT": 85, "ITA": 60, "RUS": -55, "FRA": -70, "GBR": -60, "USA": -30 }
+        },
+        {
+          "id": "FRA",
+          "name": "French Third Republic",
+          "region": "europe",
+          "population": 40000000,
+          "gdp": 7000000000,
+          "territory": { "regionIds": ["france", "algeria"], "capital": "Paris" },
+          "government": "democracy",
+          "technologyLevel": 62,
+          "militaryPower": 60,
+          "healthMetrics": { "lifeExpectancy": 51, "infantMortality": 120.0, "hospitalBedsPer1000": 1.0, "universalCoverage": false },
+          "alliances": ["TRIPLE-ENTENTE"],
+          "wars": [],
+          "relations": { "GBR": 70, "RUS": 60, "DEU": -70, "AUT": -50, "ITA": 30 }
+        },
+        {
+          "id": "RUS",
+          "name": "Russian Empire",
+          "region": "eurasia",
+          "population": 170000000,
+          "gdp": 8000000000,
+          "territory": { "regionIds": ["european-russia", "siberia", "far-east", "poland", "finland", "central-asia", "caucasus"], "capital": "Saint Petersburg" },
+          "government": "autocracy",
+          "technologyLevel": 38,
+          "militaryPower": 65,
+          "healthMetrics": { "lifeExpectancy": 38, "infantMortality": 250.0, "hospitalBedsPer1000": 0.5, "universalCoverage": false },
+          "alliances": ["TRIPLE-ENTENTE"],
+          "wars": [],
+          "relations": { "FRA": 60, "GBR": 60, "DEU": -55, "AUT": -65, "OTT": -70 }
+        },
+        {
+          "id": "AUT",
+          "name": "Austria-Hungary",
+          "region": "europe",
+          "population": 52000000,
+          "gdp": 5000000000,
+          "territory": { "regionIds": ["austria", "hungary", "bohemia", "galicia", "croatia", "bosnia"], "capital": "Vienna" },
+          "government": "monarchy",
+          "technologyLevel": 45,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 44, "infantMortality": 210.0, "hospitalBedsPer1000": 0.8, "universalCoverage": false },
+          "alliances": ["CENTRAL-POWERS"],
+          "wars": [],
+          "relations": { "DEU": 85, "ITA": 40, "RUS": -65, "SRB": -85, "GBR": -40, "FRA": -50 }
+        },
+        {
+          "id": "USA",
+          "name": "United States of America",
+          "region": "north-america",
+          "population": 99000000,
+          "gdp": 11000000000,
+          "territory": { "regionIds": ["continental-us", "alaska", "hawaii"], "capital": "Washington, D.C." },
+          "government": "democracy",
+          "technologyLevel": 65,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 52, "infantMortality": 100.0, "hospitalBedsPer1000": 1.0, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 70, "FRA": 60, "DEU": -30, "JPN": 40 }
+        },
+        {
+          "id": "JPN",
+          "name": "Empire of Japan",
+          "region": "east-asia",
+          "population": 52000000,
+          "gdp": 3000000000,
+          "territory": { "regionIds": ["japan", "taiwan", "korea"], "capital": "Tokyo" },
+          "government": "monarchy",
+          "technologyLevel": 50,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 44, "infantMortality": 190.0, "hospitalBedsPer1000": 0.5, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GBR": 50, "USA": 40, "RUS": -40, "CHN": -60, "DEU": 30 }
+        },
+        {
+          "id": "CHN",
+          "name": "Republic of China",
+          "region": "east-asia",
+          "population": 440000000,
+          "gdp": 5000000000,
+          "territory": { "regionIds": ["mainland-china"], "capital": "Beijing" },
+          "government": "transitional",
+          "technologyLevel": 22,
+          "militaryPower": 25,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 300.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "JPN": -60, "GBR": 30, "RUS": 30, "USA": 35 }
+        },
+        {
+          "id": "OTT",
+          "name": "Ottoman Empire",
+          "region": "middle-east",
+          "population": 23000000,
+          "gdp": 2000000000,
+          "territory": { "regionIds": ["anatolia", "levant", "egypt", "hejaz", "mesopotamia"], "capital": "Constantinople" },
+          "government": "monarchy",
+          "technologyLevel": 30,
+          "militaryPower": 28,
+          "healthMetrics": { "lifeExpectancy": 40, "infantMortality": 240.0, "hospitalBedsPer1000": 0.3, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "DEU": 50, "AUT": 30, "RUS": -70, "GBR": -40, "FRA": -30 }
+        }
+      ],
+      "wars": [],
+      "alliances": [
+        {
+          "id": "TRIPLE-ENTENTE",
+          "name": "Triple Entente",
+          "members": ["GBR", "FRA", "RUS"],
+          "formed": 1907,
+          "type": "defense",
+          "strength": 60
+        },
+        {
+          "id": "CENTRAL-POWERS",
+          "name": "Central Powers",
+          "members": ["DEU", "AUT"],
+          "formed": 1879,
+          "type": "defense",
+          "strength": 70
+        }
+      ],
+      "globalState": {
+        "totalPopulation": 1750000000,
+        "avgTechnologyLevel": 34,
+        "avgHealthOutcome": 42,
+        "co2Emissions": 1500000000,
+        "tradeVolume": 25
+      }
+    }
+  },
+  "calibration": {
+    "sources": [
+      { "attribute": "population", "source": "McEvedy & Jones / UN historical estimates" },
+      { "attribute": "gdp", "source": "Maddison Project Database 2023" },
+      { "attribute": "militaryPower", "source": "Estimated from army/navy size, industrial capacity, technology" }
+    ],
+    "estimates": [
+      { "attribute": "technologyLevel", "note": "Reflects: steam power, railways, telegraph, industrialization rate, literacy." },
+      { "attribute": "globalState.co2Emissions (1815)", "note": "Rough estimate — pre-industrial levels still low, but rising with early coal use." }
+    ]
+  }
+}

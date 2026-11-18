@@ -1,0 +1,76 @@
+{
+  "seed": 1003,
+  "horizon": 50,
+  "timestamp": "2026-09-11T03:04:31.044Z",
+  "partA": {
+    "originalSnapSentinelNull": true,
+    "originalSnapSentinelPaths": 0,
+    "repairedSnapSentinelNull": false,
+    "repairedSnapSentinelPaths": 11,
+    "liveSentinelNull": false,
+    "liveSentinel": {
+      "occupancyRate": 0.8244274809160306,
+      "icuOccupancyRate": 0.7142857142857143,
+      "mortalityPressure": 0,
+      "supplyStress": 0.32767407407407406,
+      "staffStress": 1
+    },
+    "verdict": "REPAIRED: sentinelOutput now visible to diff engine (structural invisibility bug confirmed and repaired)"
+  },
+  "partB": {
+    "baseline": {
+      "occ": 0.8244274809160306,
+      "healthEvents": 0,
+      "sentinelNull": false
+    },
+    "contaminated": {
+      "occ": 0.8778625954198473,
+      "healthEvents": 2,
+      "sentinelNull": false
+    },
+    "fixCounters": {
+      "occ": 0.8778625954198473,
+      "healthEvents": 2,
+      "sentinelNull": false
+    },
+    "fixClock": {
+      "occ": 0.8778625954198473,
+      "healthEvents": 2,
+      "sentinelNull": false
+    },
+    "fixJournal": {
+      "occ": 0.8778625954198473,
+      "healthEvents": 2,
+      "sentinelNull": false
+    },
+    "fixFull": {
+      "occ": 0.8244274809160306,
+      "healthEvents": 0,
+      "sentinelNull": false
+    },
+    "verdict": "Full createWorld re-init required (multiple gaps)"
+  },
+  "partC": {
+    "origSnapOrigRecon": {
+      "sentinelVisible": false,
+      "sentinelPaths": 0,
+      "occ": null
+    },
+    "repairedSnapOrigRecon": {
+      "sentinelVisible": true,
+      "sentinelPaths": 11,
+      "occ": 0.8244274809160306
+    },
+    "origSnapRepairedRecon": {
+      "sentinelVisible": false,
+      "sentinelPaths": 0,
+      "occ": null
+    },
+    "repairedSnapRepairedRecon": {
+      "sentinelVisible": true,
+      "sentinelPaths": 11,
+      "occ": 0.8244274809160306
+    },
+    "verdict": "Snapshot repair is necessary; reconstruction repair is sufficient alone; both together are robust"
+  }
+}

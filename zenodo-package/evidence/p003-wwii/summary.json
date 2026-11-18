@@ -1,0 +1,5605 @@
+{
+  "n": 3,
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "rewindTick": 0,
+  "totalTicks": 30,
+  "intervention": {
+    "type": "war_end",
+    "label": "No WWII",
+    "description": "Hitler dies in 1938 — prevents WWII from escalating",
+    "params": {
+      "geopolitics": {
+        "wars": {
+          "W-1939-01": {
+            "status": "ended"
+          }
+        }
+      }
+    }
+  },
+  "metrics": [
+    {
+      "name": "gdp",
+      "path": "nations.USA.gdp",
+      "values": [
+        -62396062547.0896,
+        16000000.00000006,
+        19205483021.564087,
+        -1811372107.5486856,
+        -108437460165.97205,
+        18759768.782859683
+      ],
+      "mean": -25567442005.04,
+      "median": -897686053.77,
+      "stdDev": 49197396474.76,
+      "ci95Lower": -77205341983.71,
+      "ci95Upper": 26070457973.62,
+      "min": -108437460165.97,
+      "max": 19205483021.56,
+      "cohensD": -0.73,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.DEU.gdp",
+      "values": [
+        -36153412271.73822,
+        16000000.00000006,
+        14825067329.077026,
+        -63801171.00489521,
+        -28342063321.477234,
+        12000000.00000006
+      ],
+      "mean": -8284368239.19,
+      "median": -25900585.5,
+      "stdDev": 19587467020.39,
+      "ci95Lower": -28843498097.89,
+      "ci95Upper": 12274761619.51,
+      "min": -36153412271.74,
+      "max": 14825067329.08,
+      "cohensD": -0.6,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.GBR.gdp",
+      "values": [
+        -6555943941.502075,
+        16000000.00000006,
+        3969399378.4659424,
+        -59903250.70740569,
+        -1076601962.3829346,
+        -4800326.926974356
+      ],
+      "mean": -618641683.84,
+      "median": -32351788.82,
+      "stdDev": 3394205839.96,
+      "ci95Lower": -4181221702.9,
+      "ci95Upper": 2943938335.22,
+      "min": -6555943941.5,
+      "max": 3969399378.47,
+      "cohensD": -0.26,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.FRA.gdp",
+      "values": [
+        -38534528218.86386,
+        16000000.00000006,
+        4710979771.887482,
+        -50000000,
+        2812384135.7466736,
+        16422121.169036508
+      ],
+      "mean": -5171457031.68,
+      "median": 16211060.58,
+      "stdDev": 16459355507.99,
+      "ci95Lower": -22447301168.49,
+      "ci95Upper": 12104387105.13,
+      "min": -38534528218.86,
+      "max": 4710979771.89,
+      "cohensD": -0.44,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.RUS.gdp",
+      "values": [
+        -38213218289.19812,
+        16000000.00000006,
+        3411005377.6030884,
+        -149158671.6454115,
+        -359016247.81921387,
+        21069690.003943622
+      ],
+      "mean": -5878886356.84,
+      "median": -66579335.82,
+      "stdDev": 15903892742.54,
+      "ci95Lower": -22571713245.19,
+      "ci95Upper": 10813940531.51,
+      "min": -38213218289.2,
+      "max": 3411005377.6,
+      "cohensD": -0.52,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.JPN.gdp",
+      "values": [
+        -7842210707.563843,
+        16000000.00000006,
+        8075697062.658295,
+        -150631813.8800826,
+        -533402986.02130127,
+        18439995.455686092
+      ],
+      "mean": -69351408.23,
+      "median": -67315906.94,
+      "stdDev": 5039763860.44,
+      "ci95Lower": -5359119582.75,
+      "ci95Upper": 5220416766.3,
+      "min": -7842210707.56,
+      "max": 8075697062.66,
+      "cohensD": -0.02,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.CHN.gdp",
+      "values": [
+        -1666813984.9331818,
+        16000000.00000006,
+        5403146149.707214,
+        -124465773.18685865,
+        483636016.8312378,
+        12546949.877296567
+      ],
+      "mean": 687341559.72,
+      "median": 14273474.94,
+      "stdDev": 2424352928.46,
+      "ci95Lower": -1857274680.23,
+      "ci95Upper": 3231957799.66,
+      "min": -1666813984.93,
+      "max": 5403146149.71,
+      "cohensD": 0.4,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.ITA.gdp",
+      "values": [
+        -9272452228.457306,
+        16000000.00000006,
+        2235837822.170227,
+        1089002169.9783325,
+        -6192387.043670595
+      ],
+      "mean": -1187560924.67,
+      "median": 16000000,
+      "stdDev": 4612809784.15,
+      "ci95Lower": -6914202551.69,
+      "ci95Upper": 4539080702.35,
+      "min": -9272452228.46,
+      "max": 2235837822.17,
+      "cohensD": -0.36,
+      "significant": false
+    },
+    {
+      "name": "gdp",
+      "path": "nations.POL.gdp",
+      "values": [
+        -4562452650.947006,
+        16000000.00000006,
+        3007870089.067215,
+        -117762413.30140972,
+        -841592026.8500671,
+        21187198.390230596
+      ],
+      "mean": -412791633.94,
+      "median": -50881206.65,
+      "stdDev": 2431613665.43,
+      "ci95Lower": -2965028789.55,
+      "ci95Upper": 2139445521.67,
+      "min": -4562452650.95,
+      "max": 3007870089.07,
+      "cohensD": -0.24,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-53355.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-53355.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-53355.startYear",
+      "values": [
+        1940
+      ],
+      "mean": 1940,
+      "median": 1940,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1940,
+      "max": 1940,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-53355.casualties",
+      "values": [
+        801
+      ],
+      "mean": 801,
+      "median": 801,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 801,
+      "max": 801,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "co2Concentration",
+      "path": "co2Concentration",
+      "values": [
+        -13854915.912975308,
+        2791686.774170365,
+        -8517343.13020273
+      ],
+      "mean": -6526857.42,
+      "median": -8517343.13,
+      "stdDev": 8499933.54,
+      "ci95Lower": -27643567.1,
+      "ci95Upper": 14589852.25,
+      "min": -13854915.91,
+      "max": 2791686.77,
+      "cohensD": -1.09,
+      "significant": false
+    },
+    {
+      "name": "annualEmissions",
+      "path": "annualEmissions",
+      "values": [
+        -10259854.964776505,
+        3242226.3715345208,
+        -6760254.5765047185
+      ],
+      "mean": -4592627.72,
+      "median": -6760254.58,
+      "stdDev": 7007175.23,
+      "ci95Lower": -22000820.88,
+      "ci95Upper": 12815565.44,
+      "min": -10259854.96,
+      "max": 3242226.37,
+      "cohensD": -0.93,
+      "significant": false
+    },
+    {
+      "name": "temperatureAnomaly",
+      "path": "temperatureAnomaly",
+      "values": [
+        -1.6216854288239873,
+        0.4747677729504147,
+        -1.2307140019051843
+      ],
+      "mean": -0.79,
+      "median": -1.23,
+      "stdDev": 1.11,
+      "ci95Lower": -3.56,
+      "ci95Upper": 1.98,
+      "min": -1.62,
+      "max": 0.47,
+      "cohensD": -1.01,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "extremeEvents.length",
+      "values": [
+        1,
+        4,
+        2
+      ],
+      "mean": 2.33,
+      "median": 2,
+      "stdDev": 1.53,
+      "ci95Lower": -1.46,
+      "ci95Upper": 6.13,
+      "min": 1,
+      "max": 4,
+      "cohensD": 2.16,
+      "significant": false
+    },
+    {
+      "name": "seaLevelRise",
+      "path": "seaLevelRise",
+      "values": [
+        2.5689837684622034,
+        -6.328053187229671,
+        -7.076985336141661
+      ],
+      "mean": -3.61,
+      "median": -6.33,
+      "stdDev": 5.37,
+      "ci95Lower": -16.94,
+      "ci95Upper": 9.72,
+      "min": -7.08,
+      "max": 2.57,
+      "cohensD": -0.95,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.USA.gdpGrowthRate",
+      "values": [
+        -0.067313750856556,
+        0.776396408351139,
+        -1.1604287247173481
+      ],
+      "mean": -0.15,
+      "median": -0.07,
+      "stdDev": 0.97,
+      "ci95Lower": -2.56,
+      "ci95Upper": 2.26,
+      "min": -1.16,
+      "max": 0.78,
+      "cohensD": -0.22,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.USA.inflationRate",
+      "values": [
+        -0.0034655778718239993,
+        -0.35452905842440763,
+        1.284211995845962
+      ],
+      "mean": 0.31,
+      "median": 0,
+      "stdDev": 0.86,
+      "ci95Lower": -1.83,
+      "ci95Upper": 2.45,
+      "min": -0.35,
+      "max": 1.28,
+      "cohensD": 0.51,
+      "significant": false
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.USA.tradeVolume",
+      "values": [
+        -2.541684334166348,
+        15.952000728808343,
+        1.0074324326589732
+      ],
+      "mean": 4.81,
+      "median": 1.01,
+      "stdDev": 9.81,
+      "ci95Lower": -19.58,
+      "ci95Upper": 29.19,
+      "min": -2.54,
+      "max": 15.95,
+      "cohensD": 0.69,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.USA.unemploymentRate",
+      "values": [
+        0.17385298002045602,
+        1.657373016816564,
+        -1.345698366756551
+      ],
+      "mean": 0.16,
+      "median": 0.17,
+      "stdDev": 1.5,
+      "ci95Lower": -3.57,
+      "ci95Upper": 3.89,
+      "min": -1.35,
+      "max": 1.66,
+      "cohensD": 0.15,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.DEU.gdpGrowthRate",
+      "values": [
+        -3.036562717566266,
+        -1.2919482573866863,
+        -3.1714954420924197
+      ],
+      "mean": -2.5,
+      "median": -3.04,
+      "stdDev": 1.05,
+      "ci95Lower": -5.1,
+      "ci95Upper": 0.1,
+      "min": -3.17,
+      "max": -1.29,
+      "cohensD": -3.37,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.DEU.inflationRate",
+      "values": [
+        0.011033892625700759,
+        0.460819272562738,
+        1.093103701964433
+      ],
+      "mean": 0.52,
+      "median": 0.46,
+      "stdDev": 0.54,
+      "ci95Lower": -0.83,
+      "ci95Upper": 1.87,
+      "min": 0.01,
+      "max": 1.09,
+      "cohensD": 1.36,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.DEU.unemploymentRate",
+      "values": [
+        -0.40393918473273516,
+        0.8140169453108683,
+        0.19194116129074246
+      ],
+      "mean": 0.2,
+      "median": 0.19,
+      "stdDev": 0.61,
+      "ci95Lower": -1.31,
+      "ci95Upper": 1.71,
+      "min": -0.4,
+      "max": 0.81,
+      "cohensD": 0.47,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "nations.DEU.wars.length",
+      "values": [
+        2,
+        2
+      ],
+      "mean": 2,
+      "median": 2,
+      "stdDev": 0,
+      "ci95Lower": 2,
+      "ci95Upper": 2,
+      "min": 2,
+      "max": 2,
+      "cohensD": 0,
+      "significant": true
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.GBR.gdpGrowthRate",
+      "values": [
+        -0.11572408222127795,
+        -0.8076967184431847,
+        1.4855368877761055
+      ],
+      "mean": 0.19,
+      "median": -0.12,
+      "stdDev": 1.18,
+      "ci95Lower": -2.73,
+      "ci95Upper": 3.11,
+      "min": -0.81,
+      "max": 1.49,
+      "cohensD": 0.23,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.GBR.inflationRate",
+      "values": [
+        0.01940584234667364,
+        -0.04666666338266978,
+        -1.1717963597062437
+      ],
+      "mean": -0.4,
+      "median": -0.05,
+      "stdDev": 0.67,
+      "ci95Lower": -2.06,
+      "ci95Upper": 1.26,
+      "min": -1.17,
+      "max": 0.02,
+      "cohensD": -0.84,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.GBR.unemploymentRate",
+      "values": [
+        -0.05898761341813952,
+        1.8592690505320206,
+        -0.648773847729899
+      ],
+      "mean": 0.38,
+      "median": -0.06,
+      "stdDev": 1.31,
+      "ci95Lower": -2.87,
+      "ci95Upper": 3.64,
+      "min": -0.65,
+      "max": 1.86,
+      "cohensD": 0.41,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.FRA.gdpGrowthRate",
+      "values": [
+        -1.4759595263516527,
+        1.898080424848012,
+        0.27132028117775797
+      ],
+      "mean": 0.23,
+      "median": 0.27,
+      "stdDev": 1.69,
+      "ci95Lower": -3.96,
+      "ci95Upper": 4.42,
+      "min": -1.48,
+      "max": 1.9,
+      "cohensD": 0.19,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.FRA.inflationRate",
+      "values": [
+        0.04332681796646087,
+        -0.5898460347157264,
+        -1.215011145447751
+      ],
+      "mean": -0.59,
+      "median": -0.59,
+      "stdDev": 0.63,
+      "ci95Lower": -2.15,
+      "ci95Upper": 0.98,
+      "min": -1.22,
+      "max": 0.04,
+      "cohensD": -1.32,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.FRA.unemploymentRate",
+      "values": [
+        0.40108059998601675,
+        -0.5176251083612442,
+        0.8047558047110215
+      ],
+      "mean": 0.23,
+      "median": 0.4,
+      "stdDev": 0.68,
+      "ci95Lower": -1.45,
+      "ci95Upper": 1.91,
+      "min": -0.52,
+      "max": 0.8,
+      "cohensD": 0.48,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "nations.FRA.wars.length",
+      "values": [
+        1,
+        -2
+      ],
+      "mean": -0.5,
+      "median": -0.5,
+      "stdDev": 2.12,
+      "ci95Lower": -19.56,
+      "ci95Upper": 18.56,
+      "min": -2,
+      "max": 1,
+      "cohensD": -0.33,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.RUS.gdpGrowthRate",
+      "values": [
+        1.204566394421272,
+        0.09342979753855563,
+        -0.060378394369037025
+      ],
+      "mean": 0.41,
+      "median": 0.09,
+      "stdDev": 0.69,
+      "ci95Lower": -1.3,
+      "ci95Upper": 2.13,
+      "min": -0.06,
+      "max": 1.2,
+      "cohensD": 0.85,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.RUS.inflationRate",
+      "values": [
+        0.008692910934842146,
+        -0.4645306716066526,
+        1.0295673338117066
+      ],
+      "mean": 0.19,
+      "median": 0.01,
+      "stdDev": 0.76,
+      "ci95Lower": -1.71,
+      "ci95Upper": 2.09,
+      "min": -0.46,
+      "max": 1.03,
+      "cohensD": 0.35,
+      "significant": false
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.RUS.tradeVolume",
+      "values": [
+        10.17120876479894,
+        6.9540315568447095,
+        -31.927712371945383
+      ],
+      "mean": -4.93,
+      "median": 6.95,
+      "stdDev": 23.43,
+      "ci95Lower": -63.15,
+      "ci95Upper": 53.28,
+      "min": -31.93,
+      "max": 10.17,
+      "cohensD": -0.3,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.RUS.unemploymentRate",
+      "values": [
+        0.4551315864082426,
+        0.9856857309350744,
+        1.988211929681711
+      ],
+      "mean": 1.14,
+      "median": 0.99,
+      "stdDev": 0.78,
+      "ci95Lower": -0.79,
+      "ci95Upper": 3.08,
+      "min": 0.46,
+      "max": 1.99,
+      "cohensD": 2.08,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "nations.RUS.wars.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.JPN.gdpGrowthRate",
+      "values": [
+        -0.07566167805343849,
+        -1.314822322921827,
+        -1.0041394338710241
+      ],
+      "mean": -0.8,
+      "median": -1,
+      "stdDev": 0.64,
+      "ci95Lower": -2.4,
+      "ci95Upper": 0.8,
+      "min": -1.31,
+      "max": -0.08,
+      "cohensD": -1.75,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.JPN.inflationRate",
+      "values": [
+        -0.028350246245787414,
+        0.2820277132647755,
+        -0.7022721554849323
+      ],
+      "mean": -0.15,
+      "median": -0.03,
+      "stdDev": 0.5,
+      "ci95Lower": -1.4,
+      "ci95Upper": 1.1,
+      "min": -0.7,
+      "max": 0.28,
+      "cohensD": -0.42,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.JPN.unemploymentRate",
+      "values": [
+        0.07549563550855964,
+        1.0818755277432501,
+        2.0303866325411946
+      ],
+      "mean": 1.06,
+      "median": 1.08,
+      "stdDev": 0.98,
+      "ci95Lower": -1.37,
+      "ci95Upper": 3.49,
+      "min": 0.08,
+      "max": 2.03,
+      "cohensD": 1.54,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.CHN.gdpGrowthRate",
+      "values": [
+        0.07897161191795021,
+        -1.9000951646128663,
+        -1.5391879672184585
+      ],
+      "mean": -1.12,
+      "median": -1.54,
+      "stdDev": 1.05,
+      "ci95Lower": -3.74,
+      "ci95Upper": 1.5,
+      "min": -1.9,
+      "max": 0.08,
+      "cohensD": -1.5,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.CHN.inflationRate",
+      "values": [
+        -0.024846070393030883,
+        -0.011340519650364422,
+        0.16402151227870254
+      ],
+      "mean": 0.04,
+      "median": -0.01,
+      "stdDev": 0.11,
+      "ci95Lower": -0.22,
+      "ci95Upper": 0.3,
+      "min": -0.02,
+      "max": 0.16,
+      "cohensD": 0.57,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.CHN.unemploymentRate",
+      "values": [
+        -0.09722977154888213,
+        -0.13888408592902124,
+        0.6195663966936991
+      ],
+      "mean": 0.13,
+      "median": -0.1,
+      "stdDev": 0.43,
+      "ci95Lower": -0.93,
+      "ci95Upper": 1.19,
+      "min": -0.14,
+      "max": 0.62,
+      "cohensD": 0.42,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.ITA.gdpGrowthRate",
+      "values": [
+        0.09168844367377499,
+        4.801671380898916,
+        3.2431606465950606
+      ],
+      "mean": 2.71,
+      "median": 3.24,
+      "stdDev": 2.4,
+      "ci95Lower": -3.25,
+      "ci95Upper": 8.67,
+      "min": 0.09,
+      "max": 4.8,
+      "cohensD": 1.6,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.ITA.inflationRate",
+      "values": [
+        -0.006904966418611824,
+        0.9539635666460453,
+        -0.3710823988437011
+      ],
+      "mean": 0.19,
+      "median": -0.01,
+      "stdDev": 0.68,
+      "ci95Lower": -1.51,
+      "ci95Upper": 1.89,
+      "min": -0.37,
+      "max": 0.95,
+      "cohensD": 0.4,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.ITA.unemploymentRate",
+      "values": [
+        -0.3139929346507415,
+        0.8880770817631856,
+        0.7063430116977543
+      ],
+      "mean": 0.43,
+      "median": 0.71,
+      "stdDev": 0.65,
+      "ci95Lower": -1.18,
+      "ci95Upper": 2.04,
+      "min": -0.31,
+      "max": 0.89,
+      "cohensD": 0.93,
+      "significant": false
+    },
+    {
+      "name": "gdpGrowthRate",
+      "path": "nations.POL.gdpGrowthRate",
+      "values": [
+        0.02239207061939008,
+        0.6755255817202848,
+        -1.7267628874629741
+      ],
+      "mean": -0.34,
+      "median": 0.02,
+      "stdDev": 1.24,
+      "ci95Lower": -3.43,
+      "ci95Upper": 2.74,
+      "min": -1.73,
+      "max": 0.68,
+      "cohensD": -0.39,
+      "significant": false
+    },
+    {
+      "name": "inflationRate",
+      "path": "nations.POL.inflationRate",
+      "values": [
+        -0.01443386092586385,
+        0.6097024079152973,
+        -1.3987273820528356
+      ],
+      "mean": -0.27,
+      "median": -0.01,
+      "stdDev": 1.03,
+      "ci95Lower": -2.82,
+      "ci95Upper": 2.29,
+      "min": -1.4,
+      "max": 0.61,
+      "cohensD": -0.37,
+      "significant": false
+    },
+    {
+      "name": "unemploymentRate",
+      "path": "nations.POL.unemploymentRate",
+      "values": [
+        -0.12039164116140455,
+        -1.4550401656888425,
+        0.06879175791982561
+      ],
+      "mean": -0.5,
+      "median": -0.12,
+      "stdDev": 0.83,
+      "ci95Lower": -2.57,
+      "ci95Upper": 1.56,
+      "min": -1.46,
+      "max": 0.07,
+      "cohensD": -0.86,
+      "significant": false
+    },
+    {
+      "name": "globalTradeVolume",
+      "path": "globalTradeVolume",
+      "values": [
+        -2.605851829284802,
+        -2.7054480090737343,
+        -6.352460556663573
+      ],
+      "mean": -3.89,
+      "median": -2.71,
+      "stdDev": 2.13,
+      "ci95Lower": -9.19,
+      "ci95Upper": 1.42,
+      "min": -6.35,
+      "max": -2.61,
+      "cohensD": -2.58,
+      "significant": false
+    },
+    {
+      "name": "globalInflation",
+      "path": "globalInflation",
+      "values": [
+        0.4374907538294792,
+        -0.9511947677237913,
+        0.8693833100842312
+      ],
+      "mean": 0.12,
+      "median": 0.44,
+      "stdDev": 0.95,
+      "ci95Lower": -2.24,
+      "ci95Upper": 2.48,
+      "min": -0.95,
+      "max": 0.87,
+      "cohensD": 0.18,
+      "significant": false
+    },
+    {
+      "name": "marketIndex",
+      "path": "marketIndex",
+      "values": [
+        1.4027937594801188,
+        -11.800011944025755,
+        16.508468866348267
+      ],
+      "mean": 2.04,
+      "median": 1.4,
+      "stdDev": 14.16,
+      "ci95Lower": -33.15,
+      "ci95Upper": 37.23,
+      "min": -11.8,
+      "max": 16.51,
+      "cohensD": 0.2,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.USA.rdSpending",
+      "values": [
+        -0.0005458013210445645,
+        -0.005388832616619779,
+        -0.010304601529147465
+      ],
+      "mean": -0.01,
+      "median": -0.01,
+      "stdDev": 0,
+      "ci95Lower": -0.02,
+      "ci95Upper": 0.01,
+      "min": -0.01,
+      "max": 0,
+      "cohensD": -1.57,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.USA.researchOutput",
+      "values": [
+        -78083944.61355516,
+        28469843.97848007,
+        -139420984.42060268
+      ],
+      "mean": -63011695.02,
+      "median": -78083944.61,
+      "stdDev": 84954176.45,
+      "ci95Lower": -274066601.53,
+      "ci95Upper": 148043211.49,
+      "min": -139420984.42,
+      "max": 28469843.98,
+      "cohensD": -1.05,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.USA.innovationCount",
+      "values": [
+        1,
+        5,
+        4
+      ],
+      "mean": 3.33,
+      "median": 4,
+      "stdDev": 2.08,
+      "ci95Lower": -1.84,
+      "ci95Upper": 8.5,
+      "min": 1,
+      "max": 5,
+      "cohensD": 2.26,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.USA.patents",
+      "values": [
+        -228,
+        -660,
+        -2347
+      ],
+      "mean": -1078.33,
+      "median": -660,
+      "stdDev": 1119.73,
+      "ci95Lower": -3860.12,
+      "ci95Upper": 1703.45,
+      "min": -2347,
+      "max": -228,
+      "cohensD": -1.36,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.DEU.rdSpending",
+      "values": [
+        -0.0005605073282495127,
+        -0.00007984677329659837,
+        -0.0004576148013584261
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 0,
+      "max": 0,
+      "cohensD": -2.05,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.DEU.researchOutput",
+      "values": [
+        -21428721.791114923,
+        33014182.095689446,
+        -30503304.20374255
+      ],
+      "mean": -6305947.97,
+      "median": -21428721.79,
+      "stdDev": 34353187.37,
+      "ci95Lower": -91650883.93,
+      "ci95Upper": 79038988,
+      "min": -30503304.2,
+      "max": 33014182.1,
+      "cohensD": -0.26,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.DEU.patents",
+      "values": [
+        -151,
+        48,
+        344
+      ],
+      "mean": 80.33,
+      "median": 48,
+      "stdDev": 249.08,
+      "ci95Lower": -538.46,
+      "ci95Upper": 699.13,
+      "min": -151,
+      "max": 344,
+      "cohensD": 0.46,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.GBR.rdSpending",
+      "values": [
+        -0.001048693036660553,
+        -0.0008145449035801104,
+        0.0039806647300720255
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.01,
+      "min": 0,
+      "max": 0,
+      "cohensD": 0.35,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.GBR.researchOutput",
+      "values": [
+        -8083779.567637496,
+        21006123.966289524,
+        -2513535.991696179
+      ],
+      "mean": 3469602.8,
+      "median": -2513535.99,
+      "stdDev": 15440339.51,
+      "ci95Lower": -34889422.6,
+      "ci95Upper": 41828628.2,
+      "min": -8083779.57,
+      "max": 21006123.97,
+      "cohensD": 0.32,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.GBR.innovationCount",
+      "values": [
+        -1,
+        -4,
+        -4
+      ],
+      "mean": -3,
+      "median": -4,
+      "stdDev": 1.73,
+      "ci95Lower": -7.3,
+      "ci95Upper": 1.3,
+      "min": -4,
+      "max": -1,
+      "cohensD": -2.45,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.GBR.patents",
+      "values": [
+        -348,
+        31,
+        922
+      ],
+      "mean": 201.67,
+      "median": 31,
+      "stdDev": 651.97,
+      "ci95Lower": -1418.06,
+      "ci95Upper": 1821.39,
+      "min": -348,
+      "max": 922,
+      "cohensD": 0.44,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.FRA.rdSpending",
+      "values": [
+        0.0007435401743277892,
+        0.0017009354345500424,
+        0.009045700891874724
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.02,
+      "min": 0,
+      "max": 0.01,
+      "cohensD": 1.19,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.FRA.researchOutput",
+      "values": [
+        -32261359.987883247,
+        22880811.321233135,
+        4873854.40910624
+      ],
+      "mean": -1502231.42,
+      "median": 4873854.41,
+      "stdDev": 28118599.13,
+      "ci95Lower": -71358341.6,
+      "ci95Upper": 68353878.76,
+      "min": -32261359.99,
+      "max": 22880811.32,
+      "cohensD": -0.08,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.FRA.patents",
+      "values": [
+        247,
+        743,
+        1335
+      ],
+      "mean": 775,
+      "median": 743,
+      "stdDev": 544.71,
+      "ci95Lower": -578.23,
+      "ci95Upper": 2128.23,
+      "min": 247,
+      "max": 1335,
+      "cohensD": 2.01,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.RUS.rdSpending",
+      "values": [
+        -0.001313840714283289,
+        0.006582861077040432,
+        0.000021731724962593957
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.01,
+      "min": 0,
+      "max": 0.01,
+      "cohensD": 0.59,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.RUS.researchOutput",
+      "values": [
+        -38359906.2583358,
+        24343435.346808545,
+        -8755735.138555914
+      ],
+      "mean": -7590735.35,
+      "median": -8755735.14,
+      "stdDev": 31367900.48,
+      "ci95Lower": -85519209.03,
+      "ci95Upper": 70337738.33,
+      "min": -38359906.26,
+      "max": 24343435.35,
+      "cohensD": -0.34,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.RUS.patents",
+      "values": [
+        -475,
+        294,
+        -224
+      ],
+      "mean": -135,
+      "median": -224,
+      "stdDev": 392.15,
+      "ci95Lower": -1109.23,
+      "ci95Upper": 839.23,
+      "min": -475,
+      "max": 294,
+      "cohensD": -0.49,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.JPN.rdSpending",
+      "values": [
+        0.0016593081415630893,
+        0.0019423797675408479,
+        -0.003227668896317471
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.01,
+      "min": 0,
+      "max": 0,
+      "cohensD": 0.06,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.JPN.researchOutput",
+      "values": [
+        -4128898.403047979,
+        29723196.10888397,
+        -8780019.957123317
+      ],
+      "mean": 5604759.25,
+      "median": -4128898.4,
+      "stdDev": 21016243.25,
+      "ci95Lower": -46606696.85,
+      "ci95Upper": 57816215.35,
+      "min": -8780019.96,
+      "max": 29723196.11,
+      "cohensD": 0.38,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.JPN.patents",
+      "values": [
+        583,
+        384,
+        -388
+      ],
+      "mean": 193,
+      "median": 384,
+      "stdDev": 512.9,
+      "ci95Lower": -1081.23,
+      "ci95Upper": 1467.23,
+      "min": -388,
+      "max": 583,
+      "cohensD": 0.53,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.CHN.rdSpending",
+      "values": [
+        -0.00025727509055286854,
+        -0.00526119211083278,
+        0.0029717909223400014
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.01,
+      "min": -0.01,
+      "max": 0,
+      "cohensD": -0.29,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.CHN.researchOutput",
+      "values": [
+        -1983023.9216587245,
+        10900306.340406194,
+        4762.394451349974
+      ],
+      "mean": 2974014.94,
+      "median": 4762.39,
+      "stdDev": 6935949.48,
+      "ci95Lower": -14257229.36,
+      "ci95Upper": 20205259.24,
+      "min": -1983023.92,
+      "max": 10900306.34,
+      "cohensD": 0.61,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.CHN.patents",
+      "values": [
+        -85,
+        -1278,
+        862
+      ],
+      "mean": -167,
+      "median": -85,
+      "stdDev": 1072.35,
+      "ci95Lower": -2831.09,
+      "ci95Upper": 2497.09,
+      "min": -1278,
+      "max": 862,
+      "cohensD": -0.22,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.ITA.rdSpending",
+      "values": [
+        -0.00025170368747785485,
+        -0.0033541755704209145,
+        0.00042603568267077577
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0,
+      "min": 0,
+      "max": 0,
+      "cohensD": -0.74,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.ITA.researchOutput",
+      "values": [
+        -7725805.079780288,
+        13057737.952800272,
+        -5057988.160121627
+      ],
+      "mean": 91314.9,
+      "median": -5057988.16,
+      "stdDev": 11308200.86,
+      "ci95Lower": -28002080.57,
+      "ci95Upper": 28184710.38,
+      "min": -7725805.08,
+      "max": 13057737.95,
+      "cohensD": 0.01,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.ITA.patents",
+      "values": [
+        -101,
+        -158,
+        -319
+      ],
+      "mean": -192.67,
+      "median": -158,
+      "stdDev": 113.06,
+      "ci95Lower": -473.54,
+      "ci95Upper": 88.21,
+      "min": -319,
+      "max": -101,
+      "cohensD": -2.41,
+      "significant": false
+    },
+    {
+      "name": "rdSpending",
+      "path": "nations.POL.rdSpending",
+      "values": [
+        0.0001644695028662664,
+        -0.0015052473149262356,
+        0.005872427142225198
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.01,
+      "min": 0,
+      "max": 0.01,
+      "cohensD": 0.55,
+      "significant": false
+    },
+    {
+      "name": "researchOutput",
+      "path": "nations.POL.researchOutput",
+      "values": [
+        -3741295.8370180503,
+        13754740.353220325,
+        -119161.9477488026
+      ],
+      "mean": 3298094.19,
+      "median": -119161.95,
+      "stdDev": 9235044.68,
+      "ci95Lower": -19644880.16,
+      "ci95Upper": 26241068.54,
+      "min": -3741295.84,
+      "max": 13754740.35,
+      "cohensD": 0.51,
+      "significant": false
+    },
+    {
+      "name": "patents",
+      "path": "nations.POL.patents",
+      "values": [
+        49,
+        -498,
+        370
+      ],
+      "mean": -26.33,
+      "median": 49,
+      "stdDev": 438.88,
+      "ci95Lower": -1116.65,
+      "ci95Upper": 1063.98,
+      "min": -498,
+      "max": 370,
+      "cohensD": -0.08,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.USA.totalConsumption",
+      "values": [
+        -118.9366415322238,
+        -312.1174501903979,
+        -5235.824618123782
+      ],
+      "mean": -1888.96,
+      "median": -312.12,
+      "stdDev": 2900.08,
+      "ci95Lower": -9093.74,
+      "ci95Upper": 5315.82,
+      "min": -5235.82,
+      "max": -118.94,
+      "cohensD": -0.92,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.USA.energyPrice",
+      "values": [
+        -19.200000000000045,
+        -14.399999999999977
+      ],
+      "mean": -16.8,
+      "median": -16.8,
+      "stdDev": 3.39,
+      "ci95Lower": -47.29,
+      "ci95Upper": 13.69,
+      "min": -19.2,
+      "max": -14.4,
+      "cohensD": -7,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.USA.energySecurity",
+      "values": [
+        0.10904453294352123,
+        20.53132420666516,
+        -15.875070329476145
+      ],
+      "mean": 1.59,
+      "median": 0.11,
+      "stdDev": 18.25,
+      "ci95Lower": -43.75,
+      "ci95Upper": 46.92,
+      "min": -15.88,
+      "max": 20.53,
+      "cohensD": 0.12,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.DEU.totalConsumption",
+      "values": [
+        -160,
+        2014.5063264996725,
+        -5517.771303360394
+      ],
+      "mean": -1221.09,
+      "median": -160,
+      "stdDev": 3876.63,
+      "ci95Lower": -10851.94,
+      "ci95Upper": 8409.76,
+      "min": -5517.77,
+      "max": 2014.51,
+      "cohensD": -0.45,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.DEU.energyPrice",
+      "values": [
+        -19.200000000000045,
+        77.17226228071377,
+        -22.878917391926052
+      ],
+      "mean": 11.7,
+      "median": -19.2,
+      "stdDev": 56.73,
+      "ci95Lower": -129.24,
+      "ci95Upper": 152.64,
+      "min": -22.88,
+      "max": 77.17,
+      "cohensD": 0.29,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.DEU.energySecurity",
+      "values": [
+        -9.936042756730046,
+        -0.017588971299112188,
+        -30.426179213465186
+      ],
+      "mean": -13.46,
+      "median": -9.94,
+      "stdDev": 15.51,
+      "ci95Lower": -51.99,
+      "ci95Upper": 25.07,
+      "min": -30.43,
+      "max": -0.02,
+      "cohensD": -1.23,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.GBR.totalConsumption",
+      "values": [
+        -19.59972893898066,
+        1453.7383000465034,
+        -5259.5890618126905
+      ],
+      "mean": -1275.15,
+      "median": -19.6,
+      "stdDev": 3528.38,
+      "ci95Lower": -10040.85,
+      "ci95Upper": 7490.55,
+      "min": -5259.59,
+      "max": 1453.74,
+      "cohensD": -0.51,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.GBR.energyPrice",
+      "values": [
+        -19.200000000000045,
+        207.8191614322784
+      ],
+      "mean": 94.31,
+      "median": 94.31,
+      "stdDev": 160.53,
+      "ci95Lower": -1347.94,
+      "ci95Upper": 1536.56,
+      "min": -19.2,
+      "max": 207.82,
+      "cohensD": 0.83,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.GBR.energySecurity",
+      "values": [
+        0.07278945217234778,
+        2.0820528748910903,
+        5.453860976067837
+      ],
+      "mean": 2.54,
+      "median": 2.08,
+      "stdDev": 2.72,
+      "ci95Lower": -4.22,
+      "ci95Upper": 9.29,
+      "min": 0.07,
+      "max": 5.45,
+      "cohensD": 1.32,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.FRA.totalConsumption",
+      "values": [
+        -74.5954896863459,
+        -195.37575827242836,
+        -5072.443864481957
+      ],
+      "mean": -1780.81,
+      "median": -195.38,
+      "stdDev": 2851.28,
+      "ci95Lower": -8864.35,
+      "ci95Upper": 5302.74,
+      "min": -5072.44,
+      "max": -74.6,
+      "cohensD": -0.88,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.FRA.energyPrice",
+      "values": [
+        -19.200000000000045,
+        80.14445458212867,
+        -14.399999999999977
+      ],
+      "mean": 15.51,
+      "median": -14.4,
+      "stdDev": 56.02,
+      "ci95Lower": -123.66,
+      "ci95Upper": 154.69,
+      "min": -19.2,
+      "max": 80.14,
+      "cohensD": 0.39,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.FRA.energySecurity",
+      "values": [
+        -11.767775713799523,
+        13.363968839953206,
+        -3.5357854741159827
+      ],
+      "mean": -0.65,
+      "median": -3.54,
+      "stdDev": 12.81,
+      "ci95Lower": -32.48,
+      "ci95Upper": 31.18,
+      "min": -11.77,
+      "max": 13.36,
+      "cohensD": -0.07,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.RUS.totalConsumption",
+      "values": [
+        -116.02131039656251,
+        3143.4333047135697,
+        -5219.850690509527
+      ],
+      "mean": -730.81,
+      "median": -116.02,
+      "stdDev": 4215.4,
+      "ci95Lower": -11203.29,
+      "ci95Upper": 9741.67,
+      "min": -5219.85,
+      "max": 3143.43,
+      "cohensD": -0.25,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.RUS.energyPrice",
+      "values": [
+        -19.200000000000045,
+        1.40159447863698,
+        -14.399999999999977
+      ],
+      "mean": -10.73,
+      "median": -14.4,
+      "stdDev": 10.78,
+      "ci95Lower": -37.51,
+      "ci95Upper": 16.05,
+      "min": -19.2,
+      "max": 1.4,
+      "cohensD": -1.41,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.RUS.energySecurity",
+      "values": [
+        15.406940868822858,
+        4.073384533170611,
+        -2.7420789394527674
+      ],
+      "mean": 5.58,
+      "median": 4.07,
+      "stdDev": 9.17,
+      "ci95Lower": -17.2,
+      "ci95Upper": 28.36,
+      "min": -2.74,
+      "max": 15.41,
+      "cohensD": 0.86,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.JPN.totalConsumption",
+      "values": [
+        -35.89361850905061,
+        -1187.9076944399167,
+        -4897.499440421439
+      ],
+      "mean": -2040.43,
+      "median": -1187.91,
+      "stdDev": 2540.45,
+      "ci95Lower": -8351.78,
+      "ci95Upper": 4270.91,
+      "min": -4897.5,
+      "max": -35.89,
+      "cohensD": -1.14,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.JPN.energyPrice",
+      "values": [
+        -19.200000000000045,
+        75,
+        -22.85717453088239
+      ],
+      "mean": 10.98,
+      "median": -19.2,
+      "stdDev": 55.47,
+      "ci95Lower": -126.83,
+      "ci95Upper": 148.79,
+      "min": -22.86,
+      "max": 75,
+      "cohensD": 0.28,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.JPN.energySecurity",
+      "values": [
+        0.05184268389269775,
+        -11.815394419510852,
+        -11.717211009375745
+      ],
+      "mean": -7.83,
+      "median": -11.72,
+      "stdDev": 6.82,
+      "ci95Lower": -24.78,
+      "ci95Upper": 9.12,
+      "min": -11.82,
+      "max": 0.05,
+      "cohensD": -1.62,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.CHN.totalConsumption",
+      "values": [
+        -119.00600825617767,
+        -1151.859514377743,
+        -5307.437065143383
+      ],
+      "mean": -2192.77,
+      "median": -1151.86,
+      "stdDev": 2746.37,
+      "ci95Lower": -9015.69,
+      "ci95Upper": 4630.15,
+      "min": -5307.44,
+      "max": -119.01,
+      "cohensD": -1.13,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.CHN.energyPrice",
+      "values": [
+        -19.200000000000045,
+        77.18940149992704,
+        -14.73906600639225
+      ],
+      "mean": 14.42,
+      "median": -14.74,
+      "stdDev": 54.41,
+      "ci95Lower": -120.75,
+      "ci95Upper": 149.59,
+      "min": -19.2,
+      "max": 77.19,
+      "cohensD": 0.37,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.CHN.energySecurity",
+      "values": [
+        -0.06057744130026421,
+        -13.960936168562625,
+        -24.609629163332283
+      ],
+      "mean": -12.88,
+      "median": -13.96,
+      "stdDev": 12.31,
+      "ci95Lower": -43.46,
+      "ci95Upper": 17.71,
+      "min": -24.61,
+      "max": -0.06,
+      "cohensD": -1.48,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.ITA.totalConsumption",
+      "values": [
+        -113.90273071869797,
+        -463.4690919301556,
+        -5131.458906104195
+      ],
+      "mean": -1902.94,
+      "median": -463.47,
+      "stdDev": 2801.43,
+      "ci95Lower": -8862.65,
+      "ci95Upper": 5056.77,
+      "min": -5131.46,
+      "max": -113.9,
+      "cohensD": -0.96,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.ITA.energyPrice",
+      "values": [
+        -19.200000000000045,
+        4.406336100306362,
+        217.79999999999995
+      ],
+      "mean": 67.67,
+      "median": 4.41,
+      "stdDev": 130.55,
+      "ci95Lower": -256.67,
+      "ci95Upper": 392,
+      "min": -19.2,
+      "max": 217.8,
+      "cohensD": 0.73,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.ITA.energySecurity",
+      "values": [
+        -0.14329803278669573,
+        23.760073240881013,
+        13.430604011648775
+      ],
+      "mean": 12.35,
+      "median": 13.43,
+      "stdDev": 11.99,
+      "ci95Lower": -17.43,
+      "ci95Upper": 42.13,
+      "min": -0.14,
+      "max": 23.76,
+      "cohensD": 1.46,
+      "significant": false
+    },
+    {
+      "name": "totalConsumption",
+      "path": "nations.POL.totalConsumption",
+      "values": [
+        -25.10208953052279,
+        -1589.6829552323907,
+        -5177.589090714451
+      ],
+      "mean": -2264.12,
+      "median": -1589.68,
+      "stdDev": 2641.63,
+      "ci95Lower": -8826.82,
+      "ci95Upper": 4298.57,
+      "min": -5177.59,
+      "max": -25.1,
+      "cohensD": -1.21,
+      "significant": false
+    },
+    {
+      "name": "energyPrice",
+      "path": "nations.POL.energyPrice",
+      "values": [
+        -19.200000000000045,
+        3.8496506405062973,
+        -23.15621882657331
+      ],
+      "mean": -12.84,
+      "median": -19.2,
+      "stdDev": 14.58,
+      "ci95Lower": -49.07,
+      "ci95Upper": 23.4,
+      "min": -23.16,
+      "max": 3.85,
+      "cohensD": -1.24,
+      "significant": false
+    },
+    {
+      "name": "energySecurity",
+      "path": "nations.POL.energySecurity",
+      "values": [
+        1.128312568087125,
+        -4.439262603409588,
+        -1.5439235749654472
+      ],
+      "mean": -1.62,
+      "median": -1.54,
+      "stdDev": 2.78,
+      "ci95Lower": -8.54,
+      "ci95Upper": 5.3,
+      "min": -4.44,
+      "max": 1.13,
+      "cohensD": -0.82,
+      "significant": false
+    },
+    {
+      "name": "globalEnergyPrice",
+      "path": "globalEnergyPrice",
+      "values": [
+        -16,
+        54.35709294676781,
+        65.09860890200457
+      ],
+      "mean": 34.49,
+      "median": 54.36,
+      "stdDev": 44.05,
+      "ci95Lower": -74.95,
+      "ci95Upper": 143.92,
+      "min": -16,
+      "max": 65.1,
+      "cohensD": 1.11,
+      "significant": false
+    },
+    {
+      "name": "globalRenewableShare",
+      "path": "globalRenewableShare",
+      "values": [
+        0.574319307692349,
+        4.328093587514012,
+        -0.9456970084924272
+      ],
+      "mean": 1.32,
+      "median": 0.57,
+      "stdDev": 2.71,
+      "ci95Lower": -5.43,
+      "ci95Upper": 8.06,
+      "min": -0.95,
+      "max": 4.33,
+      "cohensD": 0.69,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.USA.population",
+      "values": [
+        -283171,
+        6431463,
+        -9232255
+      ],
+      "mean": -1027987.67,
+      "median": -283171,
+      "stdDev": 7858376.38,
+      "ci95Lower": -20550852.36,
+      "ci95Upper": 18494877.02,
+      "min": -9232255,
+      "max": 6431463,
+      "cohensD": -0.18,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.USA.birthRate",
+      "values": [
+        -0.20731938829252172,
+        2.410629513496307,
+        -1.079573248574352
+      ],
+      "mean": 0.37,
+      "median": -0.21,
+      "stdDev": 1.82,
+      "ci95Lower": -4.14,
+      "ci95Upper": 4.89,
+      "min": -1.08,
+      "max": 2.41,
+      "cohensD": 0.29,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.USA.deathRate",
+      "values": [
+        -0.18219496810343117,
+        -0.5022225381107983,
+        -0.4485350795788694
+      ],
+      "mean": -0.38,
+      "median": -0.45,
+      "stdDev": 0.17,
+      "ci95Lower": -0.8,
+      "ci95Upper": 0.05,
+      "min": -0.5,
+      "max": -0.18,
+      "cohensD": -3.12,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.USA.medianAge",
+      "values": [
+        -0.07273710145381784,
+        0.4058300350676092,
+        0.19213746524179953
+      ],
+      "mean": 0.18,
+      "median": 0.19,
+      "stdDev": 0.24,
+      "ci95Lower": -0.42,
+      "ci95Upper": 0.77,
+      "min": -0.07,
+      "max": 0.41,
+      "cohensD": 1.03,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.USA.dependencyRatio",
+      "values": [
+        -0.06966024555731565,
+        -1.281230223015882,
+        0.3745655136881396
+      ],
+      "mean": -0.33,
+      "median": -0.07,
+      "stdDev": 0.86,
+      "ci95Lower": -2.45,
+      "ci95Upper": 1.8,
+      "min": -1.28,
+      "max": 0.37,
+      "cohensD": -0.54,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.USA.laborForceParticipation",
+      "values": [
+        0.04602937966003395,
+        0.2376889547717269,
+        -0.7242793350142662
+      ],
+      "mean": -0.15,
+      "median": 0.05,
+      "stdDev": 0.51,
+      "ci95Lower": -1.41,
+      "ci95Upper": 1.12,
+      "min": -0.72,
+      "max": 0.24,
+      "cohensD": -0.41,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.USA.laborForce",
+      "values": [
+        -75310,
+        4213335,
+        -6818581
+      ],
+      "mean": -893518.67,
+      "median": -75310,
+      "stdDev": 5561285.08,
+      "ci95Lower": -14709631.67,
+      "ci95Upper": 12922594.34,
+      "min": -6818581,
+      "max": 4213335,
+      "cohensD": -0.23,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.USA.netMigration",
+      "values": [
+        -5915,
+        4664,
+        -37959
+      ],
+      "mean": -13070,
+      "median": -5915,
+      "stdDev": 22194.04,
+      "ci95Lower": -68207.51,
+      "ci95Upper": 42067.51,
+      "min": -37959,
+      "max": 4664,
+      "cohensD": -0.83,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.DEU.population",
+      "values": [
+        -6261197,
+        1220407.6940000057,
+        -4731954
+      ],
+      "mean": -3257581.1,
+      "median": -4731954,
+      "stdDev": 3952712.21,
+      "ci95Lower": -13077455.06,
+      "ci95Upper": 6562292.86,
+      "min": -6261197,
+      "max": 1220407.69,
+      "cohensD": -1.17,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.DEU.birthRate",
+      "values": [
+        -1.5948234271654087,
+        -0.4072049834723046,
+        -1.2334136253718775
+      ],
+      "mean": -1.08,
+      "median": -1.23,
+      "stdDev": 0.61,
+      "ci95Lower": -2.59,
+      "ci95Upper": 0.43,
+      "min": -1.59,
+      "max": -0.41,
+      "cohensD": -2.51,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.DEU.deathRate",
+      "values": [
+        0.9889040880603712,
+        -0.7465710382908615,
+        1.1501205805921941
+      ],
+      "mean": 0.46,
+      "median": 0.99,
+      "stdDev": 1.05,
+      "ci95Lower": -2.15,
+      "ci95Upper": 3.08,
+      "min": -0.75,
+      "max": 1.15,
+      "cohensD": 0.62,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.DEU.medianAge",
+      "values": [
+        0.07288406600709862,
+        0.1616378463688335,
+        0.19145896830593756
+      ],
+      "mean": 0.14,
+      "median": 0.16,
+      "stdDev": 0.06,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.3,
+      "min": 0.07,
+      "max": 0.19,
+      "cohensD": 3.26,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.DEU.dependencyRatio",
+      "values": [
+        0.20302850473672152,
+        -0.7599554364569485,
+        -1.0731246154755354
+      ],
+      "mean": -0.54,
+      "median": -0.76,
+      "stdDev": 0.67,
+      "ci95Lower": -2.2,
+      "ci95Upper": 1.11,
+      "min": -1.07,
+      "max": 0.2,
+      "cohensD": -1.16,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.DEU.laborForceParticipation",
+      "values": [
+        -0.09098569333785633,
+        0.390475897119579,
+        0.32124683492814654
+      ],
+      "mean": 0.21,
+      "median": 0.32,
+      "stdDev": 0.26,
+      "ci95Lower": -0.44,
+      "ci95Upper": 0.85,
+      "min": -0.09,
+      "max": 0.39,
+      "cohensD": 1.12,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.DEU.laborForce",
+      "values": [
+        -3672454,
+        1241070,
+        -2327552
+      ],
+      "mean": -1586312,
+      "median": -2327552,
+      "stdDev": 2539243.41,
+      "ci95Lower": -7894651.42,
+      "ci95Upper": 4722027.42,
+      "min": -3672454,
+      "max": 1241070,
+      "cohensD": -0.88,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.DEU.netMigration",
+      "values": [
+        -27678,
+        5025,
+        -7950
+      ],
+      "mean": -10201,
+      "median": -7950,
+      "stdDev": 16467.29,
+      "ci95Lower": -51111.33,
+      "ci95Upper": 30709.33,
+      "min": -27678,
+      "max": 5025,
+      "cohensD": -0.88,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.GBR.population",
+      "values": [
+        -409211,
+        1275020,
+        1690345.273000002
+      ],
+      "mean": 852051.42,
+      "median": 1275020,
+      "stdDev": 1111850.24,
+      "ci95Lower": -1910160.6,
+      "ci95Upper": 3614263.45,
+      "min": -409211,
+      "max": 1690345.27,
+      "cohensD": 1.08,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.GBR.birthRate",
+      "values": [
+        -0.1417229556177233,
+        0.6502567777448434,
+        1.6399434767153274
+      ],
+      "mean": 0.72,
+      "median": 0.65,
+      "stdDev": 0.89,
+      "ci95Lower": -1.5,
+      "ci95Upper": 2.93,
+      "min": -0.14,
+      "max": 1.64,
+      "cohensD": 1.13,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.GBR.deathRate",
+      "values": [
+        0.029297157819382136,
+        -0.5639042622176884,
+        -1.107755501684732
+      ],
+      "mean": -0.55,
+      "median": -0.56,
+      "stdDev": 0.57,
+      "ci95Lower": -1.96,
+      "ci95Upper": 0.87,
+      "min": -1.11,
+      "max": 0.03,
+      "cohensD": -1.36,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.GBR.medianAge",
+      "values": [
+        0.00825718897394978,
+        -0.9010172908776326,
+        0.3114255404449011
+      ],
+      "mean": -0.19,
+      "median": 0.01,
+      "stdDev": 0.63,
+      "ci95Lower": -1.76,
+      "ci95Upper": 1.37,
+      "min": -0.9,
+      "max": 0.31,
+      "cohensD": -0.43,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.GBR.dependencyRatio",
+      "values": [
+        0.009959090035408735,
+        1.0040664782281965,
+        0.9994369464693591
+      ],
+      "mean": 0.67,
+      "median": 1,
+      "stdDev": 0.57,
+      "ci95Lower": -0.75,
+      "ci95Upper": 2.09,
+      "min": 0.01,
+      "max": 1,
+      "cohensD": 1.66,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.GBR.laborForceParticipation",
+      "values": [
+        0.027032850086690985,
+        -0.8745314549084497,
+        -0.1990902625804054
+      ],
+      "mean": -0.35,
+      "median": -0.2,
+      "stdDev": 0.47,
+      "ci95Lower": -1.51,
+      "ci95Upper": 0.82,
+      "min": -0.87,
+      "max": 0.03,
+      "cohensD": -1.05,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.GBR.laborForce",
+      "values": [
+        -215963,
+        89985,
+        873222
+      ],
+      "mean": 249081.33,
+      "median": 89985,
+      "stdDev": 561751.48,
+      "ci95Lower": -1146499.33,
+      "ci95Upper": 1644661.99,
+      "min": -215963,
+      "max": 873222,
+      "cohensD": 0.63,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.GBR.netMigration",
+      "values": [
+        -591,
+        -24728,
+        -5506
+      ],
+      "mean": -10275,
+      "median": -5506,
+      "stdDev": 12755.63,
+      "ci95Lower": -41964.31,
+      "ci95Upper": 21414.31,
+      "min": -24728,
+      "max": -591,
+      "cohensD": -1.14,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.FRA.population",
+      "values": [
+        -2601813,
+        3493343.9420000017,
+        223945
+      ],
+      "mean": 371825.31,
+      "median": 223945,
+      "stdDev": 3050268.18,
+      "ci95Lower": -7206072.47,
+      "ci95Upper": 7949723.1,
+      "min": -2601813,
+      "max": 3493343.94,
+      "cohensD": 0.17,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.FRA.birthRate",
+      "values": [
+        -1.4952414452912564,
+        2.898922712161859,
+        0.2009451209924613
+      ],
+      "mean": 0.53,
+      "median": 0.2,
+      "stdDev": 2.22,
+      "ci95Lower": -4.97,
+      "ci95Upper": 6.04,
+      "min": -1.5,
+      "max": 2.9,
+      "cohensD": 0.34,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.FRA.deathRate",
+      "values": [
+        0.4890743992524236,
+        -0.6610944004496613,
+        0.32262389212847076
+      ],
+      "mean": 0.05,
+      "median": 0.32,
+      "stdDev": 0.62,
+      "ci95Lower": -1.49,
+      "ci95Upper": 1.59,
+      "min": -0.66,
+      "max": 0.49,
+      "cohensD": 0.11,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.FRA.medianAge",
+      "values": [
+        0.009913830994626949,
+        0.13937960240289726,
+        -0.49295279409269455
+      ],
+      "mean": -0.11,
+      "median": 0.01,
+      "stdDev": 0.33,
+      "ci95Lower": -0.94,
+      "ci95Upper": 0.72,
+      "min": -0.49,
+      "max": 0.14,
+      "cohensD": -0.48,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.FRA.dependencyRatio",
+      "values": [
+        -0.14095329283736646,
+        0.1649102276423946,
+        -2.400432480382733
+      ],
+      "mean": -0.79,
+      "median": -0.14,
+      "stdDev": 1.4,
+      "ci95Lower": -4.27,
+      "ci95Upper": 2.69,
+      "min": -2.4,
+      "max": 0.16,
+      "cohensD": -0.8,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.FRA.laborForceParticipation",
+      "values": [
+        -0.21290968640008856,
+        -0.2796902205341283,
+        -0.7180488116782797
+      ],
+      "mean": -0.4,
+      "median": -0.28,
+      "stdDev": 0.27,
+      "ci95Lower": -1.09,
+      "ci95Upper": 0.28,
+      "min": -0.72,
+      "max": -0.21,
+      "cohensD": -2.08,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.FRA.laborForce",
+      "values": [
+        -1583046,
+        1815622,
+        -329931
+      ],
+      "mean": -32451.67,
+      "median": -329931,
+      "stdDev": 1718751.44,
+      "ci95Lower": -4302411.54,
+      "ci95Upper": 4237508.2,
+      "min": -1583046,
+      "max": 1815622,
+      "cohensD": -0.03,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.FRA.netMigration",
+      "values": [
+        -16753,
+        20331,
+        -18142
+      ],
+      "mean": -4854.67,
+      "median": -16753,
+      "stdDev": 21822.48,
+      "ci95Lower": -59069.09,
+      "ci95Upper": 49359.76,
+      "min": -18142,
+      "max": 20331,
+      "cohensD": -0.31,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.RUS.population",
+      "values": [
+        348909,
+        1456010,
+        -235593
+      ],
+      "mean": 523108.67,
+      "median": 348909,
+      "stdDev": 859150.35,
+      "ci95Lower": -1611311.37,
+      "ci95Upper": 2657528.7,
+      "min": -235593,
+      "max": 1456010,
+      "cohensD": 0.86,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.RUS.birthRate",
+      "values": [
+        -0.08586804950995841,
+        0.21027078176414804
+      ],
+      "mean": 0.06,
+      "median": 0.06,
+      "stdDev": 0.21,
+      "ci95Lower": -1.82,
+      "ci95Upper": 1.94,
+      "min": -0.09,
+      "max": 0.21,
+      "cohensD": 0.42,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.RUS.deathRate",
+      "values": [
+        -0.569542432483285,
+        0.802466545673088,
+        -0.2622255660127859
+      ],
+      "mean": -0.01,
+      "median": -0.26,
+      "stdDev": 0.72,
+      "ci95Lower": -1.8,
+      "ci95Upper": 1.78,
+      "min": -0.57,
+      "max": 0.8,
+      "cohensD": -0.02,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.RUS.medianAge",
+      "values": [
+        0.03726964609231942,
+        -0.193733098811947,
+        -0.2831879685167209
+      ],
+      "mean": -0.15,
+      "median": -0.19,
+      "stdDev": 0.17,
+      "ci95Lower": -0.56,
+      "ci95Upper": 0.26,
+      "min": -0.28,
+      "max": 0.04,
+      "cohensD": -1.25,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.RUS.dependencyRatio",
+      "values": [
+        0.36715610628016293,
+        -1.673742457292974,
+        1.034080688143149
+      ],
+      "mean": -0.09,
+      "median": 0.37,
+      "stdDev": 1.41,
+      "ci95Lower": -3.6,
+      "ci95Upper": 3.41,
+      "min": -1.67,
+      "max": 1.03,
+      "cohensD": -0.09,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.RUS.laborForceParticipation",
+      "values": [
+        0.05421702563530317,
+        0.12433664481036999,
+        1.613384087299906
+      ],
+      "mean": 0.6,
+      "median": 0.12,
+      "stdDev": 0.88,
+      "ci95Lower": -1.59,
+      "ci95Upper": 2.79,
+      "min": 0.05,
+      "max": 1.61,
+      "cohensD": 0.96,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.RUS.laborForce",
+      "values": [
+        330667,
+        1130203,
+        3977629
+      ],
+      "mean": 1812833,
+      "median": 1130203,
+      "stdDev": 1916916.99,
+      "ci95Lower": -2949437.12,
+      "ci95Upper": 6575103.12,
+      "min": 330667,
+      "max": 3977629,
+      "cohensD": 1.34,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.RUS.netMigration",
+      "values": [
+        7602,
+        13754,
+        -16299
+      ],
+      "mean": 1685.67,
+      "median": 7602,
+      "stdDev": 15876.02,
+      "ci95Lower": -37755.73,
+      "ci95Upper": 41127.07,
+      "min": -16299,
+      "max": 13754,
+      "cohensD": 0.15,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.JPN.population",
+      "values": [
+        627729,
+        448857.9930000007,
+        -2978678
+      ],
+      "mean": -634030.34,
+      "median": 448857.99,
+      "stdDev": 2032493.1,
+      "ci95Lower": -5683430.61,
+      "ci95Upper": 4415369.94,
+      "min": -2978678,
+      "max": 627729,
+      "cohensD": -0.44,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.JPN.birthRate",
+      "values": [
+        0.2437462773720398,
+        0.5937323813160944,
+        0.6251074048315317
+      ],
+      "mean": 0.49,
+      "median": 0.59,
+      "stdDev": 0.21,
+      "ci95Lower": -0.04,
+      "ci95Upper": 1.01,
+      "min": 0.24,
+      "max": 0.63,
+      "cohensD": 3.26,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.JPN.deathRate",
+      "values": [
+        0.029243015334941447,
+        0.38345185313372987,
+        0.9824759881012142
+      ],
+      "mean": 0.47,
+      "median": 0.38,
+      "stdDev": 0.48,
+      "ci95Lower": -0.73,
+      "ci95Upper": 1.66,
+      "min": 0.03,
+      "max": 0.98,
+      "cohensD": 1.36,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.JPN.medianAge",
+      "values": [
+        -0.045276837784335555,
+        -0.08738943730712379,
+        -0.12562977107007356
+      ],
+      "mean": -0.09,
+      "median": -0.09,
+      "stdDev": 0.04,
+      "ci95Lower": -0.19,
+      "ci95Upper": 0.01,
+      "min": -0.13,
+      "max": -0.05,
+      "cohensD": -3.03,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.JPN.dependencyRatio",
+      "values": [
+        -0.26054406457114965,
+        -1.7060307636857033,
+        0.7003941967850551
+      ],
+      "mean": -0.42,
+      "median": -0.26,
+      "stdDev": 1.21,
+      "ci95Lower": -3.43,
+      "ci95Upper": 2.59,
+      "min": -1.71,
+      "max": 0.7,
+      "cohensD": -0.49,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.JPN.laborForceParticipation",
+      "values": [
+        -0.12308825164684123,
+        1.3039128478209108,
+        -0.4794886596465773
+      ],
+      "mean": 0.23,
+      "median": -0.12,
+      "stdDev": 0.94,
+      "ci95Lower": -2.11,
+      "ci95Upper": 2.58,
+      "min": -0.48,
+      "max": 1.3,
+      "cohensD": 0.35,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.JPN.laborForce",
+      "values": [
+        225425,
+        1703324,
+        -2199107
+      ],
+      "mean": -90119.33,
+      "median": 225425,
+      "stdDev": 1970258.38,
+      "ci95Lower": -4984907.52,
+      "ci95Upper": 4804668.85,
+      "min": -2199107,
+      "max": 1703324,
+      "cohensD": -0.06,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.JPN.netMigration",
+      "values": [
+        -179,
+        -34673,
+        -46951
+      ],
+      "mean": -27267.67,
+      "median": -34673,
+      "stdDev": 24249.42,
+      "ci95Lower": -87511.42,
+      "ci95Upper": 32976.09,
+      "min": -46951,
+      "max": -179,
+      "cohensD": -1.59,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.CHN.population",
+      "values": [
+        639789,
+        -1823969.1579999924,
+        -14821929
+      ],
+      "mean": -5335369.72,
+      "median": -1823969.16,
+      "stdDev": 8307444.33,
+      "ci95Lower": -25973871.08,
+      "ci95Upper": 15303131.64,
+      "min": -14821929,
+      "max": 639789,
+      "cohensD": -0.91,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.CHN.deathRate",
+      "values": [
+        -0.06480812528170787,
+        0.7682794906431667,
+        0.9674783028196536
+      ],
+      "mean": 0.56,
+      "median": 0.77,
+      "stdDev": 0.55,
+      "ci95Lower": -0.8,
+      "ci95Upper": 1.92,
+      "min": -0.06,
+      "max": 0.97,
+      "cohensD": 1.44,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.CHN.medianAge",
+      "values": [
+        0.019082183518911222,
+        -0.0022261360078097425,
+        -0.17090023672207266
+      ],
+      "mean": -0.05,
+      "median": 0,
+      "stdDev": 0.1,
+      "ci95Lower": -0.31,
+      "ci95Upper": 0.21,
+      "min": -0.17,
+      "max": 0.02,
+      "cohensD": -0.7,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.CHN.dependencyRatio",
+      "values": [
+        0.13349310937337577,
+        1.4145834578666836,
+        0.15799213899299502
+      ],
+      "mean": 0.57,
+      "median": 0.16,
+      "stdDev": 0.73,
+      "ci95Lower": -1.25,
+      "ci95Upper": 2.39,
+      "min": 0.13,
+      "max": 1.41,
+      "cohensD": 1.1,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.CHN.laborForceParticipation",
+      "values": [
+        -0.07619381742900799,
+        1.0280877391656489,
+        0.7059203492151553
+      ],
+      "mean": 0.55,
+      "median": 0.71,
+      "stdDev": 0.57,
+      "ci95Lower": -0.86,
+      "ci95Upper": 1.96,
+      "min": -0.08,
+      "max": 1.03,
+      "cohensD": 1.38,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.CHN.laborForce",
+      "values": [
+        -211370,
+        6633914,
+        -2253044
+      ],
+      "mean": 1389833.33,
+      "median": -211370,
+      "stdDev": 4654824.88,
+      "ci95Lower": -10174325.98,
+      "ci95Upper": 12953992.65,
+      "min": -2253044,
+      "max": 6633914,
+      "cohensD": 0.42,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.CHN.netMigration",
+      "values": [
+        7205,
+        -12762,
+        2182
+      ],
+      "mean": -1125,
+      "median": 2182,
+      "stdDev": 10386.17,
+      "ci95Lower": -26927.75,
+      "ci95Upper": 24677.75,
+      "min": -12762,
+      "max": 7205,
+      "cohensD": -0.15,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.ITA.population",
+      "values": [
+        138538,
+        3504260,
+        462776.4439999983
+      ],
+      "mean": 1368524.81,
+      "median": 462776.44,
+      "stdDev": 1856692.28,
+      "ci95Lower": -3244126.76,
+      "ci95Upper": 5981176.39,
+      "min": 138538,
+      "max": 3504260,
+      "cohensD": 1.04,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.ITA.birthRate",
+      "values": [
+        0.09121508007389068,
+        3.6642376128503606,
+        -0.9457195528687414
+      ],
+      "mean": 0.94,
+      "median": 0.09,
+      "stdDev": 2.42,
+      "ci95Lower": -5.07,
+      "ci95Upper": 6.94,
+      "min": -0.95,
+      "max": 3.66,
+      "cohensD": 0.55,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.ITA.deathRate",
+      "values": [
+        0.01762340494897252,
+        -2.1865945087512895,
+        -1.140874986490232
+      ],
+      "mean": -1.1,
+      "median": -1.14,
+      "stdDev": 1.1,
+      "ci95Lower": -3.84,
+      "ci95Upper": 1.64,
+      "min": -2.19,
+      "max": 0.02,
+      "cohensD": -1.42,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.ITA.medianAge",
+      "values": [
+        0.02056592067237517,
+        -0.13133526337335155,
+        0.3050347093026957
+      ],
+      "mean": 0.06,
+      "median": 0.02,
+      "stdDev": 0.22,
+      "ci95Lower": -0.49,
+      "ci95Upper": 0.62,
+      "min": -0.13,
+      "max": 0.31,
+      "cohensD": 0.41,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.ITA.dependencyRatio",
+      "values": [
+        0.07573240634519607,
+        0.5214309837901965,
+        -1.3632326463703066
+      ],
+      "mean": -0.26,
+      "median": 0.08,
+      "stdDev": 0.98,
+      "ci95Lower": -2.7,
+      "ci95Upper": 2.19,
+      "min": -1.36,
+      "max": 0.52,
+      "cohensD": -0.37,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.ITA.laborForceParticipation",
+      "values": [
+        0.08116583554772205,
+        -0.46794788811820354,
+        -0.30423796122427404
+      ],
+      "mean": -0.23,
+      "median": -0.3,
+      "stdDev": 0.28,
+      "ci95Lower": -0.93,
+      "ci95Upper": 0.47,
+      "min": -0.47,
+      "max": 0.08,
+      "cohensD": -1.16,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.ITA.laborForce",
+      "values": [
+        129656,
+        1606843,
+        90756
+      ],
+      "mean": 609085,
+      "median": 129656,
+      "stdDev": 864302.65,
+      "ci95Lower": -1538135.1,
+      "ci95Upper": 2756305.1,
+      "min": 90756,
+      "max": 1606843,
+      "cohensD": 1,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.ITA.netMigration",
+      "values": [
+        184,
+        -8621,
+        71251
+      ],
+      "mean": 20938,
+      "median": 184,
+      "stdDev": 43794.18,
+      "ci95Lower": -87861.56,
+      "ci95Upper": 129737.56,
+      "min": -8621,
+      "max": 71251,
+      "cohensD": 0.68,
+      "significant": false
+    },
+    {
+      "name": "population",
+      "path": "nations.POL.population",
+      "values": [
+        -278274,
+        -367955,
+        838430
+      ],
+      "mean": 64067,
+      "median": -278274,
+      "stdDev": 672115.48,
+      "ci95Lower": -1605695.16,
+      "ci95Upper": 1733829.16,
+      "min": -367955,
+      "max": 838430,
+      "cohensD": 0.13,
+      "significant": false
+    },
+    {
+      "name": "deathRate",
+      "path": "nations.POL.deathRate",
+      "values": [
+        0.012058616057037952,
+        0.89906101310625,
+        -0.7556956079090025
+      ],
+      "mean": 0.05,
+      "median": 0.01,
+      "stdDev": 0.83,
+      "ci95Lower": -2.01,
+      "ci95Upper": 2.11,
+      "min": -0.76,
+      "max": 0.9,
+      "cohensD": 0.09,
+      "significant": false
+    },
+    {
+      "name": "medianAge",
+      "path": "nations.POL.medianAge",
+      "values": [
+        -0.006503995740786195,
+        0.07036415634211579,
+        0.49252360638930526
+      ],
+      "mean": 0.19,
+      "median": 0.07,
+      "stdDev": 0.27,
+      "ci95Lower": -0.48,
+      "ci95Upper": 0.85,
+      "min": -0.01,
+      "max": 0.49,
+      "cohensD": 0.98,
+      "significant": false
+    },
+    {
+      "name": "dependencyRatio",
+      "path": "nations.POL.dependencyRatio",
+      "values": [
+        -0.18998729076702148,
+        0.34526788257062435,
+        1.1038393219932914
+      ],
+      "mean": 0.42,
+      "median": 0.35,
+      "stdDev": 0.65,
+      "ci95Lower": -1.2,
+      "ci95Upper": 2.03,
+      "min": -0.19,
+      "max": 1.1,
+      "cohensD": 0.91,
+      "significant": false
+    },
+    {
+      "name": "laborForceParticipation",
+      "path": "nations.POL.laborForceParticipation",
+      "values": [
+        0.028660818259226062,
+        0.44744950371563164,
+        0.9411343625758661
+      ],
+      "mean": 0.47,
+      "median": 0.45,
+      "stdDev": 0.46,
+      "ci95Lower": -0.66,
+      "ci95Upper": 1.61,
+      "min": 0.03,
+      "max": 0.94,
+      "cohensD": 1.46,
+      "significant": false
+    },
+    {
+      "name": "laborForce",
+      "path": "nations.POL.laborForce",
+      "values": [
+        -128084,
+        49623,
+        945495
+      ],
+      "mean": 289011.33,
+      "median": 49623,
+      "stdDev": 575432.92,
+      "ci95Lower": -1140558.66,
+      "ci95Upper": 1718581.33,
+      "min": -128084,
+      "max": 945495,
+      "cohensD": 0.71,
+      "significant": false
+    },
+    {
+      "name": "netMigration",
+      "path": "nations.POL.netMigration",
+      "values": [
+        -3830,
+        3362,
+        40677
+      ],
+      "mean": 13403,
+      "median": 3362,
+      "stdDev": 23892.14,
+      "ci95Lower": -45953.17,
+      "ci95Upper": 72759.17,
+      "min": -3830,
+      "max": 40677,
+      "cohensD": 0.79,
+      "significant": false
+    },
+    {
+      "name": "globalPopulation",
+      "path": "globalPopulation",
+      "values": [
+        -8078701,
+        16627331,
+        -28647129
+      ],
+      "mean": -6699499.67,
+      "median": -8078701,
+      "stdDev": 22668719.18,
+      "ci95Lower": -63016264.86,
+      "ci95Upper": 49617265.53,
+      "min": -28647129,
+      "max": 16627331,
+      "cohensD": -0.42,
+      "significant": false
+    },
+    {
+      "name": "globalMedianAge",
+      "path": "globalMedianAge",
+      "values": [
+        -0.012354778083619067,
+        0.02079011599185776,
+        -0.06916848574398671
+      ],
+      "mean": -0.02,
+      "median": -0.01,
+      "stdDev": 0.05,
+      "ci95Lower": -0.13,
+      "ci95Upper": 0.09,
+      "min": -0.07,
+      "max": 0.02,
+      "cohensD": -0.63,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-32638.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-32638.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-32638.startYear",
+      "values": [
+        -1944
+      ],
+      "mean": -1944,
+      "median": -1944,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1944,
+      "max": -1944,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-32638.casualties",
+      "values": [
+        -2415
+      ],
+      "mean": -2415,
+      "median": -2415,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -2415,
+      "max": -2415,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-72765.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-72765.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-72765.startYear",
+      "values": [
+        -1948
+      ],
+      "mean": -1948,
+      "median": -1948,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1948,
+      "max": -1948,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-72765.casualties",
+      "values": [
+        -3475
+      ],
+      "mean": -3475,
+      "median": -3475,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -3475,
+      "max": -3475,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-82414.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-82414.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-82414.startYear",
+      "values": [
+        -1954
+      ],
+      "mean": -1954,
+      "median": -1954,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1954,
+      "max": -1954,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-82414.casualties",
+      "values": [
+        -5105
+      ],
+      "mean": -5105,
+      "median": -5105,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -5105,
+      "max": -5105,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-92867.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-92867.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-92867.startYear",
+      "values": [
+        -1957
+      ],
+      "mean": -1957,
+      "median": -1957,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1957,
+      "max": -1957,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-92867.casualties",
+      "values": [
+        -3830
+      ],
+      "mean": -3830,
+      "median": -3830,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -3830,
+      "max": -3830,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-59900.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-59900.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-59900.startYear",
+      "values": [
+        -1958
+      ],
+      "mean": -1958,
+      "median": -1958,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1958,
+      "max": -1958,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-59900.casualties",
+      "values": [
+        -2967
+      ],
+      "mean": -2967,
+      "median": -2967,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -2967,
+      "max": -2967,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-61016.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-61016.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-61016.startYear",
+      "values": [
+        -1961
+      ],
+      "mean": -1961,
+      "median": -1961,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1961,
+      "max": -1961,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-61016.casualties",
+      "values": [
+        -2201
+      ],
+      "mean": -2201,
+      "median": -2201,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -2201,
+      "max": -2201,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-80449.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-80449.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-80449.startYear",
+      "values": [
+        -1964
+      ],
+      "mean": -1964,
+      "median": -1964,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1964,
+      "max": -1964,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-80449.casualties",
+      "values": [
+        -1635
+      ],
+      "mean": -1635,
+      "median": -1635,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1635,
+      "max": -1635,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-84695.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-84695.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-84695.startYear",
+      "values": [
+        1946
+      ],
+      "mean": 1946,
+      "median": 1946,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1946,
+      "max": 1946,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-84695.casualties",
+      "values": [
+        1142
+      ],
+      "mean": 1142,
+      "median": 1142,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1142,
+      "max": 1142,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-33429.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-33429.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-33429.startYear",
+      "values": [
+        1958
+      ],
+      "mean": 1958,
+      "median": 1958,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1958,
+      "max": 1958,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-33429.casualties",
+      "values": [
+        3252
+      ],
+      "mean": 3252,
+      "median": 3252,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 3252,
+      "max": 3252,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-60629.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-60629.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-60629.startYear",
+      "values": [
+        1968
+      ],
+      "mean": 1968,
+      "median": 1968,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1968,
+      "max": 1968,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-60629.casualties",
+      "values": [
+        259
+      ],
+      "mean": 259,
+      "median": 259,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 259,
+      "max": 259,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-71490.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-71490.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-71490.startYear",
+      "values": [
+        1969
+      ],
+      "mean": 1969,
+      "median": 1969,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1969,
+      "max": 1969,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-97641.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-97641.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-97641.startYear",
+      "values": [
+        1969
+      ],
+      "mean": 1969,
+      "median": 1969,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1969,
+      "max": 1969,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "nations.USA.wars.length",
+      "values": [
+        -1,
+        1
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 1.41,
+      "ci95Lower": -12.71,
+      "ci95Upper": 12.71,
+      "min": -1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.DEU.tradeVolume",
+      "values": [
+        -3.717747095040977,
+        -12.791249197907746
+      ],
+      "mean": -8.25,
+      "median": -8.25,
+      "stdDev": 6.42,
+      "ci95Lower": -65.9,
+      "ci95Upper": 49.39,
+      "min": -12.79,
+      "max": -3.72,
+      "cohensD": -1.82,
+      "significant": false
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.GBR.tradeVolume",
+      "values": [
+        5.1061933638528,
+        -1.4400368435308337
+      ],
+      "mean": 1.83,
+      "median": 1.83,
+      "stdDev": 4.63,
+      "ci95Lower": -39.76,
+      "ci95Upper": 43.42,
+      "min": -1.44,
+      "max": 5.11,
+      "cohensD": 0.56,
+      "significant": false
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.FRA.tradeVolume",
+      "values": [
+        -2.9575371658429503,
+        0.7357374327257276
+      ],
+      "mean": -1.11,
+      "median": -1.11,
+      "stdDev": 2.61,
+      "ci95Lower": -24.57,
+      "ci95Upper": 22.35,
+      "min": -2.96,
+      "max": 0.74,
+      "cohensD": -0.6,
+      "significant": false
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.JPN.tradeVolume",
+      "values": [
+        -1.1232571825385094,
+        -9.055753060802818
+      ],
+      "mean": -5.09,
+      "median": -5.09,
+      "stdDev": 5.61,
+      "ci95Lower": -55.48,
+      "ci95Upper": 45.31,
+      "min": -9.06,
+      "max": -1.12,
+      "cohensD": -1.28,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "nations.JPN.wars.length",
+      "values": [
+        1,
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 1,
+      "ci95Upper": 1,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": true
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.CHN.tradeVolume",
+      "values": [
+        -10.678171061910689,
+        -9.196277628839017
+      ],
+      "mean": -9.94,
+      "median": -9.94,
+      "stdDev": 1.05,
+      "ci95Lower": -19.35,
+      "ci95Upper": -0.52,
+      "min": -10.68,
+      "max": -9.2,
+      "cohensD": -13.41,
+      "significant": true
+    },
+    {
+      "name": "length",
+      "path": "nations.CHN.wars.length",
+      "values": [
+        1,
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 1,
+      "ci95Upper": 1,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": true
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.ITA.tradeVolume",
+      "values": [
+        0.5265652714297175,
+        -0.539794921875
+      ],
+      "mean": -0.01,
+      "median": -0.01,
+      "stdDev": 0.75,
+      "ci95Lower": -6.78,
+      "ci95Upper": 6.77,
+      "min": -0.54,
+      "max": 0.53,
+      "cohensD": -0.01,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "nations.ITA.wars.length",
+      "values": [
+        -3,
+        -2
+      ],
+      "mean": -2.5,
+      "median": -2.5,
+      "stdDev": 0.71,
+      "ci95Lower": -8.85,
+      "ci95Upper": 3.85,
+      "min": -3,
+      "max": -2,
+      "cohensD": -5,
+      "significant": false
+    },
+    {
+      "name": "tradeVolume",
+      "path": "nations.POL.tradeVolume",
+      "values": [
+        -0.27923659794032574,
+        1.3313592374324799
+      ],
+      "mean": 0.53,
+      "median": 0.53,
+      "stdDev": 1.14,
+      "ci95Lower": -9.71,
+      "ci95Upper": 10.76,
+      "min": -0.28,
+      "max": 1.33,
+      "cohensD": 0.65,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.DEU.innovationCount",
+      "values": [
+        -4,
+        4
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 5.66,
+      "ci95Lower": -50.82,
+      "ci95Upper": 50.82,
+      "min": -4,
+      "max": 4,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.FRA.innovationCount",
+      "values": [
+        -1,
+        8
+      ],
+      "mean": 3.5,
+      "median": 3.5,
+      "stdDev": 6.36,
+      "ci95Lower": -53.68,
+      "ci95Upper": 60.68,
+      "min": -1,
+      "max": 8,
+      "cohensD": 0.78,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.RUS.innovationCount",
+      "values": [
+        -5,
+        2
+      ],
+      "mean": -1.5,
+      "median": -1.5,
+      "stdDev": 4.95,
+      "ci95Lower": -45.97,
+      "ci95Upper": 42.97,
+      "min": -5,
+      "max": 2,
+      "cohensD": -0.43,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.JPN.innovationCount",
+      "values": [
+        -1,
+        3
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 2.83,
+      "ci95Lower": -24.41,
+      "ci95Upper": 26.41,
+      "min": -1,
+      "max": 3,
+      "cohensD": 0.5,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.CHN.innovationCount",
+      "values": [
+        -2,
+        2
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 2.83,
+      "ci95Lower": -25.41,
+      "ci95Upper": 25.41,
+      "min": -2,
+      "max": 2,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.POL.innovationCount",
+      "values": [
+        3,
+        -2
+      ],
+      "mean": 0.5,
+      "median": 0.5,
+      "stdDev": 3.54,
+      "ci95Lower": -31.26,
+      "ci95Upper": 32.27,
+      "min": -2,
+      "max": 3,
+      "cohensD": 0.2,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "recentInnovations.length",
+      "values": [
+        -2,
+        -3
+      ],
+      "mean": -2.5,
+      "median": -2.5,
+      "stdDev": 0.71,
+      "ci95Lower": -8.85,
+      "ci95Upper": 3.85,
+      "min": -3,
+      "max": -2,
+      "cohensD": -5,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.USA.energyMix.gas",
+      "values": [
+        -2
+      ],
+      "mean": -2,
+      "median": -2,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -2,
+      "max": -2,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.USA.energyMix.coal",
+      "values": [
+        -2.993252206593752,
+        1.0109427834977396
+      ],
+      "mean": -0.99,
+      "median": -0.99,
+      "stdDev": 2.83,
+      "ci95Lower": -26.43,
+      "ci95Upper": 24.45,
+      "min": -2.99,
+      "max": 1.01,
+      "cohensD": -0.5,
+      "significant": false
+    },
+    {
+      "name": "renewable",
+      "path": "nations.USA.energyMix.renewable",
+      "values": [
+        4.186504413187503,
+        -1.2218855669954785
+      ],
+      "mean": 1.48,
+      "median": 1.48,
+      "stdDev": 3.82,
+      "ci95Lower": -32.88,
+      "ci95Upper": 35.84,
+      "min": -1.22,
+      "max": 4.19,
+      "cohensD": 0.55,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.USA.co2Intensity",
+      "values": [
+        0.0018603828236026798,
+        0.002452288719871021
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0.01,
+      "min": 0,
+      "max": 0,
+      "cohensD": 7.29,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.DEU.energyMix.coal",
+      "values": [
+        1.0234387372038327,
+        6
+      ],
+      "mean": 3.51,
+      "median": 3.51,
+      "stdDev": 3.52,
+      "ci95Lower": -28.1,
+      "ci95Upper": 35.13,
+      "min": 1.02,
+      "max": 6,
+      "cohensD": 1.41,
+      "significant": false
+    },
+    {
+      "name": "renewable",
+      "path": "nations.DEU.energyMix.renewable",
+      "values": [
+        -1.446877474407664,
+        -8
+      ],
+      "mean": -4.72,
+      "median": -4.72,
+      "stdDev": 4.63,
+      "ci95Lower": -46.36,
+      "ci95Upper": 36.91,
+      "min": -8,
+      "max": -1.45,
+      "cohensD": -1.44,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.DEU.co2Intensity",
+      "values": [
+        0.0033505898711841953,
+        0.006918074204090685
+      ],
+      "mean": 0.01,
+      "median": 0.01,
+      "stdDev": 0,
+      "ci95Lower": -0.02,
+      "ci95Upper": 0.03,
+      "min": 0,
+      "max": 0.01,
+      "cohensD": 2.88,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.GBR.energyMix.gas",
+      "values": [
+        -2,
+        2
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 2.83,
+      "ci95Lower": -25.41,
+      "ci95Upper": 25.41,
+      "min": -2,
+      "max": 2,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.GBR.energyMix.coal",
+      "values": [
+        -3.0388212422840297,
+        3
+      ],
+      "mean": -0.02,
+      "median": -0.02,
+      "stdDev": 4.27,
+      "ci95Lower": -38.38,
+      "ci95Upper": 38.35,
+      "min": -3.04,
+      "max": 3,
+      "cohensD": -0.01,
+      "significant": false
+    },
+    {
+      "name": "renewable",
+      "path": "nations.GBR.energyMix.renewable",
+      "values": [
+        5.87764248456806,
+        -4
+      ],
+      "mean": 0.94,
+      "median": 0.94,
+      "stdDev": 6.98,
+      "ci95Lower": -61.81,
+      "ci95Upper": 63.69,
+      "min": -4,
+      "max": 5.88,
+      "cohensD": 0.19,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.GBR.co2Intensity",
+      "values": [
+        -0.0028307763773380845,
+        -0.0016168096013773892
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.01,
+      "ci95Upper": 0.01,
+      "min": 0,
+      "max": 0,
+      "cohensD": -3.66,
+      "significant": false
+    },
+    {
+      "name": "renewable",
+      "path": "nations.FRA.energyMix.renewable",
+      "values": [
+        -1,
+        7
+      ],
+      "mean": 3,
+      "median": 3,
+      "stdDev": 5.66,
+      "ci95Lower": -47.82,
+      "ci95Upper": 53.82,
+      "min": -1,
+      "max": 7,
+      "cohensD": 0.75,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.FRA.co2Intensity",
+      "values": [
+        0.0023480144166554973,
+        -0.0048279516154958735
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0.01,
+      "ci95Lower": -0.05,
+      "ci95Upper": 0.04,
+      "min": 0,
+      "max": 0,
+      "cohensD": -0.35,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.RUS.energyMix.gas",
+      "values": [
+        2,
+        2
+      ],
+      "mean": 2,
+      "median": 2,
+      "stdDev": 0,
+      "ci95Lower": 2,
+      "ci95Upper": 2,
+      "min": 2,
+      "max": 2,
+      "cohensD": 0,
+      "significant": true
+    },
+    {
+      "name": "coal",
+      "path": "nations.RUS.energyMix.coal",
+      "values": [
+        0.963050342106726,
+        0.9463220132165588
+      ],
+      "mean": 0.95,
+      "median": 0.95,
+      "stdDev": 0.01,
+      "ci95Lower": 0.85,
+      "ci95Upper": 1.06,
+      "min": 0.95,
+      "max": 0.96,
+      "cohensD": 114.14,
+      "significant": true
+    },
+    {
+      "name": "renewable",
+      "path": "nations.RUS.energyMix.renewable",
+      "values": [
+        -2.926100684213452,
+        -2.092644026433117
+      ],
+      "mean": -2.51,
+      "median": -2.51,
+      "stdDev": 0.59,
+      "ci95Lower": -7.8,
+      "ci95Upper": 2.79,
+      "min": -2.93,
+      "max": -2.09,
+      "cohensD": -6.02,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.RUS.co2Intensity",
+      "values": [
+        -0.004071105477906123,
+        -0.007111134777693373
+      ],
+      "mean": -0.01,
+      "median": -0.01,
+      "stdDev": 0,
+      "ci95Lower": -0.02,
+      "ci95Upper": 0.01,
+      "min": -0.01,
+      "max": 0,
+      "cohensD": -3.68,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.JPN.energyMix.gas",
+      "values": [
+        4,
+        -6
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 7.07,
+      "ci95Lower": -64.53,
+      "ci95Upper": 62.53,
+      "min": -6,
+      "max": 4,
+      "cohensD": -0.2,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.JPN.energyMix.coal",
+      "values": [
+        7.86340926180128,
+        -9.099781662516762
+      ],
+      "mean": -0.62,
+      "median": -0.62,
+      "stdDev": 11.99,
+      "ci95Lower": -108.39,
+      "ci95Upper": 107.15,
+      "min": -9.1,
+      "max": 7.86,
+      "cohensD": -0.07,
+      "significant": false
+    },
+    {
+      "name": "renewable",
+      "path": "nations.JPN.energyMix.renewable",
+      "values": [
+        -11.72681852360256,
+        14.399563325033522
+      ],
+      "mean": 1.34,
+      "median": 1.34,
+      "stdDev": 18.47,
+      "ci95Lower": -164.64,
+      "ci95Upper": 167.32,
+      "min": -11.73,
+      "max": 14.4,
+      "cohensD": 0.1,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.JPN.co2Intensity",
+      "values": [
+        0.004146610531847561,
+        -0.000848718312801422
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.03,
+      "ci95Upper": 0.03,
+      "min": 0,
+      "max": 0,
+      "cohensD": 0.66,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.CHN.energyMix.coal",
+      "values": [
+        -1.0690387086942792,
+        -1
+      ],
+      "mean": -1.03,
+      "median": -1.03,
+      "stdDev": 0.05,
+      "ci95Lower": -1.47,
+      "ci95Upper": -0.6,
+      "min": -1.07,
+      "max": -1,
+      "cohensD": -29.97,
+      "significant": true
+    },
+    {
+      "name": "renewable",
+      "path": "nations.CHN.energyMix.renewable",
+      "values": [
+        1.3380774173885577,
+        4
+      ],
+      "mean": 2.67,
+      "median": 2.67,
+      "stdDev": 1.88,
+      "ci95Lower": -14.24,
+      "ci95Upper": 19.58,
+      "min": 1.34,
+      "max": 4,
+      "cohensD": 2.01,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.CHN.co2Intensity",
+      "values": [
+        -0.00364597445160042,
+        0.0014114256947488357
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.03,
+      "ci95Upper": 0.03,
+      "min": 0,
+      "max": 0,
+      "cohensD": -0.44,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.ITA.energyMix.gas",
+      "values": [
+        -4,
+        -2
+      ],
+      "mean": -3,
+      "median": -3,
+      "stdDev": 1.41,
+      "ci95Lower": -15.71,
+      "ci95Upper": 9.71,
+      "min": -4,
+      "max": -2,
+      "cohensD": -3,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.ITA.energyMix.coal",
+      "values": [
+        -3.131945301487576,
+        -2
+      ],
+      "mean": -2.57,
+      "median": -2.57,
+      "stdDev": 0.8,
+      "ci95Lower": -9.76,
+      "ci95Upper": 4.63,
+      "min": -3.13,
+      "max": -2,
+      "cohensD": -4.53,
+      "significant": false
+    },
+    {
+      "name": "renewable",
+      "path": "nations.ITA.energyMix.renewable",
+      "values": [
+        7.463890602975152,
+        5
+      ],
+      "mean": 6.23,
+      "median": 6.23,
+      "stdDev": 1.74,
+      "ci95Lower": -9.42,
+      "ci95Upper": 21.89,
+      "min": 5,
+      "max": 7.46,
+      "cohensD": 5.06,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.ITA.co2Intensity",
+      "values": [
+        0.006213120232845537,
+        -9.326636428164115e-7
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.04,
+      "ci95Upper": 0.04,
+      "min": 0,
+      "max": 0.01,
+      "cohensD": 1,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.POL.energyMix.gas",
+      "values": [
+        -2
+      ],
+      "mean": -2,
+      "median": -2,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -2,
+      "max": -2,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.POL.energyMix.coal",
+      "values": [
+        -0.9144696862204,
+        -0.07191805023467168
+      ],
+      "mean": -0.49,
+      "median": -0.49,
+      "stdDev": 0.6,
+      "ci95Lower": -5.85,
+      "ci95Upper": 4.86,
+      "min": -0.91,
+      "max": -0.07,
+      "cohensD": -1.17,
+      "significant": false
+    },
+    {
+      "name": "renewable",
+      "path": "nations.POL.energyMix.renewable",
+      "values": [
+        2.628939372440801,
+        -0.45616389953065806
+      ],
+      "mean": 1.09,
+      "median": 1.09,
+      "stdDev": 2.18,
+      "ci95Lower": -18.51,
+      "ci95Upper": 20.69,
+      "min": -0.46,
+      "max": 2.63,
+      "cohensD": 0.7,
+      "significant": false
+    },
+    {
+      "name": "co2Intensity",
+      "path": "nations.POL.co2Intensity",
+      "values": [
+        0.005615116125562203,
+        0.00018596247432545177
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": -0.03,
+      "ci95Upper": 0.04,
+      "min": 0,
+      "max": 0.01,
+      "cohensD": 1.07,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.CHN.birthRate",
+      "values": [
+        0.2181469021961071
+      ],
+      "mean": 0.22,
+      "median": 0.22,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 0.22,
+      "max": 0.22,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "birthRate",
+      "path": "nations.POL.birthRate",
+      "values": [
+        0.16995448766381216,
+        -0.3952206110136842
+      ],
+      "mean": -0.11,
+      "median": -0.11,
+      "stdDev": 0.4,
+      "ci95Lower": -3.7,
+      "ci95Upper": 3.48,
+      "min": -0.4,
+      "max": 0.17,
+      "cohensD": -0.4,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-79522.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-79522.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-79522.startYear",
+      "values": [
+        -1953
+      ],
+      "mean": -1953,
+      "median": -1953,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1953,
+      "max": -1953,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-79522.casualties",
+      "values": [
+        -5463
+      ],
+      "mean": -5463,
+      "median": -5463,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -5463,
+      "max": -5463,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-31147.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-31147.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-31147.startYear",
+      "values": [
+        -1956
+      ],
+      "mean": -1956,
+      "median": -1956,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1956,
+      "max": -1956,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-31147.casualties",
+      "values": [
+        -1184
+      ],
+      "mean": -1184,
+      "median": -1184,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1184,
+      "max": -1184,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-61347.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-61347.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-61347.startYear",
+      "values": [
+        -1966
+      ],
+      "mean": -1966,
+      "median": -1966,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1966,
+      "max": -1966,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-61347.casualties",
+      "values": [
+        -754
+      ],
+      "mean": -754,
+      "median": -754,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -754,
+      "max": -754,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-57097.parties.attackers.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-57097.parties.defenders.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-57097.startYear",
+      "values": [
+        -1967
+      ],
+      "mean": -1967,
+      "median": -1967,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1967,
+      "max": -1967,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-57097.casualties",
+      "values": [
+        -428
+      ],
+      "mean": -428,
+      "median": -428,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -428,
+      "max": -428,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-77141.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-77141.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-77141.startYear",
+      "values": [
+        1942
+      ],
+      "mean": 1942,
+      "median": 1942,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1942,
+      "max": 1942,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-77141.casualties",
+      "values": [
+        1054
+      ],
+      "mean": 1054,
+      "median": 1054,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1054,
+      "max": 1054,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-85662.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-85662.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-85662.startYear",
+      "values": [
+        1947
+      ],
+      "mean": 1947,
+      "median": 1947,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1947,
+      "max": 1947,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-85662.casualties",
+      "values": [
+        4367
+      ],
+      "mean": 4367,
+      "median": 4367,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 4367,
+      "max": 4367,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-94777.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-94777.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-94777.startYear",
+      "values": [
+        1952
+      ],
+      "mean": 1952,
+      "median": 1952,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1952,
+      "max": 1952,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-94777.casualties",
+      "values": [
+        4631
+      ],
+      "mean": 4631,
+      "median": 4631,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 4631,
+      "max": 4631,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-85183.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-85183.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-85183.startYear",
+      "values": [
+        1960
+      ],
+      "mean": 1960,
+      "median": 1960,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1960,
+      "max": 1960,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "casualties",
+      "path": "wars.W-85183.casualties",
+      "values": [
+        2861
+      ],
+      "mean": 2861,
+      "median": 2861,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 2861,
+      "max": 2861,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-82630.parties.attackers.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "wars.W-82630.parties.defenders.length",
+      "values": [
+        1
+      ],
+      "mean": 1,
+      "median": 1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1,
+      "max": 1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "startYear",
+      "path": "wars.W-82630.startYear",
+      "values": [
+        1969
+      ],
+      "mean": 1969,
+      "median": 1969,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 1969,
+      "max": 1969,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "length",
+      "path": "nations.GBR.wars.length",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "innovationCount",
+      "path": "nations.ITA.innovationCount",
+      "values": [
+        -1
+      ],
+      "mean": -1,
+      "median": -1,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -1,
+      "max": -1,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.DEU.energyMix.gas",
+      "values": [
+        2
+      ],
+      "mean": 2,
+      "median": 2,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 2,
+      "max": 2,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.FRA.energyMix.gas",
+      "values": [
+        -2
+      ],
+      "mean": -2,
+      "median": -2,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -2,
+      "max": -2,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "coal",
+      "path": "nations.FRA.energyMix.coal",
+      "values": [
+        -5
+      ],
+      "mean": -5,
+      "median": -5,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -5,
+      "max": -5,
+      "cohensD": 0,
+      "significant": false
+    },
+    {
+      "name": "gas",
+      "path": "nations.CHN.energyMix.gas",
+      "values": [
+        -2
+      ],
+      "mean": -2,
+      "median": -2,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -2,
+      "max": -2,
+      "cohensD": 0,
+      "significant": false
+    }
+  ],
+  "generatedAt": "2026-06-29T11:37:11.169Z"
+}

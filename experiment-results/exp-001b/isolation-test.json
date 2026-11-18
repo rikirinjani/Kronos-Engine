@@ -1,0 +1,67 @@
+{
+  "seed": 1003,
+  "horizon": 50,
+  "cases": {
+    "case1": {
+      "finalOcc": 0.8244274809160306,
+      "finalIcu": 0.7142857142857143,
+      "finalMort": 0,
+      "finalSupply": 0.32433333333333336,
+      "finalStaff": 1,
+      "healthEvents": 0,
+      "healthDetails": {},
+      "encounters": 325,
+      "patients": 108,
+      "sentinelOutputNull": false,
+      "drCounterSnapshot": {}
+    },
+    "case2": {
+      "finalOcc": 0.8778625954198473,
+      "finalIcu": 0.9642857142857143,
+      "finalMort": 0,
+      "finalSupply": 0.324137037037037,
+      "finalStaff": 1,
+      "healthEvents": 2,
+      "healthDetails": {
+        "health.pressure": 2
+      },
+      "encounters": 339,
+      "patients": 115,
+      "sentinelOutputNull": false,
+      "drCounterSnapshot": {}
+    },
+    "case3": {
+      "finalOcc": 0.8778625954198473,
+      "finalIcu": 0.9642857142857143,
+      "finalMort": 0,
+      "finalSupply": 0.324137037037037,
+      "finalStaff": 1,
+      "healthEvents": 2,
+      "healthDetails": {
+        "health.pressure": 2
+      },
+      "encounters": 339,
+      "patients": 115,
+      "sentinelOutputNull": false,
+      "drCounterSnapshot": {}
+    },
+    "case4": {
+      "finalOcc": 0.8244274809160306,
+      "finalIcu": 0.7142857142857143,
+      "finalMort": 0,
+      "finalSupply": 0.32433333333333336,
+      "finalStaff": 1,
+      "healthEvents": 0,
+      "healthDetails": {},
+      "encounters": 325,
+      "patients": 108,
+      "sentinelOutputNull": false,
+      "drCounterSnapshot": {}
+    }
+  },
+  "interpretation": {
+    "c2DiffersFromC1": true,
+    "c3MatchesC1": false,
+    "c4MatchesC1": true
+  }
+}

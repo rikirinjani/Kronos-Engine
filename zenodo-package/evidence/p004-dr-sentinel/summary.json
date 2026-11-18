@@ -1,0 +1,175 @@
+{
+  "n": 1,
+  "seeds": [
+    42
+  ],
+  "rewindTick": 0,
+  "totalTicks": 20,
+  "intervention": {
+    "type": "emissions_control",
+    "label": "Lower emissions reduce heatwave impact on hospitals",
+    "description": "Reduced CO2 concentration and emissions noise → fewer extreme weather events → less hospital surge",
+    "params": {
+      "climate": {
+        "annualEmissionsNoise": 0.02,
+        "co2Concentration": 400
+      }
+    }
+  },
+  "metrics": [
+    {
+      "name": "annualEmissionsNoise",
+      "path": "annualEmissionsNoise",
+      "values": [
+        -0.18000000000000002
+      ],
+      "mean": -0.18,
+      "median": -0.18,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -0.18,
+      "max": -0.18,
+      "cohensD": 0,
+      "df": 0,
+      "pValue": null,
+      "pAdjusted": null,
+      "pBonferroni": null,
+      "significant": false,
+      "significantFDR": false,
+      "significantBonferroni": false,
+      "degenerate": true
+    },
+    {
+      "name": "co2Concentration",
+      "path": "co2Concentration",
+      "values": [
+        -19.993598014116287
+      ],
+      "mean": -19.99,
+      "median": -19.99,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -19.99,
+      "max": -19.99,
+      "cohensD": 0,
+      "df": 0,
+      "pValue": null,
+      "pAdjusted": null,
+      "pBonferroni": null,
+      "significant": false,
+      "significantFDR": false,
+      "significantBonferroni": false,
+      "degenerate": true
+    },
+    {
+      "name": "annualEmissions",
+      "path": "annualEmissions",
+      "values": [
+        -0.04504513740539551
+      ],
+      "mean": -0.05,
+      "median": -0.05,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -0.05,
+      "max": -0.05,
+      "cohensD": 0,
+      "df": 0,
+      "pValue": null,
+      "pAdjusted": null,
+      "pBonferroni": null,
+      "significant": false,
+      "significantFDR": false,
+      "significantBonferroni": false,
+      "degenerate": true
+    },
+    {
+      "name": "temperatureAnomaly",
+      "path": "temperatureAnomaly",
+      "values": [
+        -6.340908598190254e-7
+      ],
+      "mean": 0,
+      "median": 0,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": 0,
+      "max": 0,
+      "cohensD": 0,
+      "df": 0,
+      "pValue": null,
+      "pAdjusted": null,
+      "pBonferroni": null,
+      "significant": false,
+      "significantFDR": false,
+      "significantBonferroni": false,
+      "degenerate": true
+    },
+    {
+      "name": "length",
+      "path": "world.queue.events.length",
+      "values": [
+        -7
+      ],
+      "mean": -7,
+      "median": -7,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -7,
+      "max": -7,
+      "cohensD": 0,
+      "df": 0,
+      "pValue": null,
+      "pAdjusted": null,
+      "pBonferroni": null,
+      "significant": false,
+      "significantFDR": false,
+      "significantBonferroni": false,
+      "degenerate": true
+    },
+    {
+      "name": "counter",
+      "path": "world.queue.counter",
+      "values": [
+        -6
+      ],
+      "mean": -6,
+      "median": -6,
+      "stdDev": 0,
+      "ci95Lower": 0,
+      "ci95Upper": 0,
+      "min": -6,
+      "max": -6,
+      "cohensD": 0,
+      "df": 0,
+      "pValue": null,
+      "pAdjusted": null,
+      "pBonferroni": null,
+      "significant": false,
+      "significantFDR": false,
+      "significantBonferroni": false,
+      "degenerate": true
+    }
+  ],
+  "significanceLevel": 0.05,
+  "observedSignificant": 0,
+  "observedSignificantFDR": 0,
+  "observedSignificantBonferroni": 0,
+  "noiseFloor": {
+    "significanceLevel": 0.05,
+    "totalMetrics": 6,
+    "testedMetrics": 0,
+    "degenerateMetrics": 6,
+    "expectedFalsePositivesAtAlpha05": 0.30000000000000004,
+    "expectedFalsePositivesAtAlpha05Tested": 0,
+    "observedSignificant": 0,
+    "observedSignificantFDR": 0,
+    "observedSignificantBonferroni": 0
+  },
+  "generatedAt": "2026-09-06T00:46:16.505Z"
+}

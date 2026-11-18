@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below and the associated manuscript."
+type: software
+title: "Kronos Engine"
+version: "1.0.0"
+date-released: "2026-09-08"
+license: MIT
+repository-code: "https://github.com/rikirinjani/Kronos-Engine"
+authors:
+  - family-names: Rinjani
+    given-names: Riki
+    orcid: "https://orcid.org/0009-0002-9364-2637"
+    affiliation: "Hisfarma IAI (Himpunan Seminar Farmasi Komunitas Ikatan Apoteker Indonesia)"
+preferred-citation:
+  type: article
+  title: "Kronos Engine: A Deterministic Counterfactual Experimentation Platform with Sentinel Adapter Pattern for Multi-Scale Health System Simulation"
+  authors:
+    - family-names: Rinjani
+      given-names: Riki
+      orcid: "https://orcid.org/0009-0002-9364-2637"
+      affiliation: "Hisfarma IAI"
+  journal: "Journal of the American Medical Informatics Association (JAMIA)"
+  year: 2026
+  status: "in press"

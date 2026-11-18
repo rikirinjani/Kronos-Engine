@@ -1,0 +1,149 @@
+{
+  "meta": {
+    "era": "future",
+    "label": "Future Projection Era",
+    "span": "2026-2100",
+    "seedPrefix": "S-BASELINE",
+    "generated": "2026-06-30",
+    "archivist": "World Archivist",
+    "description": "Parameterized forward-projection from RP-CONTEMP-003 (2026). Three scenario variants based on IPCC SSPs and UN population projections."
+  },
+  "rewindPoints": [
+    {
+      "id": "RP-FUTURE-001",
+      "year": 2026,
+      "label": "Baseline Forward Projection",
+      "calendarDate": "2026-06-30",
+      "description": "Middle-road scenario (SSP2-4.5 / UN medium population). Starting point for counterfactual branching into the future."
+    }
+  ],
+  "states": {
+    "RP-FUTURE-001": {
+      "year": 2026,
+      "label": "Future Baseline — Middle Road",
+      "baseEra": "RP-CONTEMP-003",
+      "config": {
+        "scenario": "baseline",
+        "endYear": 2100,
+        "tickScale": "year",
+        "population": {
+          "model": "un-medium",
+          "globalGrowthRate": 0.5,
+          "regionalRates": {
+            "africa": 2.0,
+            "south-asia": 0.8,
+            "southeast-asia": 0.3,
+            "east-asia": -0.2,
+            "europe": -0.1,
+            "north-america": 0.4,
+            "south-america": 0.3,
+            "middle-east": 1.2,
+            "oceania": 0.6,
+            "eurasia": -0.3
+          },
+          "overrides": {
+            "NGA": { "growthRate": 2.2 },
+            "JPN": { "growthRate": -0.5 },
+            "CHN": { "growthRate": -0.3 },
+            "IND": { "growthRate": 0.6 },
+            "IDN": { "growthRate": 0.4 },
+            "DEU": { "growthRate": -0.2 }
+          }
+        },
+        "economy": {
+          "convergenceModel": "beta",
+          "convergenceRate": 0.02,
+          "steadyStateGrowth": 1.5,
+          "productivityMultiplier": 1.2,
+          "tradeLiberalization": 0.0,
+          "inflationTarget": 2.0
+        },
+        "technology": {
+          "adoptionCurve": "s-curve",
+          "aiAdoption": { "midpoint": 2035, "steepness": 0.3 },
+          "biotechAdoption": { "midpoint": 2040, "steepness": 0.25 },
+          "cleanEnergyAdoption": { "midpoint": 2035, "steepness": 0.35 },
+          "rdSpendingGrowth": 0.5
+        },
+        "climate": {
+          "sspScenario": "SSP2-4.5",
+          "emissionTrend": -0.5,
+          "climateSensitivity": 3.0,
+          "extremeWeatherMultiplier": 1.3
+        },
+        "geopolitics": {
+          "allianceDecayRate": 0.02,
+          "conflictProbability": 0.01,
+          "relationsDriftRate": 2.0,
+          "unipolarDecay": 0.03,
+          "regionalBlocStrength": 0.05
+        },
+        "health": {
+          "lifeExpectancyConvergence": 1.5,
+          "pandemicFrequency": 2.0,
+          "pandemicSeverity": 5.0,
+          "universalCoverageSpread": 0.02
+        },
+        "energy": {
+          "renewableAdoptionRate": 5.0,
+          "fossilFuelDeclineRate": 2.0,
+          "energyIntensityDecline": 1.0,
+          "carbonPrice": 50
+        }
+      }
+    }
+  },
+  "alternateScenarios": [
+    {
+      "id": "RP-FUTURE-OPT",
+      "label": "Green Tech Boom (Optimistic)",
+      "scenario": "optimistic",
+      "description": "Rapid decarbonization, AI-driven productivity boom, cooperative geopolitics. Maps to SSP1-1.9.",
+      "config": {
+        "population": { "model": "un-low", "globalGrowthRate": 0.3 },
+        "economy": { "convergenceRate": 0.03, "steadyStateGrowth": 2.0, "productivityMultiplier": 1.5 },
+        "technology": { "aiAdoption": { "midpoint": 2030, "steepness": 0.4 }, "cleanEnergyAdoption": { "midpoint": 2030, "steepness": 0.5 }, "rdSpendingGrowth": 1.0 },
+        "climate": { "sspScenario": "SSP1-1.9", "emissionTrend": -2.0, "climateSensitivity": 2.5, "extremeWeatherMultiplier": 0.8 },
+        "geopolitics": { "allianceDecayRate": 0.01, "conflictProbability": 0.005, "unipolarDecay": 0.01, "regionalBlocStrength": 0.1 },
+        "health": { "lifeExpectancyConvergence": 2.5, "pandemicFrequency": 1.0, "pandemicSeverity": 2.0, "universalCoverageSpread": 0.05 },
+        "energy": { "renewableAdoptionRate": 10.0, "fossilFuelDeclineRate": 5.0, "carbonPrice": 150 }
+      }
+    },
+    {
+      "id": "RP-FUTURE-PES",
+      "label": "Fragmentation (Pessimistic)",
+      "scenario": "pessimistic",
+      "description": "Deglobalization, climate crisis, technological stagnation, conflict resurgence. Maps to SSP3-7.0.",
+      "config": {
+        "population": { "model": "un-high", "globalGrowthRate": 0.8 },
+        "economy": { "convergenceRate": 0.005, "steadyStateGrowth": 0.5, "productivityMultiplier": 0.8, "tradeLiberalization": -0.02 },
+        "technology": { "aiAdoption": { "midpoint": 2050, "steepness": 0.15 }, "cleanEnergyAdoption": { "midpoint": 2050, "steepness": 0.15 }, "rdSpendingGrowth": -0.3 },
+        "climate": { "sspScenario": "SSP3-7.0", "emissionTrend": 0.5, "climateSensitivity": 3.5, "extremeWeatherMultiplier": 2.0 },
+        "geopolitics": { "allianceDecayRate": 0.05, "conflictProbability": 0.03, "unipolarDecay": 0.08, "regionalBlocStrength": -0.02 },
+        "health": { "lifeExpectancyConvergence": 0.5, "pandemicFrequency": 3.0, "pandemicSeverity": 10.0, "universalCoverageSpread": -0.01 },
+        "energy": { "renewableAdoptionRate": 2.0, "fossilFuelDeclineRate": 0.5, "carbonPrice": 20 }
+      }
+    }
+  ],
+  "notes": [
+    "Population growth rates are annual % (UN World Population Prospects 2024 medium variant).",
+    "Climate scenarios follow IPCC AR6 Shared Socioeconomic Pathways.",
+    "AI adoption midpoint = year when 50% of economy uses AI. Steepness = speed of saturation.",
+    "Convergence rate: 0.02 means developing nations close 2% of the GDP/cap gap per year.",
+    "Pandemic frequency: expected number per century. Severity: mortality multiplier vs COVID-19 baseline.",
+    "All config fields have fallback defaults in era-loader — only overrides need to be specified."
+  ],
+  "calibration": {
+    "sources": [
+      { "attribute": "population", "source": "UN World Population Prospects 2024" },
+      { "attribute": "climate", "source": "IPCC AR6 Working Group I — SSP scenarios" },
+      { "attribute": "economy", "source": "IMF World Economic Outlook / Maddison Project convergence literature" },
+      { "attribute": "technology adoption", "source": "Rogers Diffusion of Innovations / AR6 technology chapter" }
+    ],
+    "estimates": [
+      { "note": "AI adoption curve is speculative — based on historical tech diffusion rates (electricity, internet) applied to AI." },
+      { "note": "Pandemic frequency/severity have high uncertainty bounds." },
+      { "note": "Geopolitical parameters (alliance decay, conflict probability) are simplified models of complex systems." }
+    ]
+  }
+}

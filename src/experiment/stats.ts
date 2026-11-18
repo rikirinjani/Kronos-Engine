@@ -5,6 +5,9 @@ import type {
   ExperimentRun,
   Intervention,
   NoiseFloor,
+  MetricStability,
+  StabilityAnalysis,
+  TrajectoryClass,
 } from "./types.js";
 
 /**
@@ -414,6 +417,216 @@ export function computeSummary(runs: ExperimentRun[], intervention: Intervention
     observedSignificantFDR,
     observedSignificantBonferroni,
     noiseFloor,
+    generatedAt: new Date().toISOString(),
+  };
+}
+
+// ---------------------------------------------------------------------------
+// EXP-001: Counterfactual Stability Study.
+//
+// Additive analysis helpers layered on top of the existing summary statistics.
+// These do NOT alter mean/median/stdDev/ci95/cohensDz/p-value behaviour or the
+// StatisticalSummary contract; they are new functions appended after the
+// existing ones. Pure math helpers return raw values (matching mean/median/
+// stdDev); the aggregate `computeStabilityAnalysis` applies round2 for display,
+// matching how `computeSummary` rounds its MetricStats output.
+// ---------------------------------------------------------------------------
+
+/**
+ * p-th percentile (0-100) via linear interpolation between the two closest
+ * order statistics (the "linear" / type-7 method used by NumPy and R's default
+ * `quantile`): rank = (p / 100) * (n - 1), then interpolate between the
+ * surrounding sorted values. `p` is clamped to [0, 100]; empty input returns 0.
+ */
+export function percentile(values: number[], p: number): number {
+  if (values.length === 0) return 0;
+  const clamped = Math.min(100, Math.max(0, p));
+  const sorted = [...values].sort((a, b) => a - b);
+  const rank = (clamped / 100) * (sorted.length - 1);
+  const lower = Math.floor(rank);
+  const upper = Math.ceil(rank);
+  if (lower === upper) return sorted[lower]!;
+  const frac = rank - lower;
+  return sorted[lower]! + frac * (sorted[upper]! - sorted[lower]!);
+}
+
+/**
+ * 5/25/50/75/95 percentiles of a delta series (linear interpolation, see
+ * `percentile`). Returns raw values; `computeStabilityAnalysis` rounds for
+ * output.
+ */
+export function quantiles(values: number[]): {
+  p5: number;
+  p25: number;
+  p50: number;
+  p75: number;
+  p95: number;
+} {
+  return {
+    p5: percentile(values, 5),
+    p25: percentile(values, 25),
+    p50: percentile(values, 50),
+    p75: percentile(values, 75),
+    p95: percentile(values, 95),
+  };
+}
+
+/**
+ * P(Δ > 0): share of strictly positive deltas among the non-zero deltas.
+ * Exact zeros carry no directional information and are excluded from the
+ * denominator. Returns 0 when every delta is zero.
+ */
+export function positiveProportion(deltas: number[]): number {
+  let positive = 0;
+  let nonZero = 0;
+  for (const d of deltas) {
+    if (d === 0) continue;
+    nonZero++;
+    if (d > 0) positive++;
+  }
+  return nonZero === 0 ? 0 : positive / nonZero;
+}
+
+/**
+ * P(Δ < 0): share of strictly negative deltas among the non-zero deltas.
+ * Mirror of `positiveProportion`; exact zeros are excluded from the
+ * denominator. Returns 0 when every delta is zero.
+ */
+export function negativeProportion(deltas: number[]): number {
+  let negative = 0;
+  let nonZero = 0;
+  for (const d of deltas) {
+    if (d === 0) continue;
+    nonZero++;
+    if (d < 0) negative++;
+  }
+  return nonZero === 0 ? 0 : negative / nonZero;
+}
+
+/**
+ * Stability Index SI = |median Δ| / SD(Δ): how far the central tendency sits
+ * from zero, expressed in units of dispersion. Higher = a more stable,
+ * reproducible shift. Returns 0 when SD is zero (a constant series has no
+ * dispersion to normalize by; such metrics are already flagged degenerate by
+ * `computeSummary`).
+ */
+export function stabilityIndex(medianDelta: number, stdDevDelta: number): number {
+  if (stdDevDelta === 0) return 0;
+  return Math.abs(medianDelta) / stdDevDelta;
+}
+
+/**
+ * Classify a single delta against a metric's central 50% and 5/95 tails:
+ *   delta <  p5          -> "Extreme Negative"
+ *   p5  <= delta <  p25  -> "Negative"
+ *   p25 <= delta <= p75  -> "Null"        (central 50%, approximately zero)
+ *   p75 <  delta <= p95  -> "Positive"
+ *   delta >  p95         -> "Extreme Positive"
+ *
+ * NOTE: the task header listed the signature as (delta, p5, p95), but the
+ * agreed 5-class scheme also needs the interquartile bounds, so the signature
+ * is (delta, p5, p25, p75, p95).
+ */
+export function classifyTrajectory(
+  delta: number,
+  p5: number,
+  p25: number,
+  p75: number,
+  p95: number,
+): TrajectoryClass["classification"] {
+  if (delta < p5) return "Extreme Negative";
+  if (delta < p25) return "Negative";
+  if (delta <= p75) return "Null";
+  if (delta <= p95) return "Positive";
+  return "Extreme Positive";
+}
+
+/**
+ * Full EXP-001 stability analysis.
+ *
+ * Reuses `computeSummary` for the shared per-metric statistics (mean/median/
+ * SD, degeneracy, multiplicity corrections) and layers the quantile, sign and
+ * trajectory views on top. It does NOT re-extract or recompute the summary from
+ * scratch — `MetricStats.values` carries the raw per-seed deltas forward.
+ *
+ * `horizon` mirrors the summary's `totalTicks` (the simulated horizon).
+ * `overallStabilityIndex` is the mean of the per-metric stability indices
+ * (0 when there are no metrics).
+ */
+export function computeStabilityAnalysis(
+  runs: ExperimentRun[],
+  intervention: Intervention,
+): StabilityAnalysis {
+  const summary = computeSummary(runs, intervention);
+  const metrics: MetricStability[] = [];
+  let siSum = 0;
+
+  for (const m of summary.metrics) {
+    const values = m.values;
+    const avg = mean(values);
+    const sd = stdDev(values, avg);
+    const med = median(values);
+    const q = quantiles(values);
+    const si = stabilityIndex(med, sd);
+
+    const trajectoryClassification = {
+      extremeNegative: 0,
+      negative: 0,
+      null: 0,
+      positive: 0,
+      extremePositive: 0,
+    };
+    for (const delta of values) {
+      switch (classifyTrajectory(delta, q.p5, q.p25, q.p75, q.p95)) {
+        case "Extreme Negative":
+          trajectoryClassification.extremeNegative++;
+          break;
+        case "Negative":
+          trajectoryClassification.negative++;
+          break;
+        case "Null":
+          trajectoryClassification.null++;
+          break;
+        case "Positive":
+          trajectoryClassification.positive++;
+          break;
+        case "Extreme Positive":
+          trajectoryClassification.extremePositive++;
+          break;
+      }
+    }
+
+    siSum += si;
+
+    metrics.push({
+      name: m.name,
+      path: m.path,
+      meanDelta: round2(avg),
+      medianDelta: round2(med),
+      stdDevDelta: round2(sd),
+      stabilityIndex: round2(si),
+      quantiles: {
+        p5: round2(q.p5),
+        p25: round2(q.p25),
+        p50: round2(q.p50),
+        p75: round2(q.p75),
+        p95: round2(q.p95),
+      },
+      positiveProportion: round2(positiveProportion(values)),
+      negativeProportion: round2(negativeProportion(values)),
+      trajectoryClassification,
+      degenerate: m.degenerate ?? false,
+    });
+  }
+
+  const overallStabilityIndex = metrics.length === 0 ? 0 : round2(siSum / metrics.length);
+
+  return {
+    n: summary.n,
+    seeds: summary.seeds,
+    horizon: summary.totalTicks,
+    metrics,
+    overallStabilityIndex,
     generatedAt: new Date().toISOString(),
   };
 }

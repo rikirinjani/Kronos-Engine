@@ -1,0 +1,614 @@
+{
+  "study": "VULTR-SENSITIVITY-2026-09-10",
+  "classification": "EXPLORATORY — NON-CANONICAL",
+  "disclaimer": "Not manuscript evidence; does not modify or supersede frozen Phase F (Mac canonical, VER-2026-019).",
+  "platformNote": "VPS Linux reproduces the Windows Phase F seed-46 supplyStress value (+0.17), not the Mac canonical value (+0.219): quantitative value is platform-sensitive; qualitative structure (seed-46 event divergence -> supplyStress) reproduces.",
+  "configs": [
+    {
+      "label": "A0_base",
+      "seeds": 8,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 26.472,
+      "weatherDivergentSeeds": 3,
+      "seedsWithAnyDownstreamDelta": 2,
+      "meanDelta": {
+        "supplyStress": 0.0213,
+        "occupancyRate": -0.0019,
+        "icuOccupancyRate": -0.0045,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 1,
+        "occupancyRate": 1,
+        "icuOccupancyRate": 1,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 46,
+          "d": 0.17
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 5,
+        "L2_event": 3
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 5,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 199115317.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 199115837.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      }
+    },
+    {
+      "label": "A10_emiss3p7",
+      "seeds": 8,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 3.7,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 26.849,
+      "weatherDivergentSeeds": 3,
+      "seedsWithAnyDownstreamDelta": 2,
+      "meanDelta": {
+        "supplyStress": 0.0213,
+        "occupancyRate": -0.0019,
+        "icuOccupancyRate": -0.0045,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 1,
+        "occupancyRate": 1,
+        "icuOccupancyRate": 1,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 46,
+          "d": 0.17
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 5,
+        "L2_event": 3
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 5,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 199115278.888,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 199115798.888,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      }
+    },
+    {
+      "label": "A11_gdp0p1",
+      "seeds": 8,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 0.1,
+      "durationSec": 27.078,
+      "weatherDivergentSeeds": 2,
+      "seedsWithAnyDownstreamDelta": 2,
+      "meanDelta": {
+        "supplyStress": 0,
+        "occupancyRate": -0.0029,
+        "icuOccupancyRate": -0.009,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 0,
+        "occupancyRate": 2,
+        "icuOccupancyRate": 2,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 6,
+        "L2_event": 2
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 6,
+        "nonDivergentB_C_identical": false
+      },
+      "finalControl": {
+        "co2": 22862377.406,
+        "eventChance": 0.5,
+        "anomaly": 48.952
+      },
+      "finalIntervention": {
+        "co2": 22862897.406,
+        "eventChance": 0.5,
+        "anomaly": 48.952
+      }
+    },
+    {
+      "label": "A1_H60",
+      "seeds": 8,
+      "horizon": 60,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 432.112,
+      "weatherDivergentSeeds": 3,
+      "seedsWithAnyDownstreamDelta": 3,
+      "meanDelta": {
+        "supplyStress": -0.0259,
+        "occupancyRate": -0.0095,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 3,
+        "occupancyRate": 2,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 46,
+          "d": -0.071
+        },
+        {
+          "seed": 47,
+          "d": 0.032
+        },
+        {
+          "seed": 48,
+          "d": -0.168
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3,
+        1.5
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 5,
+        "L2_event": 3
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 5,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 820036956.049,
+        "eventChance": 0.5,
+        "anomaly": 64.445
+      },
+      "finalIntervention": {
+        "co2": 820037476.049,
+        "eventChance": 0.5,
+        "anomaly": 64.445
+      }
+    },
+    {
+      "label": "A6_C2000",
+      "seeds": 8,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 2000,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 26.562,
+      "weatherDivergentSeeds": 7,
+      "seedsWithAnyDownstreamDelta": 5,
+      "meanDelta": {
+        "supplyStress": -0.019,
+        "occupancyRate": -0.0029,
+        "icuOccupancyRate": -0.009,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 3,
+        "occupancyRate": 2,
+        "icuOccupancyRate": 2,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 43,
+          "d": -0.135
+        },
+        {
+          "seed": 44,
+          "d": -0.187
+        },
+        {
+          "seed": 46,
+          "d": 0.17
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3,
+        1.5
+      ],
+      "lastDiffLinkCounts": {
+        "L2_event": 7,
+        "L1_macro_only": 1
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 1,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 199115317.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 110377680.031,
+        "eventChance": 0.5,
+        "anomaly": 55.766
+      }
+    },
+    {
+      "label": "A7_C5000",
+      "seeds": 8,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 5000,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 26.968,
+      "weatherDivergentSeeds": 7,
+      "seedsWithAnyDownstreamDelta": 5,
+      "meanDelta": {
+        "supplyStress": -0.0254,
+        "occupancyRate": -0.0047,
+        "icuOccupancyRate": -0.0134,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 4,
+        "occupancyRate": 4,
+        "icuOccupancyRate": 2,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 43,
+          "d": 0.001
+        },
+        {
+          "seed": 44,
+          "d": -0.187
+        },
+        {
+          "seed": 46,
+          "d": 0.169
+        },
+        {
+          "seed": 48,
+          "d": -0.186
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3,
+        1.5
+      ],
+      "lastDiffLinkCounts": {
+        "L2_event": 7,
+        "L3_adapter": 1
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 1,
+        "nonDivergentB_C_identical": false
+      },
+      "finalControl": {
+        "co2": 199115317.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 151013062.879,
+        "eventChance": 0.5,
+        "anomaly": 57.122
+      }
+    },
+    {
+      "label": "A8_noise002",
+      "seeds": 8,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0.02,
+      "gdpGrowth": 2.5,
+      "durationSec": 26.708,
+      "weatherDivergentSeeds": 3,
+      "seedsWithAnyDownstreamDelta": 2,
+      "meanDelta": {
+        "supplyStress": 0.0213,
+        "occupancyRate": -0.0019,
+        "icuOccupancyRate": -0.0045,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 1,
+        "occupancyRate": 1,
+        "icuOccupancyRate": 1,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 46,
+          "d": 0.17
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 5,
+        "L2_event": 3
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 5,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 199115317.293,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 199115837.293,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      }
+    },
+    {
+      "label": "A9_noise0",
+      "seeds": 8,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0,
+      "gdpGrowth": 2.5,
+      "durationSec": 26.755,
+      "weatherDivergentSeeds": 3,
+      "seedsWithAnyDownstreamDelta": 2,
+      "meanDelta": {
+        "supplyStress": 0.0213,
+        "occupancyRate": -0.0019,
+        "icuOccupancyRate": -0.0045,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 1,
+        "occupancyRate": 1,
+        "icuOccupancyRate": 1,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 46,
+          "d": 0.17
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 5,
+        "L2_event": 3
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 5,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 199115317.291,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 199115837.291,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      }
+    },
+    {
+      "label": "TRACE_H60",
+      "seeds": 1,
+      "horizon": 60,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 51.273,
+      "weatherDivergentSeeds": 0,
+      "seedsWithAnyDownstreamDelta": 0,
+      "meanDelta": {
+        "supplyStress": 0,
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 0,
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [],
+      "admitMultipliersObserved": [
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 1
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 1,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 820036956.049,
+        "eventChance": 0.5,
+        "anomaly": 64.445
+      },
+      "finalIntervention": {
+        "co2": 820037476.049,
+        "eventChance": 0.5,
+        "anomaly": 64.445
+      }
+    },
+    {
+      "label": "TRACE_base",
+      "seeds": 1,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 4.25,
+      "weatherDivergentSeeds": 0,
+      "seedsWithAnyDownstreamDelta": 0,
+      "meanDelta": {
+        "supplyStress": 0,
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 0,
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [],
+      "admitMultipliersObserved": [
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 1
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 1,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 199115317.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 199115837.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      }
+    },
+    {
+      "label": "VAL_base",
+      "seeds": 5,
+      "horizon": 20,
+      "ticksPerDay": 10,
+      "controlCo2": 280,
+      "interventionCo2": 800,
+      "annualEmissions": 37,
+      "noise": 0.2,
+      "gdpGrowth": 2.5,
+      "durationSec": 17.452,
+      "weatherDivergentSeeds": 1,
+      "seedsWithAnyDownstreamDelta": 1,
+      "meanDelta": {
+        "supplyStress": 0.034,
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "nonzeroSeeds": {
+        "supplyStress": 1,
+        "occupancyRate": 0,
+        "icuOccupancyRate": 0,
+        "mortalityPressure": 0
+      },
+      "supplyDeltas": [
+        {
+          "seed": 46,
+          "d": 0.17
+        }
+      ],
+      "admitMultipliersObserved": [
+        1.2,
+        1.3
+      ],
+      "lastDiffLinkCounts": {
+        "L1_macro_only": 4,
+        "L2_event": 1
+      },
+      "isolation": {
+        "nonDivergentSeedsChecked": 4,
+        "nonDivergentB_C_identical": true
+      },
+      "finalControl": {
+        "co2": 199115317.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      },
+      "finalIntervention": {
+        "co2": 199115837.311,
+        "eventChance": 0.5,
+        "anomaly": 58.319
+      }
+    }
+  ]
+}

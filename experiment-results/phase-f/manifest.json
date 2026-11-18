@@ -1,0 +1,87 @@
+{
+  "experimentId": "PHASE-F-CAUSAL-2026-09-06",
+  "executedAt": "2026-09-06T13:55:32.825Z",
+  "keCommit": "4d7e4128f6ad800fa762f443f36aa4f45d31e4d9",
+  "drCommit": "5884ba39729768693bb91dfd796d8fe2e246ea68",
+  "runtime": {
+    "node": "v22.23.2",
+    "platform": "win32",
+    "arch": "x64"
+  },
+  "executionHost": "DESKTOP-MICDILT",
+  "frozenParameters": {
+    "controlCO2": 280,
+    "interventionCO2": 800,
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46
+    ],
+    "horizonKeTicks": 20,
+    "primaryOutcomes": [
+      "occupancyRate",
+      "icuOccupancyRate",
+      "mortalityPressure",
+      "supplyStress",
+      "admissionSurge"
+    ],
+    "successCriterion": "direction consistency >= 80% (4/5 seeds)"
+  },
+  "initialConditions": {
+    "era": "RP-CONTEMP-002 (COVID-19 baseline 2020, era-contemporary.json)",
+    "sentinel": {
+      "id": "makassar-001",
+      "city": "Makassar",
+      "beds": 133,
+      "patients": 50,
+      "ticksPerDay": 10
+    },
+    "isolationSentinels": [
+      {
+        "id": "sentinel-B",
+        "city": "Makassar",
+        "beds": 133,
+        "patients": 50,
+        "ticksPerDay": 10
+      },
+      {
+        "id": "sentinel-C",
+        "city": "Makassar",
+        "beds": 133,
+        "patients": 50,
+        "ticksPerDay": 10
+      }
+    ],
+    "climateConfig": {
+      "annualEmissions": 37,
+      "annualEmissionsNoise": 0.2
+    },
+    "note": "Arms differ ONLY in climate.co2Concentration (280 vs 800); fresh-world paired execution, no forkBranch"
+  },
+  "drDistNote": "DR dist rebuilt 2026-09-06T15:04 from DR HEAD 5884ba3 (v1 run used stale 2026-09-04 dist and was quarantined)",
+  "outputHashes": {
+    "perSeedControlWorld": [
+      "d66e2562",
+      "35dfa16a",
+      "85f3ba0f",
+      "d2ae2407",
+      "fcfa31e9"
+    ],
+    "perSeedInterventionWorld": [
+      "3a9b2f29",
+      "14a235e2",
+      "f0efdb9e",
+      "267ee893",
+      "4de6fcc9"
+    ]
+  },
+  "artifactLocations": {
+    "results": "experiment-results/phase-f/results.json",
+    "stats": "experiment-results/phase-f/statistical-summary.json",
+    "manifest": "experiment-results/phase-f/manifest.json",
+    "report": "experiment-results/phase-f/report.md",
+    "v1Quarantined": "experiment-results/phase-f/v1-invalid-stale-dist/"
+  }
+}

@@ -1,0 +1,20 @@
+{
+    "phaseFTests":  "9/9",
+    "id":  "VER-2026-019",
+    "evidence":  "Mac canonical execution satisfies PHASE-C-NOTES S10",
+    "regressionDR":  "127/127",
+    "type":  "phase-f-canonical-execution",
+    "keCommit":  "4d7e4128f6ad800fa762f443f36aa4f45d31e4d9",
+    "replayIdentical":  true,
+    "directionConsistency":  0.2,
+    "verdict":  "FREEZE",
+    "method":  "canonical Mac execution per PHASE-C-NOTES S10",
+    "requirement":  "REQ-2026-017",
+    "platform":  "darwin arm64",
+    "notes":  "Health-surveillance E3 test passes on Mac (333/333) but fails on Windows (332/333) - platform-specific stochastic edge case",
+    "drCommit":  "5884ba39729768693bb91dfd796d8fe2e246ea68",
+    "supplyStressDelta":  0.219,
+    "timestamp":  "2026-09-08T10:33:02Z",
+    "result":  "PASS",
+    "regressionKE":  "333/333"
+}

@@ -1,0 +1,151 @@
+{
+  "seed": 1003,
+  "horizon": 50,
+  "timestamp": "2026-09-11T14:01:33.005Z",
+  "checks": {
+    "livePopulated": {
+      "null": false,
+      "values": {
+        "occupancyRate": 0.8244274809160306,
+        "icuOccupancyRate": 0.7142857142857143,
+        "mortalityPressure": 0,
+        "supplyStress": 0.32433333333333336,
+        "staffStress": 1
+      },
+      "pass": true
+    },
+    "snapshotPopulated": {
+      "null": false,
+      "values": {
+        "occupancyRate": 0.8244274809160306,
+        "icuOccupancyRate": 0.7142857142857143,
+        "mortalityPressure": 0,
+        "supplyStress": 0.32433333333333336,
+        "staffStress": 1
+      },
+      "matchesLive": true,
+      "pass": true
+    },
+    "reconstructionPreserves": {
+      "null": false,
+      "values": {
+        "occupancyRate": 0.8244274809160306,
+        "icuOccupancyRate": 0.7142857142857143,
+        "mortalityPressure": 0,
+        "supplyStress": 0.32433333333333336,
+        "staffStress": 1
+      },
+      "matchesLive": true,
+      "pass": true
+    },
+    "parentBranchExposed": {
+      "parentSnap": {
+        "occupancyRate": 0.8244274809160306,
+        "icuOccupancyRate": 0.7142857142857143,
+        "mortalityPressure": 0,
+        "supplyStress": 0.32433333333333336,
+        "staffStress": 1
+      },
+      "branchSnap": {
+        "occupancyRate": 0.9694656488549618,
+        "icuOccupancyRate": 1,
+        "mortalityPressure": 0,
+        "supplyStress": 0.037229629629629626,
+        "staffStress": 1
+      },
+      "parentNull": false,
+      "branchNull": false,
+      "pass": true
+    },
+    "diffEngineDiscovers": {
+      "parentPaths": 11,
+      "branchPaths": 11,
+      "deltas": [
+        {
+          "path": "sentinelOutput.tick",
+          "parent": 50,
+          "branch": 100,
+          "delta": 50
+        },
+        {
+          "path": "sentinelOutput.occupancyRate",
+          "parent": 0.8244274809160306,
+          "branch": 0.9694656488549618,
+          "delta": 0.1450381679389312
+        },
+        {
+          "path": "sentinelOutput.icuOccupancyRate",
+          "parent": 0.7142857142857143,
+          "branch": 1,
+          "delta": 0.2857142857142857
+        },
+        {
+          "path": "sentinelOutput.mortalityPressure",
+          "parent": 0,
+          "branch": 0,
+          "delta": 0
+        },
+        {
+          "path": "sentinelOutput.diseasePrevalence.I10",
+          "parent": 38,
+          "branch": 46,
+          "delta": 8
+        },
+        {
+          "path": "sentinelOutput.diseasePrevalence.E11",
+          "parent": 32,
+          "branch": 56,
+          "delta": 24
+        },
+        {
+          "path": "sentinelOutput.diseasePrevalence.J15",
+          "parent": 23,
+          "branch": 29,
+          "delta": 6
+        },
+        {
+          "path": "sentinelOutput.diseasePrevalence.E78",
+          "parent": 22,
+          "branch": 27,
+          "delta": 5
+        },
+        {
+          "path": "sentinelOutput.diseasePrevalence.A09",
+          "parent": 16,
+          "branch": 0,
+          "delta": -16
+        },
+        {
+          "path": "sentinelOutput.supplyStress",
+          "parent": 0.32433333333333336,
+          "branch": 0.037229629629629626,
+          "delta": -0.28710370370370375
+        },
+        {
+          "path": "sentinelOutput.staffStress",
+          "parent": 1,
+          "branch": 1,
+          "delta": 0
+        },
+        {
+          "path": "sentinelOutput.diseasePrevalence.N39",
+          "parent": 0,
+          "branch": 27,
+          "delta": 27
+        }
+      ],
+      "anyDelta": true,
+      "pass": true
+    },
+    "deterministic": {
+      "liveMatch": true,
+      "snapshotMatch": true,
+      "pass": true
+    },
+    "reconstructionUntouched": {
+      "pass": true,
+      "note": "only tick handler __snapshot closure changed"
+    }
+  },
+  "allPass": true
+}

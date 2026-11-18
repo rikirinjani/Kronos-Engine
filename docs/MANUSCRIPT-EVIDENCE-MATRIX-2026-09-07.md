@@ -1,0 +1,151 @@
+# Manuscript–Evidence Matrix: jamia-2026-kronos-engine.md
+
+**Updated:** 2026-09-07 (post-F1–F17 reconciliation)
+**Manuscript:** `docs/papers/jamia-2026-kronos-engine.md`
+**Evidence sources:** `experiment-results/dr-counterfactual/p004-30seeds-summary.json`, `experiment-results/dr-counterfactual/p003-calibrated-summary.json`, `src/integration/heatwave.test.ts`, `docs/EVIDENCE-FREEZE-2026-09-05.md`
+
+---
+
+## Audit Changes Since 2026-09-06
+
+| Issue | Previous Status | Current Status | Fix Applied |
+|---|---|---|---|
+| P8: Section 3.2 fabricated hospital table | 🔴 CRITICAL | ✅ RESOLVED | Removed in prior session (C3) |
+| P7: Section 2.6 "measurable operational signal" | 🔴 CRITICAL | ✅ RESOLVED | Corrected in prior session (C4) |
+| P4: Contribution #3 overstated | 🟡 MODERATE | ✅ RESOLVED | F1–F3: "independently validated" → "independently developed" |
+| P4: Contribution #5 overstated | 🟡 MODERATE | ✅ RESOLVED | Revised to "adapter deployment across regional network" |
+| P10: Conclusion "architectural correctness" | 🟢 MINOR | ✅ RESOLVED | F4: "byte-reproducible" → "seed-reproducible" |
+| F5: "immutable audit trail" | — | ✅ RESOLVED | → "reproducible audit artifacts" |
+| F6: "implemented and validated" | — | ✅ RESOLVED | → "implemented and integration-tested" |
+| F7–F8: Test counts stale | — | ✅ RESOLVED | 323→333, 36→37 throughout |
+| F9: Orphaned drafting-history sentence | — | ✅ RESOLVED | Deleted |
+| F10: "only window" absolute claim | — | ✅ RESOLVED | → "a window" |
+| F11: "generalizes to any" overclaim | — | ✅ RESOLVED | → "designed to generalize to any" |
+| F12: Figure 2 caption | — | ✅ RESOLVED | → "WWII counterfactual: GDP differences across pre-specified primary outcomes" |
+| F13: "weak signal" framing | — | ✅ RESOLVED | → degenerate metrics / causal disconnect language |
+| F14: "illustrative calibration targets" | — | ✅ RESOLVED | Already correct — no change needed |
+| F15: Comparison table "No \| No \| No" | — | ✅ RESOLVED | → "Varies \| Varies \| Varies" |
+| F16: Orphaned ref [8] (FDA) | — | ✅ RESOLVED | Removed (never cited in body) |
+| F17: Ref [5] "See also" split | — | ✅ RESOLVED | Split into [5]+[6], all refs renumbered |
+
+---
+
+## P0: Data Integrity — Section 3.2 Table vs P-004 Evidence
+
+### Finding (RESOLVED)
+
+The fabricated hospital metrics table identified in the 2026-09-06 audit has been **removed**. Section 3.2 now accurately states:
+
+> "All hospital sentinel metrics are degenerate. Every `sentinelOutput.*` metric — occupancy rate, ICU occupancy, mortality pressure, disease prevalence, supply stress, staff stress, admission surge — has zero variance across all 30 seeds (stdDev = 0, same value in baseline and intervention branches)."
+
+### Verdict: ✅ RESOLVED
+
+---
+
+## P0: Integration Test Assertion vs Manuscript Claim
+
+### Finding (RESOLVED)
+
+Section 2.6 now correctly states:
+
+> "The test verified that the adapter produces non-null sentinel output in both baseline and intervention runs, confirming the adapter's event-driven pathway is operational; inbound `health.*` consumption is not implemented."
+
+And:
+
+> "Note: this test verifies the event pathway exists (adapter produces output when events are injected), not that the specific climate configuration intervention in P-004 produces hospital divergence"
+
+### Verdict: ✅ RESOLVED
+
+---
+
+## P0: Determinism Audit (NEW — exp-1)
+
+| Check | Finding | Status |
+|---|---|---|
+| RNG chain | Mulberry32 seeded throughout. No Math.random in simulation path. | ✅ Clean |
+| P-004 traceable | Seeds 42–71 via `run-dr-counterfactual.ts` | ✅ Traceable |
+| Byte-reproducibility | Structural equality verified; byte-identical NOT verified | ⚠️ Claim removed (F4) |
+| Cross-platform | Linux-only CI; Windows/Mac not tested | ⚠️ Claim removed |
+
+**Status:** Audit complete. No determinism defect found. Manuscript claims now correctly scoped to "seed-reproducible."
+
+---
+
+## P0: P-004 Degeneracy Root Cause (NEW — exp-2)
+
+| Step | Finding |
+|---|---|
+| Intervention type | State patch (co2Concentration=400, annualEmissionsNoise=0.02) |
+| Adapter consumption | Reads discrete events (`admission_surge`, `staff_shortage`, `supplyStress`), NOT config params |
+| Causal chain | Config change → no discrete events generated → adapter receives identical MacroConditionPacket → hospital metrics degenerate |
+| Quantitative confirmation | GDP-driven CO2 ≈ 3.5 Gt/yr overwhelms intervention Δ 0.02 Gt/yr by ~100,000× |
+| df=1 explanation | Economy cadence=3 causes rare 2-seed non-degeneracy in economy metrics |
+
+**Status:** Root cause confirmed. This is legitimate model behavior, not a code defect. Manuscript accurately describes this as "design-scope limitation."
+
+---
+
+## P1: Test Count + 30-Sentinel (NEW — exp-3)
+
+| Check | Finding | Status |
+|---|---|---|
+| Test count | 333 tests, 37 files, 1 pre-existing timeout | ✅ Matches manuscript (F7–F8) |
+| 30-sentinel run | Separate from P-004; generated by `run-heatmap.ts` | ✅ Manuscript distinguishes them |
+| Section 3.3 table | Matches heatmap.json | ✅ Consistent |
+
+---
+
+## P1–P13: Previously Verified Claims
+
+| Check | Status | Notes |
+|---|---|---|
+| P1: P-003 claims | ✅ PASS | All claims accurate |
+| P2: P-004 claims (non-table) | ✅ PASS | Narrative claims accurate |
+| P3: Statistical language | ✅ PASS | Correctly described |
+| P4: Contributions | ✅ PASS (revised) | Now accurately framed |
+| P5: Introduction | ✅ PASS | "a window" (F10) |
+| P6: Architecture/methods framing | ✅ PASS | |
+| P7: Section 2.6 | ✅ PASS (revised) | |
+| P8: Section 3.2 table | ✅ PASS (removed) | |
+| P9: Limitations | ✅ PASS | Degenerate framing (F13) |
+| P10: Conclusion | ✅ PASS (revised) | |
+| P11: References | ✅ PASS | 16 refs, no orphans (F16–F17) |
+| P12: Internal consistency | ✅ PASS | All issues resolved |
+| P13: Metadata | ✅ PASS | |
+
+---
+
+## Reference Integrity (post-F16–F17)
+
+| # | Reference | Cited In Text |
+|---|---|---|
+| [1] | Suhrcke et al. 2011 | Line 33: "[1]" |
+| [2] | Watts et al. 2021 | Line 33: "[2]" |
+| [3] | Walker et al. 2020 | Line 33: "[3]" |
+| [4] | Gatewood et al. 2020 | Line 33: "[4]" |
+| [5] | Kannampallil et al. 2011 | Line 33: "[5,6,7]" |
+| [6] | Kannampallil & Abraham 2019 | Line 33: "[5,6,7]" |
+| [7] | Meyer et al. 2020 | Line 33: "[5,6,7]" |
+| [8] | Hernán & Robins 2020 | Line 35: "[8]" |
+| [9] | Tracy et al. 2018 | Line 35: "[9,10]", Line 323: "[9,10]" |
+| [10] | Auchincloss & Diez Roux 2008 | Line 35: "[9,10]", Line 323: "[9,10]" |
+| [11] | Homer & Hirsch 2006 | Line 35: "[11]", Line 323: "[11]" |
+| [12] | Jacobson et al. 2006 | Line 35: "[12]", Line 323: "[12]" |
+| [13] | Harrison 1998 | Line 111: "[13]", Line 238: "[13]", Line 347: "[13]" |
+| [14] | WHO 2021 | Line 309: "[14]" |
+| [15] | Benjamini & Hochberg 1995 | Line 215: "[15]" |
+| [16] | Cohen 1988 | Line 215: "[16]" |
+
+**No orphaned references. No missing citations.**
+
+---
+
+## Overall Verdict
+
+**CONDITIONAL FREEZE — MANUSCRIPT FIXES COMPLETE**
+
+All 17 manuscript fixes (F1–F17) applied and verified. All P0/P1/P2/P3/P4/P5/P6/P7/P8/P9/P10/P11/P12/P13 audit items pass. Evidence matrix is internally consistent.
+
+**Remaining conditions before FREEZE:**
+1. Human author review of final manuscript
+2. DR synchronization against authoritative KE commit (Mac Mini at `6096b59`, 3 behind Windows HEAD `4d7e412`)

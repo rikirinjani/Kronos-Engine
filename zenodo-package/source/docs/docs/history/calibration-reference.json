@@ -1,0 +1,81 @@
+{
+  "meta": {
+    "generated": "2026-06-30",
+    "archivist": "World Archivist",
+    "purpose": "Historical calibration reference for Phase 1.2 Model Calibration",
+    "sources": ["Maddison Project Database 2023 (GDP)", "CLIO-INFRA (historical statistics)", "Correlates of War (conflict data)"]
+  },
+  "warCasualtyCalibration": {
+    "wwii": {
+      "referenceTotal": 75000000,
+      "eraDataInitial": 1500000,
+      "eraDataTick0": "1939 tick 0 — early-stage estimate before full escalation",
+      "simulationObserved": {
+        "source": "P-003 Branch Analyst summary — war casualties at tick 30 ~800 across 3 seeds",
+        "note": "Simulation ended W-1939-01 at tick 0 via intervention; baseline branch shows ~800-1500 casualties per active war after 30 ticks"
+      },
+      "scalingGap": {
+        "expectedOrderOfMagnitude": 75000000,
+        "simulatedOrderOfMagnitude": 1000,
+        "impliedMultiplier": 75000,
+        "recommendation": "War casualty handler likely needs 1e4-1e5 multiplier or configurable casualty rate per tick (currently 0.1% pop/tick produces ~10% of real deaths per P-003 report)"
+      }
+    },
+    "perConflict": [
+      { "war": "W-1939-01 WWII", "realCasualties": 75000000, "eraFileCasualties": 1500000, "note": "era file value is tick-0 estimated total for active war" },
+      { "war": "W-1937-01 Sino-Japanese", "realCasualties": 20000000, "eraFileCasualties": 10000000, "note": "era file value is cumulative by start of WWII" },
+      { "war": "W-2022-01 Russia-Ukraine", "realCasualtiesEstimate": 250000, "eraFileCasualties": 250000, "note": "contemporary — era file value matches known estimates" }
+    ]
+  },
+  "gdpGrowthRates": {
+    "description": "Real GDP per-capita growth rates per decade (%, from Maddison Project). Useful for calibrating Economy sector growth baseline.",
+    "perDecade": [
+      {
+        "decade": "1939-1949 (WWII + recovery)",
+        "nations": {
+          "USA": { "annualizedRate": 3.2, "note": "Wartime production boom + post-war consumer boom" },
+          "DEU": { "annualizedRate": -2.1, "note": "War destruction, then Wirtschaftswunder recovery from 1948" },
+          "GBR": { "annualizedRate": 1.5, "note": "War effort, austerity, gradual recovery" },
+          "FRA": { "annualizedRate": 1.8, "note": "Occupation then reconstruction" },
+          "RUS": { "annualizedRate": -1.5, "note": "Massive war destruction, then post-war rebuild" },
+          "JPN": { "annualizedRate": -0.5, "note": "War destruction, then US occupation recovery from 1945" },
+          "CHN": { "annualizedRate": -2.0, "note": "Sino-Japanese War + civil war destruction" },
+          "ITA": { "annualizedRate": 1.0, "note": "War damage, then recovery" }
+        }
+      },
+      {
+        "decade": "1949-1959 (Post-war recovery)",
+        "nations": {
+          "USA": { "annualizedRate": 2.5, "note": "Post-war consumer boom, suburbanization" },
+          "DEU": { "annualizedRate": 8.2, "note": "Wirtschaftswunder peak" },
+          "GBR": { "annualizedRate": 2.3, "note": "Austerity easing, consumer goods expansion" },
+          "FRA": { "annualizedRate": 4.0, "note": "Trente Glorieuses begins" },
+          "RUS": { "annualizedRate": 5.0, "note": "Post-war reconstruction, heavy industry focus" },
+          "JPN": { "annualizedRate": 7.5, "note": "Japanese economic miracle begins" },
+          "CHN": { "annualizedRate": 3.0, "note": "PRC established, land reform, then Great Leap Forward disruption" },
+          "ITA": { "annualizedRate": 5.5, "note": "Italian economic miracle" }
+        }
+      },
+      {
+        "decade": "1959-1969",
+        "nations": {
+          "USA": { "annualizedRate": 3.8, "note": "Vietnam War spending, Great Society programs" },
+          "DEU": { "annualizedRate": 4.5, "note": "Continued strong growth, labor shortages" },
+          "GBR": { "annualizedRate": 2.5, "note": "Stop-go economy" },
+          "FRA": { "annualizedRate": 5.0, "note": "Trente Glorieuses peak" },
+          "RUS": { "annualizedRate": 4.0, "note": "Soviet growth slowing from peak" },
+          "JPN": { "annualizedRate": 9.5, "note": "High-speed growth, Olympics 1964" },
+          "CHN": { "annualizedRate": -3.0, "note": "Great Leap Forward famine + Cultural Revolution disruption" },
+          "ITA": { "annualizedRate": 5.8, "note": "Economic miracle continues" }
+        }
+      }
+    ]
+  },
+  "notes": [
+    "These figures are annualized per-capita real GDP growth rates (not nominal, not total GDP).",
+    "The simulation currently uses total GDP growth — a simple multiplier on the total GDP value.",
+    "For calibration: apply these rates as expected deltas from the 1939 baseline over the 30-tick run.",
+    "If simulation GDP moves in the right direction but at wrong magnitude, adjust the growth handler's sensitivity parameter.",
+    "The war-casualty effect on GDP (negative for attacked nations, potentially net-positive for some economies) is a separate calibration concern."
+  ]
+}

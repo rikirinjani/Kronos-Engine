@@ -1,0 +1,37 @@
+{
+    "id": "VER-2026-021",
+    "type": "exp001-execution-verification",
+    "title": "EXP-001 Counterfactual Stability & Sensitivity Study — execution verification",
+    "result": "PASS",
+    "verdict": "VERIFIED",
+    "method": "Independent verification of the EXP-001 execution: source isolation review, TypeScript build, targeted test suite, seed-repetition determinism check, guard assertions, and reconciliation of measured outputs against the recorded resource ledger",
+    "requirement": "EXP-001 (Research Track 2, exploratory)",
+    "evidence": {
+        "build": "tsc exit 0 (local + VPS)",
+        "tests": "vitest run src/experiment/stats.test.ts -> 32/32 pass (VPS)",
+        "determinism": "identical seed range run twice; deep-diff shows only createdAt, diff.capturedAt, runtimeMs differ; all simulation content byte-identical",
+        "guards": "matchedHorizon=true and baselineIdentical=true on all runs",
+        "isolation": "exp-001 observer sector appended last; five P-004 sectors' RNG draw sequence unchanged; no frozen artifact modified",
+        "validation": "N=1000 x H=10/20/50; 3000 runs; degeneracy 58.4%/84.5%/93.7%; funnel adapter-translation 0%/0%/45.8%; sentinel 0%",
+        "primary": "N=10000 x H=10/20; 20000 runs; FDR-significant 13/12 vs expected-FP 11.8/13.9 (at/below noise floor)",
+        "artifacts": "experiment-results/mc-lab/{validation,primary}/ + config/provenance/manifest/resource; 12 files, 188 MB, 23000 runs",
+        "report": "docs/experiments/EXP-001-counterfactual-stability.md"
+    },
+    "measuredTotals": {
+        "wallSec": 24159.2,
+        "cpuHours": 6.7102,
+        "estCostUsd": 0.2013,
+        "stageBCeilingUsd": 0.25
+    },
+    "budgetGate": {
+        "h50PrimaryProjectedWallHours": 26.8,
+        "h50PrimaryProjectedCostUsd": 0.805,
+        "feasibleWithinStageB": false,
+        "action": "H=50 primary omitted; characterised at validation scale (N=1000) only"
+    },
+    "verdictSummary": "EXP-001 COMPLETE — STRUCTURAL NULL. Intervention effect is real and reproducible inside the targeted climate sector but never propagates to any clinical/hospital outcome. Recommendation: STOP (no Stage C 50k).",
+    "keCommit": "4d7e4128f6ad800fa762f443f36aa4f45d31e4d9",
+    "branch": "exp-001-counterfactual-stability",
+    "timestamp": "2026-09-10T20:45:00Z",
+    "notes": "Verification confirms the experiment executed from a clean baseline, is deterministic, respected the frozen-evidence boundary, and stayed within the Stage B budget gate. The budget-driven omission of the H=50 primary is documented in config.json (primaryH50Omitted) and the report."
+}

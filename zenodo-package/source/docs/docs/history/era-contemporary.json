@@ -1,0 +1,767 @@
+{
+  "meta": {
+    "era": "contemporary",
+    "label": "Contemporary Era",
+    "span": "1991-present",
+    "seedPrefix": "S-CONTEMPORARY",
+    "generated": "2026-06-29",
+    "archivist": "World Archivist",
+    "description": "Post-Cold War world. US unipolar moment, rise of China, digital revolution, climate crisis, pandemic era."
+  },
+  "rewindPoints": [
+    {
+      "id": "RP-CONTEMP-001",
+      "year": 2001,
+      "label": "9/11 Attacks",
+      "calendarDate": "2001-09-11",
+      "description": "Al-Qaeda attacks on US soil trigger War on Terror, reshaping global alliances and security posture."
+    },
+    {
+      "id": "RP-CONTEMP-002",
+      "year": 2020,
+      "label": "COVID-19 Pandemic",
+      "calendarDate": "2020-03-11",
+      "description": "WHO declares global pandemic. Widespread lockdowns, economic disruption, accelerated digital transformation."
+    },
+    {
+      "id": "RP-CONTEMP-003",
+      "year": 2026,
+      "label": "Baseline Present",
+      "calendarDate": "2026-06-29",
+      "description": "Current world state - baseline for forward projection and counterfactual branching."
+    }
+  ],
+  "states": {
+    "RP-CONTEMP-001": {
+      "year": 2001,
+      "label": "9/11 - Unipolar Moment (2001)",
+      "nations": [
+        {
+          "id": "USA",
+          "name": "United States of America",
+          "region": "north-america",
+          "population": 285000000,
+          "gdp": 10600000000000,
+          "territory": { "regionIds": ["continental-us", "alaska", "hawaii"], "capital": "Washington, D.C." },
+          "government": "democracy",
+          "technologyLevel": 85,
+          "militaryPower": 90,
+          "healthMetrics": { "lifeExpectancy": 77, "infantMortality": 7.0, "hospitalBedsPer1000": 3.6, "universalCoverage": false },
+          "alliances": ["NATO", "G7", "G20"],
+          "wars": [],
+          "relations": { "GBR": 95, "CAN": 90, "AUS": 85, "DEU": 80, "FRA": 75, "JPN": 80, "ISR": 75, "RUS": 55, "CHN": 40, "IND": 60, "SAU": 70 }
+        },
+        {
+          "id": "CHN",
+          "name": "People's Republic of China",
+          "region": "east-asia",
+          "population": 1270000000,
+          "gdp": 1330000000000,
+          "territory": { "regionIds": ["mainland-china"], "capital": "Beijing" },
+          "government": "autocracy",
+          "technologyLevel": 38,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 72, "infantMortality": 31.0, "hospitalBedsPer1000": 2.5, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "USA": 40, "RUS": 70, "GBR": 30, "FRA": 30, "JPN": -35, "KOR": 25, "PRK": 75, "PAK": 65, "IND": -25 }
+        },
+        {
+          "id": "RUS",
+          "name": "Russian Federation",
+          "region": "eurasia",
+          "population": 146000000,
+          "gdp": 310000000000,
+          "territory": { "regionIds": ["european-russia", "siberia", "far-east"], "capital": "Moscow" },
+          "government": "democracy",
+          "technologyLevel": 48,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 66, "infantMortality": 16.0, "hospitalBedsPer1000": 8.5, "universalCoverage": true },
+          "alliances": [],
+          "wars": [],
+          "relations": { "USA": 55, "DEU": 60, "FRA": 55, "GBR": 50, "CHN": 70, "IND": 65, "IRN": 50 }
+        },
+        {
+          "id": "IND",
+          "name": "Republic of India",
+          "region": "south-asia",
+          "population": 1050000000,
+          "gdp": 490000000000,
+          "territory": { "regionIds": ["northern-india", "southern-india", "northeast-india"], "capital": "New Delhi" },
+          "government": "democracy",
+          "technologyLevel": 30,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 63, "infantMortality": 67.0, "hospitalBedsPer1000": 0.8, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "USA": 60, "RUS": 65, "GBR": 55, "CHN": -25, "PAK": -80, "BGD": 70, "NPL": 65 }
+        },
+        {
+          "id": "JPN",
+          "name": "Japan",
+          "region": "east-asia",
+          "population": 127000000,
+          "gdp": 4400000000000,
+          "territory": { "regionIds": ["honshu", "hokkaido", "kyushu", "shikoku"], "capital": "Tokyo" },
+          "government": "democracy",
+          "technologyLevel": 80,
+          "militaryPower": 25,
+          "healthMetrics": { "lifeExpectancy": 82, "infantMortality": 3.0, "hospitalBedsPer1000": 16.0, "universalCoverage": true },
+          "alliances": ["G7", "G20"],
+          "wars": [],
+          "relations": { "USA": 80, "KOR": 40, "CHN": -35, "RUS": 30, "TWN": 55 }
+        },
+        {
+          "id": "DEU",
+          "name": "Germany",
+          "region": "europe",
+          "population": 82000000,
+          "gdp": 2000000000000,
+          "territory": { "regionIds": ["germany"], "capital": "Berlin" },
+          "government": "democracy",
+          "technologyLevel": 78,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 78, "infantMortality": 4.5, "hospitalBedsPer1000": 8.5, "universalCoverage": true },
+          "alliances": ["NATO", "EU", "G7", "G20"],
+          "wars": [],
+          "relations": { "FRA": 85, "USA": 80, "GBR": 75, "RUS": 60, "CHN": 35 }
+        },
+        {
+          "id": "GBR",
+          "name": "United Kingdom",
+          "region": "europe",
+          "population": 60000000,
+          "gdp": 1650000000000,
+          "territory": { "regionIds": ["england", "scotland", "wales", "northern-ireland"], "capital": "London" },
+          "government": "democracy",
+          "technologyLevel": 78,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 78, "infantMortality": 5.5, "hospitalBedsPer1000": 4.0, "universalCoverage": true },
+          "alliances": ["G7", "G20", "NATO", "EU"],
+          "wars": [],
+          "relations": { "USA": 95, "CAN": 85, "AUS": 85, "FRA": 65, "DEU": 75, "CHN": 35, "RUS": 50, "IND": 60 }
+        },
+        {
+          "id": "FRA",
+          "name": "France",
+          "region": "europe",
+          "population": 61000000,
+          "gdp": 1400000000000,
+          "territory": { "regionIds": ["metropolitan-france", "overseas-territories"], "capital": "Paris" },
+          "government": "democracy",
+          "technologyLevel": 76,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 79, "infantMortality": 4.6, "hospitalBedsPer1000": 7.5, "universalCoverage": true },
+          "alliances": ["EU", "NATO", "G7", "G20"],
+          "wars": [],
+          "relations": { "DEU": 85, "USA": 75, "GBR": 65, "RUS": 55, "CHN": 40, "DZA": 25 }
+        }
+      ],
+      "wars": [],
+      "alliances": [
+        {
+          "id": "NATO",
+          "name": "North Atlantic Treaty Organization",
+          "members": ["USA", "DEU", "GBR", "FRA"],
+          "formed": 1949,
+          "type": "defense",
+          "strength": 80
+        },
+        {
+          "id": "EU",
+          "name": "European Union",
+          "members": ["DEU", "FRA", "GBR"],
+          "formed": 1993,
+          "type": "economic",
+          "strength": 60
+        },
+        {
+          "id": "G7",
+          "name": "Group of Seven",
+          "members": ["USA", "GBR", "DEU", "FRA", "JPN"],
+          "formed": 1975,
+          "type": "political",
+          "strength": 70
+        },
+        {
+          "id": "G20",
+          "name": "Group of Twenty",
+          "members": ["USA", "CHN", "RUS", "IND", "JPN", "DEU", "GBR", "FRA"],
+          "formed": 1999,
+          "type": "economic",
+          "strength": 55
+        }
+      ],
+      "globalState": {
+        "totalPopulation": 6200000000,
+        "avgTechnologyLevel": 42,
+        "avgHealthOutcome": 67,
+        "co2Emissions": 25000000000,
+        "tradeVolume": 60
+      }
+    },
+    "RP-CONTEMP-002": {
+      "year": 2020,
+      "label": "COVID-19 Pandemic (2020)",
+      "nations": [
+        {
+          "id": "USA",
+          "name": "United States of America",
+          "region": "north-america",
+          "population": 330000000,
+          "gdp": 21000000000000,
+          "territory": { "regionIds": ["continental-us", "alaska", "hawaii", "territories"], "capital": "Washington, D.C." },
+          "government": "democracy",
+          "technologyLevel": 90,
+          "militaryPower": 90,
+          "healthMetrics": { "lifeExpectancy": 77, "infantMortality": 5.6, "hospitalBedsPer1000": 2.9, "universalCoverage": false },
+          "alliances": ["NATO", "G7", "G20"],
+          "wars": [],
+          "relations": { "GBR": 95, "CAN": 90, "AUS": 85, "DEU": 80, "JPN": 80, "KOR": 75, "ISR": 75, "IND": 65, "TWN": 55, "CHN": -30, "RUS": -55, "PRK": -85, "IRN": -65 }
+        },
+        {
+          "id": "CHN",
+          "name": "People's Republic of China",
+          "region": "east-asia",
+          "population": 1400000000,
+          "gdp": 14700000000000,
+          "territory": { "regionIds": ["mainland-china", "xinjiang", "tibet", "hainan"], "capital": "Beijing" },
+          "government": "autocracy",
+          "technologyLevel": 70,
+          "militaryPower": 80,
+          "healthMetrics": { "lifeExpectancy": 78, "infantMortality": 7.0, "hospitalBedsPer1000": 4.3, "universalCoverage": true },
+          "alliances": ["G20", "SCO", "BRICS"],
+          "wars": [],
+          "relations": { "RUS": 80, "PRK": 75, "PAK": 75, "IRN": 65, "VNM": 55, "IND": -35, "JPN": -45, "KOR": -30, "PHL": -35, "TWN": -45, "USA": -30, "GBR": -20 }
+        },
+        {
+          "id": "RUS",
+          "name": "Russian Federation",
+          "region": "eurasia",
+          "population": 144000000,
+          "gdp": 1500000000000,
+          "territory": { "regionIds": ["european-russia", "siberia", "far-east"], "capital": "Moscow" },
+          "government": "autocracy",
+          "technologyLevel": 50,
+          "militaryPower": 70,
+          "healthMetrics": { "lifeExpectancy": 68, "infantMortality": 7.0, "hospitalBedsPer1000": 8.0, "universalCoverage": true },
+          "alliances": ["BRICS", "SCO"],
+          "wars": [],
+          "relations": { "CHN": 80, "IRN": 70, "PRK": 65, "IND": 65, "SAU": 55, "BLR": 85, "USA": -55, "GBR": -50, "DEU": -45, "UKR": -70 }
+        },
+        {
+          "id": "IND",
+          "name": "Republic of India",
+          "region": "south-asia",
+          "population": 1380000000,
+          "gdp": 2700000000000,
+          "territory": { "regionIds": ["northern-india", "southern-india", "northeast-india"], "capital": "New Delhi" },
+          "government": "democracy",
+          "technologyLevel": 50,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 69, "infantMortality": 32.0, "hospitalBedsPer1000": 1.5, "universalCoverage": true },
+          "alliances": ["G20", "BRICS", "SCO"],
+          "wars": [],
+          "relations": { "USA": 65, "RUS": 65, "JPN": 60, "AUS": 55, "FRA": 50, "GBR": 55, "CHN": -35, "PAK": -80, "NPL": 70, "BGD": 75 }
+        },
+        {
+          "id": "IDN",
+          "name": "Indonesia",
+          "region": "southeast-asia",
+          "population": 273000000,
+          "gdp": 1060000000000,
+          "territory": { "regionIds": ["java", "sumatra", "kalimantan", "sulawesi", "papua-indonesia"], "capital": "Jakarta" },
+          "government": "democracy",
+          "technologyLevel": 42,
+          "militaryPower": 32,
+          "healthMetrics": { "lifeExpectancy": 71, "infantMortality": 22.0, "hospitalBedsPer1000": 1.2, "universalCoverage": true },
+          "alliances": ["ASEAN", "G20"],
+          "wars": [],
+          "relations": { "USA": 55, "CHN": 45, "AUS": 65, "JPN": 60, "MYS": 80, "SGP": 75, "SAU": 55, "IND": 60 }
+        },
+        {
+          "id": "JPN",
+          "name": "Japan",
+          "region": "east-asia",
+          "population": 126000000,
+          "gdp": 5000000000000,
+          "territory": { "regionIds": ["honshu", "hokkaido", "kyushu", "shikoku"], "capital": "Tokyo" },
+          "government": "democracy",
+          "technologyLevel": 87,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 85, "infantMortality": 2.1, "hospitalBedsPer1000": 7.9, "universalCoverage": true },
+          "alliances": ["G7", "G20"],
+          "wars": [],
+          "relations": { "USA": 85, "AUS": 75, "KOR": 55, "IND": 60, "TWN": 65, "CHN": -45, "RUS": -35, "PRK": -80 }
+        },
+        {
+          "id": "DEU",
+          "name": "Germany",
+          "region": "europe",
+          "population": 83000000,
+          "gdp": 3900000000000,
+          "territory": { "regionIds": ["germany"], "capital": "Berlin" },
+          "government": "democracy",
+          "technologyLevel": 84,
+          "militaryPower": 38,
+          "healthMetrics": { "lifeExpectancy": 81, "infantMortality": 3.3, "hospitalBedsPer1000": 8.0, "universalCoverage": true },
+          "alliances": ["EU", "NATO", "G7", "G20"],
+          "wars": [],
+          "relations": { "FRA": 85, "NLD": 80, "POL": 65, "USA": 75, "GBR": 70, "CHN": 35, "RUS": -45 }
+        },
+        {
+          "id": "GBR",
+          "name": "United Kingdom",
+          "region": "europe",
+          "population": 67000000,
+          "gdp": 2800000000000,
+          "territory": { "regionIds": ["england", "scotland", "wales", "northern-ireland"], "capital": "London" },
+          "government": "democracy",
+          "technologyLevel": 84,
+          "militaryPower": 42,
+          "healthMetrics": { "lifeExpectancy": 81, "infantMortality": 3.7, "hospitalBedsPer1000": 2.5, "universalCoverage": true },
+          "alliances": ["G7", "G20", "NATO"],
+          "wars": [],
+          "relations": { "USA": 95, "AUS": 85, "CAN": 85, "FRA": 60, "DEU": 70, "IND": 60, "CHN": -20, "RUS": -50 }
+        },
+        {
+          "id": "FRA",
+          "name": "France",
+          "region": "europe",
+          "population": 67000000,
+          "gdp": 2600000000000,
+          "territory": { "regionIds": ["metropolitan-france", "overseas-territories"], "capital": "Paris" },
+          "government": "democracy",
+          "technologyLevel": 81,
+          "militaryPower": 48,
+          "healthMetrics": { "lifeExpectancy": 82, "infantMortality": 3.6, "hospitalBedsPer1000": 5.9, "universalCoverage": true },
+          "alliances": ["EU", "NATO", "G7", "G20"],
+          "wars": [],
+          "relations": { "DEU": 85, "USA": 70, "GBR": 60, "CHN": 40, "RUS": -35 }
+        },
+        {
+          "id": "KOR",
+          "name": "Republic of Korea",
+          "region": "east-asia",
+          "population": 52000000,
+          "gdp": 1600000000000,
+          "territory": { "regionIds": ["south-korea"], "capital": "Seoul" },
+          "government": "democracy",
+          "technologyLevel": 83,
+          "militaryPower": 38,
+          "healthMetrics": { "lifeExpectancy": 83, "infantMortality": 2.8, "hospitalBedsPer1000": 12.0, "universalCoverage": true },
+          "alliances": ["G20"],
+          "wars": [],
+          "relations": { "USA": 85, "JPN": 55, "CHN": -30, "RUS": -25, "PRK": -85 }
+        },
+        {
+          "id": "BRA",
+          "name": "Brazil",
+          "region": "south-america",
+          "population": 213000000,
+          "gdp": 1450000000000,
+          "territory": { "regionIds": ["brazil"], "capital": "Brasilia" },
+          "government": "democracy",
+          "technologyLevel": 43,
+          "militaryPower": 28,
+          "healthMetrics": { "lifeExpectancy": 76, "infantMortality": 13.8, "hospitalBedsPer1000": 2.3, "universalCoverage": true },
+          "alliances": ["G20", "BRICS"],
+          "wars": [],
+          "relations": { "USA": 50, "CHN": 55, "RUS": 40, "ARG": 55, "PRT": 70 }
+        }
+      ],
+      "wars": [],
+      "alliances": [
+        {
+          "id": "NATO",
+          "name": "North Atlantic Treaty Organization",
+          "members": ["USA", "DEU", "FRA", "GBR"],
+          "formed": 1949,
+          "type": "defense",
+          "strength": 80
+        },
+        {
+          "id": "EU",
+          "name": "European Union",
+          "members": ["DEU", "FRA", "GBR"],
+          "formed": 1993,
+          "type": "economic",
+          "strength": 65
+        },
+        {
+          "id": "ASEAN",
+          "name": "Association of Southeast Asian Nations",
+          "members": ["IDN"],
+          "formed": 1967,
+          "type": "economic",
+          "strength": 55
+        },
+        {
+          "id": "BRICS",
+          "name": "BRICS",
+          "members": ["CHN", "RUS", "IND", "BRA"],
+          "formed": 2009,
+          "type": "economic",
+          "strength": 40
+        },
+        {
+          "id": "G7",
+          "name": "Group of Seven",
+          "members": ["USA", "GBR", "DEU", "FRA", "JPN"],
+          "formed": 1975,
+          "type": "political",
+          "strength": 70
+        },
+        {
+          "id": "G20",
+          "name": "Group of Twenty",
+          "members": ["USA", "CHN", "RUS", "IND", "JPN", "DEU", "GBR", "FRA", "KOR", "BRA", "IDN"],
+          "formed": 1999,
+          "type": "economic",
+          "strength": 55
+        },
+        {
+          "id": "SCO",
+          "name": "Shanghai Cooperation Organisation",
+          "members": ["CHN", "RUS", "IND"],
+          "formed": 2001,
+          "type": "defense",
+          "strength": 35
+        }
+      ],
+      "globalState": {
+        "totalPopulation": 7800000000,
+        "avgTechnologyLevel": 48,
+        "avgHealthOutcome": 72,
+        "co2Emissions": 34000000000,
+        "tradeVolume": 85
+      }
+    },
+    "RP-CONTEMP-003": {
+      "year": 2026,
+      "label": "Baseline Present (2026)",
+      "nations": [
+        {
+          "id": "USA",
+          "name": "United States of America",
+          "region": "north-america",
+          "population": 340000000,
+          "gdp": 27400000000000,
+          "territory": { "regionIds": ["continental-us", "alaska", "hawaii", "territories"], "capital": "Washington, D.C." },
+          "government": "democracy",
+          "technologyLevel": 92,
+          "militaryPower": 95,
+          "healthMetrics": { "lifeExpectancy": 79, "infantMortality": 5.4, "hospitalBedsPer1000": 2.8, "universalCoverage": false },
+          "alliances": ["NATO", "G7"],
+          "wars": [],
+          "relations": { "GBR": 95, "CAN": 90, "AUS": 88, "DEU": 80, "JPN": 85, "KOR": 80, "ISR": 75, "UKR": 70, "IND": 65, "TWN": 60, "CHN": -40, "RUS": -75, "PRK": -85, "IRN": -70 }
+        },
+        {
+          "id": "CHN",
+          "name": "People's Republic of China",
+          "region": "east-asia",
+          "population": 1410000000,
+          "gdp": 18500000000000,
+          "territory": { "regionIds": ["mainland-china", "xinjiang", "tibet", "hainan"], "capital": "Beijing" },
+          "government": "autocracy",
+          "technologyLevel": 75,
+          "militaryPower": 85,
+          "healthMetrics": { "lifeExpectancy": 78, "infantMortality": 6.8, "hospitalBedsPer1000": 4.3, "universalCoverage": true },
+          "alliances": ["BRICS", "SCO"],
+          "wars": [],
+          "relations": { "RUS": 85, "PRK": 80, "PAK": 75, "IRN": 70, "VNM": 60, "KHM": 65, "LAO": 70, "MMR": 60, "IND": -30, "JPN": -45, "KOR": -35, "PHL": -40, "TWN": -50, "USA": -40, "GBR": -25 }
+        },
+        {
+          "id": "RUS",
+          "name": "Russian Federation",
+          "region": "eurasia",
+          "population": 144000000,
+          "gdp": 2000000000000,
+          "territory": { "regionIds": ["european-russia", "siberia", "far-east"], "capital": "Moscow" },
+          "government": "autocracy",
+          "technologyLevel": 55,
+          "militaryPower": 80,
+          "healthMetrics": { "lifeExpectancy": 70, "infantMortality": 6.5, "hospitalBedsPer1000": 8.0, "universalCoverage": true },
+          "alliances": ["BRICS", "SCO"],
+          "wars": ["W-2022-01"],
+          "relations": { "CHN": 85, "IRN": 75, "PRK": 70, "IND": 65, "SAU": 60, "BLR": 90, "USA": -75, "GBR": -70, "DEU": -65, "UKR": -95, "POL": -80 }
+        },
+        {
+          "id": "UKR",
+          "name": "Ukraine",
+          "region": "europe",
+          "population": 38000000,
+          "gdp": 200000000000,
+          "territory": { "regionIds": ["ukraine"], "capital": "Kyiv" },
+          "government": "democracy",
+          "technologyLevel": 45,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 72, "infantMortality": 7.5, "hospitalBedsPer1000": 3.1, "universalCoverage": true },
+          "alliances": [],
+          "wars": ["W-2022-01"],
+          "relations": { "USA": 70, "GBR": 65, "DEU": 55, "FRA": 55, "POL": 80, "RUS": -95, "CHN": -20 }
+        },
+        {
+          "id": "IND",
+          "name": "Republic of India",
+          "region": "south-asia",
+          "population": 1430000000,
+          "gdp": 4100000000000,
+          "territory": { "regionIds": ["northern-india", "southern-india", "northeast-india"], "capital": "New Delhi" },
+          "government": "democracy",
+          "technologyLevel": 55,
+          "militaryPower": 50,
+          "healthMetrics": { "lifeExpectancy": 70, "infantMortality": 30.0, "hospitalBedsPer1000": 1.6, "universalCoverage": true },
+          "alliances": ["BRICS", "SCO"],
+          "wars": [],
+          "relations": { "USA": 65, "RUS": 65, "JPN": 60, "AUS": 55, "FRA": 55, "GBR": 60, "CHN": -30, "PAK": -85, "NPL": 70, "BGD": 75 }
+        },
+        {
+          "id": "IDN",
+          "name": "Indonesia",
+          "region": "southeast-asia",
+          "population": 280000000,
+          "gdp": 1400000000000,
+          "territory": { "regionIds": ["java", "sumatra", "kalimantan", "sulawesi", "papua-indonesia", "bali-nusa", "maluku"], "capital": "Jakarta" },
+          "government": "democracy",
+          "technologyLevel": 45,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 71, "infantMortality": 20.5, "hospitalBedsPer1000": 1.2, "universalCoverage": true },
+          "alliances": ["ASEAN"],
+          "wars": [],
+          "relations": { "USA": 60, "CHN": 50, "AUS": 70, "JPN": 65, "MYS": 80, "SGP": 75, "PNG": 65, "SAU": 55, "IND": 60, "NLD": 70 }
+        },
+        {
+          "id": "JPN",
+          "name": "Japan",
+          "region": "east-asia",
+          "population": 125000000,
+          "gdp": 4200000000000,
+          "territory": { "regionIds": ["honshu", "hokkaido", "kyushu", "shikoku", "okinawa"], "capital": "Tokyo" },
+          "government": "democracy",
+          "technologyLevel": 88,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 85, "infantMortality": 2.0, "hospitalBedsPer1000": 7.8, "universalCoverage": true },
+          "alliances": ["G7"],
+          "wars": [],
+          "relations": { "USA": 85, "AUS": 75, "KOR": 55, "IND": 60, "TWN": 70, "PHL": 65, "CHN": -45, "RUS": -35, "PRK": -80 }
+        },
+        {
+          "id": "DEU",
+          "name": "Germany",
+          "region": "europe",
+          "population": 84000000,
+          "gdp": 4500000000000,
+          "territory": { "regionIds": ["germany"], "capital": "Berlin" },
+          "government": "democracy",
+          "technologyLevel": 85,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 81, "infantMortality": 3.2, "hospitalBedsPer1000": 8.0, "universalCoverage": true },
+          "alliances": ["EU", "NATO", "G7"],
+          "wars": [],
+          "relations": { "FRA": 85, "NLD": 80, "POL": 65, "USA": 75, "GBR": 70, "CHN": 40, "RUS": -65, "UKR": 60 }
+        },
+        {
+          "id": "GBR",
+          "name": "United Kingdom",
+          "region": "europe",
+          "population": 68000000,
+          "gdp": 3400000000000,
+          "territory": { "regionIds": ["england", "scotland", "wales", "northern-ireland"], "capital": "London" },
+          "government": "democracy",
+          "technologyLevel": 85,
+          "militaryPower": 45,
+          "healthMetrics": { "lifeExpectancy": 81, "infantMortality": 3.6, "hospitalBedsPer1000": 2.5, "universalCoverage": true },
+          "alliances": ["NATO", "G7"],
+          "wars": [],
+          "relations": { "USA": 95, "AUS": 85, "CAN": 85, "FRA": 60, "DEU": 70, "IND": 60, "CHN": -25, "RUS": -70 }
+        },
+        {
+          "id": "FRA",
+          "name": "France",
+          "region": "europe",
+          "population": 68000000,
+          "gdp": 3100000000000,
+          "territory": { "regionIds": ["metropolitan-france", "overseas-territories"], "capital": "Paris" },
+          "government": "democracy",
+          "technologyLevel": 82,
+          "militaryPower": 50,
+          "healthMetrics": { "lifeExpectancy": 83, "infantMortality": 3.5, "hospitalBedsPer1000": 5.9, "universalCoverage": true },
+          "alliances": ["EU", "NATO", "G7"],
+          "wars": [],
+          "relations": { "DEU": 85, "USA": 70, "GBR": 60, "CHN": 45, "RUS": -50, "DZA": 30, "SEN": 65 }
+        },
+        {
+          "id": "KOR",
+          "name": "Republic of Korea",
+          "region": "east-asia",
+          "population": 52000000,
+          "gdp": 1800000000000,
+          "territory": { "regionIds": ["south-korea"], "capital": "Seoul" },
+          "government": "democracy",
+          "technologyLevel": 85,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 84, "infantMortality": 2.7, "hospitalBedsPer1000": 12.4, "universalCoverage": true },
+          "alliances": [],
+          "wars": [],
+          "relations": { "USA": 85, "JPN": 55, "CHN": -35, "RUS": -30, "PRK": -90 }
+        },
+        {
+          "id": "SAU",
+          "name": "Saudi Arabia",
+          "region": "middle-east",
+          "population": 36000000,
+          "gdp": 1100000000000,
+          "territory": { "regionIds": ["saudi-arabia"], "capital": "Riyadh" },
+          "government": "autocracy",
+          "technologyLevel": 50,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 75, "infantMortality": 8.5, "hospitalBedsPer1000": 2.7, "universalCoverage": true },
+          "alliances": [],
+          "wars": [],
+          "relations": { "USA": 65, "CHN": 55, "RUS": 50, "EGY": 70, "ARE": 85, "IRN": -90, "ISR": 35, "TUR": 40 }
+        },
+        {
+          "id": "BRA",
+          "name": "Brazil",
+          "region": "south-america",
+          "population": 216000000,
+          "gdp": 2200000000000,
+          "territory": { "regionIds": ["brazil"], "capital": "Brasilia" },
+          "government": "democracy",
+          "technologyLevel": 45,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 76, "infantMortality": 13.0, "hospitalBedsPer1000": 2.3, "universalCoverage": true },
+          "alliances": ["BRICS"],
+          "wars": [],
+          "relations": { "USA": 55, "CHN": 60, "RUS": 45, "ARG": 60, "PRT": 70, "FRA": 55 }
+        },
+        {
+          "id": "ZAF",
+          "name": "South Africa",
+          "region": "africa",
+          "population": 62000000,
+          "gdp": 400000000000,
+          "territory": { "regionIds": ["south-africa"], "capital": "Pretoria" },
+          "government": "democracy",
+          "technologyLevel": 40,
+          "militaryPower": 15,
+          "healthMetrics": { "lifeExpectancy": 64, "infantMortality": 33.0, "hospitalBedsPer1000": 2.3, "universalCoverage": false },
+          "alliances": ["BRICS"],
+          "wars": [],
+          "relations": { "USA": 45, "CHN": 55, "RUS": 50, "IND": 60, "NGA": 65, "KEN": 60 }
+        },
+        {
+          "id": "NGA",
+          "name": "Nigeria",
+          "region": "africa",
+          "population": 225000000,
+          "gdp": 500000000000,
+          "territory": { "regionIds": ["nigeria"], "capital": "Abuja" },
+          "government": "democracy",
+          "technologyLevel": 30,
+          "militaryPower": 20,
+          "healthMetrics": { "lifeExpectancy": 55, "infantMortality": 72.0, "hospitalBedsPer1000": 0.8, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "USA": 50, "CHN": 60, "GBR": 55, "FRA": 45, "ZAF": 65, "GHA": 75, "BEN": 70, "CMR": 50 }
+        },
+        {
+          "id": "ISR",
+          "name": "Israel",
+          "region": "middle-east",
+          "population": 9800000,
+          "gdp": 530000000000,
+          "territory": { "regionIds": ["israel", "west-bank", "golan-heights"], "capital": "Jerusalem" },
+          "government": "democracy",
+          "technologyLevel": 85,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 83, "infantMortality": 3.1, "hospitalBedsPer1000": 3.0, "universalCoverage": true },
+          "alliances": [],
+          "wars": [],
+          "relations": { "USA": 75, "DEU": 65, "GBR": 60, "SAU": 35, "ARE": 45, "IRN": -95, "LBN": -80, "PSE": -85, "EGY": 50, "JOR": 55 }
+        }
+      ],
+      "wars": [
+        {
+          "id": "W-2022-01",
+          "name": "Russia-Ukraine War",
+          "parties": { "attackers": ["RUS"], "defenders": ["UKR"] },
+          "startYear": 2022,
+          "status": "active",
+          "casualties": 250000
+        }
+      ],
+      "alliances": [
+        {
+          "id": "NATO",
+          "name": "North Atlantic Treaty Organization",
+          "members": ["USA", "DEU", "FRA", "GBR"],
+          "formed": 1949,
+          "type": "defense",
+          "strength": 85
+        },
+        {
+          "id": "EU",
+          "name": "European Union",
+          "members": ["DEU", "FRA"],
+          "formed": 1993,
+          "type": "economic",
+          "strength": 70
+        },
+        {
+          "id": "ASEAN",
+          "name": "Association of Southeast Asian Nations",
+          "members": ["IDN"],
+          "formed": 1967,
+          "type": "economic",
+          "strength": 60
+        },
+        {
+          "id": "BRICS",
+          "name": "BRICS",
+          "members": ["CHN", "RUS", "IND", "BRA", "ZAF"],
+          "formed": 2009,
+          "type": "economic",
+          "strength": 45
+        },
+        {
+          "id": "G7",
+          "name": "Group of Seven",
+          "members": ["USA", "GBR", "DEU", "FRA", "JPN"],
+          "formed": 1975,
+          "type": "political",
+          "strength": 70
+        },
+        {
+          "id": "SCO",
+          "name": "Shanghai Cooperation Organisation",
+          "members": ["CHN", "RUS", "IND"],
+          "formed": 2001,
+          "type": "defense",
+          "strength": 40
+        }
+      ],
+      "globalState": {
+        "totalPopulation": 8200000000,
+        "avgTechnologyLevel": 50,
+        "avgHealthOutcome": 73,
+        "co2Emissions": 37000000000,
+        "tradeVolume": 100
+      }
+    }
+  },
+  "calibration": {
+    "sources": [
+      { "attribute": "population", "source": "UN World Population Prospects 2024", "note": "2024 estimates; 2001/2020 from historical UN data" },
+      { "attribute": "gdp", "source": "IMF World Economic Outlook 2026 / World Bank historical data" },
+      { "attribute": "militaryPower", "source": "Global Firepower index (normalized, 0-100)" },
+      { "attribute": "lifeExpectancy", "source": "WHO Global Health Observatory" },
+      { "attribute": "co2Emissions", "source": "Global Carbon Project" }
+    ],
+    "estimates": [
+      { "attribute": "technologyLevel", "note": "Composite of R&D spending, patent output, digital infrastructure. Normalized 0-100." },
+      { "attribute": "relations scores", "note": "Estimated from trade volume, diplomatic posture, military alignment." }
+    ]
+  }
+}

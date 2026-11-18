@@ -1,0 +1,290 @@
+{
+  "meta": {
+    "era": "medieval",
+    "label": "Medieval Era",
+    "span": "500–1500",
+    "seedPrefix": "S-MEDIEVAL",
+    "generated": "2026-06-29",
+    "archivist": "World Archivist",
+    "description": "Feudalism, religious authority, Crusades, Mongol expansion, Black Death, late medieval recovery."
+  },
+  "rewindPoints": [
+    {
+      "id": "RP-MEDIEVAL-001",
+      "year": 1347,
+      "label": "Black Death Arrives",
+      "calendarDate": "1347-10-01",
+      "description": "Genoese ships bring plague to Sicily. Black Death begins its devastating sweep across Europe, killing 30–60% of population."
+    },
+    {
+      "id": "RP-MEDIEVAL-002",
+      "year": 1453,
+      "label": "Fall of Constantinople",
+      "calendarDate": "1453-05-29",
+      "description": "Ottoman Turks capture Constantinople. End of Byzantine Empire. Traditional marker for end of Middle Ages."
+    }
+  ],
+  "states": {
+    "RP-MEDIEVAL-001": {
+      "year": 1347,
+      "label": "Black Death Arrives (1347)",
+      "nations": [
+        {
+          "id": "FRA",
+          "name": "Kingdom of France",
+          "region": "europe",
+          "population": 16000000,
+          "gdp": 1600000000,
+          "territory": { "regionIds": ["france"], "capital": "Paris" },
+          "government": "monarchy",
+          "technologyLevel": 30,
+          "militaryPower": 40,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 300.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": ["W-1337-01"],
+          "relations": { "ENG": -80, "PAP": 60, "HRE": 40, "ARA": 30, "CAS": 35 }
+        },
+        {
+          "id": "ENG",
+          "name": "Kingdom of England",
+          "region": "europe",
+          "population": 5000000,
+          "gdp": 500000000,
+          "territory": { "regionIds": ["england", "gascony"], "capital": "London" },
+          "government": "monarchy",
+          "technologyLevel": 30,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 290.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": ["W-1337-01"],
+          "relations": { "FRA": -80, "PAP": 40, "HRE": 30, "SCO": -60 }
+        },
+        {
+          "id": "HRE",
+          "name": "Holy Roman Empire",
+          "region": "europe",
+          "population": 14000000,
+          "gdp": 1200000000,
+          "territory": { "regionIds": ["germany", "italy", "burgundy", "bohemia"], "capital": "Prague" },
+          "government": "monarchy",
+          "technologyLevel": 30,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 300.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "FRA": 40, "ENG": 30, "PAP": 70, "HUN": 50, "POL": 40 }
+        },
+        {
+          "id": "PAP",
+          "name": "Papal States",
+          "region": "europe",
+          "population": 1500000,
+          "gdp": 150000000,
+          "territory": { "regionIds": ["central-italy"], "capital": "Avignon" },
+          "government": "theocracy",
+          "technologyLevel": 32,
+          "militaryPower": 12,
+          "healthMetrics": { "lifeExpectancy": 33, "infantMortality": 290.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "FRA": 60, "HRE": 70, "ENG": 40, "BYZ": 20 }
+        },
+        {
+          "id": "BYZ",
+          "name": "Byzantine Empire",
+          "region": "mediterranean",
+          "population": 7000000,
+          "gdp": 600000000,
+          "territory": { "regionIds": ["greece", "anatolia", "constantinople"], "capital": "Constantinople" },
+          "government": "monarchy",
+          "technologyLevel": 35,
+          "militaryPower": 25,
+          "healthMetrics": { "lifeExpectancy": 34, "infantMortality": 280.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "OTT": -70, "PAP": 20, "HRE": 15, "SER": 30, "BUL": 25, "GEN": 40, "VEN": 50 }
+        },
+        {
+          "id": "OTT",
+          "name": "Ottoman Beylik",
+          "region": "middle-east",
+          "population": 3000000,
+          "gdp": 250000000,
+          "territory": { "regionIds": ["northwest-anatolia"], "capital": "Bursa" },
+          "government": "monarchy",
+          "technologyLevel": 30,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 300.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "BYZ": -70, "SER": -40, "BUL": -35, "GEN": 20 }
+        },
+        {
+          "id": "MAM",
+          "name": "Mamluk Sultanate",
+          "region": "middle-east",
+          "population": 6000000,
+          "gdp": 500000000,
+          "territory": { "regionIds": ["egypt", "levant", "hejaz"], "capital": "Cairo" },
+          "government": "autocracy",
+          "technologyLevel": 32,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 33, "infantMortality": 290.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "ILK": -50, "BYZ": 25, "GEN": 35, "VEN": 40, "PAP": 15 }
+        },
+        {
+          "id": "CHN",
+          "name": "Yuan Dynasty (Mongol China)",
+          "region": "east-asia",
+          "population": 85000000,
+          "gdp": 12000000000,
+          "territory": { "regionIds": ["china", "mongolia"], "capital": "Dadu (Beijing)" },
+          "government": "autocracy",
+          "technologyLevel": 38,
+          "militaryPower": 55,
+          "healthMetrics": { "lifeExpectancy": 34, "infantMortality": 280.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "GOR": -30, "KOR": -20, "JPN": -50, "ILK": 40, "KHA": 35 }
+        },
+        {
+          "id": "DEL",
+          "name": "Delhi Sultanate",
+          "region": "south-asia",
+          "population": 30000000,
+          "gdp": 2500000000,
+          "territory": { "regionIds": ["northern-india"], "capital": "Delhi" },
+          "government": "autocracy",
+          "technologyLevel": 30,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 300.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "VIJ": -60, "CHN": 20, "ILK": 25 }
+        }
+      ],
+      "wars": [
+        {
+          "id": "W-1337-01",
+          "name": "Hundred Years' War",
+          "parties": { "attackers": ["ENG"], "defenders": ["FRA"] },
+          "startYear": 1337,
+          "status": "active",
+          "casualties": 100000
+        }
+      ],
+      "alliances": [],
+      "globalState": {
+        "totalPopulation": 370000000,
+        "avgTechnologyLevel": 28,
+        "avgHealthOutcome": 33,
+        "co2Emissions": 60000000,
+        "tradeVolume": 6
+      }
+    },
+    "RP-MEDIEVAL-002": {
+      "year": 1453,
+      "label": "Fall of Constantinople (1453)",
+      "nations": [
+        {
+          "id": "OTT",
+          "name": "Ottoman Empire",
+          "region": "middle-east",
+          "population": 6000000,
+          "gdp": 600000000,
+          "territory": { "regionIds": ["anatolia", "thrace", "bulgaria", "serbia"], "capital": "Edirne" },
+          "government": "monarchy",
+          "technologyLevel": 35,
+          "militaryPower": 50,
+          "healthMetrics": { "lifeExpectancy": 33, "infantMortality": 290.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "BYZ": -80, "VEN": -50, "GEN": -40, "HUN": -55, "PAP": -60, "MAM": 20 }
+        },
+        {
+          "id": "FRA",
+          "name": "Kingdom of France",
+          "region": "europe",
+          "population": 12000000,
+          "gdp": 1400000000,
+          "territory": { "regionIds": ["france"], "capital": "Paris" },
+          "government": "monarchy",
+          "technologyLevel": 34,
+          "militaryPower": 42,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 290.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "ENG": -50, "HRE": 45, "PAP": 55, "CAS": 40, "ARA": 35 }
+        },
+        {
+          "id": "ENG",
+          "name": "Kingdom of England",
+          "region": "europe",
+          "population": 3000000,
+          "gdp": 350000000,
+          "territory": { "regionIds": ["england", "calais"], "capital": "London" },
+          "government": "monarchy",
+          "technologyLevel": 34,
+          "militaryPower": 30,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 290.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "FRA": -50, "HRE": 25, "PAP": 30, "SCO": -55, "BUR": 40 }
+        },
+        {
+          "id": "HRE",
+          "name": "Holy Roman Empire",
+          "region": "europe",
+          "population": 12000000,
+          "gdp": 1200000000,
+          "territory": { "regionIds": ["germany", "austria", "bohemia"], "capital": "Vienna" },
+          "government": "monarchy",
+          "technologyLevel": 34,
+          "militaryPower": 35,
+          "healthMetrics": { "lifeExpectancy": 32, "infantMortality": 290.0, "hospitalBedsPer1000": 0.15, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "OTT": -55, "HUN": 60, "POL": 50, "FRA": 45, "PAP": 65 }
+        },
+        {
+          "id": "CHN",
+          "name": "Ming Dynasty",
+          "region": "east-asia",
+          "population": 90000000,
+          "gdp": 15000000000,
+          "territory": { "regionIds": ["china"], "capital": "Beijing" },
+          "government": "autocracy",
+          "technologyLevel": 40,
+          "militaryPower": 55,
+          "healthMetrics": { "lifeExpectancy": 34, "infantMortality": 270.0, "hospitalBedsPer1000": 0.2, "universalCoverage": false },
+          "alliances": [],
+          "wars": [],
+          "relations": { "JPN": -40, "KOR": 60, "VNM": 30, "MNG": -50 }
+        }
+      ],
+      "wars": [],
+      "alliances": [],
+      "globalState": {
+        "totalPopulation": 420000000,
+        "avgTechnologyLevel": 30,
+        "avgHealthOutcome": 34,
+        "co2Emissions": 65000000,
+        "tradeVolume": 7
+      }
+    }
+  },
+  "calibration": {
+    "sources": [
+      { "attribute": "population (Europe)", "source": "Russell, 'Late Ancient and Medieval Population' / McEvedy & Jones" },
+      { "attribute": "population (China)", "source": "Ming dynasty census records / Ho Ping-ti estimates" },
+      { "attribute": "Black Death mortality", "source": "Estimated 30-60% mortality across Europe. Figures in state are pre-plague." },
+      { "attribute": "GDP per capita", "source": "Maddison Project — medieval GDP/cap ~$600-900 (1990 Intl$)" }
+    ],
+    "estimates": [
+      { "attribute": "all militaryPower", "note": "Relative estimates based on army sizes, fortifications, and weapon technology of the period." },
+      { "attribute": "technologyLevel", "note": "Reflects: agricultural productivity, metallurgy, navigation, military technology, literacy rates." }
+    ]
+  }
+}

@@ -154,3 +154,46 @@ export interface ExperimentSet {
   createdAt: string;
   tags: string[];
 }
+
+// ---------------------------------------------------------------------------
+// EXP-001: Counterfactual Stability Study.
+//
+// Additive analysis layer over StatisticalSummary. `TrajectoryClass` is the
+// per-delta label; `MetricStability` aggregates the trajectory mix, quantiles,
+// sign proportions and stability index for one metric path; `StabilityAnalysis`
+// is the full per-experiment result.
+// ---------------------------------------------------------------------------
+
+export interface TrajectoryClass {
+  delta: number;
+  classification: "Extreme Negative" | "Negative" | "Null" | "Positive" | "Extreme Positive";
+}
+
+export interface MetricStability {
+  name: string;
+  path: string;
+  meanDelta: number;
+  medianDelta: number;
+  stdDevDelta: number;
+  stabilityIndex: number;
+  quantiles: { p5: number; p25: number; p50: number; p75: number; p95: number };
+  positiveProportion: number;
+  negativeProportion: number;
+  trajectoryClassification: {
+    extremeNegative: number;
+    negative: number;
+    null: number;
+    positive: number;
+    extremePositive: number;
+  };
+  degenerate: boolean;
+}
+
+export interface StabilityAnalysis {
+  n: number;
+  seeds: number[];
+  horizon: number;
+  metrics: MetricStability[];
+  overallStabilityIndex: number;
+  generatedAt: string;
+}

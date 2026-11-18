@@ -1,0 +1,40 @@
+{
+  "metadata": {
+    "upload_type": "dataset",
+    "title": "Kronos Engine v1.0.0 - Research Artifact for JAMIA 2026 Manuscript",
+    "creators": [
+      {
+        "name": "Rinjani, Riki",
+        "affiliation": "Hisfarma IAI",
+        "orcid": "0009-0002-9364-2637"
+      }
+    ],
+    "description": "Frozen research artifact accompanying the JAMIA 2026 manuscript 'Kronos Engine: A Deterministic Counterfactual Experimentation Platform with Sentinel Adapter Pattern for Multi-Scale Health System Simulation'. Contains source code (TypeScript, zero runtime dependencies), frozen experiment artifacts (P-003 WWII counterfactual with 30 seeds, P-004 Deers Rock sentinel with 30 seeds, Phase F causal-null replication with 5 seeds), the final manuscript, and documentation required for reviewer inspection and reproduction. Commit: 4d7e4128f6ad800fa762f443f36aa4f45d31e4d9, tag: baseline-pre-reopen.",
+    "keywords": [
+      "counterfactual simulation",
+      "agent-based modeling",
+      "health system simulation",
+      "sentinel adapter",
+      "experimental reproducibility",
+      "deterministic replay",
+      "Kronos Engine",
+      "healthcare informatics",
+      "TypeScript",
+      "multi-scale simulation"
+    ],
+    "license": "mit",
+    "access_right": "open",
+    "language": "eng",
+    "version": "1.0.0",
+    "publication_date": "2026-09-08",
+    "notes": "Manuscript is closed. All experiment artifacts are frozen at commit 4d7e412. P-004 (Deers Rock) uses unseeded Math.random()/Date.now() and is not byte-reproducible. See README.md for full reproduction instructions.",
+    "related_identifiers": [
+      {
+        "relation": "isSupplementTo",
+        "identifier": "https://github.com/rikirinjani/Kronos-Engine",
+        "scheme": "url",
+        "resource_type": "software"
+      }
+    ]
+  }
+}

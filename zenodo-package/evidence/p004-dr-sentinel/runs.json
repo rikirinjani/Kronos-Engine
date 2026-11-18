@@ -1,0 +1,128 @@
+[
+  {
+    "runId": "run-42",
+    "seed": 42,
+    "rewindTick": 0,
+    "totalTicks": 20,
+    "intervention": {
+      "type": "emissions_control",
+      "label": "Lower emissions reduce heatwave impact on hospitals",
+      "description": "Reduced CO2 concentration and emissions noise → fewer extreme weather events → less hospital surge",
+      "params": {
+        "climate": {
+          "annualEmissionsNoise": 0.02,
+          "co2Concentration": 400
+        }
+      }
+    },
+    "diff": {
+      "branchId": "B-2026-0001",
+      "parentUniverseId": "U-2026-0001",
+      "rewindTick": 0,
+      "currentTick": 20,
+      "totalTicksElapsed": 20,
+      "capturedAt": "2026-09-06T00:46:16.476Z",
+      "perSector": {
+        "geopolitics": {
+          "sectorId": "geopolitics",
+          "metrics": [],
+          "eventCounts": [],
+          "summary": ""
+        },
+        "climate": {
+          "sectorId": "climate",
+          "metrics": [
+            {
+              "name": "annualEmissionsNoise",
+              "path": "annualEmissionsNoise",
+              "parentValue": 0.2,
+              "branchValue": 0.02,
+              "absoluteDelta": -0.18000000000000002,
+              "relativeDelta": -90
+            },
+            {
+              "name": "co2Concentration",
+              "path": "co2Concentration",
+              "parentValue": 136469401.4426253,
+              "branchValue": 136469381.4490273,
+              "absoluteDelta": -19.993598014116287,
+              "relativeDelta": 0
+            },
+            {
+              "name": "annualEmissions",
+              "path": "annualEmissions",
+              "parentValue": 160857536.09964707,
+              "branchValue": 160857536.05460194,
+              "absoluteDelta": -0.04504513740539551,
+              "relativeDelta": 0
+            },
+            {
+              "name": "temperatureAnomaly",
+              "path": "temperatureAnomaly",
+              "parentValue": 56.68415776483034,
+              "branchValue": 56.68415713073948,
+              "absoluteDelta": -6.340908598190254e-7,
+              "relativeDelta": 0
+            }
+          ],
+          "eventCounts": [],
+          "summary": "Top metric changes: co2Concentration: 136469401.44 → 136469381.45 (0.0%); annualEmissionsNoise: 0.20 → 0.02 (-90.0%); annualEmissions: 160857536.10 → 160857536.05 (0.0%); temperatureAnomaly: 56.68 → 56.68 (0.0%)"
+        },
+        "economy": {
+          "sectorId": "economy",
+          "metrics": [],
+          "eventCounts": [],
+          "summary": ""
+        },
+        "technology": {
+          "sectorId": "technology",
+          "metrics": [],
+          "eventCounts": [],
+          "summary": ""
+        },
+        "deers-rock-makassar-001": {
+          "sectorId": "deers-rock",
+          "metrics": [
+            {
+              "name": "length",
+              "path": "world.queue.events.length",
+              "parentValue": 74,
+              "branchValue": 67,
+              "absoluteDelta": -7,
+              "relativeDelta": -9.46
+            },
+            {
+              "name": "counter",
+              "path": "world.queue.counter",
+              "parentValue": 319,
+              "branchValue": 313,
+              "absoluteDelta": -6,
+              "relativeDelta": -1.88
+            }
+          ],
+          "eventCounts": [],
+          "summary": "Top metric changes: world.queue.events.length: 74.00 → 67.00 (-9.5%); world.queue.counter: 319.00 → 313.00 (-1.9%)"
+        }
+      }
+    },
+    "guards": {
+      "matchedHorizon": true,
+      "parentTick": 20,
+      "childTick": 20,
+      "baselineIdentical": true,
+      "baselineStateHash": "c026182b",
+      "bookkeeping": {
+        "year": {
+          "parent": 2040,
+          "child": 2040
+        },
+        "tickCount": {
+          "parent": 20,
+          "child": 20
+        }
+      }
+    },
+    "primaryOutcomes": [],
+    "createdAt": "2026-09-06T00:46:16.503Z"
+  }
+]
